@@ -1,0 +1,251 @@
+<doc>
+  <assembly>
+    <name>AGI.STK.Plugin</name>
+  </assembly>
+  <members>
+    <member name="T:AGI.STK.Plugin._IAgGatorPluginSite">
+      <summary>Hidden Astrogator plugin site interface.</summary>
+    </member>
+    <member name="M:AGI.STK.Plugin._IAgGatorPluginSite.Message(AGI.Plugin.AgEUtLogMsgType,System.String)">
+      <summary>Send a message to the message viewer.</summary>
+      <param name="MsgType"></param>
+      <param name="Message"></param>
+    </member>
+    <member name="M:AGI.STK.Plugin._IAgGatorPluginSite.GetDisplayUnit(System.String)">
+      <summary>Gets the display unit (scenario unit) for the given dimension.</summary>
+      <param name="Dimension"></param>
+    </member>
+    <member name="P:AGI.STK.Plugin._IAgGatorPluginSite.SiteName">
+      <summary>Returns the site name calling the plugin.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin._IAgGatorPluginSite.VectorToolProvider">
+      <summary>Creates an IAgCrdnPluginProvider object.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin._IAgGatorPluginSite.GatorProvider">
+      <summary>Creates an IAgGatorPluginProvider object.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin._IAgGatorPluginSite.ScenarioDirectory">
+      <summary>The directory path of the current scenario.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin._IAgGatorPluginSite.InstallDirectory">
+      <summary>The directory path of the installation of the application.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin._IAgGatorPluginSite.ConfigDirectory">
+      <summary>The directory path of the user configuration area.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin._IAgGatorPluginSite.StkRootObject">
+      <summary>Returns an instance of the STK Object Model Root Object</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin._IAgGatorPluginSite.CalcToolProvider">
+      <summary>Creates an IAgCrdnPluginCalcProvider object.</summary>
+    </member>
+    <member name="T:AGI.STK.Plugin._IAgStkPluginSite">
+      <summary>STK application plugin site</summary>
+    </member>
+    <member name="M:AGI.STK.Plugin._IAgStkPluginSite.Message(AGI.Plugin.AgEUtLogMsgType,System.String)">
+      <summary>Send a message to the message viewer.</summary>
+      <param name="MsgType"></param>
+      <param name="Message"></param>
+    </member>
+    <member name="P:AGI.STK.Plugin._IAgStkPluginSite.SiteName">
+      <summary>Returns the site name calling the plugin.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin._IAgStkPluginSite.VectorToolProvider">
+      <summary>Creates an IAgCrdnPluginProvider object.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin._IAgStkPluginSite.ScenarioDirectory">
+      <summary>The directory path of the current scenario.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin._IAgStkPluginSite.InstallDirectory">
+      <summary>The directory path of the installation of the application.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin._IAgStkPluginSite.ConfigDirectory">
+      <summary>The directory path of the user configuration area.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin._IAgStkPluginSite.StkRootObject">
+      <summary>Returns an instance of the STK Object Model Root Object</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin._IAgStkPluginSite.CalcToolProvider">
+      <summary>Creates an IAgCrdnPluginCalcProvider object.</summary>
+    </member>
+    <member name="T:AGI.STK.Plugin.IAgGatorPluginSite">
+      <summary>Astrogator plugin site interface.</summary>
+    </member>
+    <member name="M:AGI.STK.Plugin.IAgGatorPluginSite.GetDisplayUnit(System.String)">
+      <summary>Gets the display unit (scenario unit) for the given dimension.</summary>
+      <param name="Dimension"></param>
+    </member>
+    <member name="P:AGI.STK.Plugin.IAgGatorPluginSite.VectorToolProvider">
+      <summary>Creates an IAgCrdnPluginProvider object.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.IAgGatorPluginSite.GatorProvider">
+      <summary>Creates an IAgGatorPluginProvider object.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.IAgGatorPluginSite.ScenarioDirectory">
+      <summary>The directory path of the current scenario.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.IAgGatorPluginSite.InstallDirectory">
+      <summary>The directory path of the installation of the application.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.IAgGatorPluginSite.ConfigDirectory">
+      <summary>The directory path of the user configuration area.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.IAgGatorPluginSite.StkRootObject">
+      <summary>Returns an instance of the STK Object Model Root Object</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.IAgGatorPluginSite.CalcToolProvider">
+      <summary>Creates an IAgCrdnPluginCalcProvider object.</summary>
+    </member>
+    <member name="T:AGI.STK.Plugin.IAgStkPluginSite">
+      <summary>STK application plugin site</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.IAgStkPluginSite.VectorToolProvider">
+      <summary>Creates an IAgCrdnPluginProvider object.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.IAgStkPluginSite.ScenarioDirectory">
+      <summary>The directory path of the current scenario.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.IAgStkPluginSite.InstallDirectory">
+      <summary>The directory path of the installation of the application.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.IAgStkPluginSite.ConfigDirectory">
+      <summary>The directory path of the user configuration area.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.IAgStkPluginSite.StkRootObject">
+      <summary>Returns an instance of the STK Object Model Root Object</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.IAgStkPluginSite.CalcToolProvider">
+      <summary>Creates an IAgCrdnPluginCalcProvider object.</summary>
+    </member>
+    <member name="T:AGI.STK.Plugin.AgStkPluginSite">
+      <summary>STK plugin site.</summary>
+    </member>
+    <member name="M:AGI.STK.Plugin.AgStkPluginSite.Message(AGI.Plugin.AgEUtLogMsgType,System.String)">
+      <summary>Send a message to the message viewer.</summary>
+      <param name="MsgType"></param>
+      <param name="Message"></param>
+    </member>
+    <member name="P:AGI.STK.Plugin.AgStkPluginSite.SiteName">
+      <summary>Returns the site name calling the plugin.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.AgStkPluginSite.VectorToolProvider">
+      <summary>Creates an IAgCrdnPluginProvider object.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.AgStkPluginSite.ScenarioDirectory">
+      <summary>The directory path of the current scenario.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.AgStkPluginSite.InstallDirectory">
+      <summary>The directory path of the installation of the application.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.AgStkPluginSite.ConfigDirectory">
+      <summary>The directory path of the user configuration area.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.AgStkPluginSite.StkRootObject">
+      <summary>Returns an instance of the STK Object Model Root Object</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.AgStkPluginSite.CalcToolProvider">
+      <summary>Creates an IAgCrdnPluginCalcProvider object.</summary>
+    </member>
+    <member name="T:AGI.STK.Plugin.AgStkPluginSiteClass">
+      <summary>STK plugin site.</summary>
+    </member>
+    <member name="M:AGI.STK.Plugin.AgStkPluginSiteClass.Message(AGI.Plugin.AgEUtLogMsgType,System.String)">
+      <summary>Send a message to the message viewer.</summary>
+      <param name="MsgType"></param>
+      <param name="Message"></param>
+    </member>
+    <member name="P:AGI.STK.Plugin.AgStkPluginSiteClass.SiteName">
+      <summary>Returns the site name calling the plugin.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.AgStkPluginSiteClass.VectorToolProvider">
+      <summary>Creates an IAgCrdnPluginProvider object.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.AgStkPluginSiteClass.ScenarioDirectory">
+      <summary>The directory path of the current scenario.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.AgStkPluginSiteClass.InstallDirectory">
+      <summary>The directory path of the installation of the application.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.AgStkPluginSiteClass.ConfigDirectory">
+      <summary>The directory path of the user configuration area.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.AgStkPluginSiteClass.StkRootObject">
+      <summary>Returns an instance of the STK Object Model Root Object</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.AgStkPluginSiteClass.CalcToolProvider">
+      <summary>Creates an IAgCrdnPluginCalcProvider object.</summary>
+    </member>
+    <member name="T:AGI.STK.Plugin.AgGatorPluginSite">
+      <summary>Astrogator plugin site.</summary>
+    </member>
+    <member name="M:AGI.STK.Plugin.AgGatorPluginSite.Message(AGI.Plugin.AgEUtLogMsgType,System.String)">
+      <summary>Send a message to the message viewer.</summary>
+      <param name="MsgType"></param>
+      <param name="Message"></param>
+    </member>
+    <member name="M:AGI.STK.Plugin.AgGatorPluginSite.GetDisplayUnit(System.String)">
+      <summary>Gets the display unit (scenario unit) for the given dimension.</summary>
+      <param name="Dimension"></param>
+    </member>
+    <member name="P:AGI.STK.Plugin.AgGatorPluginSite.SiteName">
+      <summary>Returns the site name calling the plugin.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.AgGatorPluginSite.VectorToolProvider">
+      <summary>Creates an IAgCrdnPluginProvider object.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.AgGatorPluginSite.GatorProvider">
+      <summary>Creates an IAgGatorPluginProvider object.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.AgGatorPluginSite.ScenarioDirectory">
+      <summary>The directory path of the current scenario.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.AgGatorPluginSite.InstallDirectory">
+      <summary>The directory path of the installation of the application.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.AgGatorPluginSite.ConfigDirectory">
+      <summary>The directory path of the user configuration area.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.AgGatorPluginSite.StkRootObject">
+      <summary>Returns an instance of the STK Object Model Root Object</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.AgGatorPluginSite.CalcToolProvider">
+      <summary>Creates an IAgCrdnPluginCalcProvider object.</summary>
+    </member>
+    <member name="T:AGI.STK.Plugin.AgGatorPluginSiteClass">
+      <summary>Astrogator plugin site.</summary>
+    </member>
+    <member name="M:AGI.STK.Plugin.AgGatorPluginSiteClass.Message(AGI.Plugin.AgEUtLogMsgType,System.String)">
+      <summary>Send a message to the message viewer.</summary>
+      <param name="MsgType"></param>
+      <param name="Message"></param>
+    </member>
+    <member name="M:AGI.STK.Plugin.AgGatorPluginSiteClass.GetDisplayUnit(System.String)">
+      <summary>Gets the display unit (scenario unit) for the given dimension.</summary>
+      <param name="Dimension"></param>
+    </member>
+    <member name="P:AGI.STK.Plugin.AgGatorPluginSiteClass.SiteName">
+      <summary>Returns the site name calling the plugin.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.AgGatorPluginSiteClass.VectorToolProvider">
+      <summary>Creates an IAgCrdnPluginProvider object.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.AgGatorPluginSiteClass.GatorProvider">
+      <summary>Creates an IAgGatorPluginProvider object.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.AgGatorPluginSiteClass.ScenarioDirectory">
+      <summary>The directory path of the current scenario.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.AgGatorPluginSiteClass.InstallDirectory">
+      <summary>The directory path of the installation of the application.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.AgGatorPluginSiteClass.ConfigDirectory">
+      <summary>The directory path of the user configuration area.</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.AgGatorPluginSiteClass.StkRootObject">
+      <summary>Returns an instance of the STK Object Model Root Object</summary>
+    </member>
+    <member name="P:AGI.STK.Plugin.AgGatorPluginSiteClass.CalcToolProvider">
+      <summary>Creates an IAgCrdnPluginCalcProvider object.</summary>
+    </member>
+  </members>
+</doc>

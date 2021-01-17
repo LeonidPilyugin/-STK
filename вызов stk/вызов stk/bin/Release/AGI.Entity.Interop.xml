@@ -1,0 +1,2314 @@
+<doc>
+  <assembly>
+    <name>AGI.Entity</name>
+  </assembly>
+  <members>
+    <member name="T:AGI.Entity.AgEEntityEventDispatchID">
+      <summary>Dispatch IDs for event interfaces.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityEventDispatchID.eEntityUpdateEvent">
+      <summary>An entity has changed.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityEventDispatchID.eEntityCollectionAddEvent">
+      <summary>An entity has been added to a collection.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityEventDispatchID.eEntityCollectionAddMultipleEvent">
+      <summary>Multiple entities have been added to a collection.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityEventDispatchID.eEntityCollectionRemoveEvent">
+      <summary>An entity has been removed from a collection.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityEventDispatchID.eEntityCollectionRemoveMultipleEvent">
+      <summary>Multiple entities have been removed from a collection.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityEventDispatchID.eEntityCollectionRemoveAllEvent">
+      <summary>All entities have been removed from a collection.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgEEntityError">
+      <summary>Error codes.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityError.eEntityErrorIndexOutOfRange">
+      <summary>The provided value is out of range.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityError.eEntityErrorReadOnly">
+      <summary>The property attempting to be modified is read-only.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityError.eEntityErrorLicense">
+      <summary>An error occured attempting to obtain a license.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgEEntityUpdate">
+      <summary>Indicates how an updated entity has been changed.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityUpdate.eEntityUpdate">
+      <summary>The entity's position, graphics and meta-data have changed.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityUpdate.eEntityUpdateGraphics">
+      <summary>The entity's graphics have changed.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityUpdate.eEntityUpdatePosition">
+      <summary>The entity's position has changed.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgEEntityCorrelationStatus">
+      <summary>Indicates the correlation status of an entity.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityCorrelationStatus.eEntityCorrelationStatusUnprocessed">
+      <summary>The entity has not yet been evaluated for correlation.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityCorrelationStatus.eEntityCorrelationStatusPrimary">
+      <summary>The entity has been correlated and chosen as the primary reporting entity.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityCorrelationStatus.eEntityCorrelationStatusSecondary">
+      <summary>The entity has been correlated and chosen as a secondary entity.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityCorrelationStatus.eEntityCorrelationStatusUnique">
+      <summary>The entity has been correlated and evaluated as being unique.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityCorrelationStatus.eEntityCorrelationStatusOperatorPrimary">
+      <summary>The entity has been manually set to a primary correlated entity.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityCorrelationStatus.eEntityCorrelationStatusOperatorSecondary">
+      <summary>The entity has manually set to a secondary correlated entity.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityCorrelationStatus.eEntityCorrelationStatusOperatorUnique">
+      <summary>The entity has manually set to a unique entity.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgEEntityAttitudeSequence">
+      <summary>Euler attitude rotation sequences.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityAttitudeSequence.eEntityAttitudeSequence121">
+      <summary>121 rotation.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityAttitudeSequence.eEntityAttitudeSequence123">
+      <summary>123 rotation.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityAttitudeSequence.eEntityAttitudeSequence131">
+      <summary>131 rotation.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityAttitudeSequence.eEntityAttitudeSequence132">
+      <summary>132 rotation.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityAttitudeSequence.eEntityAttitudeSequence212">
+      <summary>212 rotation.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityAttitudeSequence.eEntityAttitudeSequence213">
+      <summary>213 rotation.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityAttitudeSequence.eEntityAttitudeSequence231">
+      <summary>231 rotation.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityAttitudeSequence.eEntityAttitudeSequence232">
+      <summary>232 rotation.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityAttitudeSequence.eEntityAttitudeSequence312">
+      <summary>312 rotation.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityAttitudeSequence.eEntityAttitudeSequence313">
+      <summary>313 rotation.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityAttitudeSequence.eEntityAttitudeSequence321">
+      <summary>321 rotation.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityAttitudeSequence.eEntityAttitudeSequence323">
+      <summary>323 rotation.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgEntityInterfaces">
+      <summary>Internal object.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfaces.Name">
+      <summary>The name.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfaces.Value">
+      <summary>The value.</summary>
+    </member>
+    <member name="E:AGI.Entity.IAgEntityEvents_Event.OnEntityChanged">
+      <summary>Indicates that an entity has changed.</summary>
+    </member>
+    <member name="E:AGI.Entity.IAgEntityCollectionEvents_Event.OnAdd">
+      <summary>Event triggered when an entity is added to the collection.</summary>
+    </member>
+    <member name="E:AGI.Entity.IAgEntityCollectionEvents_Event.OnAddMultiple">
+      <summary>Event triggered when multiple entities are added to the collection.</summary>
+    </member>
+    <member name="E:AGI.Entity.IAgEntityCollectionEvents_Event.OnRemove">
+      <summary>Event triggered when an entity is removed from the collection.</summary>
+    </member>
+    <member name="E:AGI.Entity.IAgEntityCollectionEvents_Event.OnRemoveMultiple">
+      <summary>Event triggered when multiple entities are removed from the collection.</summary>
+    </member>
+    <member name="E:AGI.Entity.IAgEntityCollectionEvents_Event.OnRemoveAll">
+      <summary>Event triggered when all entities are removed from the collection.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgEntityInterfacesClass">
+      <summary>Internal object.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Name">
+      <summary>The name.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Value">
+      <summary>The value.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityInterfacesClass.Get(System.String)">
+      <summary>Given the name of the meta-data, returns its value.</summary>
+      <param name="Name"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityInterfacesClass.Set(System.String,System.Object)">
+      <summary>Add or update meta-data with the provided name and value.</summary>
+      <param name="Name"></param>
+      <param name="Value"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityInterfacesClass.Remove(System.String)">
+      <summary>Remove meta-data from the collection.</summary>
+      <param name="Name"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityInterfacesClass.RemoveAll">
+      <summary>Remove all meta-data.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityInterfacesClass.Copy">
+      <summary>Copy the collection.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Item">
+      <summary>Given the name of the meta-data, returns its value.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Count">
+      <summary>The number of items in the collection.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.MetaData">
+      <summary>The meta-data associated with the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.ID">
+      <summary>The globally unique string associated with the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.DisplayName">
+      <summary>A display friendly name for the entity which does not have to be unique.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Time">
+      <summary>The time the entity was last modified.</summary>
+    </member>
+    <member name="E:AGI.Entity.AgEntityInterfacesClass.OnEntityChanged">
+      <summary>Indicates that an entity has changed.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityInterfacesClass.Add(AGI.Entity.IAgEntity)">
+      <summary>Adds an element to the collection.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityInterfacesClass.AddMultiple(System.Array@)">
+      <summary>Adds multiple elements to the collection.</summary>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityInterfacesClass.InsertAt(System.Int32,AGI.Entity.IAgEntity)">
+      <summary>Insert an element into the collection at the specified index</summary>
+      <param name="Index"></param>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityInterfacesClass.RemoveMultiple(System.Array@)">
+      <summary>Removes multiple elements from the collection.</summary>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityInterfacesClass.RemoveAt(System.Int32)">
+      <summary>Remove the element at the specified index from the collection.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityInterfacesClass.Find(System.String)">
+      <summary>Find an element using its IAgEntity ID property.</summary>
+      <param name="EntityID"></param>
+    </member>
+    <member name="E:AGI.Entity.AgEntityInterfacesClass.OnAdd">
+      <summary>Event triggered when an entity is added to the collection.</summary>
+    </member>
+    <member name="E:AGI.Entity.AgEntityInterfacesClass.OnAddMultiple">
+      <summary>Event triggered when multiple entities are added to the collection.</summary>
+    </member>
+    <member name="E:AGI.Entity.AgEntityInterfacesClass.OnRemove">
+      <summary>Event triggered when an entity is removed from the collection.</summary>
+    </member>
+    <member name="E:AGI.Entity.AgEntityInterfacesClass.OnRemoveMultiple">
+      <summary>Event triggered when multiple entities are removed from the collection.</summary>
+    </member>
+    <member name="E:AGI.Entity.AgEntityInterfacesClass.OnRemoveAll">
+      <summary>Event triggered when all entities are removed from the collection.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityInterfacesClass.Merge(System.Object)">
+      <summary>Merges the contents of the provided object into the calling object.</summary>
+      <param name="ObjectToMerge"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityInterfacesClass.WriteSafeArray">
+      <summary>Serialize the object to a byte array.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityInterfacesClass.ReadSafeArray(System.Object)">
+      <summary>Deserialize a byte array into the object.</summary>
+      <param name="Bytes"></param>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.DesiredTimeToLive">
+      <summary>The desired time in seconds for the entity to remain in the system without an update before being purged.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.RemainingTimeToLive">
+      <summary>The remaining number of seconds before an entity is purged from the system.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.ReferenceAxis">
+      <summary>The reference axis.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityInterfacesClass.GetArray">
+      <summary>Get all three angles as an array.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Sequence">
+      <summary>The orientation sequence.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Angle1">
+      <summary>The first angle adjustment in degrees.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Angle2">
+      <summary>The second angle adjustment in degrees.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Angle3">
+      <summary>The third angle adjustment in degrees.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Q1">
+      <summary>The first element.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Q2">
+      <summary>The second element.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Q3">
+      <summary>The third element.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Q4">
+      <summary>The fourth element.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Latitude">
+      <summary>The latitude in degrees.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Longitude">
+      <summary>The longitude in degrees.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Altitude">
+      <summary>The altitude in meters.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.OnTerrain">
+      <summary>If true, altitude is ignored and the entity is assumed to be on terrain.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Color">
+      <summary>The color of the label.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Show">
+      <summary>Indicates if the label should be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Text">
+      <summary>The text of the label.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Style">
+      <summary>The style of the line.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Width">
+      <summary>The width of the line.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.LeadTime">
+      <summary>The amount of time in seconds which future points will be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.TrailTime">
+      <summary>The amount of time in seconds which past points will continue to be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.UseLeadTrail">
+      <summary>Indicates if lead and trail times should be used.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Size">
+      <summary>The size of the marker in pixels.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Transparent">
+      <summary>Indicates if the marker background should be transparent.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.SymbolCode">
+      <summary>The MIL-STD-2525B symbol code used to generate a marker.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.FilePath">
+      <summary>The fully qualified path to the image file.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Shape">
+      <summary>The marker shape.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.ScaleValue">
+      <summary>The logarithmic scaling factor for the model with 0 being actual size.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityInterfacesClass.CommitUpdate(AGI.Entity.AgEEntityUpdate)">
+      <summary>Fires the entity change event as well as performs any calculations necessary since the last update.</summary>
+      <param name="UpdateType"></param>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Attitude">
+      <summary>The entity orientation.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Label">
+      <summary>The entity label.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Line">
+      <summary>The line representing the entity's movement over time.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Marker">
+      <summary>The entity marker.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Model">
+      <summary>The entity model.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Position">
+      <summary>The position of the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Static">
+      <summary>Indicates if the entity is static or dynamic.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.CorrelationStatus">
+      <summary>The correlation status of the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityInterfacesClass.Positions">
+      <summary>The list of points that define the line.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityInterfacesClass.GetClassID(stdole.GUID@)">
+      <summary>Returns the CLSID of the object.</summary>
+      <param name="pClassID"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityInterfacesClass.Rt3LicenseCheck">
+      <summary>Fails if an Rt3 license could not be obtained.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityInterfacesClass.DSimLicenseCheck">
+      <summary>Fails if a Distributed Simulation license could not be obtained.</summary>
+    </member>
+    <member name="T:AGI.Entity.IAgEntityMetaData">
+      <summary>Represents arbitrary data that is associated with an entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgEntityMetaData.Name">
+      <summary>The name.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgEntityMetaData.Value">
+      <summary>The value.</summary>
+    </member>
+    <member name="T:AGI.Entity.IAgEntityMetaDataCollection">
+      <summary>A collection of meta-data associated with an entity.</summary>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityMetaDataCollection.Get(System.String)">
+      <summary>Given the name of the meta-data, returns its value.</summary>
+      <param name="Name"></param>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityMetaDataCollection.Set(System.String,System.Object)">
+      <summary>Add or update meta-data with the provided name and value.</summary>
+      <param name="Name"></param>
+      <param name="Value"></param>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityMetaDataCollection.Remove(System.String)">
+      <summary>Remove meta-data from the collection.</summary>
+      <param name="Name"></param>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityMetaDataCollection.RemoveAll">
+      <summary>Remove all meta-data.</summary>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityMetaDataCollection.Copy">
+      <summary>Copy the collection.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgEntityMetaDataCollection.Item">
+      <summary>Given the name of the meta-data, returns its value.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgEntityMetaDataCollection._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgEntityMetaDataCollection.Count">
+      <summary>The number of items in the collection.</summary>
+    </member>
+    <member name="T:AGI.Entity.IAgEntity">
+      <summary>The base interface for all entities.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgEntity.MetaData">
+      <summary>The meta-data associated with the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgEntity.ID">
+      <summary>The globally unique string associated with the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgEntity.DisplayName">
+      <summary>A display friendly name for the entity which does not have to be unique.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgEntity.Time">
+      <summary>The time the entity was last modified.</summary>
+    </member>
+    <member name="T:AGI.Entity.IAgEntityEvents">
+      <summary>Events generated by objects implementing IAgEntity.</summary>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityEvents.OnEntityChanged(AGI.Entity.IAgEntity,AGI.Entity.AgEEntityUpdate)">
+      <summary>Indicates that an entity has changed.</summary>
+      <param name="Entity"></param>
+      <param name="UpdateType"></param>
+    </member>
+    <member name="T:AGI.Entity.IAgEntityCollection">
+      <summary>A collection of objects which implement IAgEntity.</summary>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityCollection.Add(AGI.Entity.IAgEntity)">
+      <summary>Adds an element to the collection.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityCollection.AddMultiple(System.Array@)">
+      <summary>Adds multiple elements to the collection.</summary>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityCollection.InsertAt(System.Int32,AGI.Entity.IAgEntity)">
+      <summary>Insert an element into the collection at the specified index</summary>
+      <param name="Index"></param>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityCollection.Remove(AGI.Entity.IAgEntity)">
+      <summary>Remove the provided element from the collection.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityCollection.RemoveMultiple(System.Array@)">
+      <summary>Removes multiple elements from the collection.</summary>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityCollection.RemoveAt(System.Int32)">
+      <summary>Remove the element at the specified index from the collection.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityCollection.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityCollection.Copy">
+      <summary>Copy the collection</summary>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityCollection.Find(System.String)">
+      <summary>Find an element using its IAgEntity ID property.</summary>
+      <param name="EntityID"></param>
+    </member>
+    <member name="P:AGI.Entity.IAgEntityCollection.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgEntityCollection._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgEntityCollection.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="T:AGI.Entity.IAgEntityCollectionEvents">
+      <summary>Events generated by objects implementing IAgEntityCollection.</summary>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityCollectionEvents.OnAdd(AGI.Entity.IAgEntityCollection,AGI.Entity.IAgEntity)">
+      <summary>Event triggered when an entity is added to the collection.</summary>
+      <param name="Sender"></param>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityCollectionEvents.OnAddMultiple(AGI.Entity.IAgEntityCollection,System.Array@)">
+      <summary>Event triggered when multiple entities are added to the collection.</summary>
+      <param name="Sender"></param>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityCollectionEvents.OnRemove(AGI.Entity.IAgEntityCollection,AGI.Entity.IAgEntity)">
+      <summary>Event triggered when an entity is removed from the collection.</summary>
+      <param name="Sender"></param>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityCollectionEvents.OnRemoveMultiple(AGI.Entity.IAgEntityCollection,System.Array@)">
+      <summary>Event triggered when multiple entities are removed from the collection.</summary>
+      <param name="Sender"></param>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityCollectionEvents.OnRemoveAll(AGI.Entity.IAgEntityCollection)">
+      <summary>Event triggered when all entities are removed from the collection.</summary>
+      <param name="Sender"></param>
+    </member>
+    <member name="T:AGI.Entity.IAgEntityMerge">
+      <summary>Merges the contents of the provided object into the calling object.</summary>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityMerge.Merge(System.Object)">
+      <summary>Merges the contents of the provided object into the calling object.</summary>
+      <param name="ObjectToMerge"></param>
+    </member>
+    <member name="T:AGI.Entity.IAgPersistSafeArray">
+      <summary>Persists data as a binary blob stored as a SAFEARRAY in a VARIANT.</summary>
+    </member>
+    <member name="M:AGI.Entity.IAgPersistSafeArray.WriteSafeArray">
+      <summary>Serialize the object to a byte array.</summary>
+    </member>
+    <member name="M:AGI.Entity.IAgPersistSafeArray.ReadSafeArray(System.Object)">
+      <summary>Deserialize a byte array into the object.</summary>
+      <param name="Bytes"></param>
+    </member>
+    <member name="T:AGI.Entity.IAgEntityTimeToLive">
+      <summary>Defines the lifecycle of an entity and allows for outdated entities to be automatically purged from the system.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgEntityTimeToLive.DesiredTimeToLive">
+      <summary>The desired time in seconds for the entity to remain in the system without an update before being purged.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgEntityTimeToLive.RemainingTimeToLive">
+      <summary>The remaining number of seconds before an entity is purged from the system.</summary>
+    </member>
+    <member name="T:AGI.Entity.IAgEntityAttitude">
+      <summary>Base interface for all attitude objects.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgEntityAttitude.ReferenceAxis">
+      <summary>The reference axis.</summary>
+    </member>
+    <member name="T:AGI.Entity.IAgEntityAttitudeEuler">
+      <summary>Attitude represented as Euler angles.  YPR can also be representing by using a 321 sequence for yaw, pitch and roll respectively.</summary>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityAttitudeEuler.Set(System.Double,System.Double,System.Double)">
+      <summary>Set all three angles.</summary>
+      <param name="Angle1"></param>
+      <param name="Angle2"></param>
+      <param name="Angle3"></param>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityAttitudeEuler.Get(.double@,.double@,.double@)">
+      <summary>Get all three angles</summary>
+      <param name="Angle1"></param>
+      <param name="Angle2"></param>
+      <param name="Angle3"></param>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityAttitudeEuler.GetArray">
+      <summary>Get all three angles as an array.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgEntityAttitudeEuler.Sequence">
+      <summary>The orientation sequence.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgEntityAttitudeEuler.Angle1">
+      <summary>The first angle adjustment in degrees.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgEntityAttitudeEuler.Angle2">
+      <summary>The second angle adjustment in degrees.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgEntityAttitudeEuler.Angle3">
+      <summary>The third angle adjustment in degrees.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgEntityAttitudeEuler.ReferenceAxis">
+      <summary>The reference axis.</summary>
+    </member>
+    <member name="T:AGI.Entity.IAgEntityAttitudeQuaternion">
+      <summary>Attitude represented as a quaternion.</summary>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityAttitudeQuaternion.Set(System.Double,System.Double,System.Double,System.Double)">
+      <summary>Set all elements.</summary>
+      <param name="Q1"></param>
+      <param name="Q2"></param>
+      <param name="Q3"></param>
+      <param name="Q4"></param>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityAttitudeQuaternion.Get(.double@,.double@,.double@,.double@)">
+      <summary>Get all elements.</summary>
+      <param name="Q1"></param>
+      <param name="Q2"></param>
+      <param name="Q3"></param>
+      <param name="Q4"></param>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityAttitudeQuaternion.GetArray">
+      <summary>Get all elements as an array.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgEntityAttitudeQuaternion.Q1">
+      <summary>The first element.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgEntityAttitudeQuaternion.Q2">
+      <summary>The second element.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgEntityAttitudeQuaternion.Q3">
+      <summary>The third element.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgEntityAttitudeQuaternion.Q4">
+      <summary>The fourth element.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgEntityAttitudeQuaternion.ReferenceAxis">
+      <summary>The reference axis.</summary>
+    </member>
+    <member name="T:AGI.Entity.IAgEntityPosition">
+      <summary>An Earth-centered fixed (ECF) position represented by latitude, longitude and altitude in degrees and meters.</summary>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityPosition.Set(System.Double,System.Double,System.Double)">
+      <summary>Set all three position elements.</summary>
+      <param name="Latitude"></param>
+      <param name="Longitude"></param>
+      <param name="Altitude"></param>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityPosition.Get(.double@,.double@,.double@)">
+      <summary>Get all three position elements.</summary>
+      <param name="Latitude"></param>
+      <param name="Longitude"></param>
+      <param name="Altitude"></param>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityPosition.GetArray">
+      <summary>Get all three position elements as an array.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgEntityPosition.Latitude">
+      <summary>The latitude in degrees.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgEntityPosition.Longitude">
+      <summary>The longitude in degrees.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgEntityPosition.Altitude">
+      <summary>The altitude in meters.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgEntityPosition.OnTerrain">
+      <summary>If true, altitude is ignored and the entity is assumed to be on terrain.</summary>
+    </member>
+    <member name="T:AGI.Entity.IAgEntityPositionCollection">
+      <summary>A collection of objects that implement IAgEntityPosition.</summary>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityPositionCollection.Add(AGI.Entity.IAgEntityPosition)">
+      <summary>Adds an element to the collection.</summary>
+      <param name="Position"></param>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityPositionCollection.InsertAt(System.Int32,AGI.Entity.IAgEntityPosition)">
+      <summary>Insert an element into the collection at the specified index</summary>
+      <param name="Index"></param>
+      <param name="Position"></param>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityPositionCollection.Remove(AGI.Entity.IAgEntityPosition)">
+      <summary>Remove the provided element from the collection.</summary>
+      <param name="Position"></param>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityPositionCollection.RemoveAt(System.Int32)">
+      <summary>Remove the element at the specified index from the collection.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityPositionCollection.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.Entity.IAgEntityPositionCollection.Copy">
+      <summary>Copy the collection</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgEntityPositionCollection.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgEntityPositionCollection._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgEntityPositionCollection.Count">
+      <summary>Number of elements in collection</summary>
+    </member>
+    <member name="T:AGI.Entity.IAgLabelGraphics">
+      <summary>Defines a label which may be associated with an entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgLabelGraphics.Color">
+      <summary>The color of the label.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgLabelGraphics.Show">
+      <summary>Indicates if the label should be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgLabelGraphics.Text">
+      <summary>The text of the label.</summary>
+    </member>
+    <member name="T:AGI.Entity.IAgLineGraphics">
+      <summary>Defines a line which may be associated with an entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgLineGraphics.Color">
+      <summary>The color of the line.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgLineGraphics.Show">
+      <summary>Indicates if the line should be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgLineGraphics.Style">
+      <summary>The style of the line.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgLineGraphics.Width">
+      <summary>The width of the line.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgLineGraphics.LeadTime">
+      <summary>The amount of time in seconds which future points will be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgLineGraphics.TrailTime">
+      <summary>The amount of time in seconds which past points will continue to be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgLineGraphics.UseLeadTrail">
+      <summary>Indicates if lead and trail times should be used.</summary>
+    </member>
+    <member name="T:AGI.Entity.IAgMarkerGraphics">
+      <summary>The base interface for all markers which may be associated with an entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgMarkerGraphics.Color">
+      <summary>The color of the marker.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgMarkerGraphics.Show">
+      <summary>Indicates if the marker should be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgMarkerGraphics.Size">
+      <summary>The size of the marker in pixels.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgMarkerGraphics.Transparent">
+      <summary>Indicates if the marker background should be transparent.</summary>
+    </member>
+    <member name="T:AGI.Entity.IAgMil2525BMarker">
+      <summary>Defines a marker which represents a MIL-STD-2525B symbol.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgMil2525BMarker.SymbolCode">
+      <summary>The MIL-STD-2525B symbol code used to generate a marker.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgMil2525BMarker.Color">
+      <summary>The color of the marker.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgMil2525BMarker.Show">
+      <summary>Indicates if the marker should be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgMil2525BMarker.Size">
+      <summary>The size of the marker in pixels.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgMil2525BMarker.Transparent">
+      <summary>Indicates if the marker background should be transparent.</summary>
+    </member>
+    <member name="T:AGI.Entity.IAgFileMarker">
+      <summary>Defines a marker represented by an image file.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgFileMarker.FilePath">
+      <summary>The fully qualified path to the image file.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgFileMarker.Color">
+      <summary>The color of the marker.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgFileMarker.Show">
+      <summary>Indicates if the marker should be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgFileMarker.Size">
+      <summary>The size of the marker in pixels.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgFileMarker.Transparent">
+      <summary>Indicates if the marker background should be transparent.</summary>
+    </member>
+    <member name="T:AGI.Entity.IAgShapeMarker">
+      <summary>Defines a marker represented by a shape.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgShapeMarker.Shape">
+      <summary>The marker shape.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgShapeMarker.Color">
+      <summary>The color of the marker.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgShapeMarker.Show">
+      <summary>Indicates if the marker should be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgShapeMarker.Size">
+      <summary>The size of the marker in pixels.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgShapeMarker.Transparent">
+      <summary>Indicates if the marker background should be transparent.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgEEntityMarkerShape">
+      <summary>Marker Shapes.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityMarkerShape.eEntityMarkerShapeCircle">
+      <summary>Circle.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityMarkerShape.eEntityMarkerShapePlus">
+      <summary>Plus Sign.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityMarkerShape.eEntityMarkerShapePoint">
+      <summary>Point.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityMarkerShape.eEntityMarkerShapeSquare">
+      <summary>Square.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityMarkerShape.eEntityMarkerShapeStar">
+      <summary>Star.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityMarkerShape.eEntityMarkerShapeTriangle">
+      <summary>Triangle.</summary>
+    </member>
+    <member name="F:AGI.Entity.AgEEntityMarkerShape.eEntityMarkerShapeX">
+      <summary>X.</summary>
+    </member>
+    <member name="T:AGI.Entity.IAgModelGraphics">
+      <summary>The base interface for all models which may be associated with an entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgModelGraphics.Color">
+      <summary>The color of the model.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgModelGraphics.Show">
+      <summary>Indicates if the model should be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgModelGraphics.ScaleValue">
+      <summary>The logarithmic scaling factor for the model with 0 being actual size.</summary>
+    </member>
+    <member name="T:AGI.Entity.IAgFileModel">
+      <summary>Defines a marker represented by a model file.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgFileModel.FilePath">
+      <summary>The fully qualified path to the model file.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgFileModel.Color">
+      <summary>The color of the model.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgFileModel.Show">
+      <summary>Indicates if the model should be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgFileModel.ScaleValue">
+      <summary>The logarithmic scaling factor for the model with 0 being actual size.</summary>
+    </member>
+    <member name="T:AGI.Entity.IAgPointEntity">
+      <summary>Defines an entity modeled as a point in space, either as a static position or moving over time.</summary>
+    </member>
+    <member name="M:AGI.Entity.IAgPointEntity.CommitUpdate(AGI.Entity.AgEEntityUpdate)">
+      <summary>Fires the entity change event as well as performs any calculations necessary since the last update.</summary>
+      <param name="UpdateType"></param>
+    </member>
+    <member name="P:AGI.Entity.IAgPointEntity.Attitude">
+      <summary>The entity orientation.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgPointEntity.Label">
+      <summary>The entity label.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgPointEntity.Line">
+      <summary>The line representing the entity's movement over time.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgPointEntity.Marker">
+      <summary>The entity marker.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgPointEntity.Model">
+      <summary>The entity model.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgPointEntity.Position">
+      <summary>The position of the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgPointEntity.Static">
+      <summary>Indicates if the entity is static or dynamic.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgPointEntity.CorrelationStatus">
+      <summary>The correlation status of the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgPointEntity.MetaData">
+      <summary>The meta-data associated with the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgPointEntity.ID">
+      <summary>The globally unique string associated with the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgPointEntity.DisplayName">
+      <summary>A display friendly name for the entity which does not have to be unique.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgPointEntity.Time">
+      <summary>The time the entity was last modified.</summary>
+    </member>
+    <member name="T:AGI.Entity.IAgPolylineEntity">
+      <summary>Defines an entity modeled as a line in space, either as a static position or moving over time.</summary>
+    </member>
+    <member name="M:AGI.Entity.IAgPolylineEntity.CommitUpdate(AGI.Entity.AgEEntityUpdate)">
+      <summary>Fires the entity change event as well as performs any calculations necessary since the last update.</summary>
+      <param name="UpdateType"></param>
+    </member>
+    <member name="P:AGI.Entity.IAgPolylineEntity.Line">
+      <summary>The line representing the polygon formed by the entity positions.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgPolylineEntity.Positions">
+      <summary>The list of points that define the line.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgPolylineEntity.Static">
+      <summary>Indicates if the line is static or dynamic</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgPolylineEntity.CorrelationStatus">
+      <summary>The correlation status of the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgPolylineEntity.Label">
+      <summary>The entity label.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgPolylineEntity.MetaData">
+      <summary>The meta-data associated with the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgPolylineEntity.ID">
+      <summary>The globally unique string associated with the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgPolylineEntity.DisplayName">
+      <summary>A display friendly name for the entity which does not have to be unique.</summary>
+    </member>
+    <member name="P:AGI.Entity.IAgPolylineEntity.Time">
+      <summary>The time the entity was last modified.</summary>
+    </member>
+    <member name="T:AGI.Entity._IAgPointEntity">
+      <summary>Merged IDispatch interface for AgPointEntity.</summary>
+    </member>
+    <member name="M:AGI.Entity._IAgPointEntity.CommitUpdate(AGI.Entity.AgEEntityUpdate)">
+      <summary>Fires the entity change event as well as performs any calculations necessary since the last update.</summary>
+      <param name="UpdateType"></param>
+    </member>
+    <member name="M:AGI.Entity._IAgPointEntity.Merge(System.Object)">
+      <summary>Merges the contents of the provided object into the calling object.</summary>
+      <param name="ObjectToMerge"></param>
+    </member>
+    <member name="M:AGI.Entity._IAgPointEntity.WriteSafeArray">
+      <summary>Serialize the object to a byte array.</summary>
+    </member>
+    <member name="M:AGI.Entity._IAgPointEntity.ReadSafeArray(System.Object)">
+      <summary>Deserialize a byte array into the object.</summary>
+      <param name="Bytes"></param>
+    </member>
+    <member name="P:AGI.Entity._IAgPointEntity.MetaData">
+      <summary>The meta-data associated with the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgPointEntity.ID">
+      <summary>The globally unique string associated with the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgPointEntity.DisplayName">
+      <summary>A display friendly name for the entity which does not have to be unique.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgPointEntity.Time">
+      <summary>The time the entity was last modified.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgPointEntity.Attitude">
+      <summary>The entity orientation.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgPointEntity.Label">
+      <summary>The entity label.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgPointEntity.Line">
+      <summary>The line representing the entity's movement over time.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgPointEntity.Marker">
+      <summary>The entity marker.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgPointEntity.Model">
+      <summary>The entity model.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgPointEntity.Position">
+      <summary>The position of the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgPointEntity.Static">
+      <summary>Indicates if the entity is static or dynamic.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgPointEntity.CorrelationStatus">
+      <summary>The correlation status of the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgPointEntity.DesiredTimeToLive">
+      <summary>The desired time in seconds for the entity to remain in the system without an update before being purged.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgPointEntity.RemainingTimeToLive">
+      <summary>The remaining number of seconds before an entity is purged from the system.</summary>
+    </member>
+    <member name="T:AGI.Entity._IAgPolylineEntity">
+      <summary>Merged IDispatch interface for AgPolylineEntity.</summary>
+    </member>
+    <member name="M:AGI.Entity._IAgPolylineEntity.CommitUpdate(AGI.Entity.AgEEntityUpdate)">
+      <summary>Fires the entity change event as well as performs any calculations necessary since the last update.</summary>
+      <param name="UpdateType"></param>
+    </member>
+    <member name="M:AGI.Entity._IAgPolylineEntity.Merge(System.Object)">
+      <summary>Merges the contents of the provided object into the calling object.</summary>
+      <param name="ObjectToMerge"></param>
+    </member>
+    <member name="M:AGI.Entity._IAgPolylineEntity.WriteSafeArray">
+      <summary>Serialize the object to a byte array.</summary>
+    </member>
+    <member name="M:AGI.Entity._IAgPolylineEntity.ReadSafeArray(System.Object)">
+      <summary>Deserialize a byte array into the object.</summary>
+      <param name="Bytes"></param>
+    </member>
+    <member name="P:AGI.Entity._IAgPolylineEntity.MetaData">
+      <summary>The meta-data associated with the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgPolylineEntity.ID">
+      <summary>The globally unique string associated with the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgPolylineEntity.DisplayName">
+      <summary>A display friendly name for the entity which does not have to be unique.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgPolylineEntity.Time">
+      <summary>The time the entity was last modified.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgPolylineEntity.Line">
+      <summary>The line representing the polygon formed by the entity positions.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgPolylineEntity.Positions">
+      <summary>The list of points that define the line.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgPolylineEntity.Static">
+      <summary>Indicates if the line is static or dynamic</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgPolylineEntity.CorrelationStatus">
+      <summary>The correlation status of the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgPolylineEntity.Label">
+      <summary>The entity label.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgPolylineEntity.DesiredTimeToLive">
+      <summary>The desired time in seconds for the entity to remain in the system without an update before being purged.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgPolylineEntity.RemainingTimeToLive">
+      <summary>The remaining number of seconds before an entity is purged from the system.</summary>
+    </member>
+    <member name="T:AGI.Entity._IAgFileMarker">
+      <summary>Merged IDispatch interface for AgFileMarker.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgFileMarker.FilePath">
+      <summary>The fully qualified path to the image file.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgFileMarker.Color">
+      <summary>The color of the marker.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgFileMarker.Show">
+      <summary>Indicates if the marker should be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgFileMarker.Size">
+      <summary>The size of the marker in pixels.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgFileMarker.Transparent">
+      <summary>Indicates if the marker background should be transparent.</summary>
+    </member>
+    <member name="T:AGI.Entity._IAgShapeMarker">
+      <summary>Merged IDispatch interface for AgShapeMarker.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgShapeMarker.Shape">
+      <summary>The marker shape.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgShapeMarker.Color">
+      <summary>The color of the marker.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgShapeMarker.Show">
+      <summary>Indicates if the marker should be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgShapeMarker.Size">
+      <summary>The size of the marker in pixels.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgShapeMarker.Transparent">
+      <summary>Indicates if the marker background should be transparent.</summary>
+    </member>
+    <member name="T:AGI.Entity._IAgMil2525BMarker">
+      <summary>Merged IDispatch interface for AgMil2525BMarker.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgMil2525BMarker.SymbolCode">
+      <summary>The MIL-STD-2525B symbol code used to generate a marker.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgMil2525BMarker.Color">
+      <summary>The color of the marker.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgMil2525BMarker.Show">
+      <summary>Indicates if the marker should be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgMil2525BMarker.Size">
+      <summary>The size of the marker in pixels.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgMil2525BMarker.Transparent">
+      <summary>Indicates if the marker background should be transparent.</summary>
+    </member>
+    <member name="T:AGI.Entity._IAgFileModel">
+      <summary>Merged IDispatch interface for AgFileModel.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgFileModel.FilePath">
+      <summary>The fully qualified path to the model file.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgFileModel.Color">
+      <summary>The color of the model.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgFileModel.Show">
+      <summary>Indicates if the model should be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgFileModel.ScaleValue">
+      <summary>The logarithmic scaling factor for the model with 0 being actual size.</summary>
+    </member>
+    <member name="T:AGI.Entity._IAgEntityMetaData">
+      <summary>Merged IDispatch interface for AgEntityMetaData.</summary>
+    </member>
+    <member name="M:AGI.Entity._IAgEntityMetaData.WriteSafeArray">
+      <summary>Serialize the object to a byte array.</summary>
+    </member>
+    <member name="M:AGI.Entity._IAgEntityMetaData.ReadSafeArray(System.Object)">
+      <summary>Deserialize a byte array into the object.</summary>
+      <param name="Bytes"></param>
+    </member>
+    <member name="P:AGI.Entity._IAgEntityMetaData.Name">
+      <summary>The name.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgEntityMetaData.Value">
+      <summary>The value.</summary>
+    </member>
+    <member name="T:AGI.Entity._IAgLabelGraphics">
+      <summary>Merged IDispatch interface for AgLabelGraphics.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgLabelGraphics.Color">
+      <summary>The color of the label.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgLabelGraphics.Show">
+      <summary>Indicates if the label should be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgLabelGraphics.Text">
+      <summary>The text of the label.</summary>
+    </member>
+    <member name="T:AGI.Entity._IAgEntityPosition">
+      <summary>Merged IDispatch interface for AgEntityPosition.</summary>
+    </member>
+    <member name="M:AGI.Entity._IAgEntityPosition.Set(System.Double,System.Double,System.Double)">
+      <summary>Set all three position elements.</summary>
+      <param name="Latitude"></param>
+      <param name="Longitude"></param>
+      <param name="Altitude"></param>
+    </member>
+    <member name="M:AGI.Entity._IAgEntityPosition.Get(.double@,.double@,.double@)">
+      <summary>Get all three position elements.</summary>
+      <param name="Latitude"></param>
+      <param name="Longitude"></param>
+      <param name="Altitude"></param>
+    </member>
+    <member name="M:AGI.Entity._IAgEntityPosition.GetArray">
+      <summary>Get all three position elements as an array.</summary>
+    </member>
+    <member name="M:AGI.Entity._IAgEntityPosition.WriteSafeArray">
+      <summary>Serialize the object to a byte array.</summary>
+    </member>
+    <member name="M:AGI.Entity._IAgEntityPosition.ReadSafeArray(System.Object)">
+      <summary>Deserialize a byte array into the object.</summary>
+      <param name="Bytes"></param>
+    </member>
+    <member name="P:AGI.Entity._IAgEntityPosition.Latitude">
+      <summary>The latitude in degrees.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgEntityPosition.Longitude">
+      <summary>The longitude in degrees.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgEntityPosition.Altitude">
+      <summary>The altitude in meters.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgEntityPosition.OnTerrain">
+      <summary>If true, altitude is ignored and the entity is assumed to be on terrain.</summary>
+    </member>
+    <member name="T:AGI.Entity._IAgLineGraphics">
+      <summary>Merged IDispatch interface for AgLineGraphics.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgLineGraphics.Color">
+      <summary>The color of the line.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgLineGraphics.Show">
+      <summary>Indicates if the line should be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgLineGraphics.Style">
+      <summary>The style of the line.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgLineGraphics.Width">
+      <summary>The width of the line.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgLineGraphics.LeadTime">
+      <summary>The amount of time in seconds which future points will be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgLineGraphics.TrailTime">
+      <summary>The amount of time in seconds which past points will continue to be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgLineGraphics.UseLeadTrail">
+      <summary>Indicates if lead and trail times should be used.</summary>
+    </member>
+    <member name="T:AGI.Entity._IAgEntityAttitudeEuler">
+      <summary>Merged IDispatch interface for AgEntityAttitudeEuler.</summary>
+    </member>
+    <member name="M:AGI.Entity._IAgEntityAttitudeEuler.Set(System.Double,System.Double,System.Double)">
+      <summary>Set all three angles.</summary>
+      <param name="Angle1"></param>
+      <param name="Angle2"></param>
+      <param name="Angle3"></param>
+    </member>
+    <member name="M:AGI.Entity._IAgEntityAttitudeEuler.Get(.double@,.double@,.double@)">
+      <summary>Get all three angles</summary>
+      <param name="Angle1"></param>
+      <param name="Angle2"></param>
+      <param name="Angle3"></param>
+    </member>
+    <member name="M:AGI.Entity._IAgEntityAttitudeEuler.GetArray">
+      <summary>Get all three angles as an array.</summary>
+    </member>
+    <member name="M:AGI.Entity._IAgEntityAttitudeEuler.Merge(System.Object)">
+      <summary>Merges the contents of the provided object into the calling object.</summary>
+      <param name="ObjectToMerge"></param>
+    </member>
+    <member name="M:AGI.Entity._IAgEntityAttitudeEuler.GetClassID(stdole.GUID@)">
+      <summary>Returns the CLSID of the object.</summary>
+      <param name="pClassID"></param>
+    </member>
+    <member name="M:AGI.Entity._IAgEntityAttitudeEuler.WriteSafeArray">
+      <summary>Serialize the object to a byte array.</summary>
+    </member>
+    <member name="M:AGI.Entity._IAgEntityAttitudeEuler.ReadSafeArray(System.Object)">
+      <summary>Deserialize a byte array into the object.</summary>
+      <param name="Bytes"></param>
+    </member>
+    <member name="P:AGI.Entity._IAgEntityAttitudeEuler.ReferenceAxis">
+      <summary>The reference axis.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgEntityAttitudeEuler.Sequence">
+      <summary>The orientation sequence.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgEntityAttitudeEuler.Angle1">
+      <summary>The first angle adjustment in degrees.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgEntityAttitudeEuler.Angle2">
+      <summary>The second angle adjustment in degrees.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgEntityAttitudeEuler.Angle3">
+      <summary>The third angle adjustment in degrees.</summary>
+    </member>
+    <member name="T:AGI.Entity._IAgEntityAttitudeQuaternion">
+      <summary>Merged IDispatch interface for AgEntityAttitudeQuaternion.</summary>
+    </member>
+    <member name="M:AGI.Entity._IAgEntityAttitudeQuaternion.Set(System.Double,System.Double,System.Double,System.Double)">
+      <summary>Set all elements.</summary>
+      <param name="Q1"></param>
+      <param name="Q2"></param>
+      <param name="Q3"></param>
+      <param name="Q4"></param>
+    </member>
+    <member name="M:AGI.Entity._IAgEntityAttitudeQuaternion.Get(.double@,.double@,.double@,.double@)">
+      <summary>Get all elements.</summary>
+      <param name="Q1"></param>
+      <param name="Q2"></param>
+      <param name="Q3"></param>
+      <param name="Q4"></param>
+    </member>
+    <member name="M:AGI.Entity._IAgEntityAttitudeQuaternion.GetArray">
+      <summary>Get all elements as an array.</summary>
+    </member>
+    <member name="M:AGI.Entity._IAgEntityAttitudeQuaternion.Merge(System.Object)">
+      <summary>Merges the contents of the provided object into the calling object.</summary>
+      <param name="ObjectToMerge"></param>
+    </member>
+    <member name="M:AGI.Entity._IAgEntityAttitudeQuaternion.GetClassID(stdole.GUID@)">
+      <summary>Returns the CLSID of the object.</summary>
+      <param name="pClassID"></param>
+    </member>
+    <member name="M:AGI.Entity._IAgEntityAttitudeQuaternion.WriteSafeArray">
+      <summary>Serialize the object to a byte array.</summary>
+    </member>
+    <member name="M:AGI.Entity._IAgEntityAttitudeQuaternion.ReadSafeArray(System.Object)">
+      <summary>Deserialize a byte array into the object.</summary>
+      <param name="Bytes"></param>
+    </member>
+    <member name="P:AGI.Entity._IAgEntityAttitudeQuaternion.ReferenceAxis">
+      <summary>The reference axis.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgEntityAttitudeQuaternion.Q1">
+      <summary>The first element.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgEntityAttitudeQuaternion.Q2">
+      <summary>The second element.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgEntityAttitudeQuaternion.Q3">
+      <summary>The third element.</summary>
+    </member>
+    <member name="P:AGI.Entity._IAgEntityAttitudeQuaternion.Q4">
+      <summary>The fourth element.</summary>
+    </member>
+    <member name="T:AGI.Entity._IAgEntityLicensing">
+      <summary>Merged IDispatch interface for AgEntityLicensing.</summary>
+    </member>
+    <member name="M:AGI.Entity._IAgEntityLicensing.Rt3LicenseCheck">
+      <summary>Fails if an Rt3 license could not be obtained.</summary>
+    </member>
+    <member name="M:AGI.Entity._IAgEntityLicensing.DSimLicenseCheck">
+      <summary>Fails if a Distributed Simulation license could not be obtained.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgPointEntity">
+      <summary>An entity modeled as a point in space, either as a static position or moving over time.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgPointEntity.CommitUpdate(AGI.Entity.AgEEntityUpdate)">
+      <summary>Fires the entity change event as well as performs any calculations necessary since the last update.</summary>
+      <param name="UpdateType"></param>
+    </member>
+    <member name="M:AGI.Entity.AgPointEntity.Merge(System.Object)">
+      <summary>Merges the contents of the provided object into the calling object.</summary>
+      <param name="ObjectToMerge"></param>
+    </member>
+    <member name="M:AGI.Entity.AgPointEntity.WriteSafeArray">
+      <summary>Serialize the object to a byte array.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgPointEntity.ReadSafeArray(System.Object)">
+      <summary>Deserialize a byte array into the object.</summary>
+      <param name="Bytes"></param>
+    </member>
+    <member name="P:AGI.Entity.AgPointEntity.MetaData">
+      <summary>The meta-data associated with the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPointEntity.ID">
+      <summary>The globally unique string associated with the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPointEntity.DisplayName">
+      <summary>A display friendly name for the entity which does not have to be unique.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPointEntity.Time">
+      <summary>The time the entity was last modified.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPointEntity.Attitude">
+      <summary>The entity orientation.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPointEntity.Label">
+      <summary>The entity label.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPointEntity.Line">
+      <summary>The line representing the entity's movement over time.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPointEntity.Marker">
+      <summary>The entity marker.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPointEntity.Model">
+      <summary>The entity model.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPointEntity.Position">
+      <summary>The position of the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPointEntity.Static">
+      <summary>Indicates if the entity is static or dynamic.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPointEntity.CorrelationStatus">
+      <summary>The correlation status of the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPointEntity.DesiredTimeToLive">
+      <summary>The desired time in seconds for the entity to remain in the system without an update before being purged.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPointEntity.RemainingTimeToLive">
+      <summary>The remaining number of seconds before an entity is purged from the system.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgPointEntityClass">
+      <summary>An entity modeled as a point in space, either as a static position or moving over time.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgPointEntityClass.CommitUpdate(AGI.Entity.AgEEntityUpdate)">
+      <summary>Fires the entity change event as well as performs any calculations necessary since the last update.</summary>
+      <param name="UpdateType"></param>
+    </member>
+    <member name="M:AGI.Entity.AgPointEntityClass.Merge(System.Object)">
+      <summary>Merges the contents of the provided object into the calling object.</summary>
+      <param name="ObjectToMerge"></param>
+    </member>
+    <member name="M:AGI.Entity.AgPointEntityClass.WriteSafeArray">
+      <summary>Serialize the object to a byte array.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgPointEntityClass.ReadSafeArray(System.Object)">
+      <summary>Deserialize a byte array into the object.</summary>
+      <param name="Bytes"></param>
+    </member>
+    <member name="P:AGI.Entity.AgPointEntityClass.MetaData">
+      <summary>The meta-data associated with the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPointEntityClass.ID">
+      <summary>The globally unique string associated with the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPointEntityClass.DisplayName">
+      <summary>A display friendly name for the entity which does not have to be unique.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPointEntityClass.Time">
+      <summary>The time the entity was last modified.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPointEntityClass.Attitude">
+      <summary>The entity orientation.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPointEntityClass.Label">
+      <summary>The entity label.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPointEntityClass.Line">
+      <summary>The line representing the entity's movement over time.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPointEntityClass.Marker">
+      <summary>The entity marker.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPointEntityClass.Model">
+      <summary>The entity model.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPointEntityClass.Position">
+      <summary>The position of the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPointEntityClass.Static">
+      <summary>Indicates if the entity is static or dynamic.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPointEntityClass.CorrelationStatus">
+      <summary>The correlation status of the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPointEntityClass.DesiredTimeToLive">
+      <summary>The desired time in seconds for the entity to remain in the system without an update before being purged.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPointEntityClass.RemainingTimeToLive">
+      <summary>The remaining number of seconds before an entity is purged from the system.</summary>
+    </member>
+    <member name="E:AGI.Entity.AgPointEntityClass.OnEntityChanged">
+      <summary>Indicates that an entity has changed.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgPolylineEntity">
+      <summary>An entity modeled as a line in space, either as a static position or moving over time.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgPolylineEntity.CommitUpdate(AGI.Entity.AgEEntityUpdate)">
+      <summary>Fires the entity change event as well as performs any calculations necessary since the last update.</summary>
+      <param name="UpdateType"></param>
+    </member>
+    <member name="M:AGI.Entity.AgPolylineEntity.Merge(System.Object)">
+      <summary>Merges the contents of the provided object into the calling object.</summary>
+      <param name="ObjectToMerge"></param>
+    </member>
+    <member name="M:AGI.Entity.AgPolylineEntity.WriteSafeArray">
+      <summary>Serialize the object to a byte array.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgPolylineEntity.ReadSafeArray(System.Object)">
+      <summary>Deserialize a byte array into the object.</summary>
+      <param name="Bytes"></param>
+    </member>
+    <member name="P:AGI.Entity.AgPolylineEntity.MetaData">
+      <summary>The meta-data associated with the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPolylineEntity.ID">
+      <summary>The globally unique string associated with the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPolylineEntity.DisplayName">
+      <summary>A display friendly name for the entity which does not have to be unique.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPolylineEntity.Time">
+      <summary>The time the entity was last modified.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPolylineEntity.Line">
+      <summary>The line representing the polygon formed by the entity positions.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPolylineEntity.Positions">
+      <summary>The list of points that define the line.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPolylineEntity.Static">
+      <summary>Indicates if the line is static or dynamic</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPolylineEntity.CorrelationStatus">
+      <summary>The correlation status of the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPolylineEntity.Label">
+      <summary>The entity label.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPolylineEntity.DesiredTimeToLive">
+      <summary>The desired time in seconds for the entity to remain in the system without an update before being purged.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPolylineEntity.RemainingTimeToLive">
+      <summary>The remaining number of seconds before an entity is purged from the system.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgPolylineEntityClass">
+      <summary>An entity modeled as a line in space, either as a static position or moving over time.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgPolylineEntityClass.CommitUpdate(AGI.Entity.AgEEntityUpdate)">
+      <summary>Fires the entity change event as well as performs any calculations necessary since the last update.</summary>
+      <param name="UpdateType"></param>
+    </member>
+    <member name="M:AGI.Entity.AgPolylineEntityClass.Merge(System.Object)">
+      <summary>Merges the contents of the provided object into the calling object.</summary>
+      <param name="ObjectToMerge"></param>
+    </member>
+    <member name="M:AGI.Entity.AgPolylineEntityClass.WriteSafeArray">
+      <summary>Serialize the object to a byte array.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgPolylineEntityClass.ReadSafeArray(System.Object)">
+      <summary>Deserialize a byte array into the object.</summary>
+      <param name="Bytes"></param>
+    </member>
+    <member name="P:AGI.Entity.AgPolylineEntityClass.MetaData">
+      <summary>The meta-data associated with the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPolylineEntityClass.ID">
+      <summary>The globally unique string associated with the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPolylineEntityClass.DisplayName">
+      <summary>A display friendly name for the entity which does not have to be unique.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPolylineEntityClass.Time">
+      <summary>The time the entity was last modified.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPolylineEntityClass.Line">
+      <summary>The line representing the polygon formed by the entity positions.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPolylineEntityClass.Positions">
+      <summary>The list of points that define the line.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPolylineEntityClass.Static">
+      <summary>Indicates if the line is static or dynamic</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPolylineEntityClass.CorrelationStatus">
+      <summary>The correlation status of the entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPolylineEntityClass.Label">
+      <summary>The entity label.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPolylineEntityClass.DesiredTimeToLive">
+      <summary>The desired time in seconds for the entity to remain in the system without an update before being purged.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgPolylineEntityClass.RemainingTimeToLive">
+      <summary>The remaining number of seconds before an entity is purged from the system.</summary>
+    </member>
+    <member name="E:AGI.Entity.AgPolylineEntityClass.OnEntityChanged">
+      <summary>Indicates that an entity has changed.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgFileMarker">
+      <summary>A marker defined by an image file.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgFileMarker.FilePath">
+      <summary>The fully qualified path to the image file.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgFileMarker.Color">
+      <summary>The color of the marker.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgFileMarker.Show">
+      <summary>Indicates if the marker should be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgFileMarker.Size">
+      <summary>The size of the marker in pixels.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgFileMarker.Transparent">
+      <summary>Indicates if the marker background should be transparent.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgFileMarkerClass">
+      <summary>A marker defined by an image file.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgFileMarkerClass.FilePath">
+      <summary>The fully qualified path to the image file.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgFileMarkerClass.Color">
+      <summary>The color of the marker.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgFileMarkerClass.Show">
+      <summary>Indicates if the marker should be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgFileMarkerClass.Size">
+      <summary>The size of the marker in pixels.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgFileMarkerClass.Transparent">
+      <summary>Indicates if the marker background should be transparent.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgMil2525BMarker">
+      <summary>A marker defined by a MIL-STD-2525B symbol.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgMil2525BMarker.SymbolCode">
+      <summary>The MIL-STD-2525B symbol code used to generate a marker.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgMil2525BMarker.Color">
+      <summary>The color of the marker.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgMil2525BMarker.Show">
+      <summary>Indicates if the marker should be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgMil2525BMarker.Size">
+      <summary>The size of the marker in pixels.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgMil2525BMarker.Transparent">
+      <summary>Indicates if the marker background should be transparent.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgMil2525BMarkerClass">
+      <summary>A marker defined by a MIL-STD-2525B symbol.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgMil2525BMarkerClass.SymbolCode">
+      <summary>The MIL-STD-2525B symbol code used to generate a marker.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgMil2525BMarkerClass.Color">
+      <summary>The color of the marker.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgMil2525BMarkerClass.Show">
+      <summary>Indicates if the marker should be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgMil2525BMarkerClass.Size">
+      <summary>The size of the marker in pixels.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgMil2525BMarkerClass.Transparent">
+      <summary>Indicates if the marker background should be transparent.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgFileModel">
+      <summary>A model defined by a model file.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgFileModel.FilePath">
+      <summary>The fully qualified path to the model file.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgFileModel.Color">
+      <summary>The color of the model.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgFileModel.Show">
+      <summary>Indicates if the model should be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgFileModel.ScaleValue">
+      <summary>The logarithmic scaling factor for the model with 0 being actual size.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgFileModelClass">
+      <summary>A model defined by a model file.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgFileModelClass.FilePath">
+      <summary>The fully qualified path to the model file.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgFileModelClass.Color">
+      <summary>The color of the model.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgFileModelClass.Show">
+      <summary>Indicates if the model should be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgFileModelClass.ScaleValue">
+      <summary>The logarithmic scaling factor for the model with 0 being actual size.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgEntityMetaData">
+      <summary>Arbitrary data that is associated with an entity.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityMetaData.WriteSafeArray">
+      <summary>Serialize the object to a byte array.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityMetaData.ReadSafeArray(System.Object)">
+      <summary>Deserialize a byte array into the object.</summary>
+      <param name="Bytes"></param>
+    </member>
+    <member name="P:AGI.Entity.AgEntityMetaData.Name">
+      <summary>The name.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityMetaData.Value">
+      <summary>The value.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgEntityMetaDataClass">
+      <summary>Arbitrary data that is associated with an entity.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityMetaDataClass.WriteSafeArray">
+      <summary>Serialize the object to a byte array.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityMetaDataClass.ReadSafeArray(System.Object)">
+      <summary>Deserialize a byte array into the object.</summary>
+      <param name="Bytes"></param>
+    </member>
+    <member name="P:AGI.Entity.AgEntityMetaDataClass.Name">
+      <summary>The name.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityMetaDataClass.Value">
+      <summary>The value.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgLabelGraphics">
+      <summary>A label which may be associated with an entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgLabelGraphics.Color">
+      <summary>The color of the label.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgLabelGraphics.Show">
+      <summary>Indicates if the label should be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgLabelGraphics.Text">
+      <summary>The text of the label.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgLabelGraphicsClass">
+      <summary>A label which may be associated with an entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgLabelGraphicsClass.Color">
+      <summary>The color of the label.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgLabelGraphicsClass.Show">
+      <summary>Indicates if the label should be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgLabelGraphicsClass.Text">
+      <summary>The text of the label.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgEntityPosition">
+      <summary>An Earth-centered fixed (ECF) position represented by latitude, longitude and altitude in degrees and meters.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityPosition.Set(System.Double,System.Double,System.Double)">
+      <summary>Set all three position elements.</summary>
+      <param name="Latitude"></param>
+      <param name="Longitude"></param>
+      <param name="Altitude"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityPosition.Get(.double@,.double@,.double@)">
+      <summary>Get all three position elements.</summary>
+      <param name="Latitude"></param>
+      <param name="Longitude"></param>
+      <param name="Altitude"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityPosition.GetArray">
+      <summary>Get all three position elements as an array.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityPosition.WriteSafeArray">
+      <summary>Serialize the object to a byte array.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityPosition.ReadSafeArray(System.Object)">
+      <summary>Deserialize a byte array into the object.</summary>
+      <param name="Bytes"></param>
+    </member>
+    <member name="P:AGI.Entity.AgEntityPosition.Latitude">
+      <summary>The latitude in degrees.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityPosition.Longitude">
+      <summary>The longitude in degrees.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityPosition.Altitude">
+      <summary>The altitude in meters.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityPosition.OnTerrain">
+      <summary>If true, altitude is ignored and the entity is assumed to be on terrain.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgEntityPositionClass">
+      <summary>An Earth-centered fixed (ECF) position represented by latitude, longitude and altitude in degrees and meters.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityPositionClass.Set(System.Double,System.Double,System.Double)">
+      <summary>Set all three position elements.</summary>
+      <param name="Latitude"></param>
+      <param name="Longitude"></param>
+      <param name="Altitude"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityPositionClass.Get(.double@,.double@,.double@)">
+      <summary>Get all three position elements.</summary>
+      <param name="Latitude"></param>
+      <param name="Longitude"></param>
+      <param name="Altitude"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityPositionClass.GetArray">
+      <summary>Get all three position elements as an array.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityPositionClass.WriteSafeArray">
+      <summary>Serialize the object to a byte array.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityPositionClass.ReadSafeArray(System.Object)">
+      <summary>Deserialize a byte array into the object.</summary>
+      <param name="Bytes"></param>
+    </member>
+    <member name="P:AGI.Entity.AgEntityPositionClass.Latitude">
+      <summary>The latitude in degrees.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityPositionClass.Longitude">
+      <summary>The longitude in degrees.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityPositionClass.Altitude">
+      <summary>The altitude in meters.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityPositionClass.OnTerrain">
+      <summary>If true, altitude is ignored and the entity is assumed to be on terrain.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgLineGraphics">
+      <summary>A line which may be associated with an entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgLineGraphics.Color">
+      <summary>The color of the line.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgLineGraphics.Show">
+      <summary>Indicates if the line should be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgLineGraphics.Style">
+      <summary>The style of the line.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgLineGraphics.Width">
+      <summary>The width of the line.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgLineGraphics.LeadTime">
+      <summary>The amount of time in seconds which future points will be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgLineGraphics.TrailTime">
+      <summary>The amount of time in seconds which past points will continue to be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgLineGraphics.UseLeadTrail">
+      <summary>Indicates if lead and trail times should be used.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgLineGraphicsClass">
+      <summary>A line which may be associated with an entity.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgLineGraphicsClass.Color">
+      <summary>The color of the line.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgLineGraphicsClass.Show">
+      <summary>Indicates if the line should be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgLineGraphicsClass.Style">
+      <summary>The style of the line.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgLineGraphicsClass.Width">
+      <summary>The width of the line.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgLineGraphicsClass.LeadTime">
+      <summary>The amount of time in seconds which future points will be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgLineGraphicsClass.TrailTime">
+      <summary>The amount of time in seconds which past points will continue to be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgLineGraphicsClass.UseLeadTrail">
+      <summary>Indicates if lead and trail times should be used.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgEntityCollection">
+      <summary>A collection of IAgEntity interfaces.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityCollection.Add(AGI.Entity.IAgEntity)">
+      <summary>Adds an element to the collection.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityCollection.AddMultiple(System.Array@)">
+      <summary>Adds multiple elements to the collection.</summary>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityCollection.InsertAt(System.Int32,AGI.Entity.IAgEntity)">
+      <summary>Insert an element into the collection at the specified index</summary>
+      <param name="Index"></param>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityCollection.Remove(AGI.Entity.IAgEntity)">
+      <summary>Remove the provided element from the collection.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityCollection.RemoveMultiple(System.Array@)">
+      <summary>Removes multiple elements from the collection.</summary>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityCollection.RemoveAt(System.Int32)">
+      <summary>Remove the element at the specified index from the collection.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityCollection.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityCollection.Copy">
+      <summary>Copy the collection</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityCollection.Find(System.String)">
+      <summary>Find an element using its IAgEntity ID property.</summary>
+      <param name="EntityID"></param>
+    </member>
+    <member name="P:AGI.Entity.AgEntityCollection.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityCollection._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityCollection.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="T:AGI.Entity.AgEntityCollectionClass">
+      <summary>A collection of IAgEntity interfaces.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityCollectionClass.Add(AGI.Entity.IAgEntity)">
+      <summary>Adds an element to the collection.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityCollectionClass.AddMultiple(System.Array@)">
+      <summary>Adds multiple elements to the collection.</summary>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityCollectionClass.InsertAt(System.Int32,AGI.Entity.IAgEntity)">
+      <summary>Insert an element into the collection at the specified index</summary>
+      <param name="Index"></param>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityCollectionClass.Remove(AGI.Entity.IAgEntity)">
+      <summary>Remove the provided element from the collection.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityCollectionClass.RemoveMultiple(System.Array@)">
+      <summary>Removes multiple elements from the collection.</summary>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityCollectionClass.RemoveAt(System.Int32)">
+      <summary>Remove the element at the specified index from the collection.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityCollectionClass.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityCollectionClass.Copy">
+      <summary>Copy the collection</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityCollectionClass.Find(System.String)">
+      <summary>Find an element using its IAgEntity ID property.</summary>
+      <param name="EntityID"></param>
+    </member>
+    <member name="P:AGI.Entity.AgEntityCollectionClass.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityCollectionClass._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityCollectionClass.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityCollectionClass.WriteSafeArray">
+      <summary>Serialize the object to a byte array.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityCollectionClass.ReadSafeArray(System.Object)">
+      <summary>Deserialize a byte array into the object.</summary>
+      <param name="Bytes"></param>
+    </member>
+    <member name="E:AGI.Entity.AgEntityCollectionClass.OnAdd">
+      <summary>Event triggered when an entity is added to the collection.</summary>
+    </member>
+    <member name="E:AGI.Entity.AgEntityCollectionClass.OnAddMultiple">
+      <summary>Event triggered when multiple entities are added to the collection.</summary>
+    </member>
+    <member name="E:AGI.Entity.AgEntityCollectionClass.OnRemove">
+      <summary>Event triggered when an entity is removed from the collection.</summary>
+    </member>
+    <member name="E:AGI.Entity.AgEntityCollectionClass.OnRemoveMultiple">
+      <summary>Event triggered when multiple entities are removed from the collection.</summary>
+    </member>
+    <member name="E:AGI.Entity.AgEntityCollectionClass.OnRemoveAll">
+      <summary>Event triggered when all entities are removed from the collection.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgEntityMetaDataCollection">
+      <summary>The collection of meta-data associated with an entity.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityMetaDataCollection.Get(System.String)">
+      <summary>Given the name of the meta-data, returns its value.</summary>
+      <param name="Name"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityMetaDataCollection.Set(System.String,System.Object)">
+      <summary>Add or update meta-data with the provided name and value.</summary>
+      <param name="Name"></param>
+      <param name="Value"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityMetaDataCollection.Remove(System.String)">
+      <summary>Remove meta-data from the collection.</summary>
+      <param name="Name"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityMetaDataCollection.RemoveAll">
+      <summary>Remove all meta-data.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityMetaDataCollection.Copy">
+      <summary>Copy the collection.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityMetaDataCollection.Item">
+      <summary>Given the name of the meta-data, returns its value.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityMetaDataCollection._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityMetaDataCollection.Count">
+      <summary>The number of items in the collection.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgEntityMetaDataCollectionClass">
+      <summary>The collection of meta-data associated with an entity.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityMetaDataCollectionClass.Get(System.String)">
+      <summary>Given the name of the meta-data, returns its value.</summary>
+      <param name="Name"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityMetaDataCollectionClass.Set(System.String,System.Object)">
+      <summary>Add or update meta-data with the provided name and value.</summary>
+      <param name="Name"></param>
+      <param name="Value"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityMetaDataCollectionClass.Remove(System.String)">
+      <summary>Remove meta-data from the collection.</summary>
+      <param name="Name"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityMetaDataCollectionClass.RemoveAll">
+      <summary>Remove all meta-data.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityMetaDataCollectionClass.Copy">
+      <summary>Copy the collection.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityMetaDataCollectionClass.Item">
+      <summary>Given the name of the meta-data, returns its value.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityMetaDataCollectionClass._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityMetaDataCollectionClass.Count">
+      <summary>The number of items in the collection.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityMetaDataCollectionClass.WriteSafeArray">
+      <summary>Serialize the object to a byte array.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityMetaDataCollectionClass.ReadSafeArray(System.Object)">
+      <summary>Deserialize a byte array into the object.</summary>
+      <param name="Bytes"></param>
+    </member>
+    <member name="T:AGI.Entity.AgEntityPositionCollection">
+      <summary>A collection of positions.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityPositionCollection.Add(AGI.Entity.IAgEntityPosition)">
+      <summary>Adds an element to the collection.</summary>
+      <param name="Position"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityPositionCollection.InsertAt(System.Int32,AGI.Entity.IAgEntityPosition)">
+      <summary>Insert an element into the collection at the specified index</summary>
+      <param name="Index"></param>
+      <param name="Position"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityPositionCollection.Remove(AGI.Entity.IAgEntityPosition)">
+      <summary>Remove the provided element from the collection.</summary>
+      <param name="Position"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityPositionCollection.RemoveAt(System.Int32)">
+      <summary>Remove the element at the specified index from the collection.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityPositionCollection.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityPositionCollection.Copy">
+      <summary>Copy the collection</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityPositionCollection.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityPositionCollection._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityPositionCollection.Count">
+      <summary>Number of elements in collection</summary>
+    </member>
+    <member name="T:AGI.Entity.AgEntityPositionCollectionClass">
+      <summary>A collection of positions.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityPositionCollectionClass.Add(AGI.Entity.IAgEntityPosition)">
+      <summary>Adds an element to the collection.</summary>
+      <param name="Position"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityPositionCollectionClass.InsertAt(System.Int32,AGI.Entity.IAgEntityPosition)">
+      <summary>Insert an element into the collection at the specified index</summary>
+      <param name="Index"></param>
+      <param name="Position"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityPositionCollectionClass.Remove(AGI.Entity.IAgEntityPosition)">
+      <summary>Remove the provided element from the collection.</summary>
+      <param name="Position"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityPositionCollectionClass.RemoveAt(System.Int32)">
+      <summary>Remove the element at the specified index from the collection.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityPositionCollectionClass.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityPositionCollectionClass.Copy">
+      <summary>Copy the collection</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityPositionCollectionClass.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityPositionCollectionClass._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityPositionCollectionClass.Count">
+      <summary>Number of elements in collection</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityPositionCollectionClass.WriteSafeArray">
+      <summary>Serialize the object to a byte array.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityPositionCollectionClass.ReadSafeArray(System.Object)">
+      <summary>Deserialize a byte array into the object.</summary>
+      <param name="Bytes"></param>
+    </member>
+    <member name="T:AGI.Entity.AgEntityLicensingCheck">
+      <summary>Retrieves information about RT3 licensing.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityLicensingCheck.Rt3LicenseCheck">
+      <summary>Fails if an Rt3 license could not be obtained.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityLicensingCheck.DSimLicenseCheck">
+      <summary>Fails if a Distributed Simulation license could not be obtained.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgEntityLicensingCheckClass">
+      <summary>Retrieves information about RT3 licensing.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityLicensingCheckClass.Rt3LicenseCheck">
+      <summary>Fails if an Rt3 license could not be obtained.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityLicensingCheckClass.DSimLicenseCheck">
+      <summary>Fails if a Distributed Simulation license could not be obtained.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgEntityAttitudeEuler">
+      <summary>Attitude represented as Euler angles.  YPR can also be representing by using a 321 sequence for yaw, pitch and roll respectively.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityAttitudeEuler.Set(System.Double,System.Double,System.Double)">
+      <summary>Set all three angles.</summary>
+      <param name="Angle1"></param>
+      <param name="Angle2"></param>
+      <param name="Angle3"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityAttitudeEuler.Get(.double@,.double@,.double@)">
+      <summary>Get all three angles</summary>
+      <param name="Angle1"></param>
+      <param name="Angle2"></param>
+      <param name="Angle3"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityAttitudeEuler.GetArray">
+      <summary>Get all three angles as an array.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityAttitudeEuler.Merge(System.Object)">
+      <summary>Merges the contents of the provided object into the calling object.</summary>
+      <param name="ObjectToMerge"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityAttitudeEuler.GetClassID(stdole.GUID@)">
+      <summary>Returns the CLSID of the object.</summary>
+      <param name="pClassID"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityAttitudeEuler.WriteSafeArray">
+      <summary>Serialize the object to a byte array.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityAttitudeEuler.ReadSafeArray(System.Object)">
+      <summary>Deserialize a byte array into the object.</summary>
+      <param name="Bytes"></param>
+    </member>
+    <member name="P:AGI.Entity.AgEntityAttitudeEuler.ReferenceAxis">
+      <summary>The reference axis.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityAttitudeEuler.Sequence">
+      <summary>The orientation sequence.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityAttitudeEuler.Angle1">
+      <summary>The first angle adjustment in degrees.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityAttitudeEuler.Angle2">
+      <summary>The second angle adjustment in degrees.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityAttitudeEuler.Angle3">
+      <summary>The third angle adjustment in degrees.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgEntityAttitudeEulerClass">
+      <summary>Attitude represented as Euler angles.  YPR can also be representing by using a 321 sequence for yaw, pitch and roll respectively.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityAttitudeEulerClass.Set(System.Double,System.Double,System.Double)">
+      <summary>Set all three angles.</summary>
+      <param name="Angle1"></param>
+      <param name="Angle2"></param>
+      <param name="Angle3"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityAttitudeEulerClass.Get(.double@,.double@,.double@)">
+      <summary>Get all three angles</summary>
+      <param name="Angle1"></param>
+      <param name="Angle2"></param>
+      <param name="Angle3"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityAttitudeEulerClass.GetArray">
+      <summary>Get all three angles as an array.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityAttitudeEulerClass.Merge(System.Object)">
+      <summary>Merges the contents of the provided object into the calling object.</summary>
+      <param name="ObjectToMerge"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityAttitudeEulerClass.GetClassID(stdole.GUID@)">
+      <summary>Returns the CLSID of the object.</summary>
+      <param name="pClassID"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityAttitudeEulerClass.WriteSafeArray">
+      <summary>Serialize the object to a byte array.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityAttitudeEulerClass.ReadSafeArray(System.Object)">
+      <summary>Deserialize a byte array into the object.</summary>
+      <param name="Bytes"></param>
+    </member>
+    <member name="P:AGI.Entity.AgEntityAttitudeEulerClass.ReferenceAxis">
+      <summary>The reference axis.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityAttitudeEulerClass.Sequence">
+      <summary>The orientation sequence.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityAttitudeEulerClass.Angle1">
+      <summary>The first angle adjustment in degrees.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityAttitudeEulerClass.Angle2">
+      <summary>The second angle adjustment in degrees.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityAttitudeEulerClass.Angle3">
+      <summary>The third angle adjustment in degrees.</summary>
+    </member>
+    <member name="T:AGI.Entity.IPersist">
+      <summary />
+    </member>
+    <member name="M:AGI.Entity.IPersist.GetClassID(stdole.GUID@)">
+      <summary></summary>
+      <param name="pClassID"></param>
+    </member>
+    <member name="T:AGI.Entity.AgEntityAttitudeQuaternion">
+      <summary>Attitude represented as a quaternion.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityAttitudeQuaternion.Set(System.Double,System.Double,System.Double,System.Double)">
+      <summary>Set all elements.</summary>
+      <param name="Q1"></param>
+      <param name="Q2"></param>
+      <param name="Q3"></param>
+      <param name="Q4"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityAttitudeQuaternion.Get(.double@,.double@,.double@,.double@)">
+      <summary>Get all elements.</summary>
+      <param name="Q1"></param>
+      <param name="Q2"></param>
+      <param name="Q3"></param>
+      <param name="Q4"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityAttitudeQuaternion.GetArray">
+      <summary>Get all elements as an array.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityAttitudeQuaternion.Merge(System.Object)">
+      <summary>Merges the contents of the provided object into the calling object.</summary>
+      <param name="ObjectToMerge"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityAttitudeQuaternion.GetClassID(stdole.GUID@)">
+      <summary>Returns the CLSID of the object.</summary>
+      <param name="pClassID"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityAttitudeQuaternion.WriteSafeArray">
+      <summary>Serialize the object to a byte array.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityAttitudeQuaternion.ReadSafeArray(System.Object)">
+      <summary>Deserialize a byte array into the object.</summary>
+      <param name="Bytes"></param>
+    </member>
+    <member name="P:AGI.Entity.AgEntityAttitudeQuaternion.ReferenceAxis">
+      <summary>The reference axis.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityAttitudeQuaternion.Q1">
+      <summary>The first element.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityAttitudeQuaternion.Q2">
+      <summary>The second element.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityAttitudeQuaternion.Q3">
+      <summary>The third element.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityAttitudeQuaternion.Q4">
+      <summary>The fourth element.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgEntityAttitudeQuaternionClass">
+      <summary>Attitude represented as a quaternion.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityAttitudeQuaternionClass.Set(System.Double,System.Double,System.Double,System.Double)">
+      <summary>Set all elements.</summary>
+      <param name="Q1"></param>
+      <param name="Q2"></param>
+      <param name="Q3"></param>
+      <param name="Q4"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityAttitudeQuaternionClass.Get(.double@,.double@,.double@,.double@)">
+      <summary>Get all elements.</summary>
+      <param name="Q1"></param>
+      <param name="Q2"></param>
+      <param name="Q3"></param>
+      <param name="Q4"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityAttitudeQuaternionClass.GetArray">
+      <summary>Get all elements as an array.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityAttitudeQuaternionClass.Merge(System.Object)">
+      <summary>Merges the contents of the provided object into the calling object.</summary>
+      <param name="ObjectToMerge"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityAttitudeQuaternionClass.GetClassID(stdole.GUID@)">
+      <summary>Returns the CLSID of the object.</summary>
+      <param name="pClassID"></param>
+    </member>
+    <member name="M:AGI.Entity.AgEntityAttitudeQuaternionClass.WriteSafeArray">
+      <summary>Serialize the object to a byte array.</summary>
+    </member>
+    <member name="M:AGI.Entity.AgEntityAttitudeQuaternionClass.ReadSafeArray(System.Object)">
+      <summary>Deserialize a byte array into the object.</summary>
+      <param name="Bytes"></param>
+    </member>
+    <member name="P:AGI.Entity.AgEntityAttitudeQuaternionClass.ReferenceAxis">
+      <summary>The reference axis.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityAttitudeQuaternionClass.Q1">
+      <summary>The first element.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityAttitudeQuaternionClass.Q2">
+      <summary>The second element.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityAttitudeQuaternionClass.Q3">
+      <summary>The third element.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgEntityAttitudeQuaternionClass.Q4">
+      <summary>The fourth element.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgShapeMarker">
+      <summary>A marker represented by a shape.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgShapeMarker.Shape">
+      <summary>The marker shape.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgShapeMarker.Color">
+      <summary>The color of the marker.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgShapeMarker.Show">
+      <summary>Indicates if the marker should be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgShapeMarker.Size">
+      <summary>The size of the marker in pixels.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgShapeMarker.Transparent">
+      <summary>Indicates if the marker background should be transparent.</summary>
+    </member>
+    <member name="T:AGI.Entity.AgShapeMarkerClass">
+      <summary>A marker represented by a shape.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgShapeMarkerClass.Shape">
+      <summary>The marker shape.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgShapeMarkerClass.Color">
+      <summary>The color of the marker.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgShapeMarkerClass.Show">
+      <summary>Indicates if the marker should be displayed.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgShapeMarkerClass.Size">
+      <summary>The size of the marker in pixels.</summary>
+    </member>
+    <member name="P:AGI.Entity.AgShapeMarkerClass.Transparent">
+      <summary>Indicates if the marker background should be transparent.</summary>
+    </member>
+  </members>
+</doc>

@@ -1,0 +1,485 @@
+<doc>
+  <assembly>
+    <name>AGI.Search</name>
+  </assembly>
+  <members>
+    <member name="T:AGI.Search.AgESearchPluginErrorCodes">
+      <summary>Enumeration of AgSearchPlugin General Error Codes.</summary>
+    </member>
+    <member name="F:AGI.Search.AgESearchPluginErrorCodes.eSearchPluginErrorCodesOperandError">
+      <summary>Seach Plugin: Operand Error.</summary>
+    </member>
+    <member name="F:AGI.Search.AgESearchPluginErrorCodes.eSearchPluginErrorCodesOperandProfileFailure">
+      <summary>Seach Plugin: Profile Failure.</summary>
+    </member>
+    <member name="F:AGI.Search.AgESearchPluginErrorCodes.eSearchPluginErrorCodesGUIDataFailure">
+      <summary>Search Plugin: GUI Data Failure.</summary>
+    </member>
+    <member name="F:AGI.Search.AgESearchPluginErrorCodes.eSearchPluginErrorCodesOperandStopped">
+      <summary>Seach Plugin: Operand Stopped.</summary>
+    </member>
+    <member name="F:AGI.Search.AgESearchPluginErrorCodes.eSearchPluginErrorCodesOperandCanceled">
+      <summary>Seach Plugin: Operand Canceled.</summary>
+    </member>
+    <member name="T:AGI.Search.IAgPluginSearch">
+      <summary>Plugin search algorithm interface. A method returning false indicates an error.</summary>
+    </member>
+    <member name="M:AGI.Search.IAgPluginSearch.GetControlsProgID(AGI.Search.AgESearchControlTypes)">
+      <summary>Gets the progid of the controls of the specified type for this algorithm.  If a certain control type isn't supported, return an empty string.</summary>
+      <param name="Type"></param>
+    </member>
+    <member name="M:AGI.Search.IAgPluginSearch.GetResultsProgID">
+      <summary>Gets the progid of the results for this algorithm.</summary>
+    </member>
+    <member name="M:AGI.Search.IAgPluginSearch.Init(AGI.Plugin.IAgUtPluginSite)">
+      <summary>Triggered when the plugin is initialized to allow for any additional needed initialization. Must return true to turn on use of plugin.</summary>
+      <param name="Site"></param>
+    </member>
+    <member name="M:AGI.Search.IAgPluginSearch.Run(AGI.Search.IAgSearchPluginOperand,.VARIANT_BOOL)">
+      <summary>Triggered when the plugin is run.</summary>
+      <param name="SearchOperand"></param>
+      <param name="Testing"></param>
+    </member>
+    <member name="M:AGI.Search.IAgPluginSearch.Free">
+      <summary>Triggered just before the plugin is freed from use to allow for any additional cleanup.</summary>
+    </member>
+    <member name="P:AGI.Search.IAgPluginSearch.Name">
+      <summary>Triggered to set the name of the plugin used in messages.</summary>
+    </member>
+    <member name="T:AGI.Search.AgESearchControlTypes">
+      <summary>Enumeration of control types for search plugins.</summary>
+    </member>
+    <member name="F:AGI.Search.AgESearchControlTypes.eSearchControlTypesReal">
+      <summary>Real numbers (doubles)</summary>
+    </member>
+    <member name="T:AGI.Search.IAgSearchPluginOperand">
+      <summary>Astrogator plugin class for plugin search algorithm's operand.</summary>
+    </member>
+    <member name="M:AGI.Search.IAgSearchPluginOperand.Trace(System.Int32)">
+      <summary>Set this interface to trace the next numCalls by outputting a message to the message viewer.</summary>
+      <param name="NumCalls"></param>
+    </member>
+    <member name="M:AGI.Search.IAgSearchPluginOperand.Evaluate">
+      <summary>Evaluates the operand of the search.  Treated as a perturbation so graphs are not updated.</summary>
+    </member>
+    <member name="M:AGI.Search.IAgSearchPluginOperand.Evaluate2(System.Boolean)">
+      <summary>Evaluates the operand of the search.  Graphs are updated if IsIteration is true.</summary>
+      <param name="IsIteration"></param>
+    </member>
+    <member name="P:AGI.Search.IAgSearchPluginOperand.Controls">
+      <summary>Collection of controls.</summary>
+    </member>
+    <member name="P:AGI.Search.IAgSearchPluginOperand.Results">
+      <summary>Collection of results.</summary>
+    </member>
+    <member name="P:AGI.Search.IAgSearchPluginOperand.StatusGrid">
+      <summary>Status Grid.</summary>
+    </member>
+    <member name="P:AGI.Search.IAgSearchPluginOperand.LogFile">
+      <summary>Log file plugin can use.</summary>
+    </member>
+    <member name="P:AGI.Search.IAgSearchPluginOperand.ProfileName">
+      <summary>Name of this search profile.</summary>
+    </member>
+    <member name="T:AGI.Search.IAgSearchControlCollection">
+      <summary>Collection for plugin search algorithm controls</summary>
+    </member>
+    <member name="P:AGI.Search.IAgSearchControlCollection.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Search.IAgSearchControlCollection._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Search.IAgSearchControlCollection.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="T:AGI.Search.IAgSearchControl">
+      <summary>Plugin search algorithm control</summary>
+    </member>
+    <member name="P:AGI.Search.IAgSearchControl.ObjectName">
+      <summary>Name of the object associated with the control.  Set by STK.</summary>
+    </member>
+    <member name="P:AGI.Search.IAgSearchControl.ControlName">
+      <summary>Name of the control.  Set by STK.</summary>
+    </member>
+    <member name="P:AGI.Search.IAgSearchControl.ControlType">
+      <summary>Type of the control.  Set by STK.</summary>
+    </member>
+    <member name="T:AGI.Search.IAgSearchResultCollection">
+      <summary>Collection for plugin search algorithm results</summary>
+    </member>
+    <member name="P:AGI.Search.IAgSearchResultCollection.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Search.IAgSearchResultCollection._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Search.IAgSearchResultCollection.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="T:AGI.Search.IAgSearchResult">
+      <summary>Plugin search algorithm result</summary>
+    </member>
+    <member name="P:AGI.Search.IAgSearchResult.ObjectName">
+      <summary>Name of the object associated with the result.  Set by STK.</summary>
+    </member>
+    <member name="P:AGI.Search.IAgSearchResult.ResultName">
+      <summary>Name of the result.  Set by STK.</summary>
+    </member>
+    <member name="P:AGI.Search.IAgSearchResult.CurrentValue">
+      <summary>The current value of the result.  Set by STK.</summary>
+    </member>
+    <member name="P:AGI.Search.IAgSearchResult.IsValid">
+      <summary>Whether the current value of the result is valid.  Set by STK.</summary>
+    </member>
+    <member name="P:AGI.Search.IAgSearchResult.Dimension">
+      <summary>The dimension of the result.  Set by STK.</summary>
+    </member>
+    <member name="P:AGI.Search.IAgSearchResult.InternalUnit">
+      <summary>The internal unit of the result.  Set by STK.</summary>
+    </member>
+    <member name="T:AGI.Search.IAgPluginSearchStatusGrid">
+      <summary>Astrogator plugin class for plugin search algorithm's status grid.</summary>
+    </member>
+    <member name="M:AGI.Search.IAgPluginSearchStatusGrid.CreateGrid(System.Int32,System.Int32)">
+      <summary>Creates the grid.</summary>
+      <param name="NumRows"></param>
+      <param name="NumCols"></param>
+    </member>
+    <member name="M:AGI.Search.IAgPluginSearchStatusGrid.SetCellString(System.Int32,System.Int32,System.String)">
+      <summary>Sets a string in a cell.</summary>
+      <param name="Row"></param>
+      <param name="Col"></param>
+      <param name="Text"></param>
+    </member>
+    <member name="M:AGI.Search.IAgPluginSearchStatusGrid.SetCellValue(System.Int32,System.Int32,System.Double,System.String,System.Int32)">
+      <summary>Sets a number in a cell. Uses scenario units.</summary>
+      <param name="Row"></param>
+      <param name="Col"></param>
+      <param name="Value"></param>
+      <param name="Dimension"></param>
+      <param name="NumDigits"></param>
+    </member>
+    <member name="M:AGI.Search.IAgPluginSearchStatusGrid.SetStatus(System.String)">
+      <summary>Sets the status in the title bar.</summary>
+      <param name="Value"></param>
+    </member>
+    <member name="M:AGI.Search.IAgPluginSearchStatusGrid.Refresh">
+      <summary>Refreshes the grid.</summary>
+    </member>
+    <member name="M:AGI.Search.IAgPluginSearchStatusGrid.SetColumnToTruncateLeft(System.Int32)">
+      <summary>Sets a column to truncate left.</summary>
+      <param name="Col"></param>
+    </member>
+    <member name="M:AGI.Search.IAgPluginSearchStatusGrid.SetHeaderCellString(System.Int32,System.Int32,System.String)">
+      <summary>Sets a bold string in a cell.</summary>
+      <param name="Row"></param>
+      <param name="Col"></param>
+      <param name="Text"></param>
+    </member>
+    <member name="M:AGI.Search.IAgPluginSearchStatusGrid.SetCellControlValue(System.Int32,System.Int32,System.Int32,System.Double,System.Int32)">
+      <summary>Sets a number in a cell in the units of a control value.</summary>
+      <param name="Row"></param>
+      <param name="Col"></param>
+      <param name="ControlIndex"></param>
+      <param name="Value"></param>
+      <param name="NumDigits"></param>
+    </member>
+    <member name="M:AGI.Search.IAgPluginSearchStatusGrid.SetCellResultValue(System.Int32,System.Int32,System.Int32,System.Double,System.Int32)">
+      <summary>Sets a number in a cell in the units of a result value.</summary>
+      <param name="Row"></param>
+      <param name="Col"></param>
+      <param name="ResultIndex"></param>
+      <param name="Value"></param>
+      <param name="NumDigits"></param>
+    </member>
+    <member name="M:AGI.Search.IAgPluginSearchStatusGrid.SetCellControlDeltaValue(System.Int32,System.Int32,System.Int32,System.Double,System.Int32)">
+      <summary>Sets a number in a cell in the delta units of a control value.</summary>
+      <param name="Row"></param>
+      <param name="Col"></param>
+      <param name="ControlIndex"></param>
+      <param name="Value"></param>
+      <param name="NumDigits"></param>
+    </member>
+    <member name="M:AGI.Search.IAgPluginSearchStatusGrid.SetCellResultDeltaValue(System.Int32,System.Int32,System.Int32,System.Double,System.Int32)">
+      <summary>Sets a number in a cell in the delta units of a result value.</summary>
+      <param name="Row"></param>
+      <param name="Col"></param>
+      <param name="ResultIndex"></param>
+      <param name="Value"></param>
+      <param name="NumDigits"></param>
+    </member>
+    <member name="T:AGI.Search.IAgSearchControlReal">
+      <summary>Plugin search algorithm control, real number</summary>
+    </member>
+    <member name="P:AGI.Search.IAgSearchControlReal.CurrentValue">
+      <summary>The current value of the control.  Set by the plugin search algorithm.</summary>
+    </member>
+    <member name="P:AGI.Search.IAgSearchControlReal.InitialValue">
+      <summary>The value of the control at the start of the plugin search run.  Set by STK.</summary>
+    </member>
+    <member name="P:AGI.Search.IAgSearchControlReal.Dimension">
+      <summary>The dimension of the control.  Set by STK.</summary>
+    </member>
+    <member name="P:AGI.Search.IAgSearchControlReal.InternalUnit">
+      <summary>The internal unit of the control.  Set by STK.</summary>
+    </member>
+    <member name="P:AGI.Search.IAgSearchControlReal.ObjectName">
+      <summary>Name of the object associated with the control.  Set by STK.</summary>
+    </member>
+    <member name="P:AGI.Search.IAgSearchControlReal.ControlName">
+      <summary>Name of the control.  Set by STK.</summary>
+    </member>
+    <member name="P:AGI.Search.IAgSearchControlReal.ControlType">
+      <summary>Type of the control.  Set by STK.</summary>
+    </member>
+    <member name="T:AGI.Search.AgSearchPluginOperand">
+      <summary>Plugin class for plugin search algorithm's operand</summary>
+    </member>
+    <member name="M:AGI.Search.AgSearchPluginOperand.Trace(System.Int32)">
+      <summary>Set this interface to trace the next numCalls by outputting a message to the message viewer.</summary>
+      <param name="NumCalls"></param>
+    </member>
+    <member name="M:AGI.Search.AgSearchPluginOperand.Evaluate">
+      <summary>Evaluates the operand of the search.  Treated as a perturbation so graphs are not updated.</summary>
+    </member>
+    <member name="M:AGI.Search.AgSearchPluginOperand.Evaluate2(System.Boolean)">
+      <summary>Evaluates the operand of the search.  Graphs are updated if IsIteration is true.</summary>
+      <param name="IsIteration"></param>
+    </member>
+    <member name="P:AGI.Search.AgSearchPluginOperand.Controls">
+      <summary>Collection of controls.</summary>
+    </member>
+    <member name="P:AGI.Search.AgSearchPluginOperand.Results">
+      <summary>Collection of results.</summary>
+    </member>
+    <member name="P:AGI.Search.AgSearchPluginOperand.StatusGrid">
+      <summary>Status Grid.</summary>
+    </member>
+    <member name="P:AGI.Search.AgSearchPluginOperand.LogFile">
+      <summary>Log file plugin can use.</summary>
+    </member>
+    <member name="P:AGI.Search.AgSearchPluginOperand.ProfileName">
+      <summary>Name of this search profile.</summary>
+    </member>
+    <member name="T:AGI.Search.AgSearchPluginOperandClass">
+      <summary>Plugin class for plugin search algorithm's operand</summary>
+    </member>
+    <member name="M:AGI.Search.AgSearchPluginOperandClass.Trace(System.Int32)">
+      <summary>Set this interface to trace the next numCalls by outputting a message to the message viewer.</summary>
+      <param name="NumCalls"></param>
+    </member>
+    <member name="M:AGI.Search.AgSearchPluginOperandClass.Evaluate">
+      <summary>Evaluates the operand of the search.  Treated as a perturbation so graphs are not updated.</summary>
+    </member>
+    <member name="M:AGI.Search.AgSearchPluginOperandClass.Evaluate2(System.Boolean)">
+      <summary>Evaluates the operand of the search.  Graphs are updated if IsIteration is true.</summary>
+      <param name="IsIteration"></param>
+    </member>
+    <member name="P:AGI.Search.AgSearchPluginOperandClass.Controls">
+      <summary>Collection of controls.</summary>
+    </member>
+    <member name="P:AGI.Search.AgSearchPluginOperandClass.Results">
+      <summary>Collection of results.</summary>
+    </member>
+    <member name="P:AGI.Search.AgSearchPluginOperandClass.StatusGrid">
+      <summary>Status Grid.</summary>
+    </member>
+    <member name="P:AGI.Search.AgSearchPluginOperandClass.LogFile">
+      <summary>Log file plugin can use.</summary>
+    </member>
+    <member name="P:AGI.Search.AgSearchPluginOperandClass.ProfileName">
+      <summary>Name of this search profile.</summary>
+    </member>
+    <member name="T:AGI.Search.AgSearchControlCollection">
+      <summary>Plugin class for search controls collection</summary>
+    </member>
+    <member name="P:AGI.Search.AgSearchControlCollection.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Search.AgSearchControlCollection._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Search.AgSearchControlCollection.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="T:AGI.Search.AgSearchControlCollectionClass">
+      <summary>Plugin class for search controls collection</summary>
+    </member>
+    <member name="P:AGI.Search.AgSearchControlCollectionClass.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Search.AgSearchControlCollectionClass._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Search.AgSearchControlCollectionClass.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="T:AGI.Search.AgSearchResultCollection">
+      <summary>Plugin class for search results collection</summary>
+    </member>
+    <member name="P:AGI.Search.AgSearchResultCollection.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Search.AgSearchResultCollection._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Search.AgSearchResultCollection.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="T:AGI.Search.AgSearchResultCollectionClass">
+      <summary>Plugin class for search results collection</summary>
+    </member>
+    <member name="P:AGI.Search.AgSearchResultCollectionClass.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Search.AgSearchResultCollectionClass._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Search.AgSearchResultCollectionClass.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="T:AGI.Search.AgPluginSearchStatusGrid">
+      <summary>Plugin class for search plugin status grid</summary>
+    </member>
+    <member name="M:AGI.Search.AgPluginSearchStatusGrid.CreateGrid(System.Int32,System.Int32)">
+      <summary>Creates the grid.</summary>
+      <param name="NumRows"></param>
+      <param name="NumCols"></param>
+    </member>
+    <member name="M:AGI.Search.AgPluginSearchStatusGrid.SetCellString(System.Int32,System.Int32,System.String)">
+      <summary>Sets a string in a cell.</summary>
+      <param name="Row"></param>
+      <param name="Col"></param>
+      <param name="Text"></param>
+    </member>
+    <member name="M:AGI.Search.AgPluginSearchStatusGrid.SetCellValue(System.Int32,System.Int32,System.Double,System.String,System.Int32)">
+      <summary>Sets a number in a cell. Uses scenario units.</summary>
+      <param name="Row"></param>
+      <param name="Col"></param>
+      <param name="Value"></param>
+      <param name="Dimension"></param>
+      <param name="NumDigits"></param>
+    </member>
+    <member name="M:AGI.Search.AgPluginSearchStatusGrid.SetStatus(System.String)">
+      <summary>Sets the status in the title bar.</summary>
+      <param name="Value"></param>
+    </member>
+    <member name="M:AGI.Search.AgPluginSearchStatusGrid.Refresh">
+      <summary>Refreshes the grid.</summary>
+    </member>
+    <member name="M:AGI.Search.AgPluginSearchStatusGrid.SetColumnToTruncateLeft(System.Int32)">
+      <summary>Sets a column to truncate left.</summary>
+      <param name="Col"></param>
+    </member>
+    <member name="M:AGI.Search.AgPluginSearchStatusGrid.SetHeaderCellString(System.Int32,System.Int32,System.String)">
+      <summary>Sets a bold string in a cell.</summary>
+      <param name="Row"></param>
+      <param name="Col"></param>
+      <param name="Text"></param>
+    </member>
+    <member name="M:AGI.Search.AgPluginSearchStatusGrid.SetCellControlValue(System.Int32,System.Int32,System.Int32,System.Double,System.Int32)">
+      <summary>Sets a number in a cell in the units of a control value.</summary>
+      <param name="Row"></param>
+      <param name="Col"></param>
+      <param name="ControlIndex"></param>
+      <param name="Value"></param>
+      <param name="NumDigits"></param>
+    </member>
+    <member name="M:AGI.Search.AgPluginSearchStatusGrid.SetCellResultValue(System.Int32,System.Int32,System.Int32,System.Double,System.Int32)">
+      <summary>Sets a number in a cell in the units of a result value.</summary>
+      <param name="Row"></param>
+      <param name="Col"></param>
+      <param name="ResultIndex"></param>
+      <param name="Value"></param>
+      <param name="NumDigits"></param>
+    </member>
+    <member name="M:AGI.Search.AgPluginSearchStatusGrid.SetCellControlDeltaValue(System.Int32,System.Int32,System.Int32,System.Double,System.Int32)">
+      <summary>Sets a number in a cell in the delta units of a control value.</summary>
+      <param name="Row"></param>
+      <param name="Col"></param>
+      <param name="ControlIndex"></param>
+      <param name="Value"></param>
+      <param name="NumDigits"></param>
+    </member>
+    <member name="M:AGI.Search.AgPluginSearchStatusGrid.SetCellResultDeltaValue(System.Int32,System.Int32,System.Int32,System.Double,System.Int32)">
+      <summary>Sets a number in a cell in the delta units of a result value.</summary>
+      <param name="Row"></param>
+      <param name="Col"></param>
+      <param name="ResultIndex"></param>
+      <param name="Value"></param>
+      <param name="NumDigits"></param>
+    </member>
+    <member name="T:AGI.Search.AgPluginSearchStatusGridClass">
+      <summary>Plugin class for search plugin status grid</summary>
+    </member>
+    <member name="M:AGI.Search.AgPluginSearchStatusGridClass.CreateGrid(System.Int32,System.Int32)">
+      <summary>Creates the grid.</summary>
+      <param name="NumRows"></param>
+      <param name="NumCols"></param>
+    </member>
+    <member name="M:AGI.Search.AgPluginSearchStatusGridClass.SetCellString(System.Int32,System.Int32,System.String)">
+      <summary>Sets a string in a cell.</summary>
+      <param name="Row"></param>
+      <param name="Col"></param>
+      <param name="Text"></param>
+    </member>
+    <member name="M:AGI.Search.AgPluginSearchStatusGridClass.SetCellValue(System.Int32,System.Int32,System.Double,System.String,System.Int32)">
+      <summary>Sets a number in a cell. Uses scenario units.</summary>
+      <param name="Row"></param>
+      <param name="Col"></param>
+      <param name="Value"></param>
+      <param name="Dimension"></param>
+      <param name="NumDigits"></param>
+    </member>
+    <member name="M:AGI.Search.AgPluginSearchStatusGridClass.SetStatus(System.String)">
+      <summary>Sets the status in the title bar.</summary>
+      <param name="Value"></param>
+    </member>
+    <member name="M:AGI.Search.AgPluginSearchStatusGridClass.Refresh">
+      <summary>Refreshes the grid.</summary>
+    </member>
+    <member name="M:AGI.Search.AgPluginSearchStatusGridClass.SetColumnToTruncateLeft(System.Int32)">
+      <summary>Sets a column to truncate left.</summary>
+      <param name="Col"></param>
+    </member>
+    <member name="M:AGI.Search.AgPluginSearchStatusGridClass.SetHeaderCellString(System.Int32,System.Int32,System.String)">
+      <summary>Sets a bold string in a cell.</summary>
+      <param name="Row"></param>
+      <param name="Col"></param>
+      <param name="Text"></param>
+    </member>
+    <member name="M:AGI.Search.AgPluginSearchStatusGridClass.SetCellControlValue(System.Int32,System.Int32,System.Int32,System.Double,System.Int32)">
+      <summary>Sets a number in a cell in the units of a control value.</summary>
+      <param name="Row"></param>
+      <param name="Col"></param>
+      <param name="ControlIndex"></param>
+      <param name="Value"></param>
+      <param name="NumDigits"></param>
+    </member>
+    <member name="M:AGI.Search.AgPluginSearchStatusGridClass.SetCellResultValue(System.Int32,System.Int32,System.Int32,System.Double,System.Int32)">
+      <summary>Sets a number in a cell in the units of a result value.</summary>
+      <param name="Row"></param>
+      <param name="Col"></param>
+      <param name="ResultIndex"></param>
+      <param name="Value"></param>
+      <param name="NumDigits"></param>
+    </member>
+    <member name="M:AGI.Search.AgPluginSearchStatusGridClass.SetCellControlDeltaValue(System.Int32,System.Int32,System.Int32,System.Double,System.Int32)">
+      <summary>Sets a number in a cell in the delta units of a control value.</summary>
+      <param name="Row"></param>
+      <param name="Col"></param>
+      <param name="ControlIndex"></param>
+      <param name="Value"></param>
+      <param name="NumDigits"></param>
+    </member>
+    <member name="M:AGI.Search.AgPluginSearchStatusGridClass.SetCellResultDeltaValue(System.Int32,System.Int32,System.Int32,System.Double,System.Int32)">
+      <summary>Sets a number in a cell in the delta units of a result value.</summary>
+      <param name="Row"></param>
+      <param name="Col"></param>
+      <param name="ResultIndex"></param>
+      <param name="Value"></param>
+      <param name="NumDigits"></param>
+    </member>
+  </members>
+</doc>

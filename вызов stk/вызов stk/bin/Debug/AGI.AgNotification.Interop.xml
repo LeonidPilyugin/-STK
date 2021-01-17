@@ -1,0 +1,320 @@
+<doc>
+  <assembly>
+    <name>AGI.AgNotification</name>
+  </assembly>
+  <members>
+    <member name="T:AGI.AgNotification.IAgNtfEventType">
+      <summary>IAgNtfEventType Interface</summary>
+    </member>
+    <member name="M:AGI.AgNotification.IAgNtfEventType.GetEventID">
+      <summary>method GetEventID</summary>
+    </member>
+    <member name="M:AGI.AgNotification.IAgNtfEventType.IsA">
+      <summary>method IsA</summary>
+    </member>
+    <member name="T:AGI.AgNotification.IAgNtfEventTypeInit">
+      <summary>IAgNtfEventTypeInit Interface</summary>
+    </member>
+    <member name="M:AGI.AgNotification.IAgNtfEventTypeInit.SetEventID(AGI.AgNotification.tagEVENTID)">
+      <summary>method SetEventID</summary>
+      <param name="evtID"></param>
+    </member>
+    <member name="M:AGI.AgNotification.IAgNtfEventTypeInit.SetParent(AGI.AgNotification.IAgNtfEventType)">
+      <summary>method SetParent</summary>
+      <param name="pParent"></param>
+    </member>
+    <member name="T:AGI.AgNotification.IAgNtfEvent">
+      <summary>IAgNtfEvent Interface</summary>
+    </member>
+    <member name="M:AGI.AgNotification.IAgNtfEvent.GetType">
+      <summary>method GetType</summary>
+    </member>
+    <member name="T:AGI.AgNotification.IAgNtfEventInit">
+      <summary>IAgNtfEventInit Interface</summary>
+    </member>
+    <member name="M:AGI.AgNotification.IAgNtfEventInit.SetType(AGI.AgNotification.IAgNtfEventType)">
+      <summary>method SetType</summary>
+      <param name="pEvtType"></param>
+    </member>
+    <member name="T:AGI.AgNotification.IAgNtfSubscriber">
+      <summary>IAgNtfSubscriber Interface</summary>
+    </member>
+    <member name="M:AGI.AgNotification.IAgNtfSubscriber.Update(AGI.AgNotification.IAgNtfEvent)">
+      <summary>method Update</summary>
+      <param name="pEvent"></param>
+    </member>
+    <member name="M:AGI.AgNotification.IAgNtfSubscriber.CommitUpdate">
+      <summary>method CommitUpdate</summary>
+    </member>
+    <member name="T:AGI.AgNotification.IAgNtfPublisher">
+      <summary>IAgNtfPublisher Interface</summary>
+    </member>
+    <member name="M:AGI.AgNotification.IAgNtfPublisher.AddSubscriber(AGI.AgNotification.IAgNtfSubscriber,AGI.AgNotification.tagEVENTID)">
+      <summary>method AddSubscriber</summary>
+      <param name="pSub"></param>
+      <param name="evtID"></param>
+    </member>
+    <member name="M:AGI.AgNotification.IAgNtfPublisher.RemoveSubscriber(AGI.AgNotification.IAgNtfSubscriber,AGI.AgNotification.tagEVENTID)">
+      <summary>method RemoveSubscriber</summary>
+      <param name="pSub"></param>
+      <param name="evtID"></param>
+    </member>
+    <member name="T:AGI.AgNotification.IAgNtfMgr">
+      <summary>IAgNtfMgr Interface</summary>
+    </member>
+    <member name="M:AGI.AgNotification.IAgNtfMgr.RegisterPub(AGI.AgNotification.IAgNtfPublisher)">
+      <summary>method RegisterPub</summary>
+      <param name="pPub"></param>
+    </member>
+    <member name="M:AGI.AgNotification.IAgNtfMgr.RegisterSub(AGI.AgNotification.IAgNtfSubscriber)">
+      <summary>method RegisterSub</summary>
+      <param name="pSub"></param>
+    </member>
+    <member name="M:AGI.AgNotification.IAgNtfMgr.RegisterPubSubEvt(AGI.AgNotification.IAgNtfPublisher,AGI.AgNotification.IAgNtfSubscriber,AGI.AgNotification.tagEVENTID)">
+      <summary>method RegisterPubSubEvt</summary>
+      <param name="pPub"></param>
+      <param name="pSub"></param>
+      <param name="evtID"></param>
+    </member>
+    <member name="M:AGI.AgNotification.IAgNtfMgr.RegisterAllPubs(AGI.AgNotification.IAgNtfSubscriber,AGI.AgNotification.tagEVENTID)">
+      <summary>method RegisterAllPubs</summary>
+      <param name="pSub"></param>
+      <param name="evtID"></param>
+    </member>
+    <member name="M:AGI.AgNotification.IAgNtfMgr.UnRegisterPub(AGI.AgNotification.IAgNtfPublisher)">
+      <summary>method UnRegisterPub</summary>
+      <param name="pPub"></param>
+    </member>
+    <member name="M:AGI.AgNotification.IAgNtfMgr.UnRegisterSub(AGI.AgNotification.IAgNtfSubscriber)">
+      <summary>method UnRegisterSub</summary>
+      <param name="pSub"></param>
+    </member>
+    <member name="M:AGI.AgNotification.IAgNtfMgr.UnRegisterPubSubEvt(AGI.AgNotification.IAgNtfPublisher,AGI.AgNotification.IAgNtfSubscriber,AGI.AgNotification.tagEVENTID)">
+      <summary>method UnRegisterPubSubEvt</summary>
+      <param name="pPub"></param>
+      <param name="pSub"></param>
+      <param name="evtID"></param>
+    </member>
+    <member name="M:AGI.AgNotification.IAgNtfMgr.UnRegisterAllPubs(AGI.AgNotification.IAgNtfSubscriber,AGI.AgNotification.tagEVENTID)">
+      <summary>method UnRegisterAllPubs</summary>
+      <param name="pSub"></param>
+      <param name="evtID"></param>
+    </member>
+    <member name="M:AGI.AgNotification.IAgNtfMgr.Notify(AGI.AgNotification.IAgNtfPublisher,AGI.AgNotification.IAgNtfEvent)">
+      <summary>method Notify</summary>
+      <param name="pPub"></param>
+      <param name="pEvent"></param>
+    </member>
+    <member name="M:AGI.AgNotification.IAgNtfMgr.StringFromEVENTID(AGI.AgNotification.tagEVENTID)">
+      <summary>method StringFromEVENTID</summary>
+      <param name="evtID"></param>
+    </member>
+    <member name="M:AGI.AgNotification.IAgNtfMgr.EVENTIDFromString(System.String)">
+      <summary>method EVENTIDFromString</summary>
+      <param name="bstrEvtID"></param>
+    </member>
+    <member name="T:AGI.AgNotification._IAgNtfConnectionPtAdaptorEvents">
+      <summary>_IAgNtfConnectionPtAdaptorEvents Interface</summary>
+    </member>
+    <member name="M:AGI.AgNotification._IAgNtfConnectionPtAdaptorEvents.OnUpdate(System.Object)">
+      <summary>method OnUpdate</summary>
+      <param name="var"></param>
+    </member>
+    <member name="M:AGI.AgNotification._IAgNtfConnectionPtAdaptorEvents.OnCommitUpdate">
+      <summary>method OnCommitUpdate</summary>
+    </member>
+    <member name="T:AGI.AgNotification.IAgNtfConnectionPtAdaptor">
+      <summary>IAgNtfConnectionPtAdaptor Interface</summary>
+    </member>
+    <member name="M:AGI.AgNotification.IAgNtfConnectionPtAdaptor.Attach(AGI.AgNotification.IAgNtfPublisher,AGI.AgNotification.tagEVENTID)">
+      <summary>method Attach</summary>
+      <param name="pPub"></param>
+      <param name="evtID"></param>
+    </member>
+    <member name="T:AGI.AgNotification.AgNtfEventType">
+      <summary>AgNtfEventType Class</summary>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfEventType.GetEventID">
+      <summary>method GetEventID</summary>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfEventType.IsA">
+      <summary>method IsA</summary>
+    </member>
+    <member name="T:AGI.AgNotification.AgNtfEventTypeClass">
+      <summary>AgNtfEventType Class</summary>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfEventTypeClass.GetEventID">
+      <summary>method GetEventID</summary>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfEventTypeClass.IsA">
+      <summary>method IsA</summary>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfEventTypeClass.SetEventID(AGI.AgNotification.tagEVENTID)">
+      <summary>method SetEventID</summary>
+      <param name="evtID"></param>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfEventTypeClass.SetParent(AGI.AgNotification.IAgNtfEventType)">
+      <summary>method SetParent</summary>
+      <param name="pParent"></param>
+    </member>
+    <member name="T:AGI.AgNotification.AgNtfEvent">
+      <summary>AgNtfEvent Class</summary>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfEvent.GetType">
+      <summary>method GetType</summary>
+    </member>
+    <member name="T:AGI.AgNotification.AgNtfEventClass">
+      <summary>AgNtfEvent Class</summary>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfEventClass.GetType">
+      <summary>method GetType</summary>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfEventClass.SetType(AGI.AgNotification.IAgNtfEventType)">
+      <summary>method SetType</summary>
+      <param name="pEvtType"></param>
+    </member>
+    <member name="T:AGI.AgNotification.AgNtfMgr">
+      <summary>AgNtfMgr Class</summary>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfMgr.RegisterPub(AGI.AgNotification.IAgNtfPublisher)">
+      <summary>method RegisterPub</summary>
+      <param name="pPub"></param>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfMgr.RegisterSub(AGI.AgNotification.IAgNtfSubscriber)">
+      <summary>method RegisterSub</summary>
+      <param name="pSub"></param>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfMgr.RegisterPubSubEvt(AGI.AgNotification.IAgNtfPublisher,AGI.AgNotification.IAgNtfSubscriber,AGI.AgNotification.tagEVENTID)">
+      <summary>method RegisterPubSubEvt</summary>
+      <param name="pPub"></param>
+      <param name="pSub"></param>
+      <param name="evtID"></param>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfMgr.RegisterAllPubs(AGI.AgNotification.IAgNtfSubscriber,AGI.AgNotification.tagEVENTID)">
+      <summary>method RegisterAllPubs</summary>
+      <param name="pSub"></param>
+      <param name="evtID"></param>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfMgr.UnRegisterPub(AGI.AgNotification.IAgNtfPublisher)">
+      <summary>method UnRegisterPub</summary>
+      <param name="pPub"></param>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfMgr.UnRegisterSub(AGI.AgNotification.IAgNtfSubscriber)">
+      <summary>method UnRegisterSub</summary>
+      <param name="pSub"></param>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfMgr.UnRegisterPubSubEvt(AGI.AgNotification.IAgNtfPublisher,AGI.AgNotification.IAgNtfSubscriber,AGI.AgNotification.tagEVENTID)">
+      <summary>method UnRegisterPubSubEvt</summary>
+      <param name="pPub"></param>
+      <param name="pSub"></param>
+      <param name="evtID"></param>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfMgr.UnRegisterAllPubs(AGI.AgNotification.IAgNtfSubscriber,AGI.AgNotification.tagEVENTID)">
+      <summary>method UnRegisterAllPubs</summary>
+      <param name="pSub"></param>
+      <param name="evtID"></param>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfMgr.Notify(AGI.AgNotification.IAgNtfPublisher,AGI.AgNotification.IAgNtfEvent)">
+      <summary>method Notify</summary>
+      <param name="pPub"></param>
+      <param name="pEvent"></param>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfMgr.StringFromEVENTID(AGI.AgNotification.tagEVENTID)">
+      <summary>method StringFromEVENTID</summary>
+      <param name="evtID"></param>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfMgr.EVENTIDFromString(System.String)">
+      <summary>method EVENTIDFromString</summary>
+      <param name="bstrEvtID"></param>
+    </member>
+    <member name="T:AGI.AgNotification.AgNtfMgrClass">
+      <summary>AgNtfMgr Class</summary>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfMgrClass.RegisterPub(AGI.AgNotification.IAgNtfPublisher)">
+      <summary>method RegisterPub</summary>
+      <param name="pPub"></param>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfMgrClass.RegisterSub(AGI.AgNotification.IAgNtfSubscriber)">
+      <summary>method RegisterSub</summary>
+      <param name="pSub"></param>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfMgrClass.RegisterPubSubEvt(AGI.AgNotification.IAgNtfPublisher,AGI.AgNotification.IAgNtfSubscriber,AGI.AgNotification.tagEVENTID)">
+      <summary>method RegisterPubSubEvt</summary>
+      <param name="pPub"></param>
+      <param name="pSub"></param>
+      <param name="evtID"></param>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfMgrClass.RegisterAllPubs(AGI.AgNotification.IAgNtfSubscriber,AGI.AgNotification.tagEVENTID)">
+      <summary>method RegisterAllPubs</summary>
+      <param name="pSub"></param>
+      <param name="evtID"></param>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfMgrClass.UnRegisterPub(AGI.AgNotification.IAgNtfPublisher)">
+      <summary>method UnRegisterPub</summary>
+      <param name="pPub"></param>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfMgrClass.UnRegisterSub(AGI.AgNotification.IAgNtfSubscriber)">
+      <summary>method UnRegisterSub</summary>
+      <param name="pSub"></param>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfMgrClass.UnRegisterPubSubEvt(AGI.AgNotification.IAgNtfPublisher,AGI.AgNotification.IAgNtfSubscriber,AGI.AgNotification.tagEVENTID)">
+      <summary>method UnRegisterPubSubEvt</summary>
+      <param name="pPub"></param>
+      <param name="pSub"></param>
+      <param name="evtID"></param>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfMgrClass.UnRegisterAllPubs(AGI.AgNotification.IAgNtfSubscriber,AGI.AgNotification.tagEVENTID)">
+      <summary>method UnRegisterAllPubs</summary>
+      <param name="pSub"></param>
+      <param name="evtID"></param>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfMgrClass.Notify(AGI.AgNotification.IAgNtfPublisher,AGI.AgNotification.IAgNtfEvent)">
+      <summary>method Notify</summary>
+      <param name="pPub"></param>
+      <param name="pEvent"></param>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfMgrClass.StringFromEVENTID(AGI.AgNotification.tagEVENTID)">
+      <summary>method StringFromEVENTID</summary>
+      <param name="evtID"></param>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfMgrClass.EVENTIDFromString(System.String)">
+      <summary>method EVENTIDFromString</summary>
+      <param name="bstrEvtID"></param>
+    </member>
+    <member name="T:AGI.AgNotification.AgNtfConnectionPtAdaptor">
+      <summary>AgNtfConnectionPtAdaptor Class</summary>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfConnectionPtAdaptor.Attach(AGI.AgNotification.IAgNtfPublisher,AGI.AgNotification.tagEVENTID)">
+      <summary>method Attach</summary>
+      <param name="pPub"></param>
+      <param name="evtID"></param>
+    </member>
+    <member name="E:AGI.AgNotification._IAgNtfConnectionPtAdaptorEvents_Event.OnUpdate">
+      <summary>method OnUpdate</summary>
+    </member>
+    <member name="E:AGI.AgNotification._IAgNtfConnectionPtAdaptorEvents_Event.OnCommitUpdate">
+      <summary>method OnCommitUpdate</summary>
+    </member>
+    <member name="T:AGI.AgNotification.AgNtfConnectionPtAdaptorClass">
+      <summary>AgNtfConnectionPtAdaptor Class</summary>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfConnectionPtAdaptorClass.Attach(AGI.AgNotification.IAgNtfPublisher,AGI.AgNotification.tagEVENTID)">
+      <summary>method Attach</summary>
+      <param name="pPub"></param>
+      <param name="evtID"></param>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfConnectionPtAdaptorClass.Update(AGI.AgNotification.IAgNtfEvent)">
+      <summary>method Update</summary>
+      <param name="pEvent"></param>
+    </member>
+    <member name="M:AGI.AgNotification.AgNtfConnectionPtAdaptorClass.CommitUpdate">
+      <summary>method CommitUpdate</summary>
+    </member>
+    <member name="E:AGI.AgNotification.AgNtfConnectionPtAdaptorClass.OnUpdate">
+      <summary>method OnUpdate</summary>
+    </member>
+    <member name="E:AGI.AgNotification.AgNtfConnectionPtAdaptorClass.OnCommitUpdate">
+      <summary>method OnCommitUpdate</summary>
+    </member>
+  </members>
+</doc>

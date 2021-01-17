@@ -1,0 +1,12 @@
+D:\Учёба\!Проект 10 класс\Ненужное\-STK\вызов stk\вызов stk\bin\Debug\вызов stk.exe.config
+D:\Учёба\!Проект 10 класс\Ненужное\-STK\вызов stk\вызов stk\bin\Debug\вызов stk.exe
+D:\Учёба\!Проект 10 класс\Ненужное\-STK\вызов stk\вызов stk\bin\Debug\вызов stk.pdb
+D:\Учёба\!Проект 10 класс\Ненужное\-STK\вызов stk\вызов stk\bin\Debug\stdole.dll
+D:\Учёба\!Проект 10 класс\Ненужное\-STK\вызов stk\вызов stk\obj\Debug\вызов stk.csprojAssemblyReference.cache
+D:\Учёба\!Проект 10 класс\Ненужное\-STK\вызов stk\вызов stk\obj\Debug\вызов_stk.Form1.resources
+D:\Учёба\!Проект 10 класс\Ненужное\-STK\вызов stk\вызов stk\obj\Debug\вызов_stk.Properties.Resources.resources
+D:\Учёба\!Проект 10 класс\Ненужное\-STK\вызов stk\вызов stk\obj\Debug\вызов stk.csproj.GenerateResource.cache
+D:\Учёба\!Проект 10 класс\Ненужное\-STK\вызов stk\вызов stk\obj\Debug\вызов stk.csproj.CoreCompileInputs.cache
+D:\Учёба\!Проект 10 класс\Ненужное\-STK\вызов stk\вызов stk\obj\Debug\вызов stk.csproj.CopyComplete
+D:\Учёба\!Проект 10 класс\Ненужное\-STK\вызов stk\вызов stk\obj\Debug\вызов stk.exe
+D:\Учёба\!Проект 10 класс\Ненужное\-STK\вызов stk\вызов stk\obj\Debug\вызов stk.pdb

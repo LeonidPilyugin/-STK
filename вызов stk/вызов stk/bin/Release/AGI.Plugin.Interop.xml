@@ -1,0 +1,194 @@
+<doc>
+  <assembly>
+    <name>AGI.Plugin</name>
+  </assembly>
+  <members>
+    <member name="T:AGI.Plugin.AgEUtTimeScale">
+      <summary>Enumeration of time scales of UTC, TAI, TDT, UT1, STKEpochSec, TDB, GPS</summary>
+    </member>
+    <member name="F:AGI.Plugin.AgEUtTimeScale.eUtTimeScaleUTC">
+      <summary>UTC time scale (civil time, Greenwich meridian).</summary>
+    </member>
+    <member name="F:AGI.Plugin.AgEUtTimeScale.eUtTimeScaleTAI">
+      <summary>TAI time scale (atomic time).</summary>
+    </member>
+    <member name="F:AGI.Plugin.AgEUtTimeScale.eUtTimeScaleTDT">
+      <summary>TDT time scale (terrestial dynamical time).</summary>
+    </member>
+    <member name="F:AGI.Plugin.AgEUtTimeScale.eUtTimeScaleUT1">
+      <summary>UT1 time scale (universal time, corrected for polar motion. Related to the mean diurnal motion of the Sun.).</summary>
+    </member>
+    <member name="F:AGI.Plugin.AgEUtTimeScale.eUtTimeScaleSTKEpochSec">
+      <summary>Seconds past the scenario reference epoch.</summary>
+    </member>
+    <member name="F:AGI.Plugin.AgEUtTimeScale.eUtTimeScaleTDB">
+      <summary>TDB time scale (barycentric dynamical time).</summary>
+    </member>
+    <member name="F:AGI.Plugin.AgEUtTimeScale.eUtTimeScaleGPS">
+      <summary>GPS time scale (seconds past 06 Jan 1980 00:00:00 UTC).</summary>
+    </member>
+    <member name="T:AGI.Plugin.AgEUtLogMsgType">
+      <summary>Enumeration of log message types of Debug, Informational, Force Informational, Warning, Alarm</summary>
+    </member>
+    <member name="F:AGI.Plugin.AgEUtLogMsgType.eUtLogMsgDebug">
+      <summary>Debugging message.</summary>
+    </member>
+    <member name="F:AGI.Plugin.AgEUtLogMsgType.eUtLogMsgInfo">
+      <summary>Informational message.</summary>
+    </member>
+    <member name="F:AGI.Plugin.AgEUtLogMsgType.eUtLogMsgForceInfo">
+      <summary>Informational message.</summary>
+    </member>
+    <member name="F:AGI.Plugin.AgEUtLogMsgType.eUtLogMsgWarning">
+      <summary>Warning message.</summary>
+    </member>
+    <member name="F:AGI.Plugin.AgEUtLogMsgType.eUtLogMsgAlarm">
+      <summary>Alarm message.</summary>
+    </member>
+    <member name="T:AGI.Plugin.AgEUtFrame">
+      <summary>Enumeration of reference frames of inertial, fixed, local vertical local horizontal (Gauss), normal tangential crosstrack (Frenet), ICRF, J2000</summary>
+    </member>
+    <member name="F:AGI.Plugin.AgEUtFrame.eUtFrameInertial">
+      <summary>Inertial frame of the central body.</summary>
+    </member>
+    <member name="F:AGI.Plugin.AgEUtFrame.eUtFrameFixed">
+      <summary>Fixed frame of the central body.</summary>
+    </member>
+    <member name="F:AGI.Plugin.AgEUtFrame.eUtFrameLVLH">
+      <summary>Local vertical, local horizontal frame [Gauss frame] (x along radial, y along intrack, z along crosstrack (position cross inertial velocity))</summary>
+    </member>
+    <member name="F:AGI.Plugin.AgEUtFrame.eUtFrameNTC">
+      <summary>Normal Tangential CrossTrack frame [Frenet frame] (y along tangential (inertial velocity), z along crosstrack (position cross inertial velocity), x is normal completing the triad (radius-like))</summary>
+    </member>
+    <member name="F:AGI.Plugin.AgEUtFrame.eUtFrameICRF">
+      <summary>ICRF frame of the central body (origin at central body with axes parallel to ICRF).</summary>
+    </member>
+    <member name="F:AGI.Plugin.AgEUtFrame.eUtFrameJ2000">
+      <summary>J2000 frame of the central body (origin at central body with axes parallel to J2000).</summary>
+    </member>
+    <member name="T:AGI.Plugin.AgEUtSunPosType">
+      <summary>Enumeration of sun position computation methods of apparent to true of central body, apparent, true position, method of current force model</summary>
+    </member>
+    <member name="F:AGI.Plugin.AgEUtSunPosType.eUtSunPosTypeApparentToTrueCB">
+      <summary>Apparent Sun position from center of central body</summary>
+    </member>
+    <member name="F:AGI.Plugin.AgEUtSunPosType.eUtSunPosTypeApparent">
+      <summary>Apparent Sun position as viewed by Satellite</summary>
+    </member>
+    <member name="F:AGI.Plugin.AgEUtSunPosType.eUtSunPosTypeTrue">
+      <summary>True Sun position</summary>
+    </member>
+    <member name="F:AGI.Plugin.AgEUtSunPosType.eUtSunPosTypeSRP">
+      <summary>Use the method defined by the current force model settings</summary>
+    </member>
+    <member name="T:AGI.Plugin.AgEUtPluginErrorCodes">
+      <summary>Enumeration of AgUtPlugin General Error Codes</summary>
+    </member>
+    <member name="F:AGI.Plugin.AgEUtPluginErrorCodes.E_PLUGIN_INTERNAL_FAILURE">
+      <summary>Plugin: An internal failure occurred.</summary>
+    </member>
+    <member name="F:AGI.Plugin.AgEUtPluginErrorCodes.E_PLUGIN_INVALID_SQR">
+      <summary>Plugin: The square root of an invalid value occurred.</summary>
+    </member>
+    <member name="F:AGI.Plugin.AgEUtPluginErrorCodes.E_PLUGIN_INVALID_NEGATIVE_VALUE">
+      <summary>Plugin: The value provided was invalid because it was negative in sign.</summary>
+    </member>
+    <member name="F:AGI.Plugin.AgEUtPluginErrorCodes.E_PLUGIN_LOG_LEVEL_OUT_OF_RANGE">
+      <summary>Plugin: The log level value provided was not within the range of 0 to 4.</summary>
+    </member>
+    <member name="F:AGI.Plugin.AgEUtPluginErrorCodes.E_PLUGIN_CANNOT_FORMAT_DATE">
+      <summary>Plugin: The date cannot be formatted as requested.</summary>
+    </member>
+    <member name="F:AGI.Plugin.AgEUtPluginErrorCodes.E_PLUGIN_INVALID_DATE_ABBRV">
+      <summary>Plugin: The date abbreviation was not recognized.</summary>
+    </member>
+    <member name="T:AGI.Plugin.IAgUtPluginConfig">
+      <summary>Plugin Configuration Interface</summary>
+    </member>
+    <member name="M:AGI.Plugin.IAgUtPluginConfig.GetPluginConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="pAttrBuilder"></param>
+    </member>
+    <member name="M:AGI.Plugin.IAgUtPluginConfig.VerifyPluginConfig(AGI.Plugin.IAgUtPluginConfigVerifyResult)">
+      <summary>Verify the Plugin Config</summary>
+      <param name="pPluginCfgResult"></param>
+    </member>
+    <member name="T:AGI.Plugin.IAgUtPluginConfigVerifyResult">
+      <summary>Plugin Configuration Verify Result Interface</summary>
+    </member>
+    <member name="P:AGI.Plugin.IAgUtPluginConfigVerifyResult.Result">
+      <summary>The result of the validation of the configuration whether it has succeeded or failed.</summary>
+    </member>
+    <member name="P:AGI.Plugin.IAgUtPluginConfigVerifyResult.Message">
+      <summary>The message of the validation of the configuration if it has failed.</summary>
+    </member>
+    <member name="T:AGI.Plugin.IAgUtPluginLicensing">
+      <summary>Plugin Licensing Interface</summary>
+    </member>
+    <member name="M:AGI.Plugin.IAgUtPluginLicensing.CheckLicense">
+      <summary>Check to see if plugin is licensed</summary>
+    </member>
+    <member name="T:AGI.Plugin.AgUtPluginConfigVerifyResult">
+      <summary>Class used as parameter to the VerifyPluginConfig method of IAgUtPluginConfig interface.</summary>
+    </member>
+    <member name="P:AGI.Plugin.AgUtPluginConfigVerifyResult.Result">
+      <summary>The result of the validation of the configuration whether it has succeeded or failed.</summary>
+    </member>
+    <member name="P:AGI.Plugin.AgUtPluginConfigVerifyResult.Message">
+      <summary>The message of the validation of the configuration if it has failed.</summary>
+    </member>
+    <member name="T:AGI.Plugin.AgUtPluginConfigVerifyResultClass">
+      <summary>Class used as parameter to the VerifyPluginConfig method of IAgUtPluginConfig interface.</summary>
+    </member>
+    <member name="P:AGI.Plugin.AgUtPluginConfigVerifyResultClass.Result">
+      <summary>The result of the validation of the configuration whether it has succeeded or failed.</summary>
+    </member>
+    <member name="P:AGI.Plugin.AgUtPluginConfigVerifyResultClass.Message">
+      <summary>The message of the validation of the configuration if it has failed.</summary>
+    </member>
+    <member name="T:AGI.Plugin.AgUtPluginSite">
+      <summary>Plugin caller interface</summary>
+    </member>
+    <member name="M:AGI.Plugin.AgUtPluginSite.Message(AGI.Plugin.AgEUtLogMsgType,System.String)">
+      <summary>Send a message to the message viewer.</summary>
+      <param name="MsgType"></param>
+      <param name="Message"></param>
+    </member>
+    <member name="P:AGI.Plugin.AgUtPluginSite.SiteName">
+      <summary>Returns the site name calling the plugin.</summary>
+    </member>
+    <member name="T:AGI.Plugin.AgUtPluginSiteClass">
+      <summary>Plugin caller interface</summary>
+    </member>
+    <member name="M:AGI.Plugin.AgUtPluginSiteClass.Message(AGI.Plugin.AgEUtLogMsgType,System.String)">
+      <summary>Send a message to the message viewer.</summary>
+      <param name="MsgType"></param>
+      <param name="Message"></param>
+    </member>
+    <member name="P:AGI.Plugin.AgUtPluginSiteClass.SiteName">
+      <summary>Returns the site name calling the plugin.</summary>
+    </member>
+    <member name="T:AGI.Plugin._IAgUtPluginSite">
+      <summary>Plugin caller interface</summary>
+    </member>
+    <member name="M:AGI.Plugin._IAgUtPluginSite.Message(AGI.Plugin.AgEUtLogMsgType,System.String)">
+      <summary>Send a message to the message viewer.</summary>
+      <param name="MsgType"></param>
+      <param name="Message"></param>
+    </member>
+    <member name="P:AGI.Plugin._IAgUtPluginSite.SiteName">
+      <summary>Returns the site name calling the plugin.</summary>
+    </member>
+    <member name="T:AGI.Plugin.IAgUtPluginSite">
+      <summary>Plugin caller interface</summary>
+    </member>
+    <member name="M:AGI.Plugin.IAgUtPluginSite.Message(AGI.Plugin.AgEUtLogMsgType,System.String)">
+      <summary>Send a message to the message viewer.</summary>
+      <param name="MsgType"></param>
+      <param name="Message"></param>
+    </member>
+    <member name="P:AGI.Plugin.IAgUtPluginSite.SiteName">
+      <summary>Returns the site name calling the plugin.</summary>
+    </member>
+  </members>
+</doc>

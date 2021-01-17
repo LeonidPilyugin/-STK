@@ -1,0 +1,864 @@
+<doc>
+  <assembly>
+    <name>AGI.AgUiFlightSTK</name>
+  </assembly>
+  <members>
+    <member name="T:AGI.AgUiFlightSTK.tagAgEFlightSTKMouseEventResult">
+      <summary>Enumeration AgEFlightSTKMouseEventResult.</summary>
+    </member>
+    <member name="F:AGI.AgUiFlightSTK.tagAgEFlightSTKMouseEventResult.eMouseEventContinue">
+      <summary>Enumeration AgEFlightSTKMouseEventResult:eMouseEventContinue.</summary>
+    </member>
+    <member name="F:AGI.AgUiFlightSTK.tagAgEFlightSTKMouseEventResult.eMouseEventCancel">
+      <summary>Enumeration AgEFlightSTKMouseEventResult:eMouseEventCancel.</summary>
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.IAgUiFlightSTKMouseEventCallback">
+      <summary>IAgUiFlightSTKMouseEventCallback Interface</summary>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.IAgUiFlightSTKMouseEventCallback.OnLButtonDown(System.Int32,AGI.AgComUtilities.IAgLatLon,System.Int32,System.Int32,System.Int32)">
+      <summary>method OnLButtonDown</summary>
+      <param name="hWnd"></param>
+      <param name="pLatLon"></param>
+      <param name="screenX"></param>
+      <param name="screenY"></param>
+      <param name="windowMessageFlags"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.IAgUiFlightSTKMouseEventCallback.OnLButtonUp(System.Int32,AGI.AgComUtilities.IAgLatLon,System.Int32,System.Int32,System.Int32)">
+      <summary>method OnLButtonUp</summary>
+      <param name="hWnd"></param>
+      <param name="pLatLon"></param>
+      <param name="screenX"></param>
+      <param name="screenY"></param>
+      <param name="windowMessageFlags"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.IAgUiFlightSTKMouseEventCallback.OnMouseMove(System.Int32,AGI.AgComUtilities.IAgLatLon,System.Int32,System.Int32,System.Int32)">
+      <summary>method OnMouseMove</summary>
+      <param name="hWnd"></param>
+      <param name="pLatLon"></param>
+      <param name="screenX"></param>
+      <param name="screenY"></param>
+      <param name="windowMessageFlags"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.IAgUiFlightSTKMouseEventCallback.OnRButtonDown(System.Int32,AGI.AgComUtilities.IAgLatLon,System.Int32,System.Int32,System.Int32)">
+      <summary>method OnRButtonDown</summary>
+      <param name="hWnd"></param>
+      <param name="pLatLon"></param>
+      <param name="screenX"></param>
+      <param name="screenY"></param>
+      <param name="windowMessageFlags"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.IAgUiFlightSTKMouseEventCallback.OnRButtonUp(System.Int32,AGI.AgComUtilities.IAgLatLon,System.Int32,System.Int32,System.Int32)">
+      <summary>method OnRButtonUp</summary>
+      <param name="hWnd"></param>
+      <param name="pLatLon"></param>
+      <param name="screenX"></param>
+      <param name="screenY"></param>
+      <param name="windowMessageFlags"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.IAgUiFlightSTKMouseEventCallback.OnEndCapture">
+      <summary>method OnEndCapture</summary>
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.IAgUiFlightSTKHelper">
+      <summary>IAgUiFlightSTKHelper Interface</summary>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.IAgUiFlightSTKHelper.Set3dEditNextSiteFactory(AGI.AgFlight.IAgFlightMission,AGI.AgFlight.IAgFlightSiteFactory)">
+      <summary>method Set3dEditNextSiteFactory</summary>
+      <param name="pMission"></param>
+      <param name="pNextSiteFactory"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.IAgUiFlightSTKHelper.Set3dEditNextProcedureFactory(AGI.AgFlight.IAgFlightMission,AGI.AgFlight.IAgFlightProcedureFactory)">
+      <summary>method Set3dEditNextProcedureFactory</summary>
+      <param name="pMission"></param>
+      <param name="pNextProcedureFactory"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.IAgUiFlightSTKHelper.GetValid3dEditSites(AGI.AgFlight.IAgFlightMission)">
+      <summary>method GetValid3dEditSites</summary>
+      <param name="pMission"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.IAgUiFlightSTKHelper.GetValid3dEditProcedures(AGI.AgFlight.IAgFlightMission,AGI.AgFlight.IAgFlightSiteFactory)">
+      <summary>method GetValid3dEditProcedures</summary>
+      <param name="pMission"></param>
+      <param name="pSiteFactory"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.IAgUiFlightSTKHelper.GetAMMDefn(System.String)">
+      <summary>method GetAMMDefn</summary>
+      <param name="aircraftPath"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.IAgUiFlightSTKHelper.StartEditUiMission(System.String)">
+      <summary>method StartEditUiMission</summary>
+      <param name="aircraftPath"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.IAgUiFlightSTKHelper.PostInitMissionUI(AGI.AgFlight.IAgFlightMission,AGI.AgComUtilities.IAgUiCompositeControlInit)">
+      <summary>method PostInitMissionUI</summary>
+      <param name="pUiMission"></param>
+      <param name="pControlInit"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.IAgUiFlightSTKHelper.ShowMissionUI(AGI.AgFlight.IAgFlightMission,System.Boolean)">
+      <summary>method ShowMissionUI</summary>
+      <param name="pUiMission"></param>
+      <param name="vbShow"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.IAgUiFlightSTKHelper.UiPreApply(AGI.AgFlight.IAgFlightMission)">
+      <summary>method UiPreApply</summary>
+      <param name="pUiMission"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.IAgUiFlightSTKHelper.UiPostApply(AGI.AgFlight.IAgFlightMission)">
+      <summary>method UiPostApply</summary>
+      <param name="pUiMission"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.IAgUiFlightSTKHelper.SelectProcedure(AGI.AgFlight.IAgFlightMission,AGI.AgFlight.IAgFlightProcedure)">
+      <summary>method SelectProcedure</summary>
+      <param name="pUiMission"></param>
+      <param name="pProc"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.IAgUiFlightSTKHelper.StopEditUiMission(AGI.AgFlight.IAgFlightMission,System.Object)">
+      <summary>method StopEditUiMission</summary>
+      <param name="pUiMission"></param>
+      <param name="pMissionUIControl"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.IAgUiFlightSTKHelper.StartMouseCapture(AGI.AgUiFlightSTK.IAgUiFlightSTKMouseEventCallback,System.Int32,System.Boolean,System.Int32)">
+      <summary>method StartMouseCapture</summary>
+      <param name="pCallback"></param>
+      <param name="hCursor"></param>
+      <param name="vbCancelOnClickOff3dWindow"></param>
+      <param name="hDialog"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.IAgUiFlightSTKHelper.StopMouseCapture">
+      <summary>method StopMouseCapture</summary>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.IAgUiFlightSTKHelper.QueryAnimationTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>method QueryAnimationTime</summary>
+      <param name="pAnimTime"></param>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightSTKHelper.AMM3dEditMissionCount">
+      <summary>property AMM3dEditMissionCount</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightSTKHelper.AMM3dEditMission">
+      <summary>property AMM3dEditMission</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightSTKHelper.AMMUiEditMissionCount">
+      <summary>property AMMUiEditMissionCount</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightSTKHelper.AMMUiEditMission">
+      <summary>property AMMUiEditMission</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightSTKHelper.AMMUiEditProcedure">
+      <summary>property AMMUiEditProcedure</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightSTKHelper.AMM3dEditControlPoint">
+      <summary>property AMM3dEditControlPoint</summary>
+    </member>
+    <member name="T:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents">
+      <summary>_IAgUiFlightSTKHelperEvents Interface</summary>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents.OnInitMissionUI(AGI.AgFlight.IAgFlightMission,System.Object)">
+      <summary>method OnInitMissionUI</summary>
+      <param name="pMission"></param>
+      <param name="pMissionUI"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents.OnShowMissionUI(AGI.AgFlight.IAgFlightMission,System.Boolean)">
+      <summary>method OnShowMissionUI</summary>
+      <param name="pMission"></param>
+      <param name="vbShow"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents.OnUiSelect(AGI.AgFlight.IAgFlightMission,System.Object)">
+      <summary>method OnUiSelect</summary>
+      <param name="pMission"></param>
+      <param name="pSelItem"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents.OnUiMultiSelect(AGI.AgFlight.IAgFlightMission,AGI.AgComUtilities.IAgComUnkCollection)">
+      <summary>method OnUiMultiSelect</summary>
+      <param name="pMission"></param>
+      <param name="pSelItems"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents.OnUiContextMenu(AGI.AgFlight.IAgFlightMission,System.Object,AGI.AgUiFlightUtilities.IAgUiFlightMenuParent,AGI.AgUiFlightUtilities.IAgUiFlightMenuParent)">
+      <summary>method OnUiContextMenu</summary>
+      <param name="pMission"></param>
+      <param name="pSelItem"></param>
+      <param name="pEditMenuParent"></param>
+      <param name="pToolsMenuParent"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents.OnUiPreApply(AGI.AgFlight.IAgFlightMission)">
+      <summary>method OnUiPreApply</summary>
+      <param name="pMission"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents.OnUiPostApply(AGI.AgFlight.IAgFlightMission)">
+      <summary>method OnUiPostApply</summary>
+      <param name="pMission"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents.OnCloseMissionUI(AGI.AgFlight.IAgFlightMission,System.Object)">
+      <summary>method OnCloseMissionUI</summary>
+      <param name="pMission"></param>
+      <param name="pMissionUI"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents.OnStart3dEdit(AGI.AgFlight.IAgFlightMission)">
+      <summary>method OnStart3dEdit</summary>
+      <param name="pEditMission"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents.On3dEditControlPoint(AGI.AgFlight.IAgFlightMission,AGI.AgFlight.IAgFlightEditControlPoint)">
+      <summary>method On3dEditControlPoint</summary>
+      <param name="pEditMission"></param>
+      <param name="p3dControlPoint"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents.On3dEditPreApply(AGI.AgFlight.IAgFlightMission)">
+      <summary>method On3dEditPreApply</summary>
+      <param name="pEditMission"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents.On3dEditPostApply(AGI.AgFlight.IAgFlightMission)">
+      <summary>method On3dEditPostApply</summary>
+      <param name="pEditMission"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents.OnClose3dEdit(AGI.AgFlight.IAgFlightMission)">
+      <summary>method OnClose3dEdit</summary>
+      <param name="pEditMission"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents.OnTerminate(System.Object)">
+      <summary>method OnTerminate</summary>
+      <param name="pTerminalObj"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents.OnPreNewProcedure(AGI.AgFlight.IAgFlightProcedure)">
+      <summary>method OnPreNewProcedure</summary>
+      <param name="pNewProcedure"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents.OnPostNewProcedure(AGI.AgFlight.IAgFlightProcedure)">
+      <summary>method OnPostNewProcedure</summary>
+      <param name="pNewProcedure"></param>
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.IAgUiFlightSiteSTKObject">
+      <summary>IAgUiFlightSiteSTKObject Interface</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightSiteSTKObject.BackColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightSiteSTKObject.ForeColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightSiteSTKObject.TabStop">
+      <summary />
+    </member>
+    <member name="T:AGI.AgUiFlightSTK._IAgUiFlightSiteSTKObjectEvents">
+      <summary>_IAgUiFlightSiteSTKObjectEvents Interface</summary>
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.IAgUiFlightProcedureLaunch">
+      <summary>IAgUiFlightProcedureLaunch Interface</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightProcedureLaunch.BackColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightProcedureLaunch.ForeColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightProcedureLaunch.TabStop">
+      <summary />
+    </member>
+    <member name="T:AGI.AgUiFlightSTK._IAgUiFlightProcedureLaunchEvents">
+      <summary>_IAgUiFlightProcedureLaunchEvents Interface</summary>
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.IAgUiFlightProcedureFormRecov">
+      <summary>IAgUiFlightProcedureFormRecov Interface</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightProcedureFormRecov.BackColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightProcedureFormRecov.ForeColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightProcedureFormRecov.TabStop">
+      <summary />
+    </member>
+    <member name="T:AGI.AgUiFlightSTK._IAgUiFlightProcedureFormRecovEvents">
+      <summary>_IAgUiFlightProcedureFormRecovEvents Interface</summary>
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.IAgUiFlightProcedureInFormation">
+      <summary>IAgUiFlightProcedureInFormation Interface</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightProcedureInFormation.BackColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightProcedureInFormation.ForeColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightProcedureInFormation.TabStop">
+      <summary />
+    </member>
+    <member name="T:AGI.AgUiFlightSTK._IAgUiFlightProcedureInFormationEvents">
+      <summary>_IAgUiFlightProcedureInFormationEvents Interface</summary>
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.IAgUiFlightFormRecovSearchMgr">
+      <summary>IAgUiFlightFormRecovSearchMgr Interface</summary>
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.IAgUiFlightSiteSTKObjectWpt">
+      <summary>IAgUiFlightSiteSTKObject Interface</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightSiteSTKObjectWpt.BackColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightSiteSTKObjectWpt.ForeColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightSiteSTKObjectWpt.TabStop">
+      <summary />
+    </member>
+    <member name="T:AGI.AgUiFlightSTK._IAgUiFlightSiteSTKObjectWptEvents">
+      <summary>_IAgUiFlightSiteSTKObjectWptEvents Interface</summary>
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.IAgUiFlightProcedureVGTPoint">
+      <summary>IAgUiFlightProcedureVGTPoint Interface</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightProcedureVGTPoint.BackColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightProcedureVGTPoint.ForeColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightProcedureVGTPoint.TabStop">
+      <summary />
+    </member>
+    <member name="T:AGI.AgUiFlightSTK._IAgUiFlightProcedureVGTPointEvents">
+      <summary>_IAgUiFlightProcedureVGTPointEvents Interface</summary>
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.IAgUiFlightSiteSTKAreaTarget">
+      <summary>IAgUiFlightSiteSTKAreaTarget Interface</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightSiteSTKAreaTarget.BackColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightSiteSTKAreaTarget.ForeColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightSiteSTKAreaTarget.TabStop">
+      <summary />
+    </member>
+    <member name="T:AGI.AgUiFlightSTK._IAgUiFlightSiteSTKAreaTargetEvents">
+      <summary>_IAgUiFlightSiteSTKAreaTargetEvents Interface</summary>
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.IAgUiFlightProcedureAreaTargetSearch">
+      <summary>IAgUiFlightProcedureAreaTargetSearch Interface</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightProcedureAreaTargetSearch.BackColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightProcedureAreaTargetSearch.ForeColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightProcedureAreaTargetSearch.TabStop">
+      <summary />
+    </member>
+    <member name="T:AGI.AgUiFlightSTK._IAgUiFlightProcedureAreaTargetSearchEvents">
+      <summary>_IAgUiFlightProcedureAreaTargetSearchEvents Interface</summary>
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.IAgUiFlightSiteRelToSTKObject">
+      <summary>IAgUiFlightSiteRelToSTKObject Interface</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightSiteRelToSTKObject.BackColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightSiteRelToSTKObject.ForeColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.IAgUiFlightSiteRelToSTKObject.TabStop">
+      <summary />
+    </member>
+    <member name="T:AGI.AgUiFlightSTK._IAgUiFlightSiteRelToSTKObjectEvents">
+      <summary>_IAgUiFlightSiteRelToSTKObjectEvents Interface</summary>
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.AgUiFlightSTKHelper">
+      <summary>AgUiFlightSTKHelper Class</summary>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.AgUiFlightSTKHelper.Set3dEditNextSiteFactory(AGI.AgFlight.IAgFlightMission,AGI.AgFlight.IAgFlightSiteFactory)">
+      <summary>method Set3dEditNextSiteFactory</summary>
+      <param name="pMission"></param>
+      <param name="pNextSiteFactory"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.AgUiFlightSTKHelper.Set3dEditNextProcedureFactory(AGI.AgFlight.IAgFlightMission,AGI.AgFlight.IAgFlightProcedureFactory)">
+      <summary>method Set3dEditNextProcedureFactory</summary>
+      <param name="pMission"></param>
+      <param name="pNextProcedureFactory"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.AgUiFlightSTKHelper.GetValid3dEditSites(AGI.AgFlight.IAgFlightMission)">
+      <summary>method GetValid3dEditSites</summary>
+      <param name="pMission"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.AgUiFlightSTKHelper.GetValid3dEditProcedures(AGI.AgFlight.IAgFlightMission,AGI.AgFlight.IAgFlightSiteFactory)">
+      <summary>method GetValid3dEditProcedures</summary>
+      <param name="pMission"></param>
+      <param name="pSiteFactory"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.AgUiFlightSTKHelper.GetAMMDefn(System.String)">
+      <summary>method GetAMMDefn</summary>
+      <param name="aircraftPath"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.AgUiFlightSTKHelper.StartEditUiMission(System.String)">
+      <summary>method StartEditUiMission</summary>
+      <param name="aircraftPath"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.AgUiFlightSTKHelper.PostInitMissionUI(AGI.AgFlight.IAgFlightMission,AGI.AgComUtilities.IAgUiCompositeControlInit)">
+      <summary>method PostInitMissionUI</summary>
+      <param name="pUiMission"></param>
+      <param name="pControlInit"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.AgUiFlightSTKHelper.ShowMissionUI(AGI.AgFlight.IAgFlightMission,System.Boolean)">
+      <summary>method ShowMissionUI</summary>
+      <param name="pUiMission"></param>
+      <param name="vbShow"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.AgUiFlightSTKHelper.UiPreApply(AGI.AgFlight.IAgFlightMission)">
+      <summary>method UiPreApply</summary>
+      <param name="pUiMission"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.AgUiFlightSTKHelper.UiPostApply(AGI.AgFlight.IAgFlightMission)">
+      <summary>method UiPostApply</summary>
+      <param name="pUiMission"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.AgUiFlightSTKHelper.SelectProcedure(AGI.AgFlight.IAgFlightMission,AGI.AgFlight.IAgFlightProcedure)">
+      <summary>method SelectProcedure</summary>
+      <param name="pUiMission"></param>
+      <param name="pProc"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.AgUiFlightSTKHelper.StopEditUiMission(AGI.AgFlight.IAgFlightMission,System.Object)">
+      <summary>method StopEditUiMission</summary>
+      <param name="pUiMission"></param>
+      <param name="pMissionUIControl"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.AgUiFlightSTKHelper.StartMouseCapture(AGI.AgUiFlightSTK.IAgUiFlightSTKMouseEventCallback,System.Int32,System.Boolean,System.Int32)">
+      <summary>method StartMouseCapture</summary>
+      <param name="pCallback"></param>
+      <param name="hCursor"></param>
+      <param name="vbCancelOnClickOff3dWindow"></param>
+      <param name="hDialog"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.AgUiFlightSTKHelper.StopMouseCapture">
+      <summary>method StopMouseCapture</summary>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.AgUiFlightSTKHelper.QueryAnimationTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>method QueryAnimationTime</summary>
+      <param name="pAnimTime"></param>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSTKHelper.AMM3dEditMissionCount">
+      <summary>property AMM3dEditMissionCount</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSTKHelper.AMM3dEditMission">
+      <summary>property AMM3dEditMission</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSTKHelper.AMMUiEditMissionCount">
+      <summary>property AMMUiEditMissionCount</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSTKHelper.AMMUiEditMission">
+      <summary>property AMMUiEditMission</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSTKHelper.AMMUiEditProcedure">
+      <summary>property AMMUiEditProcedure</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSTKHelper.AMM3dEditControlPoint">
+      <summary>property AMM3dEditControlPoint</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents_Event.OnInitMissionUI">
+      <summary>method OnInitMissionUI</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents_Event.OnShowMissionUI">
+      <summary>method OnShowMissionUI</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents_Event.OnUiSelect">
+      <summary>method OnUiSelect</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents_Event.OnUiMultiSelect">
+      <summary>method OnUiMultiSelect</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents_Event.OnUiContextMenu">
+      <summary>method OnUiContextMenu</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents_Event.OnUiPreApply">
+      <summary>method OnUiPreApply</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents_Event.OnUiPostApply">
+      <summary>method OnUiPostApply</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents_Event.OnCloseMissionUI">
+      <summary>method OnCloseMissionUI</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents_Event.OnStart3dEdit">
+      <summary>method OnStart3dEdit</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents_Event.On3dEditControlPoint">
+      <summary>method On3dEditControlPoint</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents_Event.On3dEditPreApply">
+      <summary>method On3dEditPreApply</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents_Event.On3dEditPostApply">
+      <summary>method On3dEditPostApply</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents_Event.OnClose3dEdit">
+      <summary>method OnClose3dEdit</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents_Event.OnTerminate">
+      <summary>method OnTerminate</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents_Event.OnPreNewProcedure">
+      <summary>method OnPreNewProcedure</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK._IAgUiFlightSTKHelperEvents_Event.OnPostNewProcedure">
+      <summary>method OnPostNewProcedure</summary>
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass">
+      <summary>AgUiFlightSTKHelper Class</summary>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.Set3dEditNextSiteFactory(AGI.AgFlight.IAgFlightMission,AGI.AgFlight.IAgFlightSiteFactory)">
+      <summary>method Set3dEditNextSiteFactory</summary>
+      <param name="pMission"></param>
+      <param name="pNextSiteFactory"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.Set3dEditNextProcedureFactory(AGI.AgFlight.IAgFlightMission,AGI.AgFlight.IAgFlightProcedureFactory)">
+      <summary>method Set3dEditNextProcedureFactory</summary>
+      <param name="pMission"></param>
+      <param name="pNextProcedureFactory"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.GetValid3dEditSites(AGI.AgFlight.IAgFlightMission)">
+      <summary>method GetValid3dEditSites</summary>
+      <param name="pMission"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.GetValid3dEditProcedures(AGI.AgFlight.IAgFlightMission,AGI.AgFlight.IAgFlightSiteFactory)">
+      <summary>method GetValid3dEditProcedures</summary>
+      <param name="pMission"></param>
+      <param name="pSiteFactory"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.GetAMMDefn(System.String)">
+      <summary>method GetAMMDefn</summary>
+      <param name="aircraftPath"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.StartEditUiMission(System.String)">
+      <summary>method StartEditUiMission</summary>
+      <param name="aircraftPath"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.PostInitMissionUI(AGI.AgFlight.IAgFlightMission,AGI.AgComUtilities.IAgUiCompositeControlInit)">
+      <summary>method PostInitMissionUI</summary>
+      <param name="pUiMission"></param>
+      <param name="pControlInit"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.ShowMissionUI(AGI.AgFlight.IAgFlightMission,System.Boolean)">
+      <summary>method ShowMissionUI</summary>
+      <param name="pUiMission"></param>
+      <param name="vbShow"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.UiPreApply(AGI.AgFlight.IAgFlightMission)">
+      <summary>method UiPreApply</summary>
+      <param name="pUiMission"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.UiPostApply(AGI.AgFlight.IAgFlightMission)">
+      <summary>method UiPostApply</summary>
+      <param name="pUiMission"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.SelectProcedure(AGI.AgFlight.IAgFlightMission,AGI.AgFlight.IAgFlightProcedure)">
+      <summary>method SelectProcedure</summary>
+      <param name="pUiMission"></param>
+      <param name="pProc"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.StopEditUiMission(AGI.AgFlight.IAgFlightMission,System.Object)">
+      <summary>method StopEditUiMission</summary>
+      <param name="pUiMission"></param>
+      <param name="pMissionUIControl"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.StartMouseCapture(AGI.AgUiFlightSTK.IAgUiFlightSTKMouseEventCallback,System.Int32,System.Boolean,System.Int32)">
+      <summary>method StartMouseCapture</summary>
+      <param name="pCallback"></param>
+      <param name="hCursor"></param>
+      <param name="vbCancelOnClickOff3dWindow"></param>
+      <param name="hDialog"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.StopMouseCapture">
+      <summary>method StopMouseCapture</summary>
+    </member>
+    <member name="M:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.QueryAnimationTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>method QueryAnimationTime</summary>
+      <param name="pAnimTime"></param>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.AMM3dEditMissionCount">
+      <summary>property AMM3dEditMissionCount</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.AMM3dEditMission">
+      <summary>property AMM3dEditMission</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.AMMUiEditMissionCount">
+      <summary>property AMMUiEditMissionCount</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.AMMUiEditMission">
+      <summary>property AMMUiEditMission</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.AMMUiEditProcedure">
+      <summary>property AMMUiEditProcedure</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.AMM3dEditControlPoint">
+      <summary>property AMM3dEditControlPoint</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.OnInitMissionUI">
+      <summary>method OnInitMissionUI</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.OnShowMissionUI">
+      <summary>method OnShowMissionUI</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.OnUiSelect">
+      <summary>method OnUiSelect</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.OnUiMultiSelect">
+      <summary>method OnUiMultiSelect</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.OnUiContextMenu">
+      <summary>method OnUiContextMenu</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.OnUiPreApply">
+      <summary>method OnUiPreApply</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.OnUiPostApply">
+      <summary>method OnUiPostApply</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.OnCloseMissionUI">
+      <summary>method OnCloseMissionUI</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.OnStart3dEdit">
+      <summary>method OnStart3dEdit</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.On3dEditControlPoint">
+      <summary>method On3dEditControlPoint</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.On3dEditPreApply">
+      <summary>method On3dEditPreApply</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.On3dEditPostApply">
+      <summary>method On3dEditPostApply</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.OnClose3dEdit">
+      <summary>method OnClose3dEdit</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.OnTerminate">
+      <summary>method OnTerminate</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.OnPreNewProcedure">
+      <summary>method OnPreNewProcedure</summary>
+    </member>
+    <member name="E:AGI.AgUiFlightSTK.AgUiFlightSTKHelperClass.OnPostNewProcedure">
+      <summary>method OnPostNewProcedure</summary>
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.AgUiFlightSTKUIFactory">
+      <summary>AGI AgUiFlightSTKUIFactory Class</summary>
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.AgUiFlightSTKUIFactoryClass">
+      <summary>AGI AgUiFlightSTKUIFactory Class</summary>
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.AgUiFlightSiteSTKObject">
+      <summary>AgUiFlightSiteSTKObject Class</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSiteSTKObject.BackColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSiteSTKObject.ForeColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSiteSTKObject.TabStop">
+      <summary />
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.AgUiFlightSiteSTKObjectClass">
+      <summary>AgUiFlightSiteSTKObject Class</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSiteSTKObjectClass.BackColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSiteSTKObjectClass.ForeColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSiteSTKObjectClass.TabStop">
+      <summary />
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.AgUiFlightProcedureLaunch">
+      <summary>AgUiFlightProcedureLaunch Class</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightProcedureLaunch.BackColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightProcedureLaunch.ForeColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightProcedureLaunch.TabStop">
+      <summary />
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.AgUiFlightProcedureLaunchClass">
+      <summary>AgUiFlightProcedureLaunch Class</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightProcedureLaunchClass.BackColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightProcedureLaunchClass.ForeColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightProcedureLaunchClass.TabStop">
+      <summary />
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.AgUiFlightProcedureFormRecov">
+      <summary>AgUiFlightProcedureFormRecov Class</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightProcedureFormRecov.BackColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightProcedureFormRecov.ForeColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightProcedureFormRecov.TabStop">
+      <summary />
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.AgUiFlightProcedureFormRecovClass">
+      <summary>AgUiFlightProcedureFormRecov Class</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightProcedureFormRecovClass.BackColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightProcedureFormRecovClass.ForeColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightProcedureFormRecovClass.TabStop">
+      <summary />
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.AgUiFlightProcedureInFormation">
+      <summary>AgUiFlightProcedureInFormation Class</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightProcedureInFormation.BackColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightProcedureInFormation.ForeColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightProcedureInFormation.TabStop">
+      <summary />
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.AgUiFlightProcedureInFormationClass">
+      <summary>AgUiFlightProcedureInFormation Class</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightProcedureInFormationClass.BackColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightProcedureInFormationClass.ForeColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightProcedureInFormationClass.TabStop">
+      <summary />
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.AgUiFlightSiteSTKObjectWpt">
+      <summary>AgUiFlightSiteSTKObjectWpt Class</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSiteSTKObjectWpt.BackColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSiteSTKObjectWpt.ForeColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSiteSTKObjectWpt.TabStop">
+      <summary />
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.AgUiFlightSiteSTKObjectWptClass">
+      <summary>AgUiFlightSiteSTKObjectWpt Class</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSiteSTKObjectWptClass.BackColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSiteSTKObjectWptClass.ForeColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSiteSTKObjectWptClass.TabStop">
+      <summary />
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.AgUiFlightProcedureVGTPoint">
+      <summary>AgUiFlightProcedureVGTPoint Class</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightProcedureVGTPoint.BackColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightProcedureVGTPoint.ForeColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightProcedureVGTPoint.TabStop">
+      <summary />
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.AgUiFlightProcedureVGTPointClass">
+      <summary>AgUiFlightProcedureVGTPoint Class</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightProcedureVGTPointClass.BackColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightProcedureVGTPointClass.ForeColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightProcedureVGTPointClass.TabStop">
+      <summary />
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.AgUiFlightSiteSTKAreaTarget">
+      <summary>AgUiFlightSiteSTKAreaTarget Class</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSiteSTKAreaTarget.BackColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSiteSTKAreaTarget.ForeColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSiteSTKAreaTarget.TabStop">
+      <summary />
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.AgUiFlightSiteSTKAreaTargetClass">
+      <summary>AgUiFlightSiteSTKAreaTarget Class</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSiteSTKAreaTargetClass.BackColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSiteSTKAreaTargetClass.ForeColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSiteSTKAreaTargetClass.TabStop">
+      <summary />
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.AgUiFlightProcedureAreaTargetSearch">
+      <summary>AgUiFlightProcedureAreaTargetSearch Class</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightProcedureAreaTargetSearch.BackColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightProcedureAreaTargetSearch.ForeColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightProcedureAreaTargetSearch.TabStop">
+      <summary />
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.AgUiFlightProcedureAreaTargetSearchClass">
+      <summary>AgUiFlightProcedureAreaTargetSearch Class</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightProcedureAreaTargetSearchClass.BackColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightProcedureAreaTargetSearchClass.ForeColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightProcedureAreaTargetSearchClass.TabStop">
+      <summary />
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.AgUiFlightSiteRelToSTKObject">
+      <summary>AgUiFlightSiteRelToSTKObject Class</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSiteRelToSTKObject.BackColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSiteRelToSTKObject.ForeColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSiteRelToSTKObject.TabStop">
+      <summary />
+    </member>
+    <member name="T:AGI.AgUiFlightSTK.AgUiFlightSiteRelToSTKObjectClass">
+      <summary>AgUiFlightSiteRelToSTKObject Class</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSiteRelToSTKObjectClass.BackColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSiteRelToSTKObjectClass.ForeColor">
+      <summary />
+    </member>
+    <member name="P:AGI.AgUiFlightSTK.AgUiFlightSiteRelToSTKObjectClass.TabStop">
+      <summary />
+    </member>
+  </members>
+</doc>

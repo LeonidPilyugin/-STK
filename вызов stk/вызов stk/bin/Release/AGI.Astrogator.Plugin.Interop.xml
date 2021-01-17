@@ -1,0 +1,49 @@
+<doc>
+  <assembly>
+    <name>AGI.Astrogator.Plugin</name>
+  </assembly>
+  <members>
+    <member name="T:AGI.Astrogator.Plugin.AgGatorConfiguredCalcObject">
+      <summary>Astrogator Calc object from the component browser</summary>
+    </member>
+    <member name="M:AGI.Astrogator.Plugin.AgGatorConfiguredCalcObject.Evaluate(System.Object)">
+      <summary>Computes the Value (in internal units) at the time indicated by the interface. The interface must support IAgGatorState.</summary>
+      <param name="DispInterface"></param>
+    </member>
+    <member name="T:AGI.Astrogator.Plugin.AgGatorConfiguredCalcObjectClass">
+      <summary>Astrogator Calc object from the component browser</summary>
+    </member>
+    <member name="M:AGI.Astrogator.Plugin.AgGatorConfiguredCalcObjectClass.Evaluate(System.Object)">
+      <summary>Computes the Value (in internal units) at the time indicated by the interface. The interface must support IAgGatorState.</summary>
+      <param name="DispInterface"></param>
+    </member>
+    <member name="T:AGI.Astrogator.Plugin.IAgGatorConfiguredCalcObject">
+      <summary>Astrogator Calc Object interface which computes its value. Inputs to the Calc Object are provided by the DispInterface which must support IAgGatorState.</summary>
+    </member>
+    <member name="M:AGI.Astrogator.Plugin.IAgGatorConfiguredCalcObject.Evaluate(System.Object)">
+      <summary>Computes the Value (in internal units) at the time indicated by the interface. The interface must support IAgGatorState.</summary>
+      <param name="DispInterface"></param>
+    </member>
+    <member name="T:AGI.Astrogator.Plugin.AgGatorPluginProvider">
+      <summary>Astrogator plugin provider.</summary>
+    </member>
+    <member name="M:AGI.Astrogator.Plugin.AgGatorPluginProvider.ConfigureCalcObject(System.String)">
+      <summary>Creates an IAgGatorCalcObject object from Astrogator component browser.</summary>
+      <param name="Name"></param>
+    </member>
+    <member name="T:AGI.Astrogator.Plugin.AgGatorPluginProviderClass">
+      <summary>Astrogator plugin provider.</summary>
+    </member>
+    <member name="M:AGI.Astrogator.Plugin.AgGatorPluginProviderClass.ConfigureCalcObject(System.String)">
+      <summary>Creates an IAgGatorCalcObject object from Astrogator component browser.</summary>
+      <param name="Name"></param>
+    </member>
+    <member name="T:AGI.Astrogator.Plugin.IAgGatorPluginProvider">
+      <summary>Astrogator plugin provider interface.</summary>
+    </member>
+    <member name="M:AGI.Astrogator.Plugin.IAgGatorPluginProvider.ConfigureCalcObject(System.String)">
+      <summary>Creates an IAgGatorCalcObject object from Astrogator component browser.</summary>
+      <param name="Name"></param>
+    </member>
+  </members>
+</doc>

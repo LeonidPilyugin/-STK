@@ -1,0 +1,1752 @@
+<doc>
+  <assembly>
+    <name>AGI.Astrogator</name>
+  </assembly>
+  <members>
+    <member name="T:AGI.Astrogator.AgEEulerSequence">
+      <summary />
+    </member>
+    <member name="F:AGI.Astrogator.AgEEulerSequence.e121">
+      <summary>Sequence defined by rotation about x-axis, then about rotated y-axis, then about rotated x-axis.</summary>
+    </member>
+    <member name="F:AGI.Astrogator.AgEEulerSequence.e123">
+      <summary>Sequence defined by rotation about x-axis, then about rotated y-axis, then about rotated z-axis.</summary>
+    </member>
+    <member name="F:AGI.Astrogator.AgEEulerSequence.e131">
+      <summary>Sequence defined by rotation about x-axis, then about rotated z-axis, then about rotated x-axis.</summary>
+    </member>
+    <member name="F:AGI.Astrogator.AgEEulerSequence.e132">
+      <summary>Sequence defined by rotation about x-axis, then about rotated z-axis, then about rotated y-axis.</summary>
+    </member>
+    <member name="F:AGI.Astrogator.AgEEulerSequence.e212">
+      <summary>Sequence defined by rotation about y-axis, then about rotated x-axis, then about rotated y-axis.</summary>
+    </member>
+    <member name="F:AGI.Astrogator.AgEEulerSequence.e213">
+      <summary>Sequence defined by rotation about y-axis, then about rotated x-axis, then about rotated z-axis.</summary>
+    </member>
+    <member name="F:AGI.Astrogator.AgEEulerSequence.e231">
+      <summary>Sequence defined by rotation about y-axis, then about rotated z-axis, then about rotated x-axis.</summary>
+    </member>
+    <member name="F:AGI.Astrogator.AgEEulerSequence.e232">
+      <summary>Sequence defined by rotation about y-axis, then about rotated z-axis, then about rotated y-axis.</summary>
+    </member>
+    <member name="F:AGI.Astrogator.AgEEulerSequence.e312">
+      <summary>Sequence defined by rotation about z-axis, then about rotated x-axis, then about rotated y-axis.</summary>
+    </member>
+    <member name="F:AGI.Astrogator.AgEEulerSequence.e313">
+      <summary>Sequence defined by rotation about z-axis, then about rotated x-axis, then about rotated z-axis.</summary>
+    </member>
+    <member name="F:AGI.Astrogator.AgEEulerSequence.e321">
+      <summary>Sequence defined by rotation about z-axis, then about rotated y-axis, then about rotated x-axis.</summary>
+    </member>
+    <member name="F:AGI.Astrogator.AgEEulerSequence.e323">
+      <summary>Sequence defined by rotation about z-axis, then about rotated y-axis, then about rotated x-axis.</summary>
+    </member>
+    <member name="T:AGI.Astrogator.IAgGatorPluginEngineModel">
+      <summary>Astrogator plugin engine model interface whose methods are called at certain events in the propagation process. A method returning false indicates an error.</summary>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginEngineModel.Init(AGI.Plugin.IAgUtPluginSite)">
+      <summary>Triggered when the plugin is initialized to allow for any additional needed initialization. Must return true to turn on use of plugin.</summary>
+      <param name="Site"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginEngineModel.PrePropagate(AGI.Astrogator.IAgGatorPluginResultState)">
+      <summary>Triggered just before propagation starts. Use the input interface to access engine model settings.</summary>
+      <param name="ResultState"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginEngineModel.PreNextStep(AGI.Astrogator.IAgGatorPluginResultState)">
+      <summary>Triggered just before the next propagation step is attempted. Use the input interface to access engine model settings. Returning false will turn this callback off.</summary>
+      <param name="ResultState"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginEngineModel.Evaluate(AGI.Astrogator.IAgGatorPluginResultEvalEngineModel)">
+      <summary>Triggered on every force model evaluation during the propagation of a step. Use the input interface to access engine model settings. Returning false will turn this callback off.</summary>
+      <param name="ResultEvalEngineModel"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginEngineModel.Free">
+      <summary>Triggered just before the plugin is freed from use to allow for any additional cleanup.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginEngineModel.Name">
+      <summary>Triggered to set the name of the plugin used in messages.</summary>
+    </member>
+    <member name="T:AGI.Astrogator.IAgGatorPluginResultState">
+      <summary>Astrogator plugin interface used to get state values. Supports IAgGatorState and IAgEpoch.</summary>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultState.Trace(System.Int32)">
+      <summary>Set this interface to trace the next numCalls by outputting a message to the message viewer.</summary>
+      <param name="NumCalls"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultState.DayCount(AGI.Plugin.AgEUtTimeScale,.long@,.double@)">
+      <summary>Current epoch in requested time scale expressed in day count format.</summary>
+      <param name="Scale"></param>
+      <param name="WholeDays"></param>
+      <param name="SecsIntoDay"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultState.DayCount_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>Current epoch in requested time scale expressed in day count format returned as an array representing wholeDays, secsIntoDay. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultState.Date(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>DEPRECATED. Use DateElements instead. Current epoch in requested time scale expressed in date format.</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultState.Date_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>DEPRECATED. Use DateElements_Array instead. Current epoch in requested time scale expressed in date format returned as an array representing year [yyyy], dayOfYear, month [0-11], hour [0-23], minute [0-59], seconds. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultState.PosVel(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@,.double@,.double@,.double@)">
+      <summary>Current position and velocity in the requested frame.</summary>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+      <param name="Vx"></param>
+      <param name="Vy"></param>
+      <param name="Vz"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultState.PosVel_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>Current position and velocity in the requested frame (in internal units) returned as an array representing x, y, z, vx, vy, vz. Useful for scripting clients.</summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultState.LatLonAlt(.double@,.double@,.double@)">
+      <summary>Current detic latitude, detic longitude, and altitude.</summary>
+      <param name="Latitude"></param>
+      <param name="Longitude"></param>
+      <param name="Altitude"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultState.LatLonAlt_Array">
+      <summary>Current detic latitude, detic longitude, and altitude(in internal units) returned as an array representing lat, lon, alt. Useful for scripting clients.</summary>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultState.SunPosition(AGI.Plugin.AgEUtSunPosType,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>Position of the sun wrt the current satellite position, in the requested frame, computed in the requested manner.</summary>
+      <param name="SunPosType"></param>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultState.SunPosition_Array(AGI.Plugin.AgEUtSunPosType,AGI.Plugin.AgEUtFrame)">
+      <summary>Position of the sun wrt the current satellite position, in the requested frame, computed in the requested manner, (in internal units) returned as an array representing x, y, z. Useful for scripting clients.</summary>
+      <param name="SunPosType"></param>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultState.TransformVector(AGI.Plugin.AgEUtFrame,System.Double,System.Double,System.Double,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>Transforms a vector from the input frame to the output frame.</summary>
+      <param name="FrameFrom"></param>
+      <param name="XFrom"></param>
+      <param name="YFrom"></param>
+      <param name="ZFrom"></param>
+      <param name="FrameTo"></param>
+      <param name="XTo"></param>
+      <param name="YTo"></param>
+      <param name="ZTo"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultState.TransformVector_Array(AGI.Plugin.AgEUtFrame,System.Double,System.Double,System.Double,AGI.Plugin.AgEUtFrame)">
+      <summary>Transforms a vector from the input frame to the output frame (in internal units) returned as an array representing x, y, z. Useful for scripting clients.</summary>
+      <param name="FrameFrom"></param>
+      <param name="XFrom"></param>
+      <param name="YFrom"></param>
+      <param name="ZFrom"></param>
+      <param name="FrameTo"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultState.StopPropagation">
+      <summary>Stops propagation.  For fatal errors.</summary>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultState.IndicateEvent(AGI.Hpop.Plugin.AgEAsHpopPluginEventIndicators)">
+      <summary>Marks an event to the propagator.</summary>
+      <param name="eEventIndicator"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultState.SetMaxStep(System.Double)">
+      <summary>Sets the maximum step size for the propagator.</summary>
+      <param name="MaxStep"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultState.SetColor(System.String)">
+      <summary>Sets the segment color.</summary>
+      <param name="Color"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultState.DateElements(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>Current epoch in requested time scale expressed in date format. Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60].</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="DayOfMonth"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultState.DateElements_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>Current epoch in requested time scale expressed in date format returned as the array: Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60]. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultState.DateString(System.String)">
+      <summary>Current epoch expressed using the date format abbreviation specified.</summary>
+      <param name="DateAbbrv"></param>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultState.CbName">
+      <summary>Name of the central body used as reference frame origin.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultState.Mu">
+      <summary>Gravitational constant of the state central body</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultState.Cd">
+      <summary>Drag Coefficient.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultState.Cr">
+      <summary>SRP Coefficient.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultState.DragArea">
+      <summary>Drag Area.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultState.SRPArea">
+      <summary>SRP Area.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultState.Mass">
+      <summary>Total Mass.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultState.DryMass">
+      <summary>Dry Mass.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultState.FuelMass">
+      <summary>Fuel Mass.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultState.Altitude">
+      <summary>Current altitude.</summary>
+    </member>
+    <member name="T:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel">
+      <summary>Astrogator plugin interface used to get/set engine model settings during the computation of a step. Supports IAgGatorState and IAgEpoch.</summary>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.Trace(System.Int32)">
+      <summary>Set this interface to trace the next numCalls by outputting a message to the message viewer.</summary>
+      <param name="NumCalls"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.DayCount(AGI.Plugin.AgEUtTimeScale,.long@,.double@)">
+      <summary>Current epoch in requested time scale expressed in day count format.</summary>
+      <param name="Scale"></param>
+      <param name="WholeDays"></param>
+      <param name="SecsIntoDay"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.DayCount_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>Current epoch in requested time scale expressed in day count format returned as an array representing wholeDays, secsIntoDay. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.Date(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>DEPRECATED. Use DateElements instead. Current epoch in requested time scale expressed in date format.</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.Date_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>DEPRECATED. Use DateElements_Array instead. Current epoch in requested time scale expressed in date format returned as an array representing year [yyyy], dayOfYear, month [0-11], hour [0-23], minute [0-59], seconds. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.PosVel(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@,.double@,.double@,.double@)">
+      <summary>Current position and velocity in the requested frame.</summary>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+      <param name="Vx"></param>
+      <param name="Vy"></param>
+      <param name="Vz"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.PosVel_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>Current position and velocity in the requested frame (in internal units) returned as an array representing x, y, z, vx, vy, vz. Useful for scripting clients.</summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.LatLonAlt(.double@,.double@,.double@)">
+      <summary>Current detic latitude, detic longitude, and altitude.</summary>
+      <param name="Latitude"></param>
+      <param name="Longitude"></param>
+      <param name="Altitude"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.LatLonAlt_Array">
+      <summary>Current detic latitude, detic longitude, and altitude(in internal units) returned as an array representing lat, lon, alt. Useful for scripting clients.</summary>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.SunPosition(AGI.Plugin.AgEUtSunPosType,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>Position of the sun wrt the current satellite position, in the requested frame, computed in the requested manner.</summary>
+      <param name="SunPosType"></param>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.SunPosition_Array(AGI.Plugin.AgEUtSunPosType,AGI.Plugin.AgEUtFrame)">
+      <summary>Position of the sun wrt the current satellite position, in the requested frame, computed in the requested manner, (in internal units) returned as an array representing x, y, z. Useful for scripting clients.</summary>
+      <param name="SunPosType"></param>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.TransformVector(AGI.Plugin.AgEUtFrame,System.Double,System.Double,System.Double,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>Transforms a vector from the input frame to the output frame.</summary>
+      <param name="FrameFrom"></param>
+      <param name="XFrom"></param>
+      <param name="YFrom"></param>
+      <param name="ZFrom"></param>
+      <param name="FrameTo"></param>
+      <param name="XTo"></param>
+      <param name="YTo"></param>
+      <param name="ZTo"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.TransformVector_Array(AGI.Plugin.AgEUtFrame,System.Double,System.Double,System.Double,AGI.Plugin.AgEUtFrame)">
+      <summary>Transforms a vector from the input frame to the output frame (in internal units) returned as an array representing x, y, z. Useful for scripting clients.</summary>
+      <param name="FrameFrom"></param>
+      <param name="XFrom"></param>
+      <param name="YFrom"></param>
+      <param name="ZFrom"></param>
+      <param name="FrameTo"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.SetThrustAndIsp(System.Double,System.Double)">
+      <summary>Sets the current thrust (N) and isp (secs). Computes the mass flow rate using the rocket equation. Returns false on an error.</summary>
+      <param name="Thrust"></param>
+      <param name="Isp"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.SetThrustAndMassFlowRate(System.Double,System.Double)">
+      <summary>Sets the current thrust(N) and mass flow rate (kg/sec). Computes the isp using the rocket equation. Returns false on an error.</summary>
+      <param name="Thrust"></param>
+      <param name="MassFlowRate"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.SetIspAndMassFlowRate(System.Double,System.Double)">
+      <summary>Sets the current isp and mass flow rate. Computes the thrust using the rocket equation. Returns false on an error.</summary>
+      <param name="Isp"></param>
+      <param name="MassFlowRate"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.StopPropagation">
+      <summary>Stops propagation.  For fatal errors.</summary>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.DateElements(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>Current epoch in requested time scale expressed in date format. Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60].</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="DayOfMonth"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.DateElements_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>Current epoch in requested time scale expressed in date format returned as the array: Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60]. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.DateString(System.String)">
+      <summary>Current epoch expressed using the date format abbreviation specified.</summary>
+      <param name="DateAbbrv"></param>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.CbName">
+      <summary>Name of the central body used as reference frame origin.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.Mu">
+      <summary>Gravitational constant of the state central body</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.Cd">
+      <summary>Drag Coefficient.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.Cr">
+      <summary>SRP Coefficient.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.DragArea">
+      <summary>Drag Area.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.SRPArea">
+      <summary>SRP Area.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.Mass">
+      <summary>Total Mass.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.DryMass">
+      <summary>Dry Mass.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.FuelMass">
+      <summary>Fuel Mass.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.Altitude">
+      <summary>Current altitude.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.Thrust">
+      <summary>Current thrust (N).</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.Isp">
+      <summary>Current Isp (secs).</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.MassFlowRate">
+      <summary>Current mass flow rate (kg/sec).</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultEvalEngineModel.TimeSinceIgnition">
+      <summary>Time since ignition (secs).</summary>
+    </member>
+    <member name="T:AGI.Astrogator.IAgGatorPluginAttCtrl">
+      <summary>Astrogator plugin attitude controller interface whose methods are called at certain events in the propagation process. A method returning false indicates an error.</summary>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginAttCtrl.Init(AGI.Plugin.IAgUtPluginSite)">
+      <summary>Triggered when the plugin is initialized to allow for any additional needed initialization. Must return true to turn on use of plugin.</summary>
+      <param name="Site"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginAttCtrl.PrePropagate(AGI.Astrogator.IAgGatorPluginResultAttCtrl)">
+      <summary>Triggered just before propagation starts. Use the input interface to access attitude controller settings.</summary>
+      <param name="ResultAttCtrl"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginAttCtrl.PreNextStep(AGI.Astrogator.IAgGatorPluginResultAttCtrl)">
+      <summary>Triggered just before the next propagation step is attempted. Use the input interface to access attitude controller settings. Returning false will turn this callback off.</summary>
+      <param name="ResultAttCtrl"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginAttCtrl.Evaluate(AGI.Astrogator.IAgGatorPluginResultAttCtrl)">
+      <summary>Triggered on every force model evaluation during the propagation of a step. Use the input interface to access attitude controller settings. Returning false will turn this callback off.</summary>
+      <param name="ResultAttCtrl"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginAttCtrl.Free">
+      <summary>Triggered just before the plugin is freed from use to allow for any additional cleanup.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginAttCtrl.Name">
+      <summary>Triggered to set the name of the plugin used in messages.</summary>
+    </member>
+    <member name="T:AGI.Astrogator.IAgGatorPluginResultAttCtrl">
+      <summary>Astrogator plugin interface used to get/set attitude controller settings. Supports IAgGatorState and IAgEpoch.</summary>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultAttCtrl.Trace(System.Int32)">
+      <summary>Set this interface to trace the next numCalls by outputting a message to the message viewer.</summary>
+      <param name="NumCalls"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultAttCtrl.DayCount(AGI.Plugin.AgEUtTimeScale,.long@,.double@)">
+      <summary>Current epoch in requested time scale expressed in day count format.</summary>
+      <param name="Scale"></param>
+      <param name="WholeDays"></param>
+      <param name="SecsIntoDay"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultAttCtrl.DayCount_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>Current epoch in requested time scale expressed in day count format returned as an array representing wholeDays, secsIntoDay. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultAttCtrl.Date(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>DEPRECATED. Use DateElements instead. Current epoch in requested time scale expressed in date format.</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultAttCtrl.Date_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>DEPRECATED. Use DateElements_Array instead. Current epoch in requested time scale expressed in date format returned as an array representing year [yyyy], dayOfYear, month [0-11], hour [0-23], minute [0-59], seconds. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultAttCtrl.PosVel(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@,.double@,.double@,.double@)">
+      <summary>Current position and velocity in the requested frame.</summary>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+      <param name="Vx"></param>
+      <param name="Vy"></param>
+      <param name="Vz"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultAttCtrl.PosVel_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>Current position and velocity in the requested frame (in internal units) returned as an array representing x, y, z, vx, vy, vz. Useful for scripting clients.</summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultAttCtrl.LatLonAlt(.double@,.double@,.double@)">
+      <summary>Current detic latitude, detic longitude, and altitude.</summary>
+      <param name="Latitude"></param>
+      <param name="Longitude"></param>
+      <param name="Altitude"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultAttCtrl.LatLonAlt_Array">
+      <summary>Current detic latitude, detic longitude, and altitude(in internal units) returned as an array representing lat, lon, alt. Useful for scripting clients.</summary>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultAttCtrl.SunPosition(AGI.Plugin.AgEUtSunPosType,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>Position of the sun wrt the current satellite position, in the requested frame, computed in the requested manner.</summary>
+      <param name="SunPosType"></param>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultAttCtrl.SunPosition_Array(AGI.Plugin.AgEUtSunPosType,AGI.Plugin.AgEUtFrame)">
+      <summary>Position of the sun wrt the current satellite position, in the requested frame, computed in the requested manner, (in internal units) returned as an array representing x, y, z. Useful for scripting clients.</summary>
+      <param name="SunPosType"></param>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultAttCtrl.TransformVector(AGI.Plugin.AgEUtFrame,System.Double,System.Double,System.Double,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>Transforms a vector from the input frame to the output frame.</summary>
+      <param name="FrameFrom"></param>
+      <param name="XFrom"></param>
+      <param name="YFrom"></param>
+      <param name="ZFrom"></param>
+      <param name="FrameTo"></param>
+      <param name="XTo"></param>
+      <param name="YTo"></param>
+      <param name="ZTo"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultAttCtrl.TransformVector_Array(AGI.Plugin.AgEUtFrame,System.Double,System.Double,System.Double,AGI.Plugin.AgEUtFrame)">
+      <summary>Transforms a vector from the input frame to the output frame (in internal units) returned as an array representing x, y, z. Useful for scripting clients.</summary>
+      <param name="FrameFrom"></param>
+      <param name="XFrom"></param>
+      <param name="YFrom"></param>
+      <param name="ZFrom"></param>
+      <param name="FrameTo"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultAttCtrl.SetRefAxes(System.String)">
+      <summary>Sets the reference axes.</summary>
+      <param name="Name"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultAttCtrl.SetQuaternion(System.Double,System.Double,System.Double,System.Double)">
+      <summary>Sets the current orientation using a quaternion.</summary>
+      <param name="Q1"></param>
+      <param name="Q2"></param>
+      <param name="Q3"></param>
+      <param name="Q4"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultAttCtrl.EulerRotate(AGI.Astrogator.AgEEulerSequence,System.Double,System.Double,System.Double)">
+      <summary>Sets the current orientation using a sequence of euler rotations.</summary>
+      <param name="Sequence"></param>
+      <param name="First"></param>
+      <param name="Second"></param>
+      <param name="Third"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultAttCtrl.GetQuaternion(.double@,.double@,.double@,.double@)">
+      <summary>Gets the current orientation as a quaternion.</summary>
+      <param name="Q1"></param>
+      <param name="Q2"></param>
+      <param name="Q3"></param>
+      <param name="Q4"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultAttCtrl.GetQuaternion_Array">
+      <summary>Gets the current orientation as a quaternion returned as an array representing Q1, Q2, Q3, and Q4. Useful for scripting clients.</summary>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultAttCtrl.GetEulerRotation(AGI.Astrogator.AgEEulerSequence,.double@,.double@,.double@)">
+      <summary>Gets the current orientation as euler angles.</summary>
+      <param name="Sequence"></param>
+      <param name="First"></param>
+      <param name="Second"></param>
+      <param name="Third"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultAttCtrl.GetEulerRotation_Array(AGI.Astrogator.AgEEulerSequence)">
+      <summary>Gets the current orientation as euler rotations returned as an array. Useful for scripting clients.</summary>
+      <param name="Sequence"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultAttCtrl.StopPropagation">
+      <summary>Stops propagation.  For fatal errors.</summary>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultAttCtrl.DateElements(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>Current epoch in requested time scale expressed in date format. Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60].</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="DayOfMonth"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultAttCtrl.DateElements_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>Current epoch in requested time scale expressed in date format returned as the array: Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60]. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Astrogator.IAgGatorPluginResultAttCtrl.DateString(System.String)">
+      <summary>Current epoch expressed using the date format abbreviation specified.</summary>
+      <param name="DateAbbrv"></param>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultAttCtrl.CbName">
+      <summary>Name of the central body used as reference frame origin.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultAttCtrl.Mu">
+      <summary>Gravitational constant of the state central body</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultAttCtrl.Cd">
+      <summary>Drag Coefficient.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultAttCtrl.Cr">
+      <summary>SRP Coefficient.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultAttCtrl.DragArea">
+      <summary>Drag Area.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultAttCtrl.SRPArea">
+      <summary>SRP Area.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultAttCtrl.Mass">
+      <summary>Total Mass.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultAttCtrl.DryMass">
+      <summary>Dry Mass.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultAttCtrl.FuelMass">
+      <summary>Fuel Mass.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultAttCtrl.Altitude">
+      <summary>Current altitude.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPluginResultAttCtrl.RefAxes">
+      <summary>Name of the reference axes.</summary>
+    </member>
+    <member name="T:AGI.Astrogator.AgGatorPluginResultState">
+      <summary>Astrogator plugin class used to get state values</summary>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultState.Trace(System.Int32)">
+      <summary>Set this interface to trace the next numCalls by outputting a message to the message viewer.</summary>
+      <param name="NumCalls"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultState.DayCount(AGI.Plugin.AgEUtTimeScale,.long@,.double@)">
+      <summary>Current epoch in requested time scale expressed in day count format.</summary>
+      <param name="Scale"></param>
+      <param name="WholeDays"></param>
+      <param name="SecsIntoDay"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultState.DayCount_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>Current epoch in requested time scale expressed in day count format returned as an array representing wholeDays, secsIntoDay. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultState.Date(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>DEPRECATED. Use DateElements instead. Current epoch in requested time scale expressed in date format.</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultState.Date_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>DEPRECATED. Use DateElements_Array instead. Current epoch in requested time scale expressed in date format returned as an array representing year [yyyy], dayOfYear, month [0-11], hour [0-23], minute [0-59], seconds. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultState.PosVel(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@,.double@,.double@,.double@)">
+      <summary>Current position and velocity in the requested frame.</summary>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+      <param name="Vx"></param>
+      <param name="Vy"></param>
+      <param name="Vz"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultState.PosVel_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>Current position and velocity in the requested frame (in internal units) returned as an array representing x, y, z, vx, vy, vz. Useful for scripting clients.</summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultState.LatLonAlt(.double@,.double@,.double@)">
+      <summary>Current detic latitude, detic longitude, and altitude.</summary>
+      <param name="Latitude"></param>
+      <param name="Longitude"></param>
+      <param name="Altitude"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultState.LatLonAlt_Array">
+      <summary>Current detic latitude, detic longitude, and altitude(in internal units) returned as an array representing lat, lon, alt. Useful for scripting clients.</summary>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultState.SunPosition(AGI.Plugin.AgEUtSunPosType,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>Position of the sun wrt the current satellite position, in the requested frame, computed in the requested manner.</summary>
+      <param name="SunPosType"></param>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultState.SunPosition_Array(AGI.Plugin.AgEUtSunPosType,AGI.Plugin.AgEUtFrame)">
+      <summary>Position of the sun wrt the current satellite position, in the requested frame, computed in the requested manner, (in internal units) returned as an array representing x, y, z. Useful for scripting clients.</summary>
+      <param name="SunPosType"></param>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultState.TransformVector(AGI.Plugin.AgEUtFrame,System.Double,System.Double,System.Double,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>Transforms a vector from the input frame to the output frame.</summary>
+      <param name="FrameFrom"></param>
+      <param name="XFrom"></param>
+      <param name="YFrom"></param>
+      <param name="ZFrom"></param>
+      <param name="FrameTo"></param>
+      <param name="XTo"></param>
+      <param name="YTo"></param>
+      <param name="ZTo"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultState.TransformVector_Array(AGI.Plugin.AgEUtFrame,System.Double,System.Double,System.Double,AGI.Plugin.AgEUtFrame)">
+      <summary>Transforms a vector from the input frame to the output frame (in internal units) returned as an array representing x, y, z. Useful for scripting clients.</summary>
+      <param name="FrameFrom"></param>
+      <param name="XFrom"></param>
+      <param name="YFrom"></param>
+      <param name="ZFrom"></param>
+      <param name="FrameTo"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultState.StopPropagation">
+      <summary>Stops propagation.  For fatal errors.</summary>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultState.IndicateEvent(AGI.Hpop.Plugin.AgEAsHpopPluginEventIndicators)">
+      <summary>Marks an event to the propagator.</summary>
+      <param name="eEventIndicator"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultState.SetMaxStep(System.Double)">
+      <summary>Sets the maximum step size for the propagator.</summary>
+      <param name="MaxStep"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultState.SetColor(System.String)">
+      <summary>Sets the segment color.</summary>
+      <param name="Color"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultState.DateElements(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>Current epoch in requested time scale expressed in date format. Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60].</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="DayOfMonth"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultState.DateElements_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>Current epoch in requested time scale expressed in date format returned as the array: Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60]. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultState.DateString(System.String)">
+      <summary>Current epoch expressed using the date format abbreviation specified.</summary>
+      <param name="DateAbbrv"></param>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultState.CbName">
+      <summary>Name of the central body used as reference frame origin.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultState.Mu">
+      <summary>Gravitational constant of the state central body</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultState.Cd">
+      <summary>Drag Coefficient.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultState.Cr">
+      <summary>SRP Coefficient.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultState.DragArea">
+      <summary>Drag Area.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultState.SRPArea">
+      <summary>SRP Area.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultState.Mass">
+      <summary>Total Mass.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultState.DryMass">
+      <summary>Dry Mass.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultState.FuelMass">
+      <summary>Fuel Mass.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultState.Altitude">
+      <summary>Current altitude.</summary>
+    </member>
+    <member name="T:AGI.Astrogator.AgGatorPluginResultStateClass">
+      <summary>Astrogator plugin class used to get state values</summary>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultStateClass.Trace(System.Int32)">
+      <summary>Set this interface to trace the next numCalls by outputting a message to the message viewer.</summary>
+      <param name="NumCalls"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultStateClass.DayCount(AGI.Plugin.AgEUtTimeScale,.long@,.double@)">
+      <summary>Current epoch in requested time scale expressed in day count format.</summary>
+      <param name="Scale"></param>
+      <param name="WholeDays"></param>
+      <param name="SecsIntoDay"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultStateClass.DayCount_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>Current epoch in requested time scale expressed in day count format returned as an array representing wholeDays, secsIntoDay. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultStateClass.Date(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>DEPRECATED. Use DateElements instead. Current epoch in requested time scale expressed in date format.</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultStateClass.Date_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>DEPRECATED. Use DateElements_Array instead. Current epoch in requested time scale expressed in date format returned as an array representing year [yyyy], dayOfYear, month [0-11], hour [0-23], minute [0-59], seconds. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultStateClass.PosVel(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@,.double@,.double@,.double@)">
+      <summary>Current position and velocity in the requested frame.</summary>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+      <param name="Vx"></param>
+      <param name="Vy"></param>
+      <param name="Vz"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultStateClass.PosVel_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>Current position and velocity in the requested frame (in internal units) returned as an array representing x, y, z, vx, vy, vz. Useful for scripting clients.</summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultStateClass.LatLonAlt(.double@,.double@,.double@)">
+      <summary>Current detic latitude, detic longitude, and altitude.</summary>
+      <param name="Latitude"></param>
+      <param name="Longitude"></param>
+      <param name="Altitude"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultStateClass.LatLonAlt_Array">
+      <summary>Current detic latitude, detic longitude, and altitude(in internal units) returned as an array representing lat, lon, alt. Useful for scripting clients.</summary>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultStateClass.SunPosition(AGI.Plugin.AgEUtSunPosType,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>Position of the sun wrt the current satellite position, in the requested frame, computed in the requested manner.</summary>
+      <param name="SunPosType"></param>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultStateClass.SunPosition_Array(AGI.Plugin.AgEUtSunPosType,AGI.Plugin.AgEUtFrame)">
+      <summary>Position of the sun wrt the current satellite position, in the requested frame, computed in the requested manner, (in internal units) returned as an array representing x, y, z. Useful for scripting clients.</summary>
+      <param name="SunPosType"></param>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultStateClass.TransformVector(AGI.Plugin.AgEUtFrame,System.Double,System.Double,System.Double,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>Transforms a vector from the input frame to the output frame.</summary>
+      <param name="FrameFrom"></param>
+      <param name="XFrom"></param>
+      <param name="YFrom"></param>
+      <param name="ZFrom"></param>
+      <param name="FrameTo"></param>
+      <param name="XTo"></param>
+      <param name="YTo"></param>
+      <param name="ZTo"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultStateClass.TransformVector_Array(AGI.Plugin.AgEUtFrame,System.Double,System.Double,System.Double,AGI.Plugin.AgEUtFrame)">
+      <summary>Transforms a vector from the input frame to the output frame (in internal units) returned as an array representing x, y, z. Useful for scripting clients.</summary>
+      <param name="FrameFrom"></param>
+      <param name="XFrom"></param>
+      <param name="YFrom"></param>
+      <param name="ZFrom"></param>
+      <param name="FrameTo"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultStateClass.StopPropagation">
+      <summary>Stops propagation.  For fatal errors.</summary>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultStateClass.IndicateEvent(AGI.Hpop.Plugin.AgEAsHpopPluginEventIndicators)">
+      <summary>Marks an event to the propagator.</summary>
+      <param name="eEventIndicator"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultStateClass.SetMaxStep(System.Double)">
+      <summary>Sets the maximum step size for the propagator.</summary>
+      <param name="MaxStep"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultStateClass.SetColor(System.String)">
+      <summary>Sets the segment color.</summary>
+      <param name="Color"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultStateClass.DateElements(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>Current epoch in requested time scale expressed in date format. Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60].</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="DayOfMonth"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultStateClass.DateElements_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>Current epoch in requested time scale expressed in date format returned as the array: Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60]. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultStateClass.DateString(System.String)">
+      <summary>Current epoch expressed using the date format abbreviation specified.</summary>
+      <param name="DateAbbrv"></param>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultStateClass.CbName">
+      <summary>Name of the central body used as reference frame origin.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultStateClass.Mu">
+      <summary>Gravitational constant of the state central body</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultStateClass.Cd">
+      <summary>Drag Coefficient.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultStateClass.Cr">
+      <summary>SRP Coefficient.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultStateClass.DragArea">
+      <summary>Drag Area.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultStateClass.SRPArea">
+      <summary>SRP Area.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultStateClass.Mass">
+      <summary>Total Mass.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultStateClass.DryMass">
+      <summary>Dry Mass.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultStateClass.FuelMass">
+      <summary>Fuel Mass.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultStateClass.Altitude">
+      <summary>Current altitude.</summary>
+    </member>
+    <member name="T:AGI.Astrogator.AgGatorPluginResultEvalEngineModel">
+      <summary>Astrogator plugin class used to get/set engine model settings during the propagation of a step</summary>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.Trace(System.Int32)">
+      <summary>Set this interface to trace the next numCalls by outputting a message to the message viewer.</summary>
+      <param name="NumCalls"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.DayCount(AGI.Plugin.AgEUtTimeScale,.long@,.double@)">
+      <summary>Current epoch in requested time scale expressed in day count format.</summary>
+      <param name="Scale"></param>
+      <param name="WholeDays"></param>
+      <param name="SecsIntoDay"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.DayCount_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>Current epoch in requested time scale expressed in day count format returned as an array representing wholeDays, secsIntoDay. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.Date(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>DEPRECATED. Use DateElements instead. Current epoch in requested time scale expressed in date format.</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.Date_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>DEPRECATED. Use DateElements_Array instead. Current epoch in requested time scale expressed in date format returned as an array representing year [yyyy], dayOfYear, month [0-11], hour [0-23], minute [0-59], seconds. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.PosVel(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@,.double@,.double@,.double@)">
+      <summary>Current position and velocity in the requested frame.</summary>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+      <param name="Vx"></param>
+      <param name="Vy"></param>
+      <param name="Vz"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.PosVel_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>Current position and velocity in the requested frame (in internal units) returned as an array representing x, y, z, vx, vy, vz. Useful for scripting clients.</summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.LatLonAlt(.double@,.double@,.double@)">
+      <summary>Current detic latitude, detic longitude, and altitude.</summary>
+      <param name="Latitude"></param>
+      <param name="Longitude"></param>
+      <param name="Altitude"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.LatLonAlt_Array">
+      <summary>Current detic latitude, detic longitude, and altitude(in internal units) returned as an array representing lat, lon, alt. Useful for scripting clients.</summary>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.SunPosition(AGI.Plugin.AgEUtSunPosType,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>Position of the sun wrt the current satellite position, in the requested frame, computed in the requested manner.</summary>
+      <param name="SunPosType"></param>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.SunPosition_Array(AGI.Plugin.AgEUtSunPosType,AGI.Plugin.AgEUtFrame)">
+      <summary>Position of the sun wrt the current satellite position, in the requested frame, computed in the requested manner, (in internal units) returned as an array representing x, y, z. Useful for scripting clients.</summary>
+      <param name="SunPosType"></param>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.TransformVector(AGI.Plugin.AgEUtFrame,System.Double,System.Double,System.Double,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>Transforms a vector from the input frame to the output frame.</summary>
+      <param name="FrameFrom"></param>
+      <param name="XFrom"></param>
+      <param name="YFrom"></param>
+      <param name="ZFrom"></param>
+      <param name="FrameTo"></param>
+      <param name="XTo"></param>
+      <param name="YTo"></param>
+      <param name="ZTo"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.TransformVector_Array(AGI.Plugin.AgEUtFrame,System.Double,System.Double,System.Double,AGI.Plugin.AgEUtFrame)">
+      <summary>Transforms a vector from the input frame to the output frame (in internal units) returned as an array representing x, y, z. Useful for scripting clients.</summary>
+      <param name="FrameFrom"></param>
+      <param name="XFrom"></param>
+      <param name="YFrom"></param>
+      <param name="ZFrom"></param>
+      <param name="FrameTo"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.SetThrustAndIsp(System.Double,System.Double)">
+      <summary>Sets the current thrust (N) and isp (secs). Computes the mass flow rate using the rocket equation. Returns false on an error.</summary>
+      <param name="Thrust"></param>
+      <param name="Isp"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.SetThrustAndMassFlowRate(System.Double,System.Double)">
+      <summary>Sets the current thrust(N) and mass flow rate (kg/sec). Computes the isp using the rocket equation. Returns false on an error.</summary>
+      <param name="Thrust"></param>
+      <param name="MassFlowRate"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.SetIspAndMassFlowRate(System.Double,System.Double)">
+      <summary>Sets the current isp and mass flow rate. Computes the thrust using the rocket equation. Returns false on an error.</summary>
+      <param name="Isp"></param>
+      <param name="MassFlowRate"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.StopPropagation">
+      <summary>Stops propagation.  For fatal errors.</summary>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.DateElements(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>Current epoch in requested time scale expressed in date format. Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60].</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="DayOfMonth"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.DateElements_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>Current epoch in requested time scale expressed in date format returned as the array: Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60]. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.DateString(System.String)">
+      <summary>Current epoch expressed using the date format abbreviation specified.</summary>
+      <param name="DateAbbrv"></param>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.CbName">
+      <summary>Name of the central body used as reference frame origin.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.Mu">
+      <summary>Gravitational constant of the state central body</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.Cd">
+      <summary>Drag Coefficient.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.Cr">
+      <summary>SRP Coefficient.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.DragArea">
+      <summary>Drag Area.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.SRPArea">
+      <summary>SRP Area.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.Mass">
+      <summary>Total Mass.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.DryMass">
+      <summary>Dry Mass.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.FuelMass">
+      <summary>Fuel Mass.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.Altitude">
+      <summary>Current altitude.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.Thrust">
+      <summary>Current thrust (N).</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.Isp">
+      <summary>Current Isp (secs).</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.MassFlowRate">
+      <summary>Current mass flow rate (kg/sec).</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultEvalEngineModel.TimeSinceIgnition">
+      <summary>Time since ignition (secs).</summary>
+    </member>
+    <member name="T:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass">
+      <summary>Astrogator plugin class used to get/set engine model settings during the propagation of a step</summary>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.Trace(System.Int32)">
+      <summary>Set this interface to trace the next numCalls by outputting a message to the message viewer.</summary>
+      <param name="NumCalls"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.DayCount(AGI.Plugin.AgEUtTimeScale,.long@,.double@)">
+      <summary>Current epoch in requested time scale expressed in day count format.</summary>
+      <param name="Scale"></param>
+      <param name="WholeDays"></param>
+      <param name="SecsIntoDay"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.DayCount_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>Current epoch in requested time scale expressed in day count format returned as an array representing wholeDays, secsIntoDay. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.Date(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>DEPRECATED. Use DateElements instead. Current epoch in requested time scale expressed in date format.</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.Date_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>DEPRECATED. Use DateElements_Array instead. Current epoch in requested time scale expressed in date format returned as an array representing year [yyyy], dayOfYear, month [0-11], hour [0-23], minute [0-59], seconds. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.PosVel(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@,.double@,.double@,.double@)">
+      <summary>Current position and velocity in the requested frame.</summary>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+      <param name="Vx"></param>
+      <param name="Vy"></param>
+      <param name="Vz"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.PosVel_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>Current position and velocity in the requested frame (in internal units) returned as an array representing x, y, z, vx, vy, vz. Useful for scripting clients.</summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.LatLonAlt(.double@,.double@,.double@)">
+      <summary>Current detic latitude, detic longitude, and altitude.</summary>
+      <param name="Latitude"></param>
+      <param name="Longitude"></param>
+      <param name="Altitude"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.LatLonAlt_Array">
+      <summary>Current detic latitude, detic longitude, and altitude(in internal units) returned as an array representing lat, lon, alt. Useful for scripting clients.</summary>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.SunPosition(AGI.Plugin.AgEUtSunPosType,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>Position of the sun wrt the current satellite position, in the requested frame, computed in the requested manner.</summary>
+      <param name="SunPosType"></param>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.SunPosition_Array(AGI.Plugin.AgEUtSunPosType,AGI.Plugin.AgEUtFrame)">
+      <summary>Position of the sun wrt the current satellite position, in the requested frame, computed in the requested manner, (in internal units) returned as an array representing x, y, z. Useful for scripting clients.</summary>
+      <param name="SunPosType"></param>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.TransformVector(AGI.Plugin.AgEUtFrame,System.Double,System.Double,System.Double,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>Transforms a vector from the input frame to the output frame.</summary>
+      <param name="FrameFrom"></param>
+      <param name="XFrom"></param>
+      <param name="YFrom"></param>
+      <param name="ZFrom"></param>
+      <param name="FrameTo"></param>
+      <param name="XTo"></param>
+      <param name="YTo"></param>
+      <param name="ZTo"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.TransformVector_Array(AGI.Plugin.AgEUtFrame,System.Double,System.Double,System.Double,AGI.Plugin.AgEUtFrame)">
+      <summary>Transforms a vector from the input frame to the output frame (in internal units) returned as an array representing x, y, z. Useful for scripting clients.</summary>
+      <param name="FrameFrom"></param>
+      <param name="XFrom"></param>
+      <param name="YFrom"></param>
+      <param name="ZFrom"></param>
+      <param name="FrameTo"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.SetThrustAndIsp(System.Double,System.Double)">
+      <summary>Sets the current thrust (N) and isp (secs). Computes the mass flow rate using the rocket equation. Returns false on an error.</summary>
+      <param name="Thrust"></param>
+      <param name="Isp"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.SetThrustAndMassFlowRate(System.Double,System.Double)">
+      <summary>Sets the current thrust(N) and mass flow rate (kg/sec). Computes the isp using the rocket equation. Returns false on an error.</summary>
+      <param name="Thrust"></param>
+      <param name="MassFlowRate"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.SetIspAndMassFlowRate(System.Double,System.Double)">
+      <summary>Sets the current isp and mass flow rate. Computes the thrust using the rocket equation. Returns false on an error.</summary>
+      <param name="Isp"></param>
+      <param name="MassFlowRate"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.StopPropagation">
+      <summary>Stops propagation.  For fatal errors.</summary>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.DateElements(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>Current epoch in requested time scale expressed in date format. Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60].</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="DayOfMonth"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.DateElements_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>Current epoch in requested time scale expressed in date format returned as the array: Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60]. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.DateString(System.String)">
+      <summary>Current epoch expressed using the date format abbreviation specified.</summary>
+      <param name="DateAbbrv"></param>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.CbName">
+      <summary>Name of the central body used as reference frame origin.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.Mu">
+      <summary>Gravitational constant of the state central body</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.Cd">
+      <summary>Drag Coefficient.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.Cr">
+      <summary>SRP Coefficient.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.DragArea">
+      <summary>Drag Area.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.SRPArea">
+      <summary>SRP Area.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.Mass">
+      <summary>Total Mass.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.DryMass">
+      <summary>Dry Mass.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.FuelMass">
+      <summary>Fuel Mass.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.Altitude">
+      <summary>Current altitude.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.Thrust">
+      <summary>Current thrust (N).</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.Isp">
+      <summary>Current Isp (secs).</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.MassFlowRate">
+      <summary>Current mass flow rate (kg/sec).</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultEvalEngineModelClass.TimeSinceIgnition">
+      <summary>Time since ignition (secs).</summary>
+    </member>
+    <member name="T:AGI.Astrogator.AgGatorPluginResultAttCtrl">
+      <summary>Astrogator plugin class used to get/set attitude controller settings during the propagation of a step</summary>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrl.Trace(System.Int32)">
+      <summary>Set this interface to trace the next numCalls by outputting a message to the message viewer.</summary>
+      <param name="NumCalls"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrl.DayCount(AGI.Plugin.AgEUtTimeScale,.long@,.double@)">
+      <summary>Current epoch in requested time scale expressed in day count format.</summary>
+      <param name="Scale"></param>
+      <param name="WholeDays"></param>
+      <param name="SecsIntoDay"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrl.DayCount_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>Current epoch in requested time scale expressed in day count format returned as an array representing wholeDays, secsIntoDay. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrl.Date(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>DEPRECATED. Use DateElements instead. Current epoch in requested time scale expressed in date format.</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrl.Date_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>DEPRECATED. Use DateElements_Array instead. Current epoch in requested time scale expressed in date format returned as an array representing year [yyyy], dayOfYear, month [0-11], hour [0-23], minute [0-59], seconds. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrl.PosVel(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@,.double@,.double@,.double@)">
+      <summary>Current position and velocity in the requested frame.</summary>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+      <param name="Vx"></param>
+      <param name="Vy"></param>
+      <param name="Vz"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrl.PosVel_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>Current position and velocity in the requested frame (in internal units) returned as an array representing x, y, z, vx, vy, vz. Useful for scripting clients.</summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrl.LatLonAlt(.double@,.double@,.double@)">
+      <summary>Current detic latitude, detic longitude, and altitude.</summary>
+      <param name="Latitude"></param>
+      <param name="Longitude"></param>
+      <param name="Altitude"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrl.LatLonAlt_Array">
+      <summary>Current detic latitude, detic longitude, and altitude(in internal units) returned as an array representing lat, lon, alt. Useful for scripting clients.</summary>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrl.SunPosition(AGI.Plugin.AgEUtSunPosType,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>Position of the sun wrt the current satellite position, in the requested frame, computed in the requested manner.</summary>
+      <param name="SunPosType"></param>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrl.SunPosition_Array(AGI.Plugin.AgEUtSunPosType,AGI.Plugin.AgEUtFrame)">
+      <summary>Position of the sun wrt the current satellite position, in the requested frame, computed in the requested manner, (in internal units) returned as an array representing x, y, z. Useful for scripting clients.</summary>
+      <param name="SunPosType"></param>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrl.TransformVector(AGI.Plugin.AgEUtFrame,System.Double,System.Double,System.Double,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>Transforms a vector from the input frame to the output frame.</summary>
+      <param name="FrameFrom"></param>
+      <param name="XFrom"></param>
+      <param name="YFrom"></param>
+      <param name="ZFrom"></param>
+      <param name="FrameTo"></param>
+      <param name="XTo"></param>
+      <param name="YTo"></param>
+      <param name="ZTo"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrl.TransformVector_Array(AGI.Plugin.AgEUtFrame,System.Double,System.Double,System.Double,AGI.Plugin.AgEUtFrame)">
+      <summary>Transforms a vector from the input frame to the output frame (in internal units) returned as an array representing x, y, z. Useful for scripting clients.</summary>
+      <param name="FrameFrom"></param>
+      <param name="XFrom"></param>
+      <param name="YFrom"></param>
+      <param name="ZFrom"></param>
+      <param name="FrameTo"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrl.SetRefAxes(System.String)">
+      <summary>Sets the reference axes.</summary>
+      <param name="Name"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrl.SetQuaternion(System.Double,System.Double,System.Double,System.Double)">
+      <summary>Sets the current orientation using a quaternion.</summary>
+      <param name="Q1"></param>
+      <param name="Q2"></param>
+      <param name="Q3"></param>
+      <param name="Q4"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrl.EulerRotate(AGI.Astrogator.AgEEulerSequence,System.Double,System.Double,System.Double)">
+      <summary>Sets the current orientation using a sequence of euler rotations.</summary>
+      <param name="Sequence"></param>
+      <param name="First"></param>
+      <param name="Second"></param>
+      <param name="Third"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrl.GetQuaternion(.double@,.double@,.double@,.double@)">
+      <summary>Gets the current orientation as a quaternion.</summary>
+      <param name="Q1"></param>
+      <param name="Q2"></param>
+      <param name="Q3"></param>
+      <param name="Q4"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrl.GetQuaternion_Array">
+      <summary>Gets the current orientation as a quaternion returned as an array representing Q1, Q2, Q3, and Q4. Useful for scripting clients.</summary>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrl.GetEulerRotation(AGI.Astrogator.AgEEulerSequence,.double@,.double@,.double@)">
+      <summary>Gets the current orientation as euler angles.</summary>
+      <param name="Sequence"></param>
+      <param name="First"></param>
+      <param name="Second"></param>
+      <param name="Third"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrl.GetEulerRotation_Array(AGI.Astrogator.AgEEulerSequence)">
+      <summary>Gets the current orientation as euler rotations returned as an array. Useful for scripting clients.</summary>
+      <param name="Sequence"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrl.StopPropagation">
+      <summary>Stops propagation.  For fatal errors.</summary>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrl.DateElements(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>Current epoch in requested time scale expressed in date format. Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60].</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="DayOfMonth"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrl.DateElements_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>Current epoch in requested time scale expressed in date format returned as the array: Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60]. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrl.DateString(System.String)">
+      <summary>Current epoch expressed using the date format abbreviation specified.</summary>
+      <param name="DateAbbrv"></param>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultAttCtrl.CbName">
+      <summary>Name of the central body used as reference frame origin.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultAttCtrl.Mu">
+      <summary>Gravitational constant of the state central body</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultAttCtrl.Cd">
+      <summary>Drag Coefficient.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultAttCtrl.Cr">
+      <summary>SRP Coefficient.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultAttCtrl.DragArea">
+      <summary>Drag Area.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultAttCtrl.SRPArea">
+      <summary>SRP Area.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultAttCtrl.Mass">
+      <summary>Total Mass.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultAttCtrl.DryMass">
+      <summary>Dry Mass.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultAttCtrl.FuelMass">
+      <summary>Fuel Mass.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultAttCtrl.Altitude">
+      <summary>Current altitude.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultAttCtrl.RefAxes">
+      <summary>Name of the reference axes.</summary>
+    </member>
+    <member name="T:AGI.Astrogator.AgGatorPluginResultAttCtrlClass">
+      <summary>Astrogator plugin class used to get/set attitude controller settings during the propagation of a step</summary>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.Trace(System.Int32)">
+      <summary>Set this interface to trace the next numCalls by outputting a message to the message viewer.</summary>
+      <param name="NumCalls"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.DayCount(AGI.Plugin.AgEUtTimeScale,.long@,.double@)">
+      <summary>Current epoch in requested time scale expressed in day count format.</summary>
+      <param name="Scale"></param>
+      <param name="WholeDays"></param>
+      <param name="SecsIntoDay"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.DayCount_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>Current epoch in requested time scale expressed in day count format returned as an array representing wholeDays, secsIntoDay. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.Date(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>DEPRECATED. Use DateElements instead. Current epoch in requested time scale expressed in date format.</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.Date_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>DEPRECATED. Use DateElements_Array instead. Current epoch in requested time scale expressed in date format returned as an array representing year [yyyy], dayOfYear, month [0-11], hour [0-23], minute [0-59], seconds. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.PosVel(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@,.double@,.double@,.double@)">
+      <summary>Current position and velocity in the requested frame.</summary>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+      <param name="Vx"></param>
+      <param name="Vy"></param>
+      <param name="Vz"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.PosVel_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>Current position and velocity in the requested frame (in internal units) returned as an array representing x, y, z, vx, vy, vz. Useful for scripting clients.</summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.LatLonAlt(.double@,.double@,.double@)">
+      <summary>Current detic latitude, detic longitude, and altitude.</summary>
+      <param name="Latitude"></param>
+      <param name="Longitude"></param>
+      <param name="Altitude"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.LatLonAlt_Array">
+      <summary>Current detic latitude, detic longitude, and altitude(in internal units) returned as an array representing lat, lon, alt. Useful for scripting clients.</summary>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.SunPosition(AGI.Plugin.AgEUtSunPosType,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>Position of the sun wrt the current satellite position, in the requested frame, computed in the requested manner.</summary>
+      <param name="SunPosType"></param>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.SunPosition_Array(AGI.Plugin.AgEUtSunPosType,AGI.Plugin.AgEUtFrame)">
+      <summary>Position of the sun wrt the current satellite position, in the requested frame, computed in the requested manner, (in internal units) returned as an array representing x, y, z. Useful for scripting clients.</summary>
+      <param name="SunPosType"></param>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.TransformVector(AGI.Plugin.AgEUtFrame,System.Double,System.Double,System.Double,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>Transforms a vector from the input frame to the output frame.</summary>
+      <param name="FrameFrom"></param>
+      <param name="XFrom"></param>
+      <param name="YFrom"></param>
+      <param name="ZFrom"></param>
+      <param name="FrameTo"></param>
+      <param name="XTo"></param>
+      <param name="YTo"></param>
+      <param name="ZTo"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.TransformVector_Array(AGI.Plugin.AgEUtFrame,System.Double,System.Double,System.Double,AGI.Plugin.AgEUtFrame)">
+      <summary>Transforms a vector from the input frame to the output frame (in internal units) returned as an array representing x, y, z. Useful for scripting clients.</summary>
+      <param name="FrameFrom"></param>
+      <param name="XFrom"></param>
+      <param name="YFrom"></param>
+      <param name="ZFrom"></param>
+      <param name="FrameTo"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.SetRefAxes(System.String)">
+      <summary>Sets the reference axes.</summary>
+      <param name="Name"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.SetQuaternion(System.Double,System.Double,System.Double,System.Double)">
+      <summary>Sets the current orientation using a quaternion.</summary>
+      <param name="Q1"></param>
+      <param name="Q2"></param>
+      <param name="Q3"></param>
+      <param name="Q4"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.EulerRotate(AGI.Astrogator.AgEEulerSequence,System.Double,System.Double,System.Double)">
+      <summary>Sets the current orientation using a sequence of euler rotations.</summary>
+      <param name="Sequence"></param>
+      <param name="First"></param>
+      <param name="Second"></param>
+      <param name="Third"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.GetQuaternion(.double@,.double@,.double@,.double@)">
+      <summary>Gets the current orientation as a quaternion.</summary>
+      <param name="Q1"></param>
+      <param name="Q2"></param>
+      <param name="Q3"></param>
+      <param name="Q4"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.GetQuaternion_Array">
+      <summary>Gets the current orientation as a quaternion returned as an array representing Q1, Q2, Q3, and Q4. Useful for scripting clients.</summary>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.GetEulerRotation(AGI.Astrogator.AgEEulerSequence,.double@,.double@,.double@)">
+      <summary>Gets the current orientation as euler angles.</summary>
+      <param name="Sequence"></param>
+      <param name="First"></param>
+      <param name="Second"></param>
+      <param name="Third"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.GetEulerRotation_Array(AGI.Astrogator.AgEEulerSequence)">
+      <summary>Gets the current orientation as euler rotations returned as an array. Useful for scripting clients.</summary>
+      <param name="Sequence"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.StopPropagation">
+      <summary>Stops propagation.  For fatal errors.</summary>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.DateElements(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>Current epoch in requested time scale expressed in date format. Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60].</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="DayOfMonth"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.DateElements_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>Current epoch in requested time scale expressed in date format returned as the array: Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60]. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.DateString(System.String)">
+      <summary>Current epoch expressed using the date format abbreviation specified.</summary>
+      <param name="DateAbbrv"></param>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.CbName">
+      <summary>Name of the central body used as reference frame origin.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.Mu">
+      <summary>Gravitational constant of the state central body</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.Cd">
+      <summary>Drag Coefficient.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.Cr">
+      <summary>SRP Coefficient.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.DragArea">
+      <summary>Drag Area.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.SRPArea">
+      <summary>SRP Area.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.Mass">
+      <summary>Total Mass.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.DryMass">
+      <summary>Dry Mass.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.FuelMass">
+      <summary>Fuel Mass.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.Altitude">
+      <summary>Current altitude.</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPluginResultAttCtrlClass.RefAxes">
+      <summary>Name of the reference axes.</summary>
+    </member>
+    <member name="T:AGI.Astrogator.AgGatorPropagatorScriptDriver">
+      <summary>Astrogator plugin class to use old script plug-ins as HPOP COM plugins</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriver.UseInitFile">
+      <summary>Use Init File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriver.InitFile">
+      <summary>Init File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriver.InitFileRWFlag">
+      <summary>Init File RW Flag</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriver.UsePrePropagateFile">
+      <summary>Use PrePropagate File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriver.PrePropagateFile">
+      <summary>PrePropagate File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriver.PrePropagateFileRWFlag">
+      <summary>PrePropagate File RW Flag</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriver.UsePreNextStepFile">
+      <summary>Use PreNextStep File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriver.PreNextStepFile">
+      <summary>PreNextStep File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriver.PreNextStepFileRWFlag">
+      <summary>PreNextStep File RW Flag</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriver.UseEvaluateFile">
+      <summary>Use Evaluate File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriver.EvaluateFile">
+      <summary>Evaluate File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriver.EvaluateFileRWFlag">
+      <summary>Evaluate File RW Flag</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriver.UsePostPropagateFile">
+      <summary>Use PostPropagate File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriver.PostPropagateFile">
+      <summary>PostPropagate File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriver.PostPropagateFileRWFlag">
+      <summary>PostPropagate File RW Flag</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriver.UseFreeFile">
+      <summary>Use Free File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriver.FreeFile">
+      <summary>Free File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriver.FreeFileRWFlag">
+      <summary>Free File RW Flag</summary>
+    </member>
+    <member name="T:AGI.Astrogator.AgGatorPropagatorScriptDriverClass">
+      <summary>Astrogator plugin class to use old script plug-ins as HPOP COM plugins</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriverClass.UseInitFile">
+      <summary>Use Init File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriverClass.InitFile">
+      <summary>Init File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriverClass.InitFileRWFlag">
+      <summary>Init File RW Flag</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriverClass.UsePrePropagateFile">
+      <summary>Use PrePropagate File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriverClass.PrePropagateFile">
+      <summary>PrePropagate File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriverClass.PrePropagateFileRWFlag">
+      <summary>PrePropagate File RW Flag</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriverClass.UsePreNextStepFile">
+      <summary>Use PreNextStep File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriverClass.PreNextStepFile">
+      <summary>PreNextStep File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriverClass.PreNextStepFileRWFlag">
+      <summary>PreNextStep File RW Flag</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriverClass.UseEvaluateFile">
+      <summary>Use Evaluate File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriverClass.EvaluateFile">
+      <summary>Evaluate File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriverClass.EvaluateFileRWFlag">
+      <summary>Evaluate File RW Flag</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriverClass.UsePostPropagateFile">
+      <summary>Use PostPropagate File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriverClass.PostPropagateFile">
+      <summary>PostPropagate File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriverClass.PostPropagateFileRWFlag">
+      <summary>PostPropagate File RW Flag</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriverClass.UseFreeFile">
+      <summary>Use Free File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriverClass.FreeFile">
+      <summary>Free File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.AgGatorPropagatorScriptDriverClass.FreeFileRWFlag">
+      <summary>Free File RW Flag</summary>
+    </member>
+    <member name="T:AGI.Astrogator.IAgGatorPropagatorScriptDriver">
+      <summary>HPOP plugin engine interface utilizing a script driver interface (Perl, VBScript, Matlab)</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPropagatorScriptDriver.UseInitFile">
+      <summary>Use Init File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPropagatorScriptDriver.InitFile">
+      <summary>Init File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPropagatorScriptDriver.InitFileRWFlag">
+      <summary>Init File RW Flag</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPropagatorScriptDriver.UsePrePropagateFile">
+      <summary>Use PrePropagate File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPropagatorScriptDriver.PrePropagateFile">
+      <summary>PrePropagate File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPropagatorScriptDriver.PrePropagateFileRWFlag">
+      <summary>PrePropagate File RW Flag</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPropagatorScriptDriver.UsePreNextStepFile">
+      <summary>Use PreNextStep File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPropagatorScriptDriver.PreNextStepFile">
+      <summary>PreNextStep File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPropagatorScriptDriver.PreNextStepFileRWFlag">
+      <summary>PreNextStep File RW Flag</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPropagatorScriptDriver.UseEvaluateFile">
+      <summary>Use Evaluate File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPropagatorScriptDriver.EvaluateFile">
+      <summary>Evaluate File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPropagatorScriptDriver.EvaluateFileRWFlag">
+      <summary>Evaluate File RW Flag</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPropagatorScriptDriver.UsePostPropagateFile">
+      <summary>Use PostPropagate File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPropagatorScriptDriver.PostPropagateFile">
+      <summary>PostPropagate File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPropagatorScriptDriver.PostPropagateFileRWFlag">
+      <summary>PostPropagate File RW Flag</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPropagatorScriptDriver.UseFreeFile">
+      <summary>Use Free File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPropagatorScriptDriver.FreeFile">
+      <summary>Free File</summary>
+    </member>
+    <member name="P:AGI.Astrogator.IAgGatorPropagatorScriptDriver.FreeFileRWFlag">
+      <summary>Free File RW Flag</summary>
+    </member>
+  </members>
+</doc>

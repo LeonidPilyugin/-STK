@@ -1,0 +1,496 @@
+<doc>
+  <assembly>
+    <name>AGI.Gps.Plugin</name>
+  </assembly>
+  <members>
+    <member name="T:AGI.Gps.Plugin.AgEAsGPSPluginErrorCodes">
+      <summary>Enumeration of GPS Plugin General Error Codes</summary>
+    </member>
+    <member name="F:AGI.Gps.Plugin.AgEAsGPSPluginErrorCodes.E_GPS_PLUGIN_INTERNAL_FAILURE">
+      <summary>GPS Plugin: An internal failure occurred.</summary>
+    </member>
+    <member name="F:AGI.Gps.Plugin.AgEAsGPSPluginErrorCodes.E_GPS_PLUGIN_NOT_CONFIGURED">
+      <summary>GPS Plugin: Not configured propertly.</summary>
+    </member>
+    <member name="F:AGI.Gps.Plugin.AgEAsGPSPluginErrorCodes.E_GPS_PLUGIN_INDEX_OUT_OF_RANGE">
+      <summary>GPS Plugin: Index provided was out of range.</summary>
+    </member>
+    <member name="T:AGI.Gps.Plugin.IAgAsGPSSatSelectPluginResultEval">
+      <summary>GPS receiver satellite selection plugin interface</summary>
+    </member>
+    <member name="M:AGI.Gps.Plugin.IAgAsGPSSatSelectPluginResultEval.PosVel(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@,.double@,.double@,.double@)">
+      <summary>Current receiver position and velocity in the requested frame. Only eUtFrameInertial and eUtFrameFixed frames are supported. </summary>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+      <param name="Vx"></param>
+      <param name="Vy"></param>
+      <param name="Vz"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.IAgAsGPSSatSelectPluginResultEval.AntennaDir(System.Int32,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>Current antenna boresight direction in the requested frame. Only eUtFrameInertial and eUtFrameFixed frames are supported. </summary>
+      <param name="AntennaID"></param>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.IAgAsGPSSatSelectPluginResultEval.DayCount(AGI.Plugin.AgEUtTimeScale,.long@,.double@)">
+      <summary>Current epoch in requested time scale expressed in day format.</summary>
+      <param name="Scale"></param>
+      <param name="WholeDays"></param>
+      <param name="SecsIntoDay"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.IAgAsGPSSatSelectPluginResultEval.Date(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>DEPRECATED. Use DateElements instead. Current epoch in requested time scale expressed in date format.</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.IAgAsGPSSatSelectPluginResultEval.GPS_Pos(System.Int32,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>Satellite position for specified GPS in the requested frame. Only eUtFrameInertial and eUtFrameFixed frames are supported.</summary>
+      <param name="Index"></param>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.IAgAsGPSSatSelectPluginResultEval.GPS_PRN(System.Int32)">
+      <summary>PRN for specified GPS index.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.IAgAsGPSSatSelectPluginResultEval.GPS_Select(System.Int32,System.Boolean)">
+      <summary>Select GPS satellite. Set Select to True to use the GPS satellite at given Index.</summary>
+      <param name="Index"></param>
+      <param name="Select"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.IAgAsGPSSatSelectPluginResultEval.IsGPSSelected(System.Int32)">
+      <summary>Returns True if the GPS satellite at given Index is selected.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.IAgAsGPSSatSelectPluginResultEval.GPS_ClearAll">
+      <summary>Clear all GPS satellite selections.</summary>
+    </member>
+    <member name="M:AGI.Gps.Plugin.IAgAsGPSSatSelectPluginResultEval.GPS_SelectAll">
+      <summary>Select all visible GPS satellites.</summary>
+    </member>
+    <member name="M:AGI.Gps.Plugin.IAgAsGPSSatSelectPluginResultEval.PosVel_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>Current position and velocity in the requested frame (in internal units) returned as an array representing x, y, z, vx, vy, vz.  Only eUtFrameInertial and eUtFrameFixed frames are supported. Useful for scripting clients. </summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.IAgAsGPSSatSelectPluginResultEval.DayCount_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>Current epoch in requested time scale expressed in day count format returned as an array representing wholeDays, secsIntoDay. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.IAgAsGPSSatSelectPluginResultEval.Date_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>DEPRECATED. Use DateElements_Array instead. Current epoch in requested time scale expressed in date format returned as an array representing year [yyyy], dayOfYear, month [0-11], hour [0-23], minute [0-59], seconds. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.IAgAsGPSSatSelectPluginResultEval.GPS_Pos_Array(System.Int32,AGI.Plugin.AgEUtFrame)">
+      <summary>Satellite position for specified GPS in the requested frame (in internal units), returned as an array representing x, y, z.  Only eUtFrameInertial and eUtFrameFixed frames are supported. Useful for scripting clients.</summary>
+      <param name="Index"></param>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.IAgAsGPSSatSelectPluginResultEval.AntennaDir_Array(System.Int32,AGI.Plugin.AgEUtFrame)">
+      <summary>Current antenna boresight direction in the requested frame, returned as the array x, y, z.  Only eUtFrameInertial and eUtFrameFixed frames are supported. Useful for scripting clients.</summary>
+      <param name="AntennaID"></param>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.IAgAsGPSSatSelectPluginResultEval.Trace(System.Int32)">
+      <summary>Set this interface to trace the next numCalls by outputting a message to the message viewer.</summary>
+      <param name="NumCalls"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.IAgAsGPSSatSelectPluginResultEval.DOP(AGI.Gps.Plugin.AgEDopType)">
+      <summary>Computes the DOP for the currently selected satellites.</summary>
+      <param name="DopType"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.IAgAsGPSSatSelectPluginResultEval.Attitude(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@,.double@,.double@,.double@,.double@,.double@,.double@)">
+      <summary>Current attitude of receiver platform given as matrix representing the specified frame to body rotation</summary>
+      <param name="Frame"></param>
+      <param name="Mxx"></param>
+      <param name="Mxy"></param>
+      <param name="Mxz"></param>
+      <param name="Myx"></param>
+      <param name="Myy"></param>
+      <param name="Myz"></param>
+      <param name="Mzx"></param>
+      <param name="Mzy"></param>
+      <param name="Mzz"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.IAgAsGPSSatSelectPluginResultEval.Attitude_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>Current attitude of receiver platform given as matrix representing the specified frame to body rotation, returned as an array</summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.IAgAsGPSSatSelectPluginResultEval.GPS_NumSelected">
+      <summary>Number of currently selected GPS satellites</summary>
+    </member>
+    <member name="M:AGI.Gps.Plugin.IAgAsGPSSatSelectPluginResultEval.DateElements(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>Current epoch in requested time scale expressed in date format. Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60].</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="DayOfMonth"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.IAgAsGPSSatSelectPluginResultEval.DateElements_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>Current epoch in requested time scale expressed in date format returned as the array: Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60]. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.IAgAsGPSSatSelectPluginResultEval.DateString(System.String)">
+      <summary>Current epoch expressed using the date format abbreviation specified.</summary>
+      <param name="DateAbbrv"></param>
+    </member>
+    <member name="P:AGI.Gps.Plugin.IAgAsGPSSatSelectPluginResultEval.NumSatsPossible">
+      <summary>Maximum number of GPS satellites that can be simultaneously tracked.</summary>
+    </member>
+    <member name="P:AGI.Gps.Plugin.IAgAsGPSSatSelectPluginResultEval.NumSatsVisible">
+      <summary>Number of GPS satellites that are currently visible.</summary>
+    </member>
+    <member name="T:AGI.Gps.Plugin.AgEDopType">
+      <summary>DOP Selection.</summary>
+    </member>
+    <member name="F:AGI.Gps.Plugin.AgEDopType.eGDOP">
+      <summary>Geometrical DOP.</summary>
+    </member>
+    <member name="F:AGI.Gps.Plugin.AgEDopType.ePDOP">
+      <summary>Position DOP.</summary>
+    </member>
+    <member name="F:AGI.Gps.Plugin.AgEDopType.eVDOP">
+      <summary>Vertical DOP.</summary>
+    </member>
+    <member name="F:AGI.Gps.Plugin.AgEDopType.eHDOP">
+      <summary>Horizontal DOP.</summary>
+    </member>
+    <member name="F:AGI.Gps.Plugin.AgEDopType.eTDOP">
+      <summary>Time DOP.</summary>
+    </member>
+    <member name="T:AGI.Gps.Plugin.IAgAsGPSSatSelectPluginEngine">
+      <summary>GPS satellite selection plugin engine interface. A method returning false indicates an error.</summary>
+    </member>
+    <member name="M:AGI.Gps.Plugin.IAgAsGPSSatSelectPluginEngine.Init(AGI.Plugin.IAgUtPluginSite)">
+      <summary>Triggered when the plugin is initialized to allow for any additional needed initialization. Must return true to turn on use of plugin.</summary>
+      <param name="Site"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.IAgAsGPSSatSelectPluginEngine.Free">
+      <summary>Triggered just before the plugin is freed from use to allow for any additional cleanup.</summary>
+    </member>
+    <member name="M:AGI.Gps.Plugin.IAgAsGPSSatSelectPluginEngine.Evaluate(AGI.Gps.Plugin.IAgAsGPSSatSelectPluginResultEval)">
+      <summary>Triggered whenever the GPS satellite selection is determined . Use the input interface to access settings. Returning false will turn this callback off.</summary>
+      <param name="ResultEval"></param>
+    </member>
+    <member name="T:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEval">
+      <summary>GPS receiver satellite selection plugin class</summary>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEval.PosVel(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@,.double@,.double@,.double@)">
+      <summary>Current receiver position and velocity in the requested frame. Only eUtFrameInertial and eUtFrameFixed frames are supported. </summary>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+      <param name="Vx"></param>
+      <param name="Vy"></param>
+      <param name="Vz"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEval.AntennaDir(System.Int32,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>Current antenna boresight direction in the requested frame. Only eUtFrameInertial and eUtFrameFixed frames are supported. </summary>
+      <param name="AntennaID"></param>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEval.DayCount(AGI.Plugin.AgEUtTimeScale,.long@,.double@)">
+      <summary>Current epoch in requested time scale expressed in day format.</summary>
+      <param name="Scale"></param>
+      <param name="WholeDays"></param>
+      <param name="SecsIntoDay"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEval.Date(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>DEPRECATED. Use DateElements instead. Current epoch in requested time scale expressed in date format.</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEval.GPS_Pos(System.Int32,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>Satellite position for specified GPS in the requested frame. Only eUtFrameInertial and eUtFrameFixed frames are supported.</summary>
+      <param name="Index"></param>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEval.GPS_PRN(System.Int32)">
+      <summary>PRN for specified GPS index.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEval.GPS_Select(System.Int32,System.Boolean)">
+      <summary>Select GPS satellite. Set Select to True to use the GPS satellite at given Index.</summary>
+      <param name="Index"></param>
+      <param name="Select"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEval.IsGPSSelected(System.Int32)">
+      <summary>Returns True if the GPS satellite at given Index is selected.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEval.GPS_ClearAll">
+      <summary>Clear all GPS satellite selections.</summary>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEval.GPS_SelectAll">
+      <summary>Select all visible GPS satellites.</summary>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEval.PosVel_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>Current position and velocity in the requested frame (in internal units) returned as an array representing x, y, z, vx, vy, vz.  Only eUtFrameInertial and eUtFrameFixed frames are supported. Useful for scripting clients. </summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEval.DayCount_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>Current epoch in requested time scale expressed in day count format returned as an array representing wholeDays, secsIntoDay. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEval.Date_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>DEPRECATED. Use DateElements_Array instead. Current epoch in requested time scale expressed in date format returned as an array representing year [yyyy], dayOfYear, month [0-11], hour [0-23], minute [0-59], seconds. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEval.GPS_Pos_Array(System.Int32,AGI.Plugin.AgEUtFrame)">
+      <summary>Satellite position for specified GPS in the requested frame (in internal units), returned as an array representing x, y, z.  Only eUtFrameInertial and eUtFrameFixed frames are supported. Useful for scripting clients.</summary>
+      <param name="Index"></param>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEval.AntennaDir_Array(System.Int32,AGI.Plugin.AgEUtFrame)">
+      <summary>Current antenna boresight direction in the requested frame, returned as the array x, y, z.  Only eUtFrameInertial and eUtFrameFixed frames are supported. Useful for scripting clients.</summary>
+      <param name="AntennaID"></param>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEval.Trace(System.Int32)">
+      <summary>Set this interface to trace the next numCalls by outputting a message to the message viewer.</summary>
+      <param name="NumCalls"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEval.DOP(AGI.Gps.Plugin.AgEDopType)">
+      <summary>Computes the DOP for the currently selected satellites.</summary>
+      <param name="DopType"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEval.Attitude(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@,.double@,.double@,.double@,.double@,.double@,.double@)">
+      <summary>Current attitude of receiver platform given as matrix representing the specified frame to body rotation</summary>
+      <param name="Frame"></param>
+      <param name="Mxx"></param>
+      <param name="Mxy"></param>
+      <param name="Mxz"></param>
+      <param name="Myx"></param>
+      <param name="Myy"></param>
+      <param name="Myz"></param>
+      <param name="Mzx"></param>
+      <param name="Mzy"></param>
+      <param name="Mzz"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEval.Attitude_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>Current attitude of receiver platform given as matrix representing the specified frame to body rotation, returned as an array</summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEval.GPS_NumSelected">
+      <summary>Number of currently selected GPS satellites</summary>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEval.DateElements(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>Current epoch in requested time scale expressed in date format. Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60].</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="DayOfMonth"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEval.DateElements_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>Current epoch in requested time scale expressed in date format returned as the array: Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60]. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEval.DateString(System.String)">
+      <summary>Current epoch expressed using the date format abbreviation specified.</summary>
+      <param name="DateAbbrv"></param>
+    </member>
+    <member name="P:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEval.NumSatsPossible">
+      <summary>Maximum number of GPS satellites that can be simultaneously tracked.</summary>
+    </member>
+    <member name="P:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEval.NumSatsVisible">
+      <summary>Number of GPS satellites that are currently visible.</summary>
+    </member>
+    <member name="T:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEvalClass">
+      <summary>GPS receiver satellite selection plugin class</summary>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEvalClass.PosVel(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@,.double@,.double@,.double@)">
+      <summary>Current receiver position and velocity in the requested frame. Only eUtFrameInertial and eUtFrameFixed frames are supported. </summary>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+      <param name="Vx"></param>
+      <param name="Vy"></param>
+      <param name="Vz"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEvalClass.AntennaDir(System.Int32,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>Current antenna boresight direction in the requested frame. Only eUtFrameInertial and eUtFrameFixed frames are supported. </summary>
+      <param name="AntennaID"></param>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEvalClass.DayCount(AGI.Plugin.AgEUtTimeScale,.long@,.double@)">
+      <summary>Current epoch in requested time scale expressed in day format.</summary>
+      <param name="Scale"></param>
+      <param name="WholeDays"></param>
+      <param name="SecsIntoDay"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEvalClass.Date(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>DEPRECATED. Use DateElements instead. Current epoch in requested time scale expressed in date format.</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEvalClass.GPS_Pos(System.Int32,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>Satellite position for specified GPS in the requested frame. Only eUtFrameInertial and eUtFrameFixed frames are supported.</summary>
+      <param name="Index"></param>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEvalClass.GPS_PRN(System.Int32)">
+      <summary>PRN for specified GPS index.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEvalClass.GPS_Select(System.Int32,System.Boolean)">
+      <summary>Select GPS satellite. Set Select to True to use the GPS satellite at given Index.</summary>
+      <param name="Index"></param>
+      <param name="Select"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEvalClass.IsGPSSelected(System.Int32)">
+      <summary>Returns True if the GPS satellite at given Index is selected.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEvalClass.GPS_ClearAll">
+      <summary>Clear all GPS satellite selections.</summary>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEvalClass.GPS_SelectAll">
+      <summary>Select all visible GPS satellites.</summary>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEvalClass.PosVel_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>Current position and velocity in the requested frame (in internal units) returned as an array representing x, y, z, vx, vy, vz.  Only eUtFrameInertial and eUtFrameFixed frames are supported. Useful for scripting clients. </summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEvalClass.DayCount_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>Current epoch in requested time scale expressed in day count format returned as an array representing wholeDays, secsIntoDay. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEvalClass.Date_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>DEPRECATED. Use DateElements_Array instead. Current epoch in requested time scale expressed in date format returned as an array representing year [yyyy], dayOfYear, month [0-11], hour [0-23], minute [0-59], seconds. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEvalClass.GPS_Pos_Array(System.Int32,AGI.Plugin.AgEUtFrame)">
+      <summary>Satellite position for specified GPS in the requested frame (in internal units), returned as an array representing x, y, z.  Only eUtFrameInertial and eUtFrameFixed frames are supported. Useful for scripting clients.</summary>
+      <param name="Index"></param>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEvalClass.AntennaDir_Array(System.Int32,AGI.Plugin.AgEUtFrame)">
+      <summary>Current antenna boresight direction in the requested frame, returned as the array x, y, z.  Only eUtFrameInertial and eUtFrameFixed frames are supported. Useful for scripting clients.</summary>
+      <param name="AntennaID"></param>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEvalClass.Trace(System.Int32)">
+      <summary>Set this interface to trace the next numCalls by outputting a message to the message viewer.</summary>
+      <param name="NumCalls"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEvalClass.DOP(AGI.Gps.Plugin.AgEDopType)">
+      <summary>Computes the DOP for the currently selected satellites.</summary>
+      <param name="DopType"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEvalClass.Attitude(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@,.double@,.double@,.double@,.double@,.double@,.double@)">
+      <summary>Current attitude of receiver platform given as matrix representing the specified frame to body rotation</summary>
+      <param name="Frame"></param>
+      <param name="Mxx"></param>
+      <param name="Mxy"></param>
+      <param name="Mxz"></param>
+      <param name="Myx"></param>
+      <param name="Myy"></param>
+      <param name="Myz"></param>
+      <param name="Mzx"></param>
+      <param name="Mzy"></param>
+      <param name="Mzz"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEvalClass.Attitude_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>Current attitude of receiver platform given as matrix representing the specified frame to body rotation, returned as an array</summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEvalClass.GPS_NumSelected">
+      <summary>Number of currently selected GPS satellites</summary>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEvalClass.DateElements(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>Current epoch in requested time scale expressed in date format. Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60].</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="DayOfMonth"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEvalClass.DateElements_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>Current epoch in requested time scale expressed in date format returned as the array: Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60]. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEvalClass.DateString(System.String)">
+      <summary>Current epoch expressed using the date format abbreviation specified.</summary>
+      <param name="DateAbbrv"></param>
+    </member>
+    <member name="P:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEvalClass.NumSatsPossible">
+      <summary>Maximum number of GPS satellites that can be simultaneously tracked.</summary>
+    </member>
+    <member name="P:AGI.Gps.Plugin.AgAsGPSSatSelectPluginResultEvalClass.NumSatsVisible">
+      <summary>Number of GPS satellites that are currently visible.</summary>
+    </member>
+    <member name="T:AGI.Gps.Plugin.AgAsGPSSatSelectPluginEngine">
+      <summary>GPS satellite selection plugin engine class.</summary>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginEngine.Init(AGI.Plugin.IAgUtPluginSite)">
+      <summary>Triggered when the plugin is initialized to allow for any additional needed initialization. Must return true to turn on use of plugin.</summary>
+      <param name="Site"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginEngine.Free">
+      <summary>Triggered just before the plugin is freed from use to allow for any additional cleanup.</summary>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginEngine.Evaluate(AGI.Gps.Plugin.IAgAsGPSSatSelectPluginResultEval)">
+      <summary>Triggered whenever the GPS satellite selection is determined . Use the input interface to access settings. Returning false will turn this callback off.</summary>
+      <param name="ResultEval"></param>
+    </member>
+    <member name="T:AGI.Gps.Plugin.AgAsGPSSatSelectPluginEngineClass">
+      <summary>GPS satellite selection plugin engine class.</summary>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginEngineClass.Init(AGI.Plugin.IAgUtPluginSite)">
+      <summary>Triggered when the plugin is initialized to allow for any additional needed initialization. Must return true to turn on use of plugin.</summary>
+      <param name="Site"></param>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginEngineClass.Free">
+      <summary>Triggered just before the plugin is freed from use to allow for any additional cleanup.</summary>
+    </member>
+    <member name="M:AGI.Gps.Plugin.AgAsGPSSatSelectPluginEngineClass.Evaluate(AGI.Gps.Plugin.IAgAsGPSSatSelectPluginResultEval)">
+      <summary>Triggered whenever the GPS satellite selection is determined . Use the input interface to access settings. Returning false will turn this callback off.</summary>
+      <param name="ResultEval"></param>
+    </member>
+  </members>
+</doc>

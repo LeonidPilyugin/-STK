@@ -1,0 +1,111 @@
+<doc>
+  <assembly>
+    <name>AGI.CommRdrFoundation</name>
+  </assembly>
+  <members>
+    <member name="T:AGI.CommRdrFoundation.IAgCRSignal">
+      <summary>Signal object interface used to represent an electromagnetic signal.</summary>
+    </member>
+    <member name="M:AGI.CommRdrFoundation.IAgCRSignal.ComputePolLoss(AGI.CommRdrFoundation.IAgCRPolarization)">
+      <summary>Computes the rotation angle for the receive side polarization.</summary>
+      <param name="rcvSidePolarization"></param>
+    </member>
+    <member name="M:AGI.CommRdrFoundation.IAgCRSignal.ComputePolRotationAngle(AGI.CommRdrFoundation.IAgCRPolarization)">
+      <summary>Computes the rotation angle for the receive side polarization.</summary>
+      <param name="rcvSidePolarization"></param>
+    </member>
+    <member name="P:AGI.CommRdrFoundation.IAgCRSignal.Time">
+      <summary>Gets the signal time in epoch seconds.</summary>
+    </member>
+    <member name="P:AGI.CommRdrFoundation.IAgCRSignal.Frequency">
+      <summary>Gets or sets the signal frequency in Hz.</summary>
+    </member>
+    <member name="P:AGI.CommRdrFoundation.IAgCRSignal.UpperBandLimit">
+      <summary>Gets or sets the signal upper bandwidth limit in Hz.</summary>
+    </member>
+    <member name="P:AGI.CommRdrFoundation.IAgCRSignal.LowerBandLimit">
+      <summary>Gets or sets the signal lower bandwidth limit in Hz.</summary>
+    </member>
+    <member name="P:AGI.CommRdrFoundation.IAgCRSignal.Power">
+      <summary>Gets or sets the signal power in Watts.</summary>
+    </member>
+    <member name="P:AGI.CommRdrFoundation.IAgCRSignal.Polarization">
+      <summary>Gets or sets the signal polarization</summary>
+    </member>
+    <member name="T:AGI.CommRdrFoundation.IAgCRPolarization">
+      <summary>Polarization object interface used to represent a signal polarization.</summary>
+    </member>
+    <member name="P:AGI.CommRdrFoundation.IAgCRPolarization.Type">
+      <summary>Gets the polarizatoin type.</summary>
+    </member>
+    <member name="P:AGI.CommRdrFoundation.IAgCRPolarization.TiltAngle">
+      <summary>Gets the tilt angle.</summary>
+    </member>
+    <member name="P:AGI.CommRdrFoundation.IAgCRPolarization.AxialRatio">
+      <summary>Gets the axial ratio.</summary>
+    </member>
+    <member name="P:AGI.CommRdrFoundation.IAgCRPolarization.ReferenceAxis">
+      <summary>Gets the reference axis</summary>
+    </member>
+    <member name="T:AGI.CommRdrFoundation.AgECRPolarizationType">
+      <summary>Enumeration of polarization types.</summary>
+    </member>
+    <member name="F:AGI.CommRdrFoundation.AgECRPolarizationType.eCRLinearPol">
+      <summary>Linear</summary>
+    </member>
+    <member name="F:AGI.CommRdrFoundation.AgECRPolarizationType.eCRLHCPol">
+      <summary>Left-hand Circular</summary>
+    </member>
+    <member name="F:AGI.CommRdrFoundation.AgECRPolarizationType.eCRRHCPol">
+      <summary>Right-hand Circular</summary>
+    </member>
+    <member name="F:AGI.CommRdrFoundation.AgECRPolarizationType.eCREllipticalPol">
+      <summary>Elliptical</summary>
+    </member>
+    <member name="T:AGI.CommRdrFoundation.AgECRPolarizationRefAxis">
+      <summary>Enumeration of polarization reference axes.</summary>
+    </member>
+    <member name="F:AGI.CommRdrFoundation.AgECRPolarizationRefAxis.eCRPolRefXAxis">
+      <summary>X Axis</summary>
+    </member>
+    <member name="F:AGI.CommRdrFoundation.AgECRPolarizationRefAxis.eCRPolRefYAxis">
+      <summary>Y Axis</summary>
+    </member>
+    <member name="F:AGI.CommRdrFoundation.AgECRPolarizationRefAxis.eCRPolRefZAxis">
+      <summary>Z Axis</summary>
+    </member>
+    <member name="T:AGI.CommRdrFoundation.IAgCRSignalCollection">
+      <summary>Interface implemented by a collection of signal objects.</summary>
+    </member>
+    <member name="P:AGI.CommRdrFoundation.IAgCRSignalCollection.Count">
+      <summary>Returns the number of elements in the collection.</summary>
+    </member>
+    <member name="P:AGI.CommRdrFoundation.IAgCRSignalCollection.Item">
+      <summary>Given an index, returns an element in the collection.</summary>
+    </member>
+    <member name="P:AGI.CommRdrFoundation.IAgCRSignalCollection._NewEnum">
+      <summary>Returns an enumerator that can iterate through the collection.</summary>
+    </member>
+    <member name="T:AGI.CommRdrFoundation.IAgCRPolarizationElliptical">
+      <summary>Elliptical polarization object interface used to represent elliptical signal polarization.</summary>
+    </member>
+    <member name="P:AGI.CommRdrFoundation.IAgCRPolarizationElliptical.TiltAngle">
+      <summary>Sets the tilt angle.</summary>
+    </member>
+    <member name="P:AGI.CommRdrFoundation.IAgCRPolarizationElliptical.AxialRatio">
+      <summary>Sets the axial ratio.</summary>
+    </member>
+    <member name="P:AGI.CommRdrFoundation.IAgCRPolarizationElliptical.ReferenceAxis">
+      <summary>Sets the reference axis</summary>
+    </member>
+    <member name="T:AGI.CommRdrFoundation.IAgCRPolarizationLinear">
+      <summary>Linear polarization object interface used to represent linear signal polarization.</summary>
+    </member>
+    <member name="P:AGI.CommRdrFoundation.IAgCRPolarizationLinear.TiltAngle">
+      <summary>Sets the tilt angle.</summary>
+    </member>
+    <member name="P:AGI.CommRdrFoundation.IAgCRPolarizationLinear.ReferenceAxis">
+      <summary>Sets the reference axis</summary>
+    </member>
+  </members>
+</doc>

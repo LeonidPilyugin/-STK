@@ -1,0 +1,1388 @@
+<doc>
+  <assembly>
+    <name>AGI.Radar.Plugin</name>
+  </assembly>
+  <members>
+    <member name="T:AGI.Radar.Plugin.IAgStkRadarClutterGeometryPlugin">
+      <summary>Interface implemented by an object that represents a clutter geometry plugin.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarClutterGeometryPlugin.Register(AGI.Radar.Plugin.IAgStkRadarClutterGeometryPluginRegInfo)">
+      <summary>Registers the plugin with the application.</summary>
+      <param name="registrationInfo"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarClutterGeometryPlugin.Initialize(AGI.Plugin.IAgUtPluginSite)">
+      <summary>Initializes the plugin with the plugin site.</summary>
+      <param name="Site"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarClutterGeometryPlugin.PreCompute">
+      <summary>Clutter geometry plugin pre-compute.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarClutterGeometryPlugin.Compute(AGI.Radar.Plugin.IAgStkRadarClutterGeometryComputeParams)">
+      <summary>Clutter geometry plugin compute.</summary>
+      <param name="ComputeParams"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarClutterGeometryPlugin.PostCompute">
+      <summary>Clutter geometry plugin post-compute.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarClutterGeometryPlugin.Free">
+      <summary>Free clutter geometry plugin.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin.IAgStkRadarClutterGeometryPluginRegInfo">
+      <summary>Interface implemented by an object that represents the registration information for the clutter geometry plugin.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarClutterGeometryPluginRegInfo.ValidRadarSystems">
+      <summary>Sets the valid radar system mask.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin.AgEStkRadarValidSystems">
+      <summary>Enumeration of valid radar systems.</summary>
+    </member>
+    <member name="F:AGI.Radar.Plugin.AgEStkRadarValidSystems.eStkRadarAllSystems">
+      <summary>All radar systems.</summary>
+    </member>
+    <member name="F:AGI.Radar.Plugin.AgEStkRadarValidSystems.eStkRadarMonostaticSystemsOnly">
+      <summary>Monostatic radar system only.</summary>
+    </member>
+    <member name="F:AGI.Radar.Plugin.AgEStkRadarValidSystems.eStkRadarBistaticSystemsOnly">
+      <summary>Bistatic radar system only.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin.IAgStkRadarClutterGeometryComputeParams">
+      <summary>Interface implemented by an object that represents the parameters to be passed into the clutter geometry plugin Compute method.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarClutterGeometryComputeParams.RadarLink">
+      <summary>Gets the radar link</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarClutterGeometryComputeParams.Signal">
+      <summary>Gets the transmit signal</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarClutterGeometryComputeParams.ClutterPatches">
+      <summary>Gets the clutter patch collection</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin.IAgStkRadarLink">
+      <summary>Interface implemented by an object that represents the multi-hop link from a radar transmitter to the target, and back to the receive radar.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarLink.ComputeDopplerResolution(AGI.CommRdrFoundation.IAgCRSignal)">
+      <summary>Computes the doppler resolution for the supplied signal.</summary>
+      <param name="radarSignal"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarLink.ComputeRangeResolution(AGI.CommRdrFoundation.IAgCRSignal)">
+      <summary>Computes the range resolution for the supplied signal.</summary>
+      <param name="radarSignal"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarLink.ComputeIsoDoppler(AGI.CommRdrFoundation.IAgCRSignal)">
+      <summary>Computes the iso doppler array for the supplied signal.</summary>
+      <param name="radarSignal"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarLink.ComputeIsoRange(AGI.CommRdrFoundation.IAgCRSignal)">
+      <summary>Computes the iso range array for the supplied signal.</summary>
+      <param name="radarSignal"></param>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarLink.Geometry">
+      <summary>Gets the link geometry.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin.IAgStkRadarLinkGeometry">
+      <summary>Interface implemented by an object that provides the geometry for a radar link.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarLinkGeometry.GetTgt2XmtRdrRelPosCBFCartesian(.double@,.double@,.double@)">
+      <summary>Gets the relative position vector from the target to the transmitting radar in central body fixed coordinates</summary>
+      <param name="xCbf"></param>
+      <param name="yCbf"></param>
+      <param name="zCbf"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarLinkGeometry.GetTgt2RcvRdrRelPosCBFCartesian(.double@,.double@,.double@)">
+      <summary>Gets the relative position vector from the target to the receiving radar in central body fixed coordinates.</summary>
+      <param name="xCbf"></param>
+      <param name="yCbf"></param>
+      <param name="zCbf"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarLinkGeometry.GetXmtRdr2TgtRelPosCBFCartesian(.double@,.double@,.double@)">
+      <summary>Gets the relative position vector from the transmitting radar to the target in central body fixed coordinates.</summary>
+      <param name="xCbf"></param>
+      <param name="yCbf"></param>
+      <param name="zCbf"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarLinkGeometry.GetRcvRdr2TgtRelPosCBFCartesian(.double@,.double@,.double@)">
+      <summary>Gets the relative position vector from the receiving radar to the target in central body fixed coordinates.</summary>
+      <param name="xCbf"></param>
+      <param name="yCbf"></param>
+      <param name="zCbf"></param>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarLinkGeometry.TargetPosVelProvider">
+      <summary>Gets the target position/velocity provider interface.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarLinkGeometry.TransmitRadarPosVelProvider">
+      <summary>Gets the transmit radar position/velocity provider interface.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarLinkGeometry.ReceiveRadarPosVelProvider">
+      <summary>Gets the receive radar position/velocity provider interface.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarLinkGeometry.ReceiveRadarRange">
+      <summary>Gets the receive radar range.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarLinkGeometry.ReceiveRadarAngleRate">
+      <summary>Gets the receive radar angle rate.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarLinkGeometry.ReceiveRadarRangeRate">
+      <summary>Gets the receive radar range rate.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarLinkGeometry.ReceiveRadarConeAngle">
+      <summary>Gets the receive radar cone angle.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarLinkGeometry.ReceiveRadarPropTime">
+      <summary>Gets the receive radar prop time.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarLinkGeometry.TransmitRadarRange">
+      <summary>Gets the transmit radar range.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarLinkGeometry.TransmitRadarAngleRate">
+      <summary>Gets the transmit radar angle rate.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarLinkGeometry.TransmitRadarRangeRate">
+      <summary>Gets the transmit radar range rate.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarLinkGeometry.TransmitRadarConeAngle">
+      <summary>Gets the transmit radar cone angle.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarLinkGeometry.TransmitRadarPropTime">
+      <summary>Gets the transmit radar prop time.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarLinkGeometry.RangeSum">
+      <summary>Gets the range sum.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarLinkGeometry.Closure">
+      <summary>Gets the closure.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarLinkGeometry.MLCVelocity">
+      <summary>Gets the main lobe clutter velocity.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarLinkGeometry.BistaticAngle">
+      <summary>Gets the bistatic angle.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarLinkGeometry.IncidentAzimuth">
+      <summary>Gets the incident azimuth.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarLinkGeometry.IncidentElevation">
+      <summary>Gets the incident elevation.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarLinkGeometry.ReflectedAzimuth">
+      <summary>Gets the reflected azimuth.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarLinkGeometry.ReflectedElevation">
+      <summary>Gets the reflected elevation.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarLinkGeometry.XYAngleRate">
+      <summary>Gets the xy angle rate.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarLinkGeometry.Tgt2XmtRdrRelPosCBFCartesianArray">
+      <summary>Gets the relative position vector from the target to the transmitting radar in central body fixed coordinates as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarLinkGeometry.Tgt2RcvRdrRelPosCBFCartesianArray">
+      <summary>Gets the relative position vector from the target to the receiving radar in central body fixed coordinates as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarLinkGeometry.XmtRdr2TgtRelPosCBFCartesianArray">
+      <summary>Gets the relative position vector from the transmitting radar to the target in central body fixed coordinates as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarLinkGeometry.RcvRdr2TgtRelPosCBFCartesianArray">
+      <summary>Gets the relative position vector from the receiving radar to the target in central body fixed coordinates as an array.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin.IAgStkRadarPosVelProvider">
+      <summary>Interface implemented by an object that provides the position and velocity for an STK radar object or radar target object.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.GetVelocityCBF(.double@,.double@,.double@)">
+      <summary>Gets velocity in the central body fixed frame.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.GetPositionCBF(.double@,.double@,.double@)">
+      <summary>Gets position in the central body fixed frame.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.GetPositionLLA(.double@,.double@,.double@)">
+      <summary>Gets position in latitude, longitude, and altitude.</summary>
+      <param name="latitude"></param>
+      <param name="longitude"></param>
+      <param name="altitude"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.GetSurfaceNormalDetic(.double@,.double@,.double@)">
+      <summary>Gets the surface normal detic.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.GetSurfaceNormalCentric(.double@,.double@,.double@)">
+      <summary>Gets the surface normal centric as an array.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.GetTerrainHeight(AGI.Radar.Plugin.AgEStkRadarTerrainInterpMethod)">
+      <summary>Gets the terrain height.</summary>
+      <param name="interpMethod"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.GetTerrainHeightForLatLon(System.Double,System.Double,AGI.Radar.Plugin.AgEStkRadarTerrainInterpMethod)">
+      <summary>Gets the terrain height for a specified latitude and longitude.</summary>
+      <param name="latitude"></param>
+      <param name="longitude"></param>
+      <param name="interpMethod"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.ComputeLocalRadiusDetic(System.Double,System.Double)">
+      <summary>Computes the central body radius detic for a given latitude and longitude.</summary>
+      <param name="latitude"></param>
+      <param name="longitude"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.ComputeLocalRadiusCentric(System.Double,System.Double)">
+      <summary>Computes the central body radius centric for a given latitude and longitude.</summary>
+      <param name="latitude"></param>
+      <param name="longitude"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.ComputeSurfaceNormalDetic(System.Double,System.Double,.double@,.double@,.double@)">
+      <summary>Computes the surface normal detic vector for a given latitude and longitude.</summary>
+      <param name="latitude"></param>
+      <param name="longitude"></param>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.ComputeSurfaceNormalDeticArray(System.Double,System.Double)">
+      <summary>Computes the surface normal detic vector for a given latitude and longitude as an array.</summary>
+      <param name="latitude"></param>
+      <param name="longitude"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.ComputeSurfaceNormalCentric(System.Double,System.Double,.double@,.double@,.double@)">
+      <summary>Computes the surface normal centric vector for a given latitude and longitude.</summary>
+      <param name="latitude"></param>
+      <param name="longitude"></param>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.ComputeSurfaceNormalCentricArray(System.Double,System.Double)">
+      <summary>Computes the surface normal centric vector for a given latitude and longitude as an array.</summary>
+      <param name="latitude"></param>
+      <param name="longitude"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.ComputeCentralBodyIntersect(AGI.Radar.Plugin.IAgStkRadarCBIntersectComputeParams)">
+      <summary>Computes the central body intersection.</summary>
+      <param name="cbIntersectComputeParams"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.ConvertCBFCartesianToLLA(System.Double,System.Double,System.Double,.double@,.double@,.double@)">
+      <summary>Converts central body fixed cartesian to latitude, longitude, and altitude.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+      <param name="latitude"></param>
+      <param name="longitude"></param>
+      <param name="altitude"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.ConvertCBFCartesianToLLAArray(System.Double,System.Double,System.Double)">
+      <summary>Converts central body fixed cartesian to latitude, longitude, and altitude as an array.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.ConvertLLAToCBFCartesian(System.Double,System.Double,System.Double,.double@,.double@,.double@)">
+      <summary>Converts latitude, longitude, and altitude to central body fixed cartesian.</summary>
+      <param name="latitude"></param>
+      <param name="longitude"></param>
+      <param name="altitude"></param>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.ConvertLLAToCBFCartesianArray(System.Double,System.Double,System.Double)">
+      <summary>Converts latitude, longitude, and altitude to central body fixed cartesian as an array.</summary>
+      <param name="latitude"></param>
+      <param name="longitude"></param>
+      <param name="altitude"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.ConvertCBFCartesianToVVLHCartesian(System.Double,System.Double,System.Double,.double@,.double@,.double@)">
+      <summary>Converts a central body fixed cartesian into the VVLA frame.</summary>
+      <param name="xCbf"></param>
+      <param name="yCbf"></param>
+      <param name="zCbf"></param>
+      <param name="xVvlh"></param>
+      <param name="yVvlh"></param>
+      <param name="zVvlh"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.ConvertCBFCartesianToVVLHCartesianArray(System.Double,System.Double,System.Double)">
+      <summary>Converts a central body fixed cartesian into the VVLA frame as an array.</summary>
+      <param name="xCbf"></param>
+      <param name="yCbf"></param>
+      <param name="zCbf"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.ConvertBodyCartesianToCBFCartesian(System.Double,System.Double,System.Double,.double@,.double@,.double@)">
+      <summary>Converts a vector in body coordinates into CBF fixed coordinates</summary>
+      <param name="xBody"></param>
+      <param name="yBody"></param>
+      <param name="zBody"></param>
+      <param name="xCbf"></param>
+      <param name="yCbf"></param>
+      <param name="zCbf"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.ConvertBodyCartesianToCBFCartesianArray(System.Double,System.Double,System.Double)">
+      <summary>Converts a vector in body coordinates into CBF fixed coordinates as an array.</summary>
+      <param name="xBody"></param>
+      <param name="yBody"></param>
+      <param name="zBody"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.ConvertCBFCartesianToBodyCartesian(System.Double,System.Double,System.Double,.double@,.double@,.double@)">
+      <summary>Converts a vector in CBF coordinates into body coordinates.</summary>
+      <param name="xCbf"></param>
+      <param name="yCbf"></param>
+      <param name="zCbf"></param>
+      <param name="xBody"></param>
+      <param name="yBody"></param>
+      <param name="zBody"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.ConvertCBFCartesianToBodyCartesianArray(System.Double,System.Double,System.Double)">
+      <summary>Converts a vector in CBF coordinates into body coordinates as an array.</summary>
+      <param name="xCbf"></param>
+      <param name="yCbf"></param>
+      <param name="zCbf"></param>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.CurrentTime">
+      <summary>Gets the current time in EpSec.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.VelocityCBFArray">
+      <summary>Gets velocity in the central body fixed frame as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.PositionCBFArray">
+      <summary>Gets position in the central body fixed frame as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.PositionLLAArray">
+      <summary>Gets position in latitude, longitude, and altitude as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.LocalRadiusDetic">
+      <summary>Gets the central body radius detic using the position/velocity provider's current latitude and longitude.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.LocalRadiusCentric">
+      <summary>Gets the central body radius centric using the position/velocity provider's current latitude and longitude.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.SurfaceNormalDeticArray">
+      <summary>Gets the surface normal detic as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.SurfaceNormalCentricArray">
+      <summary>Gets the surface normal centric as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarPosVelProvider.Role">
+      <summary>Gets the IAgStkRadarPosVelProvider role.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin.AgEStkRadarTerrainInterpMethod">
+      <summary>Enumeration of terrain interpolation methods.</summary>
+    </member>
+    <member name="F:AGI.Radar.Plugin.AgEStkRadarTerrainInterpMethod.eStkRadarBilinearTerrainInterp">
+      <summary>Bilinear Interpolation</summary>
+    </member>
+    <member name="F:AGI.Radar.Plugin.AgEStkRadarTerrainInterpMethod.eStkRadarHighestPostTerrainInterp">
+      <summary>Highest Post</summary>
+    </member>
+    <member name="F:AGI.Radar.Plugin.AgEStkRadarTerrainInterpMethod.eStkRadarTriPlanarTerrainInterp">
+      <summary>Tri-Planar</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin.IAgStkRadarCBIntersectComputeParams">
+      <summary>Interface implemented by an object that represents the input parameters for a central body intersect computation.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarCBIntersectComputeParams.GetBasePositionCBF(.double@,.double@,.double@)">
+      <summary>Gets the base position vector in the central body fixed frame.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarCBIntersectComputeParams.SetBasePositionCBF(System.Double,System.Double,System.Double)">
+      <summary>Sets the base position vector in the central body fixed frame.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarCBIntersectComputeParams.GetDirectionCBF(.double@,.double@,.double@)">
+      <summary>Gets the direction vector in the central body fixed frame.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarCBIntersectComputeParams.SetDirectionCBF(System.Double,System.Double,System.Double)">
+      <summary>Sets the direction vector in the central body fixed frame.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarCBIntersectComputeParams.BasePositionCBFArray">
+      <summary>Gets the base position vector in central body fixed frame as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarCBIntersectComputeParams.DirectionCBFArray">
+      <summary>Gets the direction vector in the central body fixed frame as an array.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin.IAgStkRadarCBIntersectComputeResult">
+      <summary>Interface implemented by an object that represents the result of a central body computation.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarCBIntersectComputeResult.GetIntercept1CBF(.double@,.double@,.double@)">
+      <summary>Gets the position vector of the first point of intersection in the central body fixed frame.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarCBIntersectComputeResult.GetIntercept2CBF(.double@,.double@,.double@)">
+      <summary>Gets the position vector of the second point of intersection in the central body fixed frame.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarCBIntersectComputeResult.GetBasePositionCBF(.double@,.double@,.double@)">
+      <summary>Gets the base position vector in the central body fixed frame.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarCBIntersectComputeResult.GetDirectionCBF(.double@,.double@,.double@)">
+      <summary>Gets the direction vector in the central body fixed frame.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarCBIntersectComputeResult.IntersectionFound">
+      <summary>Gets the intersection found indicator.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarCBIntersectComputeResult.Intercept1CBFArray">
+      <summary>Gets the position vector  of the first point of intersection in the central body fixed frame as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarCBIntersectComputeResult.Intercept2CBFArray">
+      <summary>Gets the position vector of the second point of the intersection in the central body fixed frame as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarCBIntersectComputeResult.Multiplier1">
+      <summary>Gets the first multiplier.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarCBIntersectComputeResult.Multiplier2">
+      <summary>Gets the second multiplier.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarCBIntersectComputeResult.BasePositionCBFArray">
+      <summary>Gets the base position vector in the central body fixed frame as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarCBIntersectComputeResult.DirectionCBFArray">
+      <summary>Gets the direction vector in the central body fixed frame as an array.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin.AgEStkRadarPosVelProviderRole">
+      <summary>Enumeration of the position and velocity providers roles.</summary>
+    </member>
+    <member name="F:AGI.Radar.Plugin.AgEStkRadarPosVelProviderRole.eStkRadarTransmitterPosVelRole">
+      <summary>Transmitter</summary>
+    </member>
+    <member name="F:AGI.Radar.Plugin.AgEStkRadarPosVelProviderRole.eStkRadarReceiverPosVelRole">
+      <summary>Receiver</summary>
+    </member>
+    <member name="F:AGI.Radar.Plugin.AgEStkRadarPosVelProviderRole.eStkRadarTargetPosVelRole">
+      <summary>Target</summary>
+    </member>
+    <member name="F:AGI.Radar.Plugin.AgEStkRadarPosVelProviderRole.eStkRadarClutterPatchPosVelRole">
+      <summary>Clutter Patch</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin.IAgStkRadarClutterPatchCollection">
+      <summary>Interface implemented by a collection of clutter patch objects.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarClutterPatchCollection.Remove(AGI.Radar.Plugin.IAgStkRadarClutterPatch)">
+      <summary>Removes the specified element from the collection.</summary>
+      <param name="Item"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarClutterPatchCollection.RemoveAt(System.Int32)">
+      <summary>Removes an element from the collection using specified index.</summary>
+      <param name="index"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarClutterPatchCollection.RemoveAll">
+      <summary>Removes all elements from the collection.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarClutterPatchCollection.Add">
+      <summary>Adds a new element to the collection.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarClutterPatchCollection.Count">
+      <summary>Returns the number of elements in the collection.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarClutterPatchCollection.Item">
+      <summary>Given an index, returns an element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarClutterPatchCollection._NewEnum">
+      <summary>Returns an enumerator that can iterate through the collection.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin.IAgStkRadarClutterPatch">
+      <summary>Interface implemented by an object that represents a clutter patch.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarClutterPatch.SetPositionCBF(System.Double,System.Double,System.Double)">
+      <summary>Sets the patch position in the central body fixed frame.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarClutterPatch.SetVelocityCBF(System.Double,System.Double,System.Double)">
+      <summary>Sets the patch velocity in the central body fixed frame.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarClutterPatch.PosVelProvider">
+      <summary>Gets the patch position/velocity provider interface.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarClutterPatch.Area">
+      <summary>Gets or sets the patch area.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin.IAgStkRadarClutterMapPlugin">
+      <summary>Interface implemented by an object that represents a clutter map plugin.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarClutterMapPlugin.Initialize(AGI.Plugin.IAgUtPluginSite)">
+      <summary>Initializes the plugin with the plugin site.</summary>
+      <param name="Site"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarClutterMapPlugin.PreCompute">
+      <summary>Clutter map plugin pre-compute.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarClutterMapPlugin.Compute(AGI.Radar.Plugin.IAgStkRadarClutterMapComputeParams)">
+      <summary>Clutter map plugin compute'</summary>
+      <param name="ComputeParams"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarClutterMapPlugin.PostCompute">
+      <summary>Clutter map plugin post-compute.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarClutterMapPlugin.Free">
+      <summary>Free clutter map plugin.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin.IAgStkRadarClutterMapComputeParams">
+      <summary>Interface implemented by an object that represents the parameters to be passed into the clutter map plugin Compute method.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarClutterMapComputeParams.ConstructPolarization(AGI.CommRdrFoundation.AgECRPolarizationType)">
+      <summary>Constructs a new polarization object.</summary>
+      <param name="polType"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarClutterMapComputeParams.ConstructPolarizationCopy(AGI.CommRdrFoundation.IAgCRPolarization)">
+      <summary>Constructs a copy of the specified polarization.</summary>
+      <param name="polarizationToCopy"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarClutterMapComputeParams.ConstructOrthogonalPolarization(AGI.CommRdrFoundation.IAgCRPolarization)">
+      <summary>Constructs an orthogonal instance of the specified polarization.</summary>
+      <param name="polarizationToCopy"></param>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarClutterMapComputeParams.RadarLink">
+      <summary>Gets the radar link.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarClutterMapComputeParams.ClutterPatch">
+      <summary>Gets the clutter patch.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarClutterMapComputeParams.Signal">
+      <summary>Gets the signal.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin._IAgStkRadarPluginSite">
+      <summary>Radar plugin site interface.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgStkRadarPluginSite.Message(AGI.Plugin.AgEUtLogMsgType,System.String)">
+      <summary>Send a message to the message viewer.</summary>
+      <param name="msgType"></param>
+      <param name="Message"></param>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarPluginSite.SiteName">
+      <summary>Returns the site name calling the plugin.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarPluginSite.VectorToolProvider">
+      <summary>Creates an IAgCrdnPluginProvider object.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarPluginSite.ScenarioDirectory">
+      <summary>The directory path of the current scenario.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarPluginSite.InstallDirectory">
+      <summary>The directory path of the installation of the application.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarPluginSite.ConfigDirectory">
+      <summary>The directory path of the user configuration area.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarPluginSite.CalcToolProvider">
+      <summary>Creates an IAgCrdnPluginCalcProvider object.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarPluginSite.StkRootObject">
+      <summary>Returns an instance of the STK Object Model Root Object.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin._IAgStkRadarClutterPatch">
+      <summary>Interface implemented by an object that represents a clutter patch.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgStkRadarClutterPatch.SetPositionCBF(System.Double,System.Double,System.Double)">
+      <summary>Sets the patch position in the central body fixed frame.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgStkRadarClutterPatch.SetVelocityCBF(System.Double,System.Double,System.Double)">
+      <summary>Sets the patch velocity in the central body fixed frame.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarClutterPatch.PosVelProvider">
+      <summary>Gets the patch position/velocity provider interface.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarClutterPatch.Area">
+      <summary>Gets or sets the patch area in m^2 units.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin.IAgStkRadarSignal">
+      <summary>Interface implemented by an object that represents a radar signal.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarSignal.PulseRepetitionFrequency">
+      <summary>Gets the signal pulse repetition frequency.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarSignal.PulseCompressionRatio">
+      <summary>Gets the signal pulse compression ratio.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarSignal.PulseWidth">
+      <summary>Gets the signal pulse width.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarSignal.NumberOfPulses">
+      <summary>Gets the number of pulses.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarSignal.Rcs">
+      <summary>Gets or sets the signal RCS.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin._IAgSTKRadarSignal">
+      <summary>Interface implemented by an object that represents a radar signal.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgSTKRadarSignal.ComputePolLoss(AGI.CommRdrFoundation.IAgCRPolarization)">
+      <summary>Computes the rotation angle for the receive side polarization.</summary>
+      <param name="rcvSidePolarization"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgSTKRadarSignal.ComputePolRotationAngle(AGI.CommRdrFoundation.IAgCRPolarization)">
+      <summary>Computes the rotation angle for the receive side polarization.</summary>
+      <param name="rcvSidePolarization"></param>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgSTKRadarSignal.Time">
+      <summary>Gets the signal time.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgSTKRadarSignal.Frequency">
+      <summary>Gets or sets the signal frequency.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgSTKRadarSignal.UpperBandLimit">
+      <summary>Gets or sets the signal upper bandwidth limit.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgSTKRadarSignal.LowerBandLimit">
+      <summary>Gets or sets the signal lower bandwidth limit.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgSTKRadarSignal.Power">
+      <summary>Gets or sets the signal power.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgSTKRadarSignal.Polarization">
+      <summary>Gets or sets the signal polarization</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgSTKRadarSignal.PulseRepetitionFrequency">
+      <summary>Gets the signal pulse repetition frequency.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgSTKRadarSignal.PulseCompressionRatio">
+      <summary>Gets the signal pulse compression ratio.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgSTKRadarSignal.PulseWidth">
+      <summary>Gets the signal pulse width.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgSTKRadarSignal.NumberOfPulses">
+      <summary>Gets the number of pulses.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgSTKRadarSignal.Rcs">
+      <summary>Gets or sets the signal RCS.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin._IAgStkRadarLink">
+      <summary>Interface implemented by an object that represents the multi-hop link from a radar transmitter, to the target, and back to the receive radar.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgStkRadarLink.ComputeDopplerResolution(AGI.CommRdrFoundation.IAgCRSignal)">
+      <summary>Computes the doppler resolution for the supplied signal.</summary>
+      <param name="radarSignal"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgStkRadarLink.ComputeRangeResolution(AGI.CommRdrFoundation.IAgCRSignal)">
+      <summary>Computes the range resolution for the supplied signal.</summary>
+      <param name="radarSignal"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgStkRadarLink.ComputeIsoDoppler(AGI.CommRdrFoundation.IAgCRSignal)">
+      <summary>Computes the iso doppler array for the supplied signal.</summary>
+      <param name="radarSignal"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgStkRadarLink.ComputeIsoRange(AGI.CommRdrFoundation.IAgCRSignal)">
+      <summary>Computes the iso range array for the supplied signal.</summary>
+      <param name="radarSignal"></param>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarLink.Geometry">
+      <summary>Gets the link geometry.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin._IAgStkRadarLinkGeometry">
+      <summary>Interface implemented by an object that provides the geometry for a radar link.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarLinkGeometry.TargetPosVelProvider">
+      <summary>Gets the target position/velocity provider.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarLinkGeometry.TransmitRadarPosVelProvider">
+      <summary>Gets the transmit radar position/velocity provider.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarLinkGeometry.ReceiveRadarPosVelProvider">
+      <summary>Gets the receive radar position/velocity provider.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarLinkGeometry.ReceiveRadarRange">
+      <summary>Gets the receive radar range.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarLinkGeometry.ReceiveRadarAngleRate">
+      <summary>Gets the receive radar angle rate.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarLinkGeometry.ReceiveRadarRangeRate">
+      <summary>Gets the receive radar range rate.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarLinkGeometry.ReceiveRadarConeAngle">
+      <summary>Gets the receive radar cone angle.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarLinkGeometry.ReceiveRadarPropTime">
+      <summary>Gets the receive radar prop time.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarLinkGeometry.TransmitRadarRange">
+      <summary>Gets the transmit radar range.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarLinkGeometry.TransmitRadarAngleRate">
+      <summary>Gets the transmit radar angle rate.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarLinkGeometry.TransmitRadarRangeRate">
+      <summary>Gets the transmit radar range rate.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarLinkGeometry.TransmitRadarConeAngle">
+      <summary>Gets the transmit radar cone angle.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarLinkGeometry.TransmitRadarPropTime">
+      <summary>Gets the transmit radar prop time.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarLinkGeometry.RangeSum">
+      <summary>Gets the range sum.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarLinkGeometry.Closure">
+      <summary>Gets the closure.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarLinkGeometry.MLCVelocity">
+      <summary>Gets the mlc velocity.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarLinkGeometry.BistaticAngle">
+      <summary>Gets the bistatic angle.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarLinkGeometry.IncidentAzimuth">
+      <summary>Gets the incident azimuth.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarLinkGeometry.IncidentElevation">
+      <summary>Gets the incident elevation.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarLinkGeometry.ReflectedAzimuth">
+      <summary>Gets the reflected azimuth.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarLinkGeometry.ReflectedElevation">
+      <summary>Gets the reflected elevation.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarLinkGeometry.XYAngleRate">
+      <summary>Gets the xy angle rate.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarLinkGeometry.Tgt2XmtRdrRelPosCBFCartesianArray">
+      <summary>Gets the relative position vector from the target to the transmitting radar in central body fixed coordinates as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarLinkGeometry.Tgt2RcvRdrRelPosCBFCartesianArray">
+      <summary>Gets the relative position vector from the target to the receiving radar in central body fixed coordinates as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarLinkGeometry.XmtRdr2TgtRelPosCBFCartesianArray">
+      <summary>Gets the relative position vector from the transmitting radar to the target in central body fixed coordinates as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarLinkGeometry.RcvRdr2TgtRelPosCBFCartesianArray">
+      <summary>Gets the relative position vector from the receiving radar to the target in central body fixed coordinates as an array.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin._IAgStkRadarPosVelProvider">
+      <summary>Interface implemented by an object that provides the position and velocity for an STK radar object or radar target object.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgStkRadarPosVelProvider.GetTerrainHeight(AGI.Radar.Plugin.AgEStkRadarTerrainInterpMethod)">
+      <summary>Gets the terrain height.</summary>
+      <param name="interpMethod"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgStkRadarPosVelProvider.GetTerrainHeightForLatLon(System.Double,System.Double,AGI.Radar.Plugin.AgEStkRadarTerrainInterpMethod)">
+      <summary>Gets the terrain height for a specified latitude and longitude.</summary>
+      <param name="latitude"></param>
+      <param name="longitude"></param>
+      <param name="interpMethod"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgStkRadarPosVelProvider.ComputeLocalRadiusDetic(System.Double,System.Double)">
+      <summary>Computes the central body radius detic.</summary>
+      <param name="latitude"></param>
+      <param name="longitude"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgStkRadarPosVelProvider.ComputeLocalRadiusCentric(System.Double,System.Double)">
+      <summary>Computes the central body radius centric.</summary>
+      <param name="latitude"></param>
+      <param name="longitude"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgStkRadarPosVelProvider.ComputeSurfaceNormalDeticArray(System.Double,System.Double)">
+      <summary>Computes surface normal detic as an array.</summary>
+      <param name="latitude"></param>
+      <param name="longitude"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgStkRadarPosVelProvider.ComputeSurfaceNormalCentricArray(System.Double,System.Double)">
+      <summary>Computes surface normal centric as an array.</summary>
+      <param name="latitude"></param>
+      <param name="longitude"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgStkRadarPosVelProvider.ComputeCentralBodyIntersect(AGI.Radar.Plugin.IAgStkRadarCBIntersectComputeParams)">
+      <summary>Computes the central body intersection.</summary>
+      <param name="cbIntersectComputeParams"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgStkRadarPosVelProvider.ConvertCBFCartesianToLLAArray(System.Double,System.Double,System.Double)">
+      <summary>Converts the central body fixed cartesian to latitude, longitude, and altitude as an array.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgStkRadarPosVelProvider.ConvertLLAToCBFCartesianArray(System.Double,System.Double,System.Double)">
+      <summary>Converts latitude, longitude, and altitude to central body fixed cartesian as an array.</summary>
+      <param name="latitude"></param>
+      <param name="longitude"></param>
+      <param name="altitude"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgStkRadarPosVelProvider.ConvertCBFCartesianToVVLHCartesianArray(System.Double,System.Double,System.Double)">
+      <summary>Converts a central body fixed cartesian into the VVLA frame as an array.</summary>
+      <param name="xCbf"></param>
+      <param name="yCbf"></param>
+      <param name="zCbf"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgStkRadarPosVelProvider.ConvertBodyCartesianToCBFCartesianArray(System.Double,System.Double,System.Double)">
+      <summary>Converts a vector in body coordinates into CBF fixed coordinates as an array.</summary>
+      <param name="xBody"></param>
+      <param name="yBody"></param>
+      <param name="zBody"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgStkRadarPosVelProvider.ConvertCBFCartesianToBodyCartesianArray(System.Double,System.Double,System.Double)">
+      <summary>Converts a vector in CBF coordinates into body coordinates as an array.</summary>
+      <param name="xCbf"></param>
+      <param name="yCbf"></param>
+      <param name="zCbf"></param>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarPosVelProvider.CurrentTime">
+      <summary>Gets the current time in EpSec.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarPosVelProvider.VelocityCBFArray">
+      <summary>Gets velocity in the central body fixed frame as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarPosVelProvider.PositionCBFArray">
+      <summary>Gets position in the central body fixed frame as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarPosVelProvider.PositionLLAArray">
+      <summary>Gets position in latitude, longitude, and altitude as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarPosVelProvider.LocalRadiusDetic">
+      <summary>Gets the central body radius detic.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarPosVelProvider.LocalRadiusCentric">
+      <summary>Gets the central body radius centric.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarPosVelProvider.SurfaceNormalDeticArray">
+      <summary>Gets the surface normal detic as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarPosVelProvider.SurfaceNormalCentricArray">
+      <summary>Gets the surface normal centric as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarPosVelProvider.Role">
+      <summary>Gets the IAgStkRadarPosVelProvider role.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin._IAgStkRadarCBIntersectComputeResult">
+      <summary>Interface implemented by an object that represents the result of a central body computation.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarCBIntersectComputeResult.IntersectionFound">
+      <summary>Returns true if an central body intersection was found or false if no intersection was found.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarCBIntersectComputeResult.Intercept1CBFArray">
+      <summary>Gets the position vector of the first point of intersection in the central body fixed frame as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarCBIntersectComputeResult.Intercept2CBFArray">
+      <summary>Gets the position vector of the second point of intersection in the central body fixed frame as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarCBIntersectComputeResult.Multiplier1">
+      <summary>Gets the first multiplier.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarCBIntersectComputeResult.Multiplier2">
+      <summary>Gets the second multiplier.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarCBIntersectComputeResult.BasePositionCBFArray">
+      <summary>Gets the base position vector in the central body fixed frame as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarCBIntersectComputeResult.DirectionCBFArray">
+      <summary>Gets the direction vector in the central body fixed frame as an array.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin._IAgStkRadarClutterGeometryPluginRegInfo">
+      <summary>Interface implemented by an object that represents the registration information for the clutter geometry plugin.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarClutterGeometryPluginRegInfo.ValidRadarSystems">
+      <summary>Sets the valid radar system mask.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin._IAgStkRadarClutterGeometryComputeParams">
+      <summary>Interface implemented by an object that represents the parameters to be passed into the clutter geometry plugin Compute method.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarClutterGeometryComputeParams.RadarLink">
+      <summary>Gets the radar link.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarClutterGeometryComputeParams.Signal">
+      <summary>Gets the transmit signal.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarClutterGeometryComputeParams.ClutterPatches">
+      <summary>Gets the clutter patch collection.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin._IAgStkRadarClutterMapComputeParams">
+      <summary>Interface implemented by an object that represents the parameters to be passed into the clutter map plugin Compute method.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgStkRadarClutterMapComputeParams.ConstructPolarization(AGI.CommRdrFoundation.AgECRPolarizationType)">
+      <summary>Constructs a new polarization object.</summary>
+      <param name="polType"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgStkRadarClutterMapComputeParams.ConstructPolarizationCopy(AGI.CommRdrFoundation.IAgCRPolarization)">
+      <summary>Constructs a copy of the specified polarization.</summary>
+      <param name="polarizationToCopy"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgStkRadarClutterMapComputeParams.ConstructOrthogonalPolarization(AGI.CommRdrFoundation.IAgCRPolarization)">
+      <summary>Constructs an orthogonal instance of the specified polarization.</summary>
+      <param name="polarizationToCopy"></param>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarClutterMapComputeParams.RadarLink">
+      <summary>Gets the radar link.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarClutterMapComputeParams.ClutterPatch">
+      <summary>Gets the clutter patch.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarClutterMapComputeParams.Signal">
+      <summary>Gets the signal.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin.IAgStkRadarRcsPlugin">
+      <summary>Interface implemented by an object that represents an RCS plugin.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarRcsPlugin.Initialize(AGI.Plugin.IAgUtPluginSite)">
+      <summary>Initializes the plugin with the plugin site.</summary>
+      <param name="Site"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarRcsPlugin.PreCompute">
+      <summary>RCS plugin pre-compute.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarRcsPlugin.ProcessSignals(AGI.Radar.Plugin.IAgStkRadarRcsProcessSignalsParams)">
+      <summary>Processes the incident primary and orthogonal channel signals.</summary>
+      <param name="processSignalsParams"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarRcsPlugin.Compute(AGI.Radar.Plugin.IAgStkRadarRcsComputeParams)">
+      <summary>RCS plugin compute.</summary>
+      <param name="computeRcsParams"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarRcsPlugin.PostCompute">
+      <summary>RCS plugin post-compute</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarRcsPlugin.Free">
+      <summary>Free RCS plugin.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarRcsPlugin.IsDynamic">
+      <summary>Gets a flag indicating whether or not the radar cross section is dynamic.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin.IAgStkRadarRcsProcessSignalsParams">
+      <summary>Interface implemented by an object that represents the parameters to be passed into the RCS plugin ProcessSignals method.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarRcsProcessSignalsParams.GetIncidentBodyFixedVector(.double@,.double@,.double@)">
+      <summary>Gets the incident body fixed vector.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarRcsProcessSignalsParams.GetReflectedBodyFixedVector(.double@,.double@,.double@)">
+      <summary>Gets the reflected body fixed vector.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarRcsProcessSignalsParams.ConstructPolarization(AGI.CommRdrFoundation.AgECRPolarizationType)">
+      <summary>Constructs a new polarization object.</summary>
+      <param name="polType"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarRcsProcessSignalsParams.ConstructPolarizationCopy(AGI.CommRdrFoundation.IAgCRPolarization)">
+      <summary>Constructs a copy of the specified polarization.</summary>
+      <param name="polarizationToCopy"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarRcsProcessSignalsParams.ConstructOrthogonalPolarization(AGI.CommRdrFoundation.IAgCRPolarization)">
+      <summary>Constructs an orthogonal instance of the specified polarization.</summary>
+      <param name="polarizationToCopy"></param>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarRcsProcessSignalsParams.InicidentBodyFixedVectorArray">
+      <summary>Gets the incident body fixed vector as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarRcsProcessSignalsParams.ReflectedBodyFixedVectorArray">
+      <summary>Gets the reflected body fixed vector as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarRcsProcessSignalsParams.PrimaryPolChannelSignal">
+      <summary>Gets the read-only signal.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarRcsProcessSignalsParams.OrthoPolChannelSignal">
+      <summary>Gets the read-only signal.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin.IAgStkRadarRcsComputeParams">
+      <summary>Interface implemented by an object that represents the parameters to be passed into the RCS plugin Compute method.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarRcsComputeParams.GetIncidentBodyFixedVector(.double@,.double@,.double@)">
+      <summary>Gets the incident body fixed vector.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarRcsComputeParams.GetReflectedBodyFixedVector(.double@,.double@,.double@)">
+      <summary>Gets the reflected body fixed vector.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarRcsComputeParams.Time">
+      <summary>Gets the current time.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarRcsComputeParams.Frequency">
+      <summary>Gets the signal frequency.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarRcsComputeParams.InicidentBodyFixedVectorArray">
+      <summary>Gets the incident body fixed vector as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarRcsComputeParams.ReflectedBodyFixedVectorArray">
+      <summary>Gets the reflected body fixed vector as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarRcsComputeParams.PrimaryChannelRcs">
+      <summary>Sets the primary channel RCS value</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarRcsComputeParams.PrimaryChannelRcsCross">
+      <summary>Sets the primary channel cross pol RCS value</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarRcsComputeParams.OrthoChannelRcs">
+      <summary>Sets the primary channel RCS value.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarRcsComputeParams.OrthoChannelRcsCross">
+      <summary>Sets the primary channel cross pol RCS value.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin._IAgStkRadarRcsComputeParams">
+      <summary>Interface implemented by an object that represents the parameters to be passed into the RCS plugin Compute method.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarRcsComputeParams.Time">
+      <summary>Gets the signal time.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarRcsComputeParams.Frequency">
+      <summary>Gets the signal frequency.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarRcsComputeParams.InicidentBodyFixedVectorArray">
+      <summary>Gets the incident body fixed vector as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarRcsComputeParams.ReflectedBodyFixedVectorArray">
+      <summary>Gets the incident body fixed vector as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarRcsComputeParams.PrimaryChannelRcs">
+      <summary>Sets the primary channel RCS value.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarRcsComputeParams.PrimaryChannelRcsCross">
+      <summary>Sets the primary channel cross pol RCS value.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarRcsComputeParams.OrthoChannelRcs">
+      <summary>Sets the primary channel RCS value.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarRcsComputeParams.OrthoChannelRcsCross">
+      <summary>Sets the primary channel cross pol RCS value.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin._IAgSTKRadarPolarization">
+      <summary>Polarization object interface used to represent a signal polarization.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgSTKRadarPolarization.Type">
+      <summary>Gets the polarizatoin type.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin._IAgSTKRadarPolarizationLinear">
+      <summary>Linear polarization object interface used to represent linear signal polarization.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgSTKRadarPolarizationLinear.Type">
+      <summary>Gets the polarizatoin type.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgSTKRadarPolarizationLinear.TiltAngle">
+      <summary>Gets or sets the tilt angle.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgSTKRadarPolarizationLinear.AxialRatio">
+      <summary>Gets the axial ratio.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgSTKRadarPolarizationLinear.ReferenceAxis">
+      <summary>Gets or sets the reference axis.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin._IAgSTKRadarPolarizationElliptical">
+      <summary>Elliptical polarization object interface used to represent elliptical signal polarization.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgSTKRadarPolarizationElliptical.Type">
+      <summary>Gets the polarizatoin type.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgSTKRadarPolarizationElliptical.TiltAngle">
+      <summary>Gets or sets the tilt angle.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgSTKRadarPolarizationElliptical.AxialRatio">
+      <summary>Gets or sets the axial ratio.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgSTKRadarPolarizationElliptical.ReferenceAxis">
+      <summary>Gets or sets the reference axis.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin._IAgStkRadarRcsProcessSignalsParams">
+      <summary>Interface implemented by an object that represents the parameters to be passed into the RCS plugin ProcessSignals method.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgStkRadarRcsProcessSignalsParams.ConstructPolarization(AGI.CommRdrFoundation.AgECRPolarizationType)">
+      <summary>Constructs a new polarization object.</summary>
+      <param name="polType"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgStkRadarRcsProcessSignalsParams.ConstructPolarizationCopy(AGI.CommRdrFoundation.IAgCRPolarization)">
+      <summary>Constructs a copy of the specified polarization.</summary>
+      <param name="polarizationToCopy"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgStkRadarRcsProcessSignalsParams.ConstructOrthogonalPolarization(AGI.CommRdrFoundation.IAgCRPolarization)">
+      <summary>Constructs an orthogonal instance of the specified polarization.</summary>
+      <param name="polarizationToCopy"></param>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarRcsProcessSignalsParams.InicidentBodyFixedVectorArray">
+      <summary>Gets the incident body fixed vector as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarRcsProcessSignalsParams.ReflectedBodyFixedVectorArray">
+      <summary>Gets the incident body fixed vector as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarRcsProcessSignalsParams.PrimaryPolChannelSignal">
+      <summary>Gets the primary polarization channel signal.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarRcsProcessSignalsParams.OrthoPolChannelSignal">
+      <summary>Gets the orthogonal polarization channel signal.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin.IAgStkRadarFixedPRFProbabilityDetectionComputeParams">
+      <summary>Interface implemented by an object that represents the parameters to be passed into the Probability of Detection CFAR plugin Compute method.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarFixedPRFProbabilityDetectionComputeParams.SetProbabilityOfDetectionSinglePulse(System.Double)">
+      <summary>Sets the probability of detection single pulse value.</summary>
+      <param name="ProbDetSinglePulse"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarFixedPRFProbabilityDetectionComputeParams.SetProbabilityOfDetectionIntegrated(System.Double)">
+      <summary>Sets the integrated probability of detection value.</summary>
+      <param name="ProbDetIntegrated"></param>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarFixedPRFProbabilityDetectionComputeParams.SinglePulseSignaltoNoiseRatio">
+      <summary>Gets the radar link single pulse signal-to-noise ratio value.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarFixedPRFProbabilityDetectionComputeParams.IntegratedSignaltoNoiseRatio">
+      <summary>Gets the radar link integrated signal-to-noise ratio value.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarFixedPRFProbabilityDetectionComputeParams.CoherentIntegration">
+      <summary>Gets a flag indicating whether or not the signal-to-noise ratio was integrated coherently.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarFixedPRFProbabilityDetectionComputeParams.NoisePower">
+      <summary>Gets the radar receiver noise power.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarFixedPRFProbabilityDetectionComputeParams.NumberOfIntegratedPulses">
+      <summary>Gets the radar link number of pulse integrated.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarFixedPRFProbabilityDetectionComputeParams.ReceivedRadarSignal">
+      <summary>Gets the radar link signal data.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarFixedPRFProbabilityDetectionComputeParams.ClutterSignals">
+      <summary>Gets the radar link clutter signal collection.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin._IAgStkRadarFixedPRFProbabilityDetectionComputeParams">
+      <summary>Interface implemented by an object that represents the parameters to be passed into the Probability of Detection CFAR plugin Compute method.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgStkRadarFixedPRFProbabilityDetectionComputeParams.SetProbabilityOfDetectionSinglePulse(System.Double)">
+      <summary>Sets the probability of detection single pulse value.</summary>
+      <param name="ProbDetSinglePulse"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgStkRadarFixedPRFProbabilityDetectionComputeParams.SetProbabilityOfDetectionIntegrated(System.Double)">
+      <summary>Sets the integrated probability of detection value.</summary>
+      <param name="ProbDetIntegrated"></param>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarFixedPRFProbabilityDetectionComputeParams.SinglePulseSignaltoNoiseRatio">
+      <summary>Gets the radar link single pulse signal-to-noise ratio value.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarFixedPRFProbabilityDetectionComputeParams.IntegratedSignaltoNoiseRatio">
+      <summary>Gets the radar link integrated signal-to-noise ratio value.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarFixedPRFProbabilityDetectionComputeParams.CoherentIntegration">
+      <summary>Gets a flag indicating whether or not the signal-to-noise ratio was integrated coherently.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarFixedPRFProbabilityDetectionComputeParams.NoisePower">
+      <summary>Gets the radar receiver noise power.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarFixedPRFProbabilityDetectionComputeParams.NumberOfIntegratedPulses">
+      <summary>Gets the radar link number of pulse integrated.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarFixedPRFProbabilityDetectionComputeParams.ReceivedRadarSignal">
+      <summary>Gets the radar link signal data.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarFixedPRFProbabilityDetectionComputeParams.ClutterSignals">
+      <summary>Gets the radar link clutter signal collection.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin.IAgStkRadarFixedPRFProbabilityDetectionPlugin">
+      <summary>Interface implemented by an object that represents a Probability of Detection CFAR plugin.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarFixedPRFProbabilityDetectionPlugin.Initialize(AGI.Plugin.IAgUtPluginSite)">
+      <summary>Initializes the plugin with the plugin site.</summary>
+      <param name="Site"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarFixedPRFProbabilityDetectionPlugin.PreCompute">
+      <summary>Probability of Detection CFAR plugin pre-compute.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarFixedPRFProbabilityDetectionPlugin.Compute(AGI.Radar.Plugin.IAgStkRadarFixedPRFProbabilityDetectionComputeParams)">
+      <summary>Probability of Detection CFAR plugin compute with SNR.</summary>
+      <param name="ComputeParams"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarFixedPRFProbabilityDetectionPlugin.ComputeJamming(AGI.Radar.Plugin.IAgStkRadarFixedPRFProbabilityDetectionComputeParams)">
+      <summary>Probability of Detection CFAR plugin compute with S/(N+J).</summary>
+      <param name="ComputeParams"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarFixedPRFProbabilityDetectionPlugin.ComputeJammingClutter(AGI.Radar.Plugin.IAgStkRadarFixedPRFProbabilityDetectionComputeParams)">
+      <summary>Probability of Detection CFAR plugin compute with S/(N+J+C).</summary>
+      <param name="ComputeParams"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarFixedPRFProbabilityDetectionPlugin.PostCompute">
+      <summary>Probability of Detection CFAR plugin post-compute.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgStkRadarFixedPRFProbabilityDetectionPlugin.Free">
+      <summary>Free Probability of Detection CFAR plugin.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgStkRadarFixedPRFProbabilityDetectionPlugin.NumberOfConstantFalseAlarmRateCells">
+      <summary>Gets the number of constant false alarm rate cells.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin.IAgSTKRadarSTCAttenPlugin">
+      <summary>Interface implemented by an object that represents a STC plugin.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgSTKRadarSTCAttenPlugin.Initialize(AGI.Plugin.IAgUtPluginSite)">
+      <summary>Initializes the plugin with the plugin site.</summary>
+      <param name="Site"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgSTKRadarSTCAttenPlugin.PreCompute">
+      <summary>STC plugin pre-compute.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgSTKRadarSTCAttenPlugin.ComputeAttenuation(AGI.Radar.Plugin.IAgSTKRadarSTCAttenComputeParams)">
+      <summary>STC plugin compute attenuation.</summary>
+      <param name="ComputeParams"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgSTKRadarSTCAttenPlugin.PostCompute">
+      <summary>STC plugin post-compute.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgSTKRadarSTCAttenPlugin.Free">
+      <summary>Free STC plugin.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin.IAgSTKRadarSTCAttenComputeParams">
+      <summary>Interface implemented by an object that represents the parameters to be passed into the STC plugin Compute method.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgSTKRadarSTCAttenComputeParams.GetDirection(.double@,.double@,.double@)">
+      <summary>Gets the direction vector in the body fixed frame.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.IAgSTKRadarSTCAttenComputeParams.SetSTCAttenuation(System.Double)">
+      <summary>Sets the STC attenuation value.</summary>
+      <param name="STCAttenuation"></param>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgSTKRadarSTCAttenComputeParams.Time">
+      <summary>Gets the time value.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgSTKRadarSTCAttenComputeParams.Frequency">
+      <summary>Gets the frequency value.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgSTKRadarSTCAttenComputeParams.Range">
+      <summary>Gets the radar link range value.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgSTKRadarSTCAttenComputeParams.AzimuthAngle">
+      <summary>Gets the radar link Azimuth angle value.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgSTKRadarSTCAttenComputeParams.ElevationAngle">
+      <summary>Gets the radar link Elevation Angle value.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.IAgSTKRadarSTCAttenComputeParams.DirectionArray">
+      <summary>Gets the direction vector in the body fixed frame as an array.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin._IAgSTKRadarSTCAttenComputeParams">
+      <summary>Interface implemented by an object that represents the parameters to be passed into the STC plugin Compute method.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgSTKRadarSTCAttenComputeParams.SetSTCAttenuation(System.Double)">
+      <summary>Sets the STC attenuation value.</summary>
+      <param name="STCAttenuation"></param>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgSTKRadarSTCAttenComputeParams.Time">
+      <summary>Gets the time value.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgSTKRadarSTCAttenComputeParams.Frequency">
+      <summary>Gets the frequency value.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgSTKRadarSTCAttenComputeParams.Range">
+      <summary>Gets the radar link range value.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgSTKRadarSTCAttenComputeParams.AzimuthAngle">
+      <summary>Gets the radar link Azimuth angle value.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgSTKRadarSTCAttenComputeParams.ElevationAngle">
+      <summary>Gets the radar link Elevation Angle value.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgSTKRadarSTCAttenComputeParams.DirectionArray">
+      <summary>Gets the direction vector in the body fixed frame as an array.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin.AgStkRadarCBIntersectComputeParams">
+      <summary>The CoClass for the IAgStkRadarCBIntersectComputeParams interface.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin.AgStkRadarCBIntersectComputeParams.SetBasePositionCBF(System.Double,System.Double,System.Double)">
+      <summary>Sets the base position vector in the central body fixed frame.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.AgStkRadarCBIntersectComputeParams.SetDirectionCBF(System.Double,System.Double,System.Double)">
+      <summary>Sets the direction vector  in the central body fixed frame.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="P:AGI.Radar.Plugin.AgStkRadarCBIntersectComputeParams.BasePositionCBFArray">
+      <summary>Gets the base position vector in the central body fixed frame as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.AgStkRadarCBIntersectComputeParams.DirectionCBFArray">
+      <summary>Gets the direction vector in the central body fixed frame as an array.</summary>
+    </member>
+    <member name="T:AGI.Radar.Plugin.AgStkRadarCBIntersectComputeParamsClass">
+      <summary>The CoClass for the IAgStkRadarCBIntersectComputeParams interface.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin.AgStkRadarCBIntersectComputeParamsClass.SetBasePositionCBF(System.Double,System.Double,System.Double)">
+      <summary>Sets the base position vector in the central body fixed frame.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.AgStkRadarCBIntersectComputeParamsClass.SetDirectionCBF(System.Double,System.Double,System.Double)">
+      <summary>Sets the direction vector  in the central body fixed frame.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="P:AGI.Radar.Plugin.AgStkRadarCBIntersectComputeParamsClass.BasePositionCBFArray">
+      <summary>Gets the base position vector in the central body fixed frame as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin.AgStkRadarCBIntersectComputeParamsClass.DirectionCBFArray">
+      <summary>Gets the direction vector in the central body fixed frame as an array.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin.AgStkRadarCBIntersectComputeParamsClass.GetBasePositionCBF(.double@,.double@,.double@)">
+      <summary>Gets the base position vector in the central body fixed frame.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin.AgStkRadarCBIntersectComputeParamsClass.GetDirectionCBF(.double@,.double@,.double@)">
+      <summary>Gets the direction vector in the central body fixed frame.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="T:AGI.Radar.Plugin._IAgStkRadarCBIntersectComputeParams">
+      <summary>Interface implemented by an object that represents the input parameters for a central body intersect computation.</summary>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgStkRadarCBIntersectComputeParams.SetBasePositionCBF(System.Double,System.Double,System.Double)">
+      <summary>Sets the base position vector in the central body fixed frame.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="M:AGI.Radar.Plugin._IAgStkRadarCBIntersectComputeParams.SetDirectionCBF(System.Double,System.Double,System.Double)">
+      <summary>Sets the direction vector  in the central body fixed frame.</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarCBIntersectComputeParams.BasePositionCBFArray">
+      <summary>Gets the base position vector in the central body fixed frame as an array.</summary>
+    </member>
+    <member name="P:AGI.Radar.Plugin._IAgStkRadarCBIntersectComputeParams.DirectionCBFArray">
+      <summary>Gets the direction vector in the central body fixed frame as an array.</summary>
+    </member>
+  </members>
+</doc>

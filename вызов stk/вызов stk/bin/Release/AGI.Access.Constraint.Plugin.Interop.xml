@@ -1,0 +1,1301 @@
+<doc>
+  <assembly>
+    <name>AGI.Access.Constraint.Plugin</name>
+  </assembly>
+  <members>
+    <member name="T:AGI.Access.Constraint.Plugin.IAgAccessConstraintPlugin">
+      <summary>Access Constraint plugin interface for an  Access Constraint.</summary>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPlugin.Register(AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultRegister)">
+      <summary>Triggered after application start-up, in order to register the constraint for specific STK object pairs for which this constraint is applicable.</summary>
+      <param name="Result"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPlugin.Init(AGI.Plugin.IAgUtPluginSite)">
+      <summary>Triggered just before the first computational event trigger.</summary>
+      <param name="Site"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPlugin.PreCompute(AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultPreCompute)">
+      <summary>Triggered prior to the calls to the Evaluate method, to allow for any required initialization.</summary>
+      <param name="Result"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPlugin.Evaluate(AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultEval,AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData,AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData)">
+      <summary>Triggered when the plugin is evaluated for an access constraint value</summary>
+      <param name="Result"></param>
+      <param name="BaseData"></param>
+      <param name="TargetData"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPlugin.PostCompute(AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultPostCompute)">
+      <summary>Triggered after the calls to the Evaluate method, to allow for any required clean up.</summary>
+      <param name="Result"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPlugin.Free">
+      <summary>Triggered just before the plugin is destroyed.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPlugin.DisplayName">
+      <summary>Triggered when the plugin is being registered. This is the name of the constraint used by STK.</summary>
+    </member>
+    <member name="T:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultRegister">
+      <summary>Access Constraint Registration interface for the Register method.</summary>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultRegister.Reset">
+      <summary>Resets property values to defaults values and clears targets.</summary>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultRegister.ClearTargets">
+      <summary>Clears the target list.</summary>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultRegister.AddTarget(AGI.Access.Constraint.Plugin.AgEAccessConstraintObjectType)">
+      <summary>Adds a target to the target list.</summary>
+      <param name="Type"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultRegister.Targets">
+      <summary>Returns the current target list.</summary>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultRegister.ObjectTypeName(AGI.Access.Constraint.Plugin.AgEAccessConstraintObjectType)">
+      <summary>Returns the name of associated object type.</summary>
+      <param name="Type"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultRegister.Register">
+      <summary>Registers the constraint using the current settings.</summary>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultRegister.Message(AGI.Plugin.AgEUtLogMsgType,System.String)">
+      <summary>Send a message to the message viewer.</summary>
+      <param name="MsgType"></param>
+      <param name="Message"></param>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultRegister.BaseObjectType">
+      <summary>This object type is permitted to own this constraint.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultRegister.BaseDependency">
+      <summary>Dependency mask of the Base object indicating the geometric dependencies of the constraint computation.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultRegister.TargetDependency">
+      <summary>Dependency mask of the Target object indicating the geometric dependencies of the constraint computation.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultRegister.Dimension">
+      <summary>Dimension of the computed constraint value.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultRegister.MinValue">
+      <summary>Minimum value of the computed constraint value.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultRegister.MaxValue">
+      <summary>Maximum value of the computed constraint value.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultRegister.MaxRelMotion">
+      <summary>Maximum relative motion (in degrees) allowed between constraint samples.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultRegister.InstallDirectory">
+      <summary>The directory path of the installation of the application.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultRegister.ConfigDirectory">
+      <summary>The directory path of the user configuration area.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultRegister.Weight">
+      <summary>Computational weight of the constraint. Must be positive.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultRegister.MaxTimeStep">
+      <summary>Maximum time step (in secs) allowed between constraint samples.</summary>
+    </member>
+    <member name="T:AGI.Access.Constraint.Plugin.AgEAccessConstraintObjectType">
+      <summary>Enumeration of valid objects for access constraint plugins.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintObjectType.eAircraft">
+      <summary>Aircraft.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintObjectType.eFacility">
+      <summary>Facility.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintObjectType.eGroundVehicle">
+      <summary>Ground Vehicle.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintObjectType.eLaunchVehicle">
+      <summary>Launch Vehicle.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintObjectType.eMissile">
+      <summary>Missile.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintObjectType.ePlanet">
+      <summary>Planet.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintObjectType.ePlace">
+      <summary>Place.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintObjectType.eRadar">
+      <summary>Radar.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintObjectType.eReceiver">
+      <summary>Receiver.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintObjectType.eSatellite">
+      <summary>Satellite.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintObjectType.eSensor">
+      <summary>Sensor.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintObjectType.eShip">
+      <summary>Ship.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintObjectType.eStar">
+      <summary>Star.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintObjectType.eSubmarine">
+      <summary>Submarine.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintObjectType.eTarget">
+      <summary>Target.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintObjectType.eTransmitter">
+      <summary>Transmitter.</summary>
+    </member>
+    <member name="T:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultPreCompute">
+      <summary>Access Constraint Plugin Result interface for the PreCompute method.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultPreCompute.Base">
+      <summary>An interface to a description of the object that owns this constraint.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultPreCompute.Target">
+      <summary>An interface to a description of the other object involved with this constraint.</summary>
+    </member>
+    <member name="T:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectDescriptor">
+      <summary>Access Constraint Plugin Object Descriptor interface.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectDescriptor.IsValid">
+      <summary>True when the object is a valid object. If false, none of the other methods return valid data.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectDescriptor.VectorToolProvider">
+      <summary>Creates an IAgCrdnPluginProvider object.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectDescriptor.ObjectType">
+      <summary>The object type of the object.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectDescriptor.ObjectPath">
+      <summary>The STK object path of the object.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectDescriptor.ShortDescription">
+      <summary>The short description of the object.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectDescriptor.LongDescription">
+      <summary>The long description of the object.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectDescriptor.CentralBodyName">
+      <summary>The name of the central body for this object.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectDescriptor.CalcToolProvider">
+      <summary>Creates an IAgCrdnPluginProvider object.</summary>
+    </member>
+    <member name="T:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultEval">
+      <summary>Access Constraint Plugin Result interface for the Evaluate method.</summary>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultEval.DayCount(AGI.Plugin.AgEUtTimeScale,.long@,.double@)">
+      <summary>The current time in requested time scale of the object that is the clock host expressed in day count format.</summary>
+      <param name="Scale"></param>
+      <param name="WholeDays"></param>
+      <param name="SecsIntoDay"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultEval.Date(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>DEPRECATED. Use DateElements instead. The current time in requested time scale of the object that is the clock host expressed in date format.</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultEval.DayCount_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>The current time in requested time scale of the object that is the clock host expressed in day count format returned as an array representing wholeDays, secsIntoDay. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultEval.Date_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary></summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultEval.DateElements(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>The current time of the object in requested time scale expressed in date format. Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60].</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="DayOfMonth"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultEval.DateElements_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>The current time of the object in requested time scale expressed in date format returned as the array: Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60]. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultEval.DateString(System.String)">
+      <summary>Current epoch expressed using the date format abbreviation specified.</summary>
+      <param name="DateAbbrv"></param>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultEval.Value">
+      <summary>The current value of the constraint.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultEval.MaxRelMotion">
+      <summary>Maximum relative motion (in degrees) allowed between constraint samples.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultEval.StepSize">
+      <summary>The current time step taken (secs).</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultEval.IsLightTimeDelayConsidered">
+      <summary>True when light time delay is considered.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultEval.LightTimeDelayFrame">
+      <summary>Frame in which light time delay is computed.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultEval.AberrationType">
+      <summary>The type of aberration applied</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultEval.LightTimeDelay">
+      <summary>Light time delay in seconds.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultEval.LightPathRange">
+      <summary>The range in meters between the Base and Target objects only accounting for light time delay if applied (not refraction nor aberration).</summary>
+    </member>
+    <member name="T:AGI.Access.Constraint.Plugin.AgEAccessLightTimeDelayFrame">
+      <summary>Enumeration of frames used in Access to compute light time delay.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessLightTimeDelayFrame.eLightTimeDelayFrameCBI">
+      <summary>CentralBody Inertial frame.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessLightTimeDelayFrame.eLightTimeDelayFrameSSBary">
+      <summary>Solar system barycenter frame.</summary>
+    </member>
+    <member name="T:AGI.Access.Constraint.Plugin.AgEApparentPositionAberrationType">
+      <summary>Enumeration of methods of incorporating aberration into the apparent position computation.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEApparentPositionAberrationType.eAberrationTotal">
+      <summary>The total effect of aberration.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEApparentPositionAberrationType.eAberrationAnnual">
+      <summary>The annual effect of aberration.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEApparentPositionAberrationType.eAberrationNone">
+      <summary>No aberration.</summary>
+    </member>
+    <member name="T:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData">
+      <summary>Access Constraint Plugin Object Data interface used to get inputs and outputs during the Evaluate method call.</summary>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.DayCount(AGI.Plugin.AgEUtTimeScale,.long@,.double@)">
+      <summary>The current time in requested time scale of the object  expressed in day count format.</summary>
+      <param name="Scale"></param>
+      <param name="WholeDays"></param>
+      <param name="SecsIntoDay"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.DayCount_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>The current time in requested time scale of the object expressed in day count format returned as an array representing wholeDays, secsIntoDay. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.Date(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>DEPRECATED. Use DateElements instead. The current time in requested time scale of the object expressed in date format.</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.Date_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary></summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.Position(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>The object position in the requested frame. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.Position_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>The object position in the requested frame, returned as an array representing x, y, z. Only eUtFrameInertial and eUtFrameFixed are supported. Useful for scripting clients.</summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.Velocity(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>The object velocity in the requested frame. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Frame"></param>
+      <param name="Vx"></param>
+      <param name="Vy"></param>
+      <param name="Vz"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.Velocity_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>The object velocity in the requested frame, returned as an array representing vx, vy, vz. Only eUtFrameInertial and eUtFrameFixed are supported. Useful for scripting clients.</summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.Acceleration(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>The object acceleration in the requested frame. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Frame"></param>
+      <param name="Ax"></param>
+      <param name="Ay"></param>
+      <param name="Az"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.Acceleration_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>The object acceleration in the requested frame, returned as an array representing ax, ay, az. Only eUtFrameInertial and eUtFrameFixed are supported. Useful for scripting clients.</summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.LatLonAlt(.double@,.double@,.double@)">
+      <summary>The detic latitude, detic longitude, and altitude of the object. Altitude is measured wrt the central body ellispoid of the object. (eg. Earth uses WGS84)</summary>
+      <param name="Latitude"></param>
+      <param name="Longitude"></param>
+      <param name="Altitude"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.LatLonAlt_Array">
+      <summary>The detic latitude, detic longitude, and altitude of the object, returned as an array representing latitude, longitude, altitude. Altitude is measured wrt the central body ellispoid of the object. (eg. Earth uses WGS84)</summary>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.Altitude(AGI.Access.Constraint.Plugin.AgEAltitudeReference)">
+      <summary>The altitude of the object wrt the requested reference.</summary>
+      <param name="AltRef"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.Range(AGI.Access.Constraint.Plugin.AgEAccessApparentPositionType)">
+      <summary>Apparent range between the objects.</summary>
+      <param name="Type"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.RelativePosition(AGI.Access.Constraint.Plugin.AgEAccessApparentPositionType,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>The apparent relative position of the other object with respect to this object, in the requested frame. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Type"></param>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.RelativePosition_Array(AGI.Access.Constraint.Plugin.AgEAccessApparentPositionType,AGI.Plugin.AgEUtFrame)">
+      <summary>The apparent relative position of the other object with respect to this object, in the requested frame, returned as an array representing x, y, z. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Type"></param>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.RelativeVelocity(AGI.Access.Constraint.Plugin.AgEAccessApparentPositionType,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>The apparent relative velocity of the other object with respect to this object, in the requested frame. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Type"></param>
+      <param name="Frame"></param>
+      <param name="Vx"></param>
+      <param name="Vy"></param>
+      <param name="Vz"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.RelativeVelocity_Array(AGI.Access.Constraint.Plugin.AgEAccessApparentPositionType,AGI.Plugin.AgEUtFrame)">
+      <summary>The apparent relative velocity of the other object with respect to this object, in the requested frame, returned as an array representing vx, vy, vz. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Type"></param>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.RelativeAcceleration(AGI.Access.Constraint.Plugin.AgEAccessApparentPositionType,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>The apparent relative acceleration of the other object with respect to this object, in the requested frame. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Type"></param>
+      <param name="Frame"></param>
+      <param name="Ax"></param>
+      <param name="Ay"></param>
+      <param name="Az"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.RelativeAcceleration_Array(AGI.Access.Constraint.Plugin.AgEAccessApparentPositionType,AGI.Plugin.AgEUtFrame)">
+      <summary>The apparent relative acceleration of the other object with respect to this object, in the requested frame, returned as an array representing ax, ay, az. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Type"></param>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.ApparentSunPosition(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>The apparent sun position with respect to the object in the requested frame. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.ApparentSunPosition_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>The apparent sun position with respect to the object in the requested frame, returned as an array representing x, y, z. Only eUtFrameInertial and eUtFrameFixed are supported. Useful for scripting clients.</summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.Attitude(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@,.double@)">
+      <summary>The attitude of the body frame of the object wrt the requested frame. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Frame"></param>
+      <param name="Q1"></param>
+      <param name="Q2"></param>
+      <param name="Q3"></param>
+      <param name="Q4"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.Attitude_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>The attitude of the body frame of the object wrt the requested frame, returned as an array representing Q1, Q2, Q3 Q4. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.AngularVelocity(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>The angular velocity of the body frame of the object wrt the requested frame. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Frame"></param>
+      <param name="Wx"></param>
+      <param name="Wy"></param>
+      <param name="Wz"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.AngularVelocity_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>The angular velocity of the body frame of the object wrt the requested frame, returned as an array representing wx, wy, wz. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.DateElements(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>The current time of the object in requested time scale expressed in date format. Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60].</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="DayOfMonth"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.DateElements_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>The current time of the object in requested time scale expressed in date format returned as the array: Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60]. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.DateString(System.String)">
+      <summary>Current epoch expressed using the date format abbreviation specified.</summary>
+      <param name="DateAbbrv"></param>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.Descriptor">
+      <summary>An interface to a description of the object.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.CentralBodyName">
+      <summary>The name of the central body for this object.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.SignalSense">
+      <summary>The signal sense for this object.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.IsClockHost">
+      <summary>True if this object is the clock host for the access computation.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.IsRefractionComputed">
+      <summary>True if refraction was computed for the apparent relative position of the other object.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginObjectData.GeometryMask">
+      <summary>A bit mask of AgEAccessConstraintDependencyFlags indicating which geometrical data was computed.</summary>
+    </member>
+    <member name="T:AGI.Access.Constraint.Plugin.AgEApparentPositionSignalSense">
+      <summary>Enumeration of the signal sense of the apparent position computation.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEApparentPositionSignalSense.eTransmitSignal">
+      <summary>Transmit signal.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEApparentPositionSignalSense.eReceiveSignal">
+      <summary>Receive signal.</summary>
+    </member>
+    <member name="T:AGI.Access.Constraint.Plugin.AgEAltitudeReference">
+      <summary>Enumeration of references used for reporting altitude.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAltitudeReference.eEllispoidReference">
+      <summary>Central body ellipsoid.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAltitudeReference.eMSLReference">
+      <summary>Mean sea level. Only available for objects whose central body is Earth.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAltitudeReference.eTerrainReference">
+      <summary>Terrain.</summary>
+    </member>
+    <member name="T:AGI.Access.Constraint.Plugin.AgEAccessApparentPositionType">
+      <summary>Enumeration of types of apparent positions computed by Access.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessApparentPositionType.eLightPathApparentPosition">
+      <summary>Light path apparent position. Accounts for the light time delay (if applied) between objects.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessApparentPositionType.eRefractedApparentPosition">
+      <summary>Refracted apparent position. Accounts for refraction effects (if applied) on the light path apparent position.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessApparentPositionType.eProperApparentPosition">
+      <summary>Proper Apparent position. Accounts for aberration effects (depending on the aberration type applied) on the refracted apparent position.</summary>
+    </member>
+    <member name="T:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultPostCompute">
+      <summary>Access Constraint Plugin Result interface for the PostCompute method.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultPostCompute.Base">
+      <summary>An interface to a description of the object that owns this constraint.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.IAgAccessConstraintPluginResultPostCompute.Target">
+      <summary>An interface to a description of the other object involved with this constraint.</summary>
+    </member>
+    <member name="T:AGI.Access.Constraint.Plugin.AgEAccessConstraintDependencyFlags">
+      <summary>Enumeration of Access Constraint Dependency Flags</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintDependencyFlags.eDependencyRelativePosVel">
+      <summary>Relative position and velocity</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintDependencyFlags.eDependencyRelativeAcc">
+      <summary>Relative acceleration</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintDependencyFlags.eDependencyPosVel">
+      <summary>Position and velocity</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintDependencyFlags.eDependencyAcc">
+      <summary>Acceleration</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintDependencyFlags.eDependencyAttitude">
+      <summary>Attitude</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintDependencyFlags.eDependencyRelSun">
+      <summary>Relative position of Sun</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintDependencyFlags.eDependencyNone">
+      <summary>No dependencies nor light time delay effects computed</summary>
+    </member>
+    <member name="T:AGI.Access.Constraint.Plugin.AgEAccessConstraintPluginErrorCodes">
+      <summary>Enumeration of AgAccessConstraintPlugin General Error Codes</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintPluginErrorCodes.E_ACCESS_CONSTRAINT_PLUGIN_INTERNAL_FAILURE">
+      <summary>Access Constraint Plugin: An internal failure occurred.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintPluginErrorCodes.E_ACCESS_CONSTRAINT_PLUGIN_OBJECT_PATH_UNAVAILABLE">
+      <summary>Access Constraint Plugin: Object path unavailable.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintPluginErrorCodes.E_ACCESS_CONSTRAINT_PLUGIN_OBJECT_CENTRAL_BODY_NAME_UNAVAILABLE">
+      <summary>Access Constraint Plugin: Central Body Name unavailable.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintPluginErrorCodes.E_ACCESS_CONSTRAINT_PLUGIN_IMPLEMENTATION_INCOMPLETE_ERROR">
+      <summary>Access Constraint Plugin: Implementation not yet complete, please contact AGI for more information.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintPluginErrorCodes.E_ACCESS_CONSTRAINT_PLUGIN_PLUGIN_INITIALIZATION_ERROR">
+      <summary>Access Constraint Plugin: Plugin initialization failure.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintPluginErrorCodes.E_ACCESS_CONSTRAINT_PLUGIN_PLUGIN_UNINITIALIZATION_ERROR">
+      <summary>Access Constraint Plugin: Plugin uninitialization failure.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintPluginErrorCodes.E_ACCESS_CONSTRAINT_PLUGIN_OBJECT_TYPE_INVALID">
+      <summary>Access Constraint Plugin: Invalid AgEAccessConstraintObjectType enum.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintPluginErrorCodes.E_ACCESS_CONSTRAINT_PLUGIN_REGISTER_NO_TARGETS">
+      <summary>Access Constraint Plugin: No targets have been specified for registration.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintPluginErrorCodes.E_ACCESS_CONSTRAINT_PLUGIN_BAD_REQUEST_FRAME">
+      <summary>Access Constraint Plugin: Bad Frame request. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintPluginErrorCodes.E_ACCESS_CONSTRAINT_PLUGIN_GEOMETRY_NOT_COMPUTED">
+      <summary>Access Constraint Plugin: Geometrical value not computed. Check registration dependency flags.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintPluginErrorCodes.E_ACCESS_CONSTRAINT_PLUGIN_INVALID_ALT_REF">
+      <summary>Access Constraint Plugin: Invalid AgEAltitudeReference enum.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintPluginErrorCodes.E_ACCESS_CONSTRAINT_PLUGIN_INVALID_APP_POS">
+      <summary>Access Constraint Plugin: Invalid AgEAccessApparentPositionType enum.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintPluginErrorCodes.E_ACCESS_CONSTRAINT_PLUGIN_INVALID_DIMENSION">
+      <summary>Access Constraint Plugin: Invalid dimension name.</summary>
+    </member>
+    <member name="F:AGI.Access.Constraint.Plugin.AgEAccessConstraintPluginErrorCodes.E_ACCESS_CONSTRAINT_PLUGIN_INVALID_WEIGHT">
+      <summary>Access Constraint Plugin: Invalid computational weight value. Must be positive.</summary>
+    </member>
+    <member name="T:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegister">
+      <summary>Access Constraint Registration interface for the Register method.</summary>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegister.Reset">
+      <summary>Resets property values to defaults values and clears targets.</summary>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegister.ClearTargets">
+      <summary>Clears the target list.</summary>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegister.AddTarget(AGI.Access.Constraint.Plugin.AgEAccessConstraintObjectType)">
+      <summary>Adds a target to the target list.</summary>
+      <param name="Type"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegister.Targets">
+      <summary>Returns the current target list.</summary>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegister.ObjectTypeName(AGI.Access.Constraint.Plugin.AgEAccessConstraintObjectType)">
+      <summary>Returns the name of associated object type.</summary>
+      <param name="Type"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegister.Register">
+      <summary>Registers the constraint using the current settings.</summary>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegister.Message(AGI.Plugin.AgEUtLogMsgType,System.String)">
+      <summary>Send a message to the message viewer.</summary>
+      <param name="MsgType"></param>
+      <param name="Message"></param>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegister.BaseObjectType">
+      <summary>This object type is permitted to own this constraint.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegister.BaseDependency">
+      <summary>Dependency mask of the Base object indicating the geometric dependencies of the constraint computation.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegister.TargetDependency">
+      <summary>Dependency mask of the Target object indicating the geometric dependencies of the constraint computation.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegister.Dimension">
+      <summary>Dimension of the computed constraint value.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegister.MinValue">
+      <summary>Minimum value of the computed constraint value.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegister.MaxValue">
+      <summary>Maximum value of the computed constraint value.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegister.MaxRelMotion">
+      <summary>Maximum relative motion (in degrees) allowed between constraint samples.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegister.InstallDirectory">
+      <summary>The directory path of the installation of the application.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegister.ConfigDirectory">
+      <summary>The directory path of the user configuration area.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegister.Weight">
+      <summary>Computational weight of the constraint. Must be positive.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegister.MaxTimeStep">
+      <summary>Maximum time step (in secs) allowed between constraint samples.</summary>
+    </member>
+    <member name="T:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegisterClass">
+      <summary>Access Constraint Registration interface for the Register method.</summary>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegisterClass.Reset">
+      <summary>Resets property values to defaults values and clears targets.</summary>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegisterClass.ClearTargets">
+      <summary>Clears the target list.</summary>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegisterClass.AddTarget(AGI.Access.Constraint.Plugin.AgEAccessConstraintObjectType)">
+      <summary>Adds a target to the target list.</summary>
+      <param name="Type"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegisterClass.Targets">
+      <summary>Returns the current target list.</summary>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegisterClass.ObjectTypeName(AGI.Access.Constraint.Plugin.AgEAccessConstraintObjectType)">
+      <summary>Returns the name of associated object type.</summary>
+      <param name="Type"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegisterClass.Register">
+      <summary>Registers the constraint using the current settings.</summary>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegisterClass.Message(AGI.Plugin.AgEUtLogMsgType,System.String)">
+      <summary>Send a message to the message viewer.</summary>
+      <param name="MsgType"></param>
+      <param name="Message"></param>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegisterClass.BaseObjectType">
+      <summary>This object type is permitted to own this constraint.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegisterClass.BaseDependency">
+      <summary>Dependency mask of the Base object indicating the geometric dependencies of the constraint computation.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegisterClass.TargetDependency">
+      <summary>Dependency mask of the Target object indicating the geometric dependencies of the constraint computation.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegisterClass.Dimension">
+      <summary>Dimension of the computed constraint value.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegisterClass.MinValue">
+      <summary>Minimum value of the computed constraint value.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegisterClass.MaxValue">
+      <summary>Maximum value of the computed constraint value.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegisterClass.MaxRelMotion">
+      <summary>Maximum relative motion (in degrees) allowed between constraint samples.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegisterClass.InstallDirectory">
+      <summary>The directory path of the installation of the application.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegisterClass.ConfigDirectory">
+      <summary>The directory path of the user configuration area.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegisterClass.Weight">
+      <summary>Computational weight of the constraint. Must be positive.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultRegisterClass.MaxTimeStep">
+      <summary>Maximum time step (in secs) allowed between constraint samples.</summary>
+    </member>
+    <member name="T:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData">
+      <summary>Access Constraint Plugin Object Data interface used to get inputs and outputs during the Evaluate method call.</summary>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.DayCount(AGI.Plugin.AgEUtTimeScale,.long@,.double@)">
+      <summary>The current time in requested time scale of the object  expressed in day count format.</summary>
+      <param name="Scale"></param>
+      <param name="WholeDays"></param>
+      <param name="SecsIntoDay"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.DayCount_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>The current time in requested time scale of the object expressed in day count format returned as an array representing wholeDays, secsIntoDay. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.Date(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>DEPRECATED. Use DateElements instead. The current time in requested time scale of the object expressed in date format.</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.Date_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary></summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.Position(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>The object position in the requested frame. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.Position_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>The object position in the requested frame, returned as an array representing x, y, z. Only eUtFrameInertial and eUtFrameFixed are supported. Useful for scripting clients.</summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.Velocity(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>The object velocity in the requested frame. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Frame"></param>
+      <param name="Vx"></param>
+      <param name="Vy"></param>
+      <param name="Vz"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.Velocity_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>The object velocity in the requested frame, returned as an array representing vx, vy, vz. Only eUtFrameInertial and eUtFrameFixed are supported. Useful for scripting clients.</summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.Acceleration(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>The object acceleration in the requested frame. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Frame"></param>
+      <param name="Ax"></param>
+      <param name="Ay"></param>
+      <param name="Az"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.Acceleration_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>The object acceleration in the requested frame, returned as an array representing ax, ay, az. Only eUtFrameInertial and eUtFrameFixed are supported. Useful for scripting clients.</summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.LatLonAlt(.double@,.double@,.double@)">
+      <summary>The detic latitude, detic longitude, and altitude of the object. Altitude is measured wrt the central body ellispoid of the object. (eg. Earth uses WGS84)</summary>
+      <param name="Latitude"></param>
+      <param name="Longitude"></param>
+      <param name="Altitude"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.LatLonAlt_Array">
+      <summary>The detic latitude, detic longitude, and altitude of the object, returned as an array representing latitude, longitude, altitude. Altitude is measured wrt the central body ellispoid of the object. (eg. Earth uses WGS84)</summary>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.Altitude(AGI.Access.Constraint.Plugin.AgEAltitudeReference)">
+      <summary>The altitude of the object wrt the requested reference.</summary>
+      <param name="AltRef"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.Range(AGI.Access.Constraint.Plugin.AgEAccessApparentPositionType)">
+      <summary>Apparent range between the objects.</summary>
+      <param name="Type"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.RelativePosition(AGI.Access.Constraint.Plugin.AgEAccessApparentPositionType,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>The apparent relative position of the other object with respect to this object, in the requested frame. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Type"></param>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.RelativePosition_Array(AGI.Access.Constraint.Plugin.AgEAccessApparentPositionType,AGI.Plugin.AgEUtFrame)">
+      <summary>The apparent relative position of the other object with respect to this object, in the requested frame, returned as an array representing x, y, z. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Type"></param>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.RelativeVelocity(AGI.Access.Constraint.Plugin.AgEAccessApparentPositionType,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>The apparent relative velocity of the other object with respect to this object, in the requested frame. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Type"></param>
+      <param name="Frame"></param>
+      <param name="Vx"></param>
+      <param name="Vy"></param>
+      <param name="Vz"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.RelativeVelocity_Array(AGI.Access.Constraint.Plugin.AgEAccessApparentPositionType,AGI.Plugin.AgEUtFrame)">
+      <summary>The apparent relative velocity of the other object with respect to this object, in the requested frame, returned as an array representing vx, vy, vz. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Type"></param>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.RelativeAcceleration(AGI.Access.Constraint.Plugin.AgEAccessApparentPositionType,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>The apparent relative acceleration of the other object with respect to this object, in the requested frame. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Type"></param>
+      <param name="Frame"></param>
+      <param name="Ax"></param>
+      <param name="Ay"></param>
+      <param name="Az"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.RelativeAcceleration_Array(AGI.Access.Constraint.Plugin.AgEAccessApparentPositionType,AGI.Plugin.AgEUtFrame)">
+      <summary>The apparent relative acceleration of the other object with respect to this object, in the requested frame, returned as an array representing ax, ay, az. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Type"></param>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.ApparentSunPosition(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>The apparent sun position with respect to the object in the requested frame. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.ApparentSunPosition_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>The apparent sun position with respect to the object in the requested frame, returned as an array representing x, y, z. Only eUtFrameInertial and eUtFrameFixed are supported. Useful for scripting clients.</summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.Attitude(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@,.double@)">
+      <summary>The attitude of the body frame of the object wrt the requested frame. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Frame"></param>
+      <param name="Q1"></param>
+      <param name="Q2"></param>
+      <param name="Q3"></param>
+      <param name="Q4"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.Attitude_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>The attitude of the body frame of the object wrt the requested frame, returned as an array representing Q1, Q2, Q3 Q4. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.AngularVelocity(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>The angular velocity of the body frame of the object wrt the requested frame. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Frame"></param>
+      <param name="Wx"></param>
+      <param name="Wy"></param>
+      <param name="Wz"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.AngularVelocity_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>The angular velocity of the body frame of the object wrt the requested frame, returned as an array representing wx, wy, wz. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.DateElements(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>The current time of the object in requested time scale expressed in date format. Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60].</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="DayOfMonth"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.DateElements_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>The current time of the object in requested time scale expressed in date format returned as the array: Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60]. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.DateString(System.String)">
+      <summary>Current epoch expressed using the date format abbreviation specified.</summary>
+      <param name="DateAbbrv"></param>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.Descriptor">
+      <summary>An interface to a description of the object.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.CentralBodyName">
+      <summary>The name of the central body for this object.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.SignalSense">
+      <summary>The signal sense for this object.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.IsClockHost">
+      <summary>True if this object is the clock host for the access computation.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.IsRefractionComputed">
+      <summary>True if refraction was computed for the apparent relative position of the other object.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectData.GeometryMask">
+      <summary>A bit mask of AgEAccessConstraintDependencyFlags indicating which geometrical data was computed.</summary>
+    </member>
+    <member name="T:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass">
+      <summary>Access Constraint Plugin Object Data interface used to get inputs and outputs during the Evaluate method call.</summary>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.DayCount(AGI.Plugin.AgEUtTimeScale,.long@,.double@)">
+      <summary>The current time in requested time scale of the object  expressed in day count format.</summary>
+      <param name="Scale"></param>
+      <param name="WholeDays"></param>
+      <param name="SecsIntoDay"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.DayCount_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>The current time in requested time scale of the object expressed in day count format returned as an array representing wholeDays, secsIntoDay. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.Date(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>DEPRECATED. Use DateElements instead. The current time in requested time scale of the object expressed in date format.</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.Date_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary></summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.Position(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>The object position in the requested frame. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.Position_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>The object position in the requested frame, returned as an array representing x, y, z. Only eUtFrameInertial and eUtFrameFixed are supported. Useful for scripting clients.</summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.Velocity(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>The object velocity in the requested frame. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Frame"></param>
+      <param name="Vx"></param>
+      <param name="Vy"></param>
+      <param name="Vz"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.Velocity_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>The object velocity in the requested frame, returned as an array representing vx, vy, vz. Only eUtFrameInertial and eUtFrameFixed are supported. Useful for scripting clients.</summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.Acceleration(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>The object acceleration in the requested frame. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Frame"></param>
+      <param name="Ax"></param>
+      <param name="Ay"></param>
+      <param name="Az"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.Acceleration_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>The object acceleration in the requested frame, returned as an array representing ax, ay, az. Only eUtFrameInertial and eUtFrameFixed are supported. Useful for scripting clients.</summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.LatLonAlt(.double@,.double@,.double@)">
+      <summary>The detic latitude, detic longitude, and altitude of the object. Altitude is measured wrt the central body ellispoid of the object. (eg. Earth uses WGS84)</summary>
+      <param name="Latitude"></param>
+      <param name="Longitude"></param>
+      <param name="Altitude"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.LatLonAlt_Array">
+      <summary>The detic latitude, detic longitude, and altitude of the object, returned as an array representing latitude, longitude, altitude. Altitude is measured wrt the central body ellispoid of the object. (eg. Earth uses WGS84)</summary>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.Altitude(AGI.Access.Constraint.Plugin.AgEAltitudeReference)">
+      <summary>The altitude of the object wrt the requested reference.</summary>
+      <param name="AltRef"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.Range(AGI.Access.Constraint.Plugin.AgEAccessApparentPositionType)">
+      <summary>Apparent range between the objects.</summary>
+      <param name="Type"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.RelativePosition(AGI.Access.Constraint.Plugin.AgEAccessApparentPositionType,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>The apparent relative position of the other object with respect to this object, in the requested frame. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Type"></param>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.RelativePosition_Array(AGI.Access.Constraint.Plugin.AgEAccessApparentPositionType,AGI.Plugin.AgEUtFrame)">
+      <summary>The apparent relative position of the other object with respect to this object, in the requested frame, returned as an array representing x, y, z. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Type"></param>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.RelativeVelocity(AGI.Access.Constraint.Plugin.AgEAccessApparentPositionType,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>The apparent relative velocity of the other object with respect to this object, in the requested frame. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Type"></param>
+      <param name="Frame"></param>
+      <param name="Vx"></param>
+      <param name="Vy"></param>
+      <param name="Vz"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.RelativeVelocity_Array(AGI.Access.Constraint.Plugin.AgEAccessApparentPositionType,AGI.Plugin.AgEUtFrame)">
+      <summary>The apparent relative velocity of the other object with respect to this object, in the requested frame, returned as an array representing vx, vy, vz. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Type"></param>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.RelativeAcceleration(AGI.Access.Constraint.Plugin.AgEAccessApparentPositionType,AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>The apparent relative acceleration of the other object with respect to this object, in the requested frame. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Type"></param>
+      <param name="Frame"></param>
+      <param name="Ax"></param>
+      <param name="Ay"></param>
+      <param name="Az"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.RelativeAcceleration_Array(AGI.Access.Constraint.Plugin.AgEAccessApparentPositionType,AGI.Plugin.AgEUtFrame)">
+      <summary>The apparent relative acceleration of the other object with respect to this object, in the requested frame, returned as an array representing ax, ay, az. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Type"></param>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.ApparentSunPosition(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>The apparent sun position with respect to the object in the requested frame. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Frame"></param>
+      <param name="X"></param>
+      <param name="Y"></param>
+      <param name="Z"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.ApparentSunPosition_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>The apparent sun position with respect to the object in the requested frame, returned as an array representing x, y, z. Only eUtFrameInertial and eUtFrameFixed are supported. Useful for scripting clients.</summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.Attitude(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@,.double@)">
+      <summary>The attitude of the body frame of the object wrt the requested frame. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Frame"></param>
+      <param name="Q1"></param>
+      <param name="Q2"></param>
+      <param name="Q3"></param>
+      <param name="Q4"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.Attitude_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>The attitude of the body frame of the object wrt the requested frame, returned as an array representing Q1, Q2, Q3 Q4. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.AngularVelocity(AGI.Plugin.AgEUtFrame,.double@,.double@,.double@)">
+      <summary>The angular velocity of the body frame of the object wrt the requested frame. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Frame"></param>
+      <param name="Wx"></param>
+      <param name="Wy"></param>
+      <param name="Wz"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.AngularVelocity_Array(AGI.Plugin.AgEUtFrame)">
+      <summary>The angular velocity of the body frame of the object wrt the requested frame, returned as an array representing wx, wy, wz. Only eUtFrameInertial and eUtFrameFixed are supported.</summary>
+      <param name="Frame"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.DateElements(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>The current time of the object in requested time scale expressed in date format. Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60].</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="DayOfMonth"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.DateElements_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>The current time of the object in requested time scale expressed in date format returned as the array: Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60]. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.DateString(System.String)">
+      <summary>Current epoch expressed using the date format abbreviation specified.</summary>
+      <param name="DateAbbrv"></param>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.Descriptor">
+      <summary>An interface to a description of the object.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.CentralBodyName">
+      <summary>The name of the central body for this object.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.SignalSense">
+      <summary>The signal sense for this object.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.IsClockHost">
+      <summary>True if this object is the clock host for the access computation.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.IsRefractionComputed">
+      <summary>True if refraction was computed for the apparent relative position of the other object.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDataClass.GeometryMask">
+      <summary>A bit mask of AgEAccessConstraintDependencyFlags indicating which geometrical data was computed.</summary>
+    </member>
+    <member name="T:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDescriptor">
+      <summary>Access Constraint Plugin Object Descriptor interface.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDescriptor.IsValid">
+      <summary>True when the object is a valid object. If false, none of the other methods return valid data.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDescriptor.VectorToolProvider">
+      <summary>Creates an IAgCrdnPluginProvider object.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDescriptor.ObjectType">
+      <summary>The object type of the object.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDescriptor.ObjectPath">
+      <summary>The STK object path of the object.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDescriptor.ShortDescription">
+      <summary>The short description of the object.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDescriptor.LongDescription">
+      <summary>The long description of the object.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDescriptor.CentralBodyName">
+      <summary>The name of the central body for this object.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDescriptor.CalcToolProvider">
+      <summary>Creates an IAgCrdnPluginProvider object.</summary>
+    </member>
+    <member name="T:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDescriptorClass">
+      <summary>Access Constraint Plugin Object Descriptor interface.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDescriptorClass.IsValid">
+      <summary>True when the object is a valid object. If false, none of the other methods return valid data.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDescriptorClass.VectorToolProvider">
+      <summary>Creates an IAgCrdnPluginProvider object.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDescriptorClass.ObjectType">
+      <summary>The object type of the object.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDescriptorClass.ObjectPath">
+      <summary>The STK object path of the object.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDescriptorClass.ShortDescription">
+      <summary>The short description of the object.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDescriptorClass.LongDescription">
+      <summary>The long description of the object.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDescriptorClass.CentralBodyName">
+      <summary>The name of the central body for this object.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginObjectDescriptorClass.CalcToolProvider">
+      <summary>Creates an IAgCrdnPluginProvider object.</summary>
+    </member>
+    <member name="T:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultPreCompute">
+      <summary>Access Constraint Plugin Result interface for the PreCompute method.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultPreCompute.Base">
+      <summary>An interface to a description of the object that owns this constraint.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultPreCompute.Target">
+      <summary>An interface to a description of the other object involved with this constraint.</summary>
+    </member>
+    <member name="T:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultPreComputeClass">
+      <summary>Access Constraint Plugin Result interface for the PreCompute method.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultPreComputeClass.Base">
+      <summary>An interface to a description of the object that owns this constraint.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultPreComputeClass.Target">
+      <summary>An interface to a description of the other object involved with this constraint.</summary>
+    </member>
+    <member name="T:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEval">
+      <summary>Access Constraint Plugin Result interface for the Evaluate method.</summary>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEval.DayCount(AGI.Plugin.AgEUtTimeScale,.long@,.double@)">
+      <summary>The current time in requested time scale of the object that is the clock host expressed in day count format.</summary>
+      <param name="Scale"></param>
+      <param name="WholeDays"></param>
+      <param name="SecsIntoDay"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEval.Date(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>DEPRECATED. Use DateElements instead. The current time in requested time scale of the object that is the clock host expressed in date format.</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEval.DayCount_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>The current time in requested time scale of the object that is the clock host expressed in day count format returned as an array representing wholeDays, secsIntoDay. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEval.Date_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary></summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEval.DateElements(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>The current time of the object in requested time scale expressed in date format. Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60].</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="DayOfMonth"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEval.DateElements_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>The current time of the object in requested time scale expressed in date format returned as the array: Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60]. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEval.DateString(System.String)">
+      <summary>Current epoch expressed using the date format abbreviation specified.</summary>
+      <param name="DateAbbrv"></param>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEval.Value">
+      <summary>The current value of the constraint.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEval.MaxRelMotion">
+      <summary>Maximum relative motion (in degrees) allowed between constraint samples.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEval.StepSize">
+      <summary>The current time step taken (secs).</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEval.IsLightTimeDelayConsidered">
+      <summary>True when light time delay is considered.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEval.LightTimeDelayFrame">
+      <summary>Frame in which light time delay is computed.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEval.AberrationType">
+      <summary>The type of aberration applied</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEval.LightTimeDelay">
+      <summary>Light time delay in seconds.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEval.LightPathRange">
+      <summary>The range in meters between the Base and Target objects only accounting for light time delay if applied (not refraction nor aberration).</summary>
+    </member>
+    <member name="T:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEvalClass">
+      <summary>Access Constraint Plugin Result interface for the Evaluate method.</summary>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEvalClass.DayCount(AGI.Plugin.AgEUtTimeScale,.long@,.double@)">
+      <summary>The current time in requested time scale of the object that is the clock host expressed in day count format.</summary>
+      <param name="Scale"></param>
+      <param name="WholeDays"></param>
+      <param name="SecsIntoDay"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEvalClass.Date(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>DEPRECATED. Use DateElements instead. The current time in requested time scale of the object that is the clock host expressed in date format.</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEvalClass.DayCount_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>The current time in requested time scale of the object that is the clock host expressed in day count format returned as an array representing wholeDays, secsIntoDay. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEvalClass.Date_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary></summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEvalClass.DateElements(AGI.Plugin.AgEUtTimeScale,.long@,.long@,.long@,.long@,.long@,.long@,.double@)">
+      <summary>The current time of the object in requested time scale expressed in date format. Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60].</summary>
+      <param name="Scale"></param>
+      <param name="Year"></param>
+      <param name="DayOfYear"></param>
+      <param name="Month"></param>
+      <param name="DayOfMonth"></param>
+      <param name="Hour"></param>
+      <param name="Minute"></param>
+      <param name="Seconds"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEvalClass.DateElements_Array(AGI.Plugin.AgEUtTimeScale)">
+      <summary>The current time of the object in requested time scale expressed in date format returned as the array: Year [yyyy], DayOfYear [1-366], Month [1-12], DayOfMonth [1-31], Hour [0-23], Minute [0-59], Seconds [0-60]. Useful for scripting clients.</summary>
+      <param name="Scale"></param>
+    </member>
+    <member name="M:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEvalClass.DateString(System.String)">
+      <summary>Current epoch expressed using the date format abbreviation specified.</summary>
+      <param name="DateAbbrv"></param>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEvalClass.Value">
+      <summary>The current value of the constraint.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEvalClass.MaxRelMotion">
+      <summary>Maximum relative motion (in degrees) allowed between constraint samples.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEvalClass.StepSize">
+      <summary>The current time step taken (secs).</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEvalClass.IsLightTimeDelayConsidered">
+      <summary>True when light time delay is considered.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEvalClass.LightTimeDelayFrame">
+      <summary>Frame in which light time delay is computed.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEvalClass.AberrationType">
+      <summary>The type of aberration applied</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEvalClass.LightTimeDelay">
+      <summary>Light time delay in seconds.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultEvalClass.LightPathRange">
+      <summary>The range in meters between the Base and Target objects only accounting for light time delay if applied (not refraction nor aberration).</summary>
+    </member>
+    <member name="T:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultPostCompute">
+      <summary>Access Constraint Plugin Result interface for the PostCompute method.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultPostCompute.Base">
+      <summary>An interface to a description of the object that owns this constraint.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultPostCompute.Target">
+      <summary>An interface to a description of the other object involved with this constraint.</summary>
+    </member>
+    <member name="T:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultPostComputeClass">
+      <summary>Access Constraint Plugin Result interface for the PostCompute method.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultPostComputeClass.Base">
+      <summary>An interface to a description of the object that owns this constraint.</summary>
+    </member>
+    <member name="P:AGI.Access.Constraint.Plugin.AgAccessConstraintPluginResultPostComputeClass.Target">
+      <summary>An interface to a description of the other object involved with this constraint.</summary>
+    </member>
+  </members>
+</doc>

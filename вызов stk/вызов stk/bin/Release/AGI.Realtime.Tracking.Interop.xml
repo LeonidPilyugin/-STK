@@ -1,0 +1,3132 @@
+<doc>
+  <assembly>
+    <name>AGI.Realtime.Tracking</name>
+  </assembly>
+  <members>
+    <member name="T:AGI.Realtime.Tracking.AgERt3EventDispatchID">
+      <summary>Dispatch IDs for event interfaces.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3EventDispatchID.eEventDefinitionChangedEvent">
+      <summary>A user defined event has changed.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3EventDispatchID.eEventDefinitionEnabledEvent">
+      <summary>A user defined event has been enabled.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3EventDispatchID.eEventDefinitionDisabledEvent">
+      <summary>A user defined event has been disabled.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3EventDispatchID.eQueryChangedEvent">
+      <summary>A query has changed.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3EventDispatchID.eEventDefinitionCollectionAddEvent">
+      <summary>A user defined event has been added to a collection.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3EventDispatchID.eEventDefinitionCollectionRemoveEvent">
+      <summary>A used defined event has been removed from a collection.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3EventDispatchID.eQueryEnabledEvent">
+      <summary>A query has been enabled.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3EventDispatchID.eQueryDisabledEvent">
+      <summary>A query has been disabled.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3EventDispatchID.eQueryCollectionAddEvent">
+      <summary>A query has been added to a collection.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3EventDispatchID.eQueryCollectionRemoveEvent">
+      <summary>A query has been removed from a collection.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3EventDispatchID.eQueryCollectionMoveEvent">
+      <summary>A query has been reordered within a collection.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3EventDispatchID.eShowMarkersEvent">
+      <summary>The entity marker display flag for a query has been toggled.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3EventDispatchID.eShowLabelsEvent">
+      <summary>The entity label display flag for a query has been toggled.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3EventDispatchID.eShowLinesEvent">
+      <summary>The entity line display flag for a query has been toggled.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3EventDispatchID.eShowModelsEvent">
+      <summary>The entity model display flag for a query has been toggled.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3EventDispatchID.eEntityManagerShowMarkersEvent">
+      <summary>The entity markers for all queries in an entity manager has been toggled.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3EventDispatchID.eEntityManagerShowLabelsEvent">
+      <summary>The entity labels for all queries in an entity manager has been toggled.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3EventDispatchID.eEntityManagerShowModelsEvent">
+      <summary>The entity models for all queries in an entity manager has been toggled.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3EventDispatchID.eEntityManagerShowLinesEvent">
+      <summary>The entity lines for all queries in an entity manager has been toggled.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3EventDispatchID.eEventTriggeredEvent">
+      <summary>An event has been triggered.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3EventDispatchID.eEventDismissedEvent">
+      <summary>An event has been dismissed.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgERt3Error">
+      <summary>Error codes.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3Error.eRt3ErrorIndexOutOfRange">
+      <summary>Index out of range.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3Error.eRt3ErrorObjectAlreadyRegistered">
+      <summary>The provided object is already registered with Rt3.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3Error.eRt3ErrorObjectNotRegistered">
+      <summary>The provided object is not registered with Rt3.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3Error.eRt3ErrorReadOnly">
+      <summary>The object or property is readonly.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3Error.eRt3ErrorPartialLoad">
+      <summary>Loading an Rt3 file succeeded, but with some errors.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgERt3ComparisonOperand">
+      <summary>The type of comparison to be made for clauses in AgRt3SimpleQuery.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3ComparisonOperand.eRt3ComparisonOperandEqualTo">
+      <summary>Equality.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3ComparisonOperand.eRt3ComparisonOperandNotEqualTo">
+      <summary>Inequality.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3ComparisonOperand.eRt3ComparisonOperandLessThan">
+      <summary>Less than.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3ComparisonOperand.eRt3ComparisonOperandGreaterThan">
+      <summary>Greater than.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3ComparisonOperand.eRt3ComparisonOperandLessThanEqualTo">
+      <summary>Less than or equal to.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3ComparisonOperand.eRt3ComparisonOperandGreaterThanEqualTo">
+      <summary>Greater than or equal to.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgERt3ConjunctiveOperand">
+      <summary>Conjunction settings between clauses in AgRt3SimpleQuery.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3ConjunctiveOperand.eRt3ConjunctiveOperandAnd">
+      <summary>And.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3ConjunctiveOperand.eRt3ConjunctiveOperandOr">
+      <summary>Or.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3ConjunctiveOperand.eRt3ConjunctiveOperandNone">
+      <summary>None is used to indicate the last clause in a query.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.IAgRt3Area">
+      <summary>The base interfaces for all areas which can be evaluated by AgRt3AreaQuery.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3Area.Points">
+      <summary>The points defined by the area.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3Area.Query">
+      <summary>The query associated with this area.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.IAgRt3AreaQuery">
+      <summary>The primary interface for AgRt3AreaQuery</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3AreaQuery.AreaChanged">
+      <summary>Called by the ReferenceArea when it has been modified in order to update the list of points.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3AreaQuery.ReferenceArea">
+      <summary>The area monitored by the query.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3AreaQuery.IsMatch(AGI.Entity.IAgEntity)">
+      <summary>Returns true if the provided entity beloings in the query.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3AreaQuery.Enabled">
+      <summary>Toggles processing of the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3AreaQuery.Graphics">
+      <summary>Graphical properties to be associated with entities in the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3AreaQuery.Provider">
+      <summary>The entity provider associated with the query.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.IAgRt3Query">
+      <summary>The base interface for all action query plugins.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3Query.IsMatch(AGI.Entity.IAgEntity)">
+      <summary>Returns true if the provided entity beloings in the query.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3Query.Enabled">
+      <summary>Toggles processing of the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3Query.Graphics">
+      <summary>Graphical properties to be associated with entities in the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3Query.Provider">
+      <summary>The entity provider associated with the query.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.IAgRt3QueryGraphics">
+      <summary>Defines the set of graphical attributes applied to entities contained in a query.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3QueryGraphics.SetMarker(AGI.Realtime.Tracking.AgERt3QueryMarker,System.Object)">
+      <summary>Set the marker to the desired type using the provided data.</summary>
+      <param name="Type"></param>
+      <param name="Marker"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3QueryGraphics.SetModel(AGI.Realtime.Tracking.AgERt3QueryModel,System.Object)">
+      <summary>Set the model to the desired type and provided data.</summary>
+      <param name="Type"></param>
+      <param name="Model"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3QueryGraphics.Color">
+      <summary>The entity color.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3QueryGraphics.Labels">
+      <summary>The list of meta-data fields whose values will be used to generate the entity label.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3QueryGraphics.LabelSeparator">
+      <summary>The string that will separate label fields.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3QueryGraphics.LineStyle">
+      <summary>The entity line style.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3QueryGraphics.LineWidth">
+      <summary>The entity line width.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3QueryGraphics.MarkerType">
+      <summary>The type of marker.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3QueryGraphics.MarkerData">
+      <summary>The marker data.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3QueryGraphics.ModelType">
+      <summary>The type of model .</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3QueryGraphics.ModelData">
+      <summary>The model data.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3QueryGraphics.Query">
+      <summary>The query associated with the graphics.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3QueryGraphics.ShowMarkers">
+      <summary>Toggles the display of the markers.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3QueryGraphics.ShowLabels">
+      <summary>Toggles the display of the labels.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3QueryGraphics.ShowModels">
+      <summary>Toggles the display of all models.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3QueryGraphics.ShowLines">
+      <summary>Toggles the display of all lines.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3QueryGraphics.ShowFieldName">
+      <summary>Toggles the display of the name of the meta-data field as part of the label.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3QueryGraphics.MultiLineLabel">
+      <summary>If the label has multiple fields, show each field on a new line.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3QueryGraphics.MarkerSize">
+      <summary>The size of markers, in pixels.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3QueryGraphics.ModelScale">
+      <summary>The logarithmic scaling factor for the model with 0 being actual size.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3QueryGraphics.LeadTime">
+      <summary>The amount of time in seconds which future points will be displayed.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3QueryGraphics.TrailTime">
+      <summary>The amount of time in seconds which past points will continue to be displayed.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3QueryGraphics.UseLeadTrail">
+      <summary>Indicates if lead and trail times should be used.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgERt3QueryMarker">
+      <summary>The type of marker associated with an instance of AgRt3QueryGraphics.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3QueryMarker.eRt3QueryMarkerFile">
+      <summary>Use a specific image file for all entities in the query.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3QueryMarker.eRt3QueryMarkerFileFromMetaData">
+      <summary>Use an image file obtained via the provided entity meta-data field name.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3QueryMarker.eRt3QueryMarkerSymbolFromMetaData">
+      <summary>Use a MIL2525B symbol code obtained via the provided entity meta-data field name.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3QueryMarker.eRt3QueryMarkerSymbol">
+      <summary>Use a specific MIL2525B symbol code for all entities in the query.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3QueryMarker.eRt3QueryMarkerShape">
+      <summary>Use a simple shape defined by AgEEntityMarkerShape.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgERt3QueryModel">
+      <summary>The type of model associated with an instance of AgRt3QueryGraphics.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3QueryModel.eRt3QueryModelFile">
+      <summary>Use a specific image file for all entities in the query.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3QueryModel.eRt3QueryModelFileFromMetaData">
+      <summary>Use model file obtained via the provided entity meta-data field name.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.IAgRt3Action">
+      <summary>The base interface for all action plugins.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3Action.Execute(AGI.Realtime.IAgRtEventEntity)">
+      <summary>Performce the object's action.</summary>
+      <param name="Event"></param>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3Interfaces">
+      <summary>Internal object.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3Interfaces.Output">
+      <summary>An entity collection to which all processed entities will be sent.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3Interfaces.EventManager">
+      <summary>Events that have been triggered.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.IAgRt3EntityManagerEvents_Event.OnEntityManagerShowMarkers">
+      <summary>Triggered when the query display state changes.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.IAgRt3EntityManagerEvents_Event.OnEntityManagerShowLabels">
+      <summary>Triggered when the query display state changes for labels.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.IAgRt3EntityManagerEvents_Event.OnEntityManagerShowLines">
+      <summary>Triggered when the query display state changes for lines.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.IAgRt3EntityManagerEvents_Event.OnEntityManagerShowModels">
+      <summary>Triggered when the query display state changes for labels.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.IAgRt3EventDefinitionEvents_Event.OnEventDefinitionChanged">
+      <summary>Triggered when an event object changes in a way that requires re-evaluation.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.IAgRt3EventDefinitionEvents_Event.OnEventDefinitionEnabled">
+      <summary>Triggered when a event object is enabled.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.IAgRt3EventDefinitionEvents_Event.OnEventDefinitionDisabled">
+      <summary>Triggered when a event object is disabled.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.IAgRt3EventDefinitionCollectionEvents_Event.OnEventDefinitionAdded">
+      <summary>Event triggered when a event is added.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.IAgRt3EventDefinitionCollectionEvents_Event.OnEventDefinitionRemoved">
+      <summary>Event triggered when a event is removed.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.IAgRt3EventManagerEvents_Event.OnEventTriggered">
+      <summary>Triggered when a real-time event is triggered.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.IAgRt3EventManagerEvents_Event.OnEventDismissed">
+      <summary>Triggered when a real-time event is dimissed.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.IAgRt3QueryEvents_Event.OnQueryChanged">
+      <summary>Triggered when a query object changes in a way that requires re-evaluation.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.IAgRt3QueryEvents_Event.OnQueryEnabled">
+      <summary>Triggered when a query object is enabled.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.IAgRt3QueryEvents_Event.OnQueryDisabled">
+      <summary>Triggered when a query object is disabled.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.IAgRt3QueryCollectionEvents_Event.OnQueryAdded">
+      <summary>Event triggered when a query is added.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.IAgRt3QueryCollectionEvents_Event.OnQueryRemoved">
+      <summary>Event triggered when a query is removed.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.IAgRt3QueryCollectionEvents_Event.OnQueryMoved">
+      <summary>Event triggered when a query is reordered.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.IAgRt3QueryGraphicsEvents_Event.OnShowMarkers">
+      <summary>Triggered when the query display state changes for entity markers.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.IAgRt3QueryGraphicsEvents_Event.OnShowLabels">
+      <summary>Triggered when the query display state changes for entity labels.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.IAgRt3QueryGraphicsEvents_Event.OnShowLines">
+      <summary>Triggered when the query display state changes for entity lines.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.IAgRt3QueryGraphicsEvents_Event.OnShowModels">
+      <summary>Triggered when the query display state changes for entity models.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3InterfacesClass">
+      <summary>Internal object.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.Output">
+      <summary>An entity collection to which all processed entities will be sent.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.EventManager">
+      <summary>Events that have been triggered.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.Terminate">
+      <summary>Performs cleanup of the application's static data.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.ExecuteQuery(AGI.Realtime.Tracking.IAgRt3Query)">
+      <summary>Executes a query over all queries in the entity provider and returns the result.</summary>
+      <param name="Query"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.RedistributeEntities">
+      <summary>Evaluates all entities and distributes them among the available queries.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.ShowMarkers">
+      <summary>Toggles the display of all entity markers.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.ShowLabels">
+      <summary>Toggles the display of all entity labels.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.ShowModels">
+      <summary>Toggles the display of all entity models.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.ShowLines">
+      <summary>Toggles the display of all entity lines.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.Queries">
+      <summary>The queries associated with the entity provider.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.EventDefinitions">
+      <summary>The event definitions associated with the entity provider.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3InterfacesClass.OnEntityManagerShowMarkers">
+      <summary>Triggered when the query display state changes.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3InterfacesClass.OnEntityManagerShowLabels">
+      <summary>Triggered when the query display state changes for labels.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3InterfacesClass.OnEntityManagerShowLines">
+      <summary>Triggered when the query display state changes for lines.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3InterfacesClass.OnEntityManagerShowModels">
+      <summary>Triggered when the query display state changes for labels.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.AddProcessor(AGI.Realtime.IAgRtProcessEntities)">
+      <summary>Add a processor.</summary>
+      <param name="Processor"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.RemoveProcessor(AGI.Realtime.IAgRtProcessEntities)">
+      <summary>Remove a processor</summary>
+      <param name="Processor"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.SetEnableLifecycle(System.Boolean)">
+      <summary>Should the lifecycle maintainence thread run.</summary>
+      <param name="Enable"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.Provider">
+      <summary>The provider that is feeding this manager.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.Add(AGI.Realtime.Tracking.IAgRt3Action)">
+      <summary>Adds an element to the collection.</summary>
+      <param name="Action"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.InsertAt(System.Int32,AGI.Realtime.Tracking.IAgRt3Action)">
+      <summary>Insert an element into the collection at the specified index</summary>
+      <param name="Index"></param>
+      <param name="Action"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.Remove(AGI.Realtime.Tracking.IAgRt3Action)">
+      <summary>Remove the provided element from the collection.</summary>
+      <param name="Action"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.RemoveAt(System.Int32)">
+      <summary>Remove the element at the specified index from the collection.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.Copy">
+      <summary>Copy the collection</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.Save(AGI.Realtime.Tracking.IAgRt3Application,System.String)">
+      <summary>Save the current application settings.</summary>
+      <param name="Application"></param>
+      <param name="FileName"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.Load(AGI.Realtime.Tracking.IAgRt3Application,System.String)">
+      <summary>Load the provided application settings.</summary>
+      <param name="Application"></param>
+      <param name="FileName"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.Import(System.Object,System.String)">
+      <summary>Import an object into the provided parent.</summary>
+      <param name="Parent"></param>
+      <param name="FileName"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.Export(System.Object,System.String)">
+      <summary>Export the provided object.</summary>
+      <param name="Object"></param>
+      <param name="FileName"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.Enabled">
+      <summary>Toggles whether the event is enabled or not.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.Query">
+      <summary>The query associated with the event.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.Actions">
+      <summary>A collection of actions to perform when the event is triggered.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.Description">
+      <summary>A textual description of why the event would be generated.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.Code">
+      <summary>The code associated with this event.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3InterfacesClass.OnEventDefinitionChanged">
+      <summary>Triggered when an event object changes in a way that requires re-evaluation.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3InterfacesClass.OnEventDefinitionEnabled">
+      <summary>Triggered when a event object is enabled.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3InterfacesClass.OnEventDefinitionDisabled">
+      <summary>Triggered when a event object is disabled.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.IndexOf(AGI.Realtime.Tracking.IAgRt3EventDefinition)">
+      <summary>Returns the index of an event in the collection.  Returns -1 if the event does not exist.</summary>
+      <param name="pEvent"></param>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3InterfacesClass.OnEventDefinitionAdded">
+      <summary>Event triggered when a event is added.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3InterfacesClass.OnEventDefinitionRemoved">
+      <summary>Event triggered when a event is removed.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.Trigger(AGI.Realtime.IAgRtEventEntity)">
+      <summary>Trigger the provided event.</summary>
+      <param name="RtEvent"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.Dismiss(AGI.Realtime.IAgRtEventEntity)">
+      <summary>Dimiss a previously triggered event.</summary>
+      <param name="RtEvent"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.ClearLog">
+      <summary>Clears the system-wide event log.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.TriggeredEvents">
+      <summary>The array of all triggered events.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.EventLog">
+      <summary>The array of all events in the system-wide event log.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.LogFile">
+      <summary>A fully qualified path to the system-wide event log.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3InterfacesClass.OnEventTriggered">
+      <summary>Triggered when a real-time event is triggered.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3InterfacesClass.OnEventDismissed">
+      <summary>Triggered when a real-time event is dimissed.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.IsMatch(AGI.Entity.IAgEntity)">
+      <summary>Returns true if the provided entity beloings in the query.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.Graphics">
+      <summary>Graphical properties to be associated with entities in the query.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3InterfacesClass.OnQueryChanged">
+      <summary>Triggered when a query object changes in a way that requires re-evaluation.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3InterfacesClass.OnQueryEnabled">
+      <summary>Triggered when a query object is enabled.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3InterfacesClass.OnQueryDisabled">
+      <summary>Triggered when a query object is disabled.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.Move(AGI.Realtime.Tracking.IAgRt3Query,System.Int32)">
+      <summary>Moves a query in the collection to the specified index.</summary>
+      <param name="pQuery"></param>
+      <param name="Index"></param>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3InterfacesClass.OnQueryAdded">
+      <summary>Event triggered when a query is added.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3InterfacesClass.OnQueryRemoved">
+      <summary>Event triggered when a query is removed.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3InterfacesClass.OnQueryMoved">
+      <summary>Event triggered when a query is reordered.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.SetMarker(AGI.Realtime.Tracking.AgERt3QueryMarker,System.Object)">
+      <summary>Set the marker to the desired type using the provided data.</summary>
+      <param name="Type"></param>
+      <param name="Marker"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.SetModel(AGI.Realtime.Tracking.AgERt3QueryModel,System.Object)">
+      <summary>Set the model to the desired type and provided data.</summary>
+      <param name="Type"></param>
+      <param name="Model"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.Color">
+      <summary>The entity color.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.Labels">
+      <summary>The list of meta-data fields whose values will be used to generate the entity label.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.LabelSeparator">
+      <summary>The string that will separate label fields.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.LineStyle">
+      <summary>The entity line style.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.LineWidth">
+      <summary>The entity line width.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.MarkerType">
+      <summary>The type of marker.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.MarkerData">
+      <summary>The marker data.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.ModelType">
+      <summary>The type of model .</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.ModelData">
+      <summary>The model data.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.ShowFieldName">
+      <summary>Toggles the display of the name of the meta-data field as part of the label.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.MultiLineLabel">
+      <summary>If the label has multiple fields, show each field on a new line.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.MarkerSize">
+      <summary>The size of markers, in pixels.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.ModelScale">
+      <summary>The logarithmic scaling factor for the model with 0 being actual size.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.LeadTime">
+      <summary>The amount of time in seconds which future points will be displayed.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.TrailTime">
+      <summary>The amount of time in seconds which past points will continue to be displayed.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.UseLeadTrail">
+      <summary>Indicates if lead and trail times should be used.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3InterfacesClass.OnShowMarkers">
+      <summary>Triggered when the query display state changes for entity markers.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3InterfacesClass.OnShowLabels">
+      <summary>Triggered when the query display state changes for entity labels.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3InterfacesClass.OnShowLines">
+      <summary>Triggered when the query display state changes for entity lines.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3InterfacesClass.OnShowModels">
+      <summary>Triggered when the query display state changes for entity models.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.Field">
+      <summary>The name of the entity meta-data field to use.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.Value">
+      <summary>The reference value to compare to the value in the meta-data field.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.ComparisonOperand">
+      <summary>The type of comparision to perform.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.ConjunctiveOperand">
+      <summary>The type of conjunction to use.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.CommitUpdate">
+      <summary>Called to commit changes made the query to assure all entities are updated properly.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.Clauses">
+      <summary>A collection of clauses which make up the expression used to evaluate entities.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.UseRegularExpressions">
+      <summary>Toggles the use of regular expressions for equality comparisons.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.GetData(System.Boolean)">
+      <summary>Retrieves the clipboard data.</summary>
+      <param name="NewName"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.SetData(AGI.Realtime.IAgRtPlugin)">
+      <summary>Sets the clipboard data.</summary>
+      <param name="pPlugin"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.Clear">
+      <summary>Clears the clipboard.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.RegisterEntityProvider(AGI.Realtime.IAgRtProvideEntities)">
+      <summary>Registers an entity provider.</summary>
+      <param name="Provider"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.UnregisterEntityProvider(AGI.Realtime.IAgRtProvideEntities)">
+      <summary>Unregisters an entity provider.</summary>
+      <param name="Provider"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.RegisterEntityProcessor(AGI.Realtime.IAgRtProcessEntities)">
+      <summary>Registers an entity processor.</summary>
+      <param name="Processor"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.UnregisterEntityProcessor(AGI.Realtime.IAgRtProcessEntities)">
+      <summary>Unregisters and entity processor.</summary>
+      <param name="Processor"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.Processors">
+      <summary>The array of all currently registered entity processors.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.Providers">
+      <summary>The array of all currently registered entity providers.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.AddMultiple(System.Array@)">
+      <summary>Adds multiple elements to the collection.</summary>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.RemoveMultiple(System.Array@)">
+      <summary>Removes multiple elements from the collection.</summary>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.Find(System.String)">
+      <summary>Find an element using its IAgEntity ID property.</summary>
+      <param name="EntityID"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.OnEntityChanged(AGI.Entity.IAgEntity,AGI.Entity.AgEEntityUpdate)">
+      <summary>Indicates that an entity has changed.</summary>
+      <param name="Entity"></param>
+      <param name="UpdateType"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.OnQueryAdded(AGI.Realtime.Tracking.IAgRt3QueryCollection,AGI.Realtime.Tracking.IAgRt3Query)">
+      <summary>Event triggered when a query is added.</summary>
+      <param name="Sender"></param>
+      <param name="Query"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.OnQueryRemoved(AGI.Realtime.Tracking.IAgRt3QueryCollection,AGI.Realtime.Tracking.IAgRt3Query)">
+      <summary>Event triggered when a query is removed.</summary>
+      <param name="Sender"></param>
+      <param name="Query"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.OnQueryMoved(AGI.Realtime.Tracking.IAgRt3QueryCollection,AGI.Realtime.Tracking.IAgRt3Query,System.Int32,System.Int32)">
+      <summary>Event triggered when a query is reordered.</summary>
+      <param name="Sender"></param>
+      <param name="Query"></param>
+      <param name="OldIndex"></param>
+      <param name="NewIndex"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.OnEventDefinitionAdded(AGI.Realtime.Tracking.IAgRt3EventDefinitionCollection,AGI.Realtime.Tracking.IAgRt3EventDefinition)">
+      <summary>Event triggered when a event is added.</summary>
+      <param name="Sender"></param>
+      <param name="Event"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.OnEventDefinitionRemoved(AGI.Realtime.Tracking.IAgRt3EventDefinitionCollection,AGI.Realtime.Tracking.IAgRt3EventDefinition)">
+      <summary>Event triggered when a event is removed.</summary>
+      <param name="Sender"></param>
+      <param name="Event"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.Name">
+      <summary>A unique type name for this plug-in.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.InstanceName">
+      <summary>The name of this specific instance of a plugin.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="AttrBuilder"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InterfacesClass.NewClause">
+      <summary>Instatiates a AgRt3SimpleQueryClause.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3InterfacesClass.ClausesArray">
+      <summary>Array of IAgRt3SimpleQueryClause objects used to subselect data.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.IAgRt3Application">
+      <summary>The primary interface for the Real-Time Tracking Tool.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3Application.Output">
+      <summary>An entity collection to which all processed entities will be sent.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3Application.EventManager">
+      <summary>Events that have been triggered.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.IAgRt3EventManager">
+      <summary>Interface for managing events.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3EventManager.Trigger(AGI.Realtime.IAgRtEventEntity)">
+      <summary>Trigger the provided event.</summary>
+      <param name="RtEvent"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3EventManager.Dismiss(AGI.Realtime.IAgRtEventEntity)">
+      <summary>Dimiss a previously triggered event.</summary>
+      <param name="RtEvent"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3EventManager.ClearLog">
+      <summary>Clears the system-wide event log.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3EventManager.TriggeredEvents">
+      <summary>The array of all triggered events.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3EventManager.EventLog">
+      <summary>The array of all events in the system-wide event log.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3EventManager.LogFile">
+      <summary>A fully qualified path to the system-wide event log.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.IAgRt3InternalApplication">
+      <summary>Internal interface.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3InternalApplication.Terminate">
+      <summary>Performs cleanup of the application's static data.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.IAgRt3EntityManager">
+      <summary>Interface for managing queries and events that are associated with a specific entity provider.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3EntityManager.ExecuteQuery(AGI.Realtime.Tracking.IAgRt3Query)">
+      <summary>Executes a query over all queries in the entity provider and returns the result.</summary>
+      <param name="Query"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3EntityManager.RedistributeEntities">
+      <summary>Evaluates all entities and distributes them among the available queries.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3EntityManager.ShowMarkers">
+      <summary>Toggles the display of all entity markers.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3EntityManager.ShowLabels">
+      <summary>Toggles the display of all entity labels.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3EntityManager.ShowModels">
+      <summary>Toggles the display of all entity models.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3EntityManager.ShowLines">
+      <summary>Toggles the display of all entity lines.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3EntityManager.Queries">
+      <summary>The queries associated with the entity provider.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3EntityManager.EventDefinitions">
+      <summary>The event definitions associated with the entity provider.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.IAgRt3QueryCollection">
+      <summary>A collection of queries.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3QueryCollection.Add(AGI.Realtime.Tracking.IAgRt3Query)">
+      <summary>Adds an element to the collection.</summary>
+      <param name="Query"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3QueryCollection.InsertAt(System.Int32,AGI.Realtime.Tracking.IAgRt3Query)">
+      <summary>Insert an element into the collection at the specified index</summary>
+      <param name="Index"></param>
+      <param name="Query"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3QueryCollection.Remove(AGI.Realtime.Tracking.IAgRt3Query)">
+      <summary>Remove the provided element from the collection.</summary>
+      <param name="Query"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3QueryCollection.RemoveAt(System.Int32)">
+      <summary>Remove the element at the specified index from the collection.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3QueryCollection.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3QueryCollection.Copy">
+      <summary>Copy the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3QueryCollection.IndexOf(AGI.Realtime.Tracking.IAgRt3Query)">
+      <summary>Returns the index of a query in the collection.  Returns -1 if the query does not exist.</summary>
+      <param name="pQuery"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3QueryCollection.Move(AGI.Realtime.Tracking.IAgRt3Query,System.Int32)">
+      <summary>Moves a query in the collection to the specified index.</summary>
+      <param name="pQuery"></param>
+      <param name="Index"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3QueryCollection.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3QueryCollection._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3QueryCollection.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.IAgRt3EventDefinitionCollection">
+      <summary>A collection of user defined events.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3EventDefinitionCollection.Add(AGI.Realtime.Tracking.IAgRt3EventDefinition)">
+      <summary>Adds an element to the collection.</summary>
+      <param name="Event"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3EventDefinitionCollection.InsertAt(System.Int32,AGI.Realtime.Tracking.IAgRt3EventDefinition)">
+      <summary>Insert an element into the collection at the specified index</summary>
+      <param name="Index"></param>
+      <param name="Event"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3EventDefinitionCollection.Remove(AGI.Realtime.Tracking.IAgRt3EventDefinition)">
+      <summary>Remove the provided element from the collection.</summary>
+      <param name="Event"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3EventDefinitionCollection.RemoveAt(System.Int32)">
+      <summary>Remove the element at the specified index from the collection.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3EventDefinitionCollection.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3EventDefinitionCollection.Copy">
+      <summary>Copy the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3EventDefinitionCollection.IndexOf(AGI.Realtime.Tracking.IAgRt3EventDefinition)">
+      <summary>Returns the index of an event in the collection.  Returns -1 if the event does not exist.</summary>
+      <param name="pEvent"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3EventDefinitionCollection.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3EventDefinitionCollection._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3EventDefinitionCollection.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.IAgRt3EventDefinition">
+      <summary>Primary interface for user defined events.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3EventDefinition.Enabled">
+      <summary>Toggles whether the event is enabled or not.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3EventDefinition.Query">
+      <summary>The query associated with the event.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3EventDefinition.Actions">
+      <summary>A collection of actions to perform when the event is triggered.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3EventDefinition.Description">
+      <summary>A textual description of why the event would be generated.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3EventDefinition.Code">
+      <summary>The code associated with this event.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.IAgRt3ActionCollection">
+      <summary>A collection of action plugins.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3ActionCollection.Add(AGI.Realtime.Tracking.IAgRt3Action)">
+      <summary>Adds an element to the collection.</summary>
+      <param name="Action"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3ActionCollection.InsertAt(System.Int32,AGI.Realtime.Tracking.IAgRt3Action)">
+      <summary>Insert an element into the collection at the specified index</summary>
+      <param name="Index"></param>
+      <param name="Action"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3ActionCollection.Remove(AGI.Realtime.Tracking.IAgRt3Action)">
+      <summary>Remove the provided element from the collection.</summary>
+      <param name="Action"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3ActionCollection.RemoveAt(System.Int32)">
+      <summary>Remove the element at the specified index from the collection.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3ActionCollection.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3ActionCollection.Copy">
+      <summary>Copy the collection</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3ActionCollection.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3ActionCollection._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3ActionCollection.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.IAgRt3EntityManagerEvents">
+      <summary>Events raised by AgRt3EntityManager.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3EntityManagerEvents.OnEntityManagerShowMarkers(AGI.Realtime.Tracking.IAgRt3EntityManager)">
+      <summary>Triggered when the query display state changes.</summary>
+      <param name="Sender"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3EntityManagerEvents.OnEntityManagerShowLabels(AGI.Realtime.Tracking.IAgRt3EntityManager)">
+      <summary>Triggered when the query display state changes for labels.</summary>
+      <param name="Sender"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3EntityManagerEvents.OnEntityManagerShowLines(AGI.Realtime.Tracking.IAgRt3EntityManager)">
+      <summary>Triggered when the query display state changes for lines.</summary>
+      <param name="Sender"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3EntityManagerEvents.OnEntityManagerShowModels(AGI.Realtime.Tracking.IAgRt3EntityManager)">
+      <summary>Triggered when the query display state changes for labels.</summary>
+      <param name="Sender"></param>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.IAgRt3InternalEntityManager">
+      <summary>Internal interface.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3InternalEntityManager.AddProcessor(AGI.Realtime.IAgRtProcessEntities)">
+      <summary>Add a processor.</summary>
+      <param name="Processor"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3InternalEntityManager.RemoveProcessor(AGI.Realtime.IAgRtProcessEntities)">
+      <summary>Remove a processor</summary>
+      <param name="Processor"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3InternalEntityManager.Terminate">
+      <summary>Perform any necessary cleanup before deletion.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3InternalEntityManager.SetEnableLifecycle(System.Boolean)">
+      <summary>Should the lifecycle maintainence thread run.</summary>
+      <param name="Enable"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3InternalEntityManager.Output">
+      <summary>The current Rt3 Output.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3InternalEntityManager.Provider">
+      <summary>The provider that is feeding this manager.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.IAgRt3FileOps">
+      <summary>Defines methods for saving and loading Rt3 configurations.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3FileOps.Save(AGI.Realtime.Tracking.IAgRt3Application,System.String)">
+      <summary>Save the current application settings.</summary>
+      <param name="Application"></param>
+      <param name="FileName"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3FileOps.Load(AGI.Realtime.Tracking.IAgRt3Application,System.String)">
+      <summary>Load the provided application settings.</summary>
+      <param name="Application"></param>
+      <param name="FileName"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3FileOps.Import(System.Object,System.String)">
+      <summary>Import an object into the provided parent.</summary>
+      <param name="Parent"></param>
+      <param name="FileName"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3FileOps.Export(System.Object,System.String)">
+      <summary>Export the provided object.</summary>
+      <param name="Object"></param>
+      <param name="FileName"></param>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.IAgRt3EventDefinitionEvents">
+      <summary>Events generated by AgRt3EventDefinition.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3EventDefinitionEvents.OnEventDefinitionChanged(AGI.Realtime.Tracking.IAgRt3EventDefinition)">
+      <summary>Triggered when an event object changes in a way that requires re-evaluation.</summary>
+      <param name="Event"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3EventDefinitionEvents.OnEventDefinitionEnabled(AGI.Realtime.Tracking.IAgRt3EventDefinition)">
+      <summary>Triggered when a event object is enabled.</summary>
+      <param name="Event"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3EventDefinitionEvents.OnEventDefinitionDisabled(AGI.Realtime.Tracking.IAgRt3EventDefinition)">
+      <summary>Triggered when a event object is disabled.</summary>
+      <param name="Event"></param>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.IAgRt3EventDefinitionCollectionEvents">
+      <summary>Events generated by AgRt3EventDefinitionCollection.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3EventDefinitionCollectionEvents.OnEventDefinitionAdded(AGI.Realtime.Tracking.IAgRt3EventDefinitionCollection,AGI.Realtime.Tracking.IAgRt3EventDefinition)">
+      <summary>Event triggered when a event is added.</summary>
+      <param name="Sender"></param>
+      <param name="Event"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3EventDefinitionCollectionEvents.OnEventDefinitionRemoved(AGI.Realtime.Tracking.IAgRt3EventDefinitionCollection,AGI.Realtime.Tracking.IAgRt3EventDefinition)">
+      <summary>Event triggered when a event is removed.</summary>
+      <param name="Sender"></param>
+      <param name="Event"></param>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.IAgRt3EventManagerEvents">
+      <summary>Events generated by AgRt3EventManager.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3EventManagerEvents.OnEventTriggered(AGI.Realtime.Tracking.IAgRt3EventManager,AGI.Realtime.IAgRtEventEntity)">
+      <summary>Triggered when a real-time event is triggered.</summary>
+      <param name="Sender"></param>
+      <param name="RtEvent"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3EventManagerEvents.OnEventDismissed(AGI.Realtime.Tracking.IAgRt3EventManager,AGI.Realtime.IAgRtEventEntity)">
+      <summary>Triggered when a real-time event is dimissed.</summary>
+      <param name="Sender"></param>
+      <param name="RtEvent"></param>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.IAgRt3QueryEvents">
+      <summary>Events required to be generated by query plugins.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3QueryEvents.OnQueryChanged(AGI.Realtime.Tracking.IAgRt3Query)">
+      <summary>Triggered when a query object changes in a way that requires re-evaluation.</summary>
+      <param name="Query"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3QueryEvents.OnQueryEnabled(AGI.Realtime.Tracking.IAgRt3Query)">
+      <summary>Triggered when a query object is enabled.</summary>
+      <param name="Query"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3QueryEvents.OnQueryDisabled(AGI.Realtime.Tracking.IAgRt3Query)">
+      <summary>Triggered when a query object is disabled.</summary>
+      <param name="Query"></param>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.IAgRt3QueryCollectionEvents">
+      <summary>Events generated by AgRt3QueryCollection.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3QueryCollectionEvents.OnQueryAdded(AGI.Realtime.Tracking.IAgRt3QueryCollection,AGI.Realtime.Tracking.IAgRt3Query)">
+      <summary>Event triggered when a query is added.</summary>
+      <param name="Sender"></param>
+      <param name="Query"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3QueryCollectionEvents.OnQueryRemoved(AGI.Realtime.Tracking.IAgRt3QueryCollection,AGI.Realtime.Tracking.IAgRt3Query)">
+      <summary>Event triggered when a query is removed.</summary>
+      <param name="Sender"></param>
+      <param name="Query"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3QueryCollectionEvents.OnQueryMoved(AGI.Realtime.Tracking.IAgRt3QueryCollection,AGI.Realtime.Tracking.IAgRt3Query,System.Int32,System.Int32)">
+      <summary>Event triggered when a query is reordered.</summary>
+      <param name="Sender"></param>
+      <param name="Query"></param>
+      <param name="OldIndex"></param>
+      <param name="NewIndex"></param>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.IAgRt3QueryGraphicsEvents">
+      <summary>Events generated by AgRt3QueryGraphics.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3QueryGraphicsEvents.OnShowMarkers(AGI.Realtime.Tracking.IAgRt3QueryGraphics)">
+      <summary>Triggered when the query display state changes for entity markers.</summary>
+      <param name="Sender"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3QueryGraphicsEvents.OnShowLabels(AGI.Realtime.Tracking.IAgRt3QueryGraphics)">
+      <summary>Triggered when the query display state changes for entity labels.</summary>
+      <param name="Sender"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3QueryGraphicsEvents.OnShowLines(AGI.Realtime.Tracking.IAgRt3QueryGraphics)">
+      <summary>Triggered when the query display state changes for entity lines.</summary>
+      <param name="Sender"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3QueryGraphicsEvents.OnShowModels(AGI.Realtime.Tracking.IAgRt3QueryGraphics)">
+      <summary>Triggered when the query display state changes for entity models.</summary>
+      <param name="Sender"></param>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.IAgRt3SimpleQueryClause">
+      <summary>The clause that makes up the expression used to evaluate entities by AgRt3SimpleQueryClause.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3SimpleQueryClause.Field">
+      <summary>The name of the entity meta-data field to use.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3SimpleQueryClause.Value">
+      <summary>The reference value to compare to the value in the meta-data field.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3SimpleQueryClause.ComparisonOperand">
+      <summary>The type of comparision to perform.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3SimpleQueryClause.ConjunctiveOperand">
+      <summary>The type of conjunction to use.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.IAgRt3SimpleQueryClauseCollection">
+      <summary>A collection of query clauses.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3SimpleQueryClauseCollection.Add(AGI.Realtime.Tracking.IAgRt3SimpleQueryClause)">
+      <summary>Adds an element to the collection.</summary>
+      <param name="SimpleQueryClause"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3SimpleQueryClauseCollection.InsertAt(System.Int32,AGI.Realtime.Tracking.IAgRt3SimpleQueryClause)">
+      <summary>Insert an element into the collection at the specified index</summary>
+      <param name="Index"></param>
+      <param name="SimpleQueryClause"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3SimpleQueryClauseCollection.RemoveAt(System.Int32)">
+      <summary>Remove the element at the specified index from the collection.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3SimpleQueryClauseCollection.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3SimpleQueryClauseCollection.Copy">
+      <summary>Copy the collection</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3SimpleQueryClauseCollection.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3SimpleQueryClauseCollection._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3SimpleQueryClauseCollection.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.IAgRt3SimpleQuery">
+      <summary>The primary interface for AgRt3SimpleQuery.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3SimpleQuery.CommitUpdate">
+      <summary>Called to commit changes made the query to assure all entities are updated properly.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3SimpleQuery.Clauses">
+      <summary>A collection of clauses which make up the expression used to evaluate entities.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3SimpleQuery.UseRegularExpressions">
+      <summary>Toggles the use of regular expressions for equality comparisons.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3SimpleQuery.IsMatch(AGI.Entity.IAgEntity)">
+      <summary>Returns true if the provided entity beloings in the query.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3SimpleQuery.Enabled">
+      <summary>Toggles processing of the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3SimpleQuery.Graphics">
+      <summary>Graphical properties to be associated with entities in the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3SimpleQuery.Provider">
+      <summary>The entity provider associated with the query.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.IAgRt3InternalCopyData">
+      <summary>Internal interface.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3InternalCopyData.GetData(System.Boolean)">
+      <summary>Retrieves the clipboard data.</summary>
+      <param name="NewName"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3InternalCopyData.SetData(AGI.Realtime.IAgRtPlugin)">
+      <summary>Sets the clipboard data.</summary>
+      <param name="pPlugin"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3InternalCopyData.Clear">
+      <summary>Clears the clipboard.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking._IAgRt3Application">
+      <summary>Merged IDispatch interface for AgRt3Application.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3Application.Clear">
+      <summary>Clears the application of all providers, processors and entities.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3Application.RegisterEntityProvider(AGI.Realtime.IAgRtProvideEntities)">
+      <summary>Registers an entity provider.</summary>
+      <param name="Provider"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3Application.UnregisterEntityProvider(AGI.Realtime.IAgRtProvideEntities)">
+      <summary>Unregisters an entity provider.</summary>
+      <param name="Provider"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3Application.RegisterEntityProcessor(AGI.Realtime.IAgRtProcessEntities)">
+      <summary>Registers an entity processor.</summary>
+      <param name="Processor"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3Application.UnregisterEntityProcessor(AGI.Realtime.IAgRtProcessEntities)">
+      <summary>Unregisters and entity processor.</summary>
+      <param name="Processor"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3Application.Processors">
+      <summary>The array of all currently registered entity processors.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3Application.Providers">
+      <summary>The array of all currently registered entity providers.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3Application.Output">
+      <summary>An entity collection to which all processed entities will be sent.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3Application.EventManager">
+      <summary>Events that have been triggered.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking._IAgRt3EntityManager">
+      <summary>Merged IDispatch interface for AgRt3EntityManager.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3EntityManager.ExecuteQuery(AGI.Realtime.Tracking.IAgRt3Query)">
+      <summary>Executes a query over all queries in the entity provider and returns the result.</summary>
+      <param name="Query"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3EntityManager.RedistributeEntities">
+      <summary>Evaluates all entities and distributes them among the available queries.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3EntityManager.Add(AGI.Entity.IAgEntity)">
+      <summary>Adds an element to the collection.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3EntityManager.AddMultiple(System.Array@)">
+      <summary>Adds multiple elements to the collection.</summary>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3EntityManager.InsertAt(System.Int32,AGI.Entity.IAgEntity)">
+      <summary>Insert an element into the collection at the specified index</summary>
+      <param name="Index"></param>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3EntityManager.Remove(AGI.Entity.IAgEntity)">
+      <summary>Remove the provided element from the collection.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3EntityManager.RemoveMultiple(System.Array@)">
+      <summary>Removes multiple elements from the collection.</summary>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3EntityManager.RemoveAt(System.Int32)">
+      <summary>Remove the element at the specified index from the collection.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3EntityManager.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3EntityManager.Copy">
+      <summary>Copy the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3EntityManager.Find(System.String)">
+      <summary>Find an element using its IAgEntity ID property.</summary>
+      <param name="EntityID"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3EntityManager.OnEntityChanged(AGI.Entity.IAgEntity,AGI.Entity.AgEEntityUpdate)">
+      <summary>Indicates that an entity has changed.</summary>
+      <param name="Entity"></param>
+      <param name="UpdateType"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3EntityManager.OnQueryAdded(AGI.Realtime.Tracking.IAgRt3QueryCollection,AGI.Realtime.Tracking.IAgRt3Query)">
+      <summary>Event triggered when a query is added.</summary>
+      <param name="Sender"></param>
+      <param name="Query"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3EntityManager.OnQueryRemoved(AGI.Realtime.Tracking.IAgRt3QueryCollection,AGI.Realtime.Tracking.IAgRt3Query)">
+      <summary>Event triggered when a query is removed.</summary>
+      <param name="Sender"></param>
+      <param name="Query"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3EntityManager.OnQueryMoved(AGI.Realtime.Tracking.IAgRt3QueryCollection,AGI.Realtime.Tracking.IAgRt3Query,System.Int32,System.Int32)">
+      <summary>Event triggered when a query is reordered.</summary>
+      <param name="Sender"></param>
+      <param name="Query"></param>
+      <param name="OldIndex"></param>
+      <param name="NewIndex"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3EntityManager.OnEventDefinitionAdded(AGI.Realtime.Tracking.IAgRt3EventDefinitionCollection,AGI.Realtime.Tracking.IAgRt3EventDefinition)">
+      <summary>Event triggered when a event is added.</summary>
+      <param name="Sender"></param>
+      <param name="Event"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3EntityManager.OnEventDefinitionRemoved(AGI.Realtime.Tracking.IAgRt3EventDefinitionCollection,AGI.Realtime.Tracking.IAgRt3EventDefinition)">
+      <summary>Event triggered when a event is removed.</summary>
+      <param name="Sender"></param>
+      <param name="Event"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3EntityManager.ShowMarkers">
+      <summary>Toggles the display of all entity markers.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3EntityManager.ShowLabels">
+      <summary>Toggles the display of all entity labels.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3EntityManager.ShowModels">
+      <summary>Toggles the display of all entity models.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3EntityManager.ShowLines">
+      <summary>Toggles the display of all entity lines.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3EntityManager.Queries">
+      <summary>The queries associated with the entity provider.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3EntityManager.EventDefinitions">
+      <summary>The event definitions associated with the entity provider.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3EntityManager.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3EntityManager._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3EntityManager.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking._IAgRt3EventDefinition">
+      <summary>Merged IDispatch interface for AgRt3EventDefinition.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3EventDefinition.Name">
+      <summary>A unique type name for this plug-in.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3EventDefinition.InstanceName">
+      <summary>The name of this specific instance of a plugin.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3EventDefinition.Enabled">
+      <summary>Toggles whether the event is enabled or not.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3EventDefinition.Query">
+      <summary>The query associated with the event.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3EventDefinition.Actions">
+      <summary>A list of actions to perform when the event is triggered.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3EventDefinition.Description">
+      <summary>A textual description of why the event was generated.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3EventDefinition.Code">
+      <summary>The code associated with this event.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking._IAgRt3EventManager">
+      <summary>Merged IDispatch interface for AgRt3EventManager.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3EventManager.Trigger(AGI.Realtime.IAgRtEventEntity)">
+      <summary>Trigger the provided event.</summary>
+      <param name="RtEvent"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3EventManager.Dismiss(AGI.Realtime.IAgRtEventEntity)">
+      <summary>Dimiss a previously triggered event.</summary>
+      <param name="RtEvent"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3EventManager.ClearLog">
+      <summary>Clears the system-wide event log.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3EventManager.TriggeredEvents">
+      <summary>The array of all triggered events.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3EventManager.EventLog">
+      <summary>The array of all events in the system-wide event log.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3EventManager.LogFile">
+      <summary>A fully qualified path to the system-wide event log.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking._IAgRt3FileOps">
+      <summary>Merged IDispatch interface for AgRt3FileOps.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3FileOps.Save(AGI.Realtime.Tracking.IAgRt3Application,System.String)">
+      <summary>Save the current application settings.</summary>
+      <param name="Application"></param>
+      <param name="FileName"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3FileOps.Load(AGI.Realtime.Tracking.IAgRt3Application,System.String)">
+      <summary>Load the provided application settings.</summary>
+      <param name="Application"></param>
+      <param name="FileName"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3FileOps.Import(System.Object,System.String)">
+      <summary>Import an object into the provided parent.</summary>
+      <param name="Parent"></param>
+      <param name="FileName"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3FileOps.Export(System.Object,System.String)">
+      <summary>Export the provided object.</summary>
+      <param name="Object"></param>
+      <param name="FileName"></param>
+    </member>
+    <member name="T:AGI.Realtime.Tracking._IAgRt3QueryGraphics">
+      <summary>Merged IDispatch interface for AgRt3QueryGraphics.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3QueryGraphics.SetMarker(AGI.Realtime.Tracking.AgERt3QueryMarker,System.Object)">
+      <summary>Set the marker to the desired type using the provided data.</summary>
+      <param name="Type"></param>
+      <param name="Marker"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3QueryGraphics.SetModel(AGI.Realtime.Tracking.AgERt3QueryModel,System.Object)">
+      <summary>Set the model to the desired type and provided data.</summary>
+      <param name="Type"></param>
+      <param name="Model"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3QueryGraphics.Add(AGI.Entity.IAgEntity)">
+      <summary>Adds an element to the collection.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3QueryGraphics.AddMultiple(System.Array@)">
+      <summary>Adds multiple elements to the collection.</summary>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3QueryGraphics.InsertAt(System.Int32,AGI.Entity.IAgEntity)">
+      <summary>Insert an element into the collection at the specified index</summary>
+      <param name="Index"></param>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3QueryGraphics.Remove(AGI.Entity.IAgEntity)">
+      <summary>Remove the provided element from the collection.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3QueryGraphics.RemoveMultiple(System.Array@)">
+      <summary>Removes multiple elements from the collection.</summary>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3QueryGraphics.RemoveAt(System.Int32)">
+      <summary>Remove the element at the specified index from the collection.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3QueryGraphics.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3QueryGraphics.Copy">
+      <summary>Copy the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3QueryGraphics.Find(System.String)">
+      <summary>Find an element using its IAgEntity ID property.</summary>
+      <param name="EntityID"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3QueryGraphics.OnEntityChanged(AGI.Entity.IAgEntity,AGI.Entity.AgEEntityUpdate)">
+      <summary>Indicates that an entity has changed.</summary>
+      <param name="Entity"></param>
+      <param name="UpdateType"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3QueryGraphics.Color">
+      <summary>The entity color.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3QueryGraphics.Labels">
+      <summary>The list of meta-data fields whose values will be used to generate the entity label.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3QueryGraphics.LabelSeparator">
+      <summary>The string that will separate label fields.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3QueryGraphics.LineStyle">
+      <summary>The entity line style.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3QueryGraphics.LineWidth">
+      <summary>The entity line width.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3QueryGraphics.MarkerType">
+      <summary>The type of marker.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3QueryGraphics.MarkerData">
+      <summary>The marker data.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3QueryGraphics.ModelType">
+      <summary>The type of model .</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3QueryGraphics.ModelData">
+      <summary>The model data.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3QueryGraphics.Query">
+      <summary>The query associated with the graphics.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3QueryGraphics.ShowMarkers">
+      <summary>Toggles the display of the markers.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3QueryGraphics.ShowLabels">
+      <summary>Toggles the display of the labels.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3QueryGraphics.ShowModels">
+      <summary>Toggles the display of all models.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3QueryGraphics.ShowLines">
+      <summary>Toggles the display of all lines.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3QueryGraphics.ShowFieldName">
+      <summary>Toggles the display of the name of the meta-data field as part of the label.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3QueryGraphics.MultiLineLabel">
+      <summary>If the label has multiple fields, show each field on a new line.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3QueryGraphics.MarkerSize">
+      <summary>The size of markers, in pixels.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3QueryGraphics.ModelScale">
+      <summary>The logarithmic scaling factor for the model with 0 being actual size.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3QueryGraphics.LeadTime">
+      <summary>The amount of time in seconds which future points will be displayed.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3QueryGraphics.TrailTime">
+      <summary>The amount of time in seconds which past points will continue to be displayed.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3QueryGraphics.UseLeadTrail">
+      <summary>Indicates if lead and trail times should be used.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3QueryGraphics.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3QueryGraphics._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3QueryGraphics.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking._IAgRt3SimpleQueryClause">
+      <summary>Merged IDispatch interface for AgRt3SimpleQueryClause.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3SimpleQueryClause.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="AttrBuilder"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3SimpleQueryClause.Field">
+      <summary>The name of the entity meta-data field to use.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3SimpleQueryClause.Value">
+      <summary>The referencevalue to compare to the value in the meta-data field.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3SimpleQueryClause.ComparisonOperand">
+      <summary>The type of comparision to perform.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3SimpleQueryClause.ConjunctiveOperand">
+      <summary>The type of conjunction to use.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking._IAgRt3SimpleQuery">
+      <summary>Merged IDispatch interface for AgRt3SimpleQuery.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3SimpleQuery.IsMatch(AGI.Entity.IAgEntity)">
+      <summary>Returns true if the provided entity beloings in the query.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3SimpleQuery.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="AttrBuilder"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3SimpleQuery.CommitUpdate">
+      <summary>Called to commit changes made the query to assure all entities are updated properly.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3SimpleQuery.NewClause">
+      <summary>Instatiates a AgRt3SimpleQueryClause.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3SimpleQuery.Name">
+      <summary>The type name for all instances of the plugin.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3SimpleQuery.InstanceName">
+      <summary>The user modifiable name for the specific plugin instance.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3SimpleQuery.Enabled">
+      <summary>Toggles processing of the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3SimpleQuery.Graphics">
+      <summary>Graphical properties to be associated with entities in the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3SimpleQuery.Provider">
+      <summary>The entity provider associated with the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3SimpleQuery.Clauses">
+      <summary>A collection of clauses which make up the expression used to evaluate entities.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3SimpleQuery.UseRegularExpressions">
+      <summary>Toggles the use of regular expressions for equality comparisons.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3SimpleQuery.ClausesArray">
+      <summary>Array of IAgRt3SimpleQueryClause objects used to subselect data.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3Application">
+      <summary>The Real-Time Tracking Tool application object.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3Application.Clear">
+      <summary>Clears the application of all providers, processors and entities.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3Application.RegisterEntityProvider(AGI.Realtime.IAgRtProvideEntities)">
+      <summary>Registers an entity provider.</summary>
+      <param name="Provider"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3Application.UnregisterEntityProvider(AGI.Realtime.IAgRtProvideEntities)">
+      <summary>Unregisters an entity provider.</summary>
+      <param name="Provider"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3Application.RegisterEntityProcessor(AGI.Realtime.IAgRtProcessEntities)">
+      <summary>Registers an entity processor.</summary>
+      <param name="Processor"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3Application.UnregisterEntityProcessor(AGI.Realtime.IAgRtProcessEntities)">
+      <summary>Unregisters and entity processor.</summary>
+      <param name="Processor"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3Application.Processors">
+      <summary>The array of all currently registered entity processors.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3Application.Providers">
+      <summary>The array of all currently registered entity providers.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3Application.Output">
+      <summary>An entity collection to which all processed entities will be sent.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3Application.EventManager">
+      <summary>Events that have been triggered.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3ApplicationClass">
+      <summary>The Real-Time Tracking Tool application object.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3ApplicationClass.Clear">
+      <summary>Clears the application of all providers, processors and entities.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3ApplicationClass.RegisterEntityProvider(AGI.Realtime.IAgRtProvideEntities)">
+      <summary>Registers an entity provider.</summary>
+      <param name="Provider"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3ApplicationClass.UnregisterEntityProvider(AGI.Realtime.IAgRtProvideEntities)">
+      <summary>Unregisters an entity provider.</summary>
+      <param name="Provider"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3ApplicationClass.RegisterEntityProcessor(AGI.Realtime.IAgRtProcessEntities)">
+      <summary>Registers an entity processor.</summary>
+      <param name="Processor"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3ApplicationClass.UnregisterEntityProcessor(AGI.Realtime.IAgRtProcessEntities)">
+      <summary>Unregisters and entity processor.</summary>
+      <param name="Processor"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3ApplicationClass.Processors">
+      <summary>The array of all currently registered entity processors.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3ApplicationClass.Providers">
+      <summary>The array of all currently registered entity providers.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3ApplicationClass.Output">
+      <summary>An entity collection to which all processed entities will be sent.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3ApplicationClass.EventManager">
+      <summary>Events that have been triggered.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3ApplicationClass.Terminate">
+      <summary>Performs cleanup of the application's static data.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3EntityManager">
+      <summary>Manages entities generated by a specific entity provider plugin.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManager.ExecuteQuery(AGI.Realtime.Tracking.IAgRt3Query)">
+      <summary>Executes a query over all queries in the entity provider and returns the result.</summary>
+      <param name="Query"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManager.RedistributeEntities">
+      <summary>Evaluates all entities and distributes them among the available queries.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManager.Add(AGI.Entity.IAgEntity)">
+      <summary>Adds an element to the collection.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManager.AddMultiple(System.Array@)">
+      <summary>Adds multiple elements to the collection.</summary>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManager.InsertAt(System.Int32,AGI.Entity.IAgEntity)">
+      <summary>Insert an element into the collection at the specified index</summary>
+      <param name="Index"></param>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManager.Remove(AGI.Entity.IAgEntity)">
+      <summary>Remove the provided element from the collection.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManager.RemoveMultiple(System.Array@)">
+      <summary>Removes multiple elements from the collection.</summary>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManager.RemoveAt(System.Int32)">
+      <summary>Remove the element at the specified index from the collection.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManager.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManager.Copy">
+      <summary>Copy the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManager.Find(System.String)">
+      <summary>Find an element using its IAgEntity ID property.</summary>
+      <param name="EntityID"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManager.OnEntityChanged(AGI.Entity.IAgEntity,AGI.Entity.AgEEntityUpdate)">
+      <summary>Indicates that an entity has changed.</summary>
+      <param name="Entity"></param>
+      <param name="UpdateType"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManager.OnQueryAdded(AGI.Realtime.Tracking.IAgRt3QueryCollection,AGI.Realtime.Tracking.IAgRt3Query)">
+      <summary>Event triggered when a query is added.</summary>
+      <param name="Sender"></param>
+      <param name="Query"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManager.OnQueryRemoved(AGI.Realtime.Tracking.IAgRt3QueryCollection,AGI.Realtime.Tracking.IAgRt3Query)">
+      <summary>Event triggered when a query is removed.</summary>
+      <param name="Sender"></param>
+      <param name="Query"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManager.OnQueryMoved(AGI.Realtime.Tracking.IAgRt3QueryCollection,AGI.Realtime.Tracking.IAgRt3Query,System.Int32,System.Int32)">
+      <summary>Event triggered when a query is reordered.</summary>
+      <param name="Sender"></param>
+      <param name="Query"></param>
+      <param name="OldIndex"></param>
+      <param name="NewIndex"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManager.OnEventDefinitionAdded(AGI.Realtime.Tracking.IAgRt3EventDefinitionCollection,AGI.Realtime.Tracking.IAgRt3EventDefinition)">
+      <summary>Event triggered when a event is added.</summary>
+      <param name="Sender"></param>
+      <param name="Event"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManager.OnEventDefinitionRemoved(AGI.Realtime.Tracking.IAgRt3EventDefinitionCollection,AGI.Realtime.Tracking.IAgRt3EventDefinition)">
+      <summary>Event triggered when a event is removed.</summary>
+      <param name="Sender"></param>
+      <param name="Event"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EntityManager.ShowMarkers">
+      <summary>Toggles the display of all entity markers.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EntityManager.ShowLabels">
+      <summary>Toggles the display of all entity labels.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EntityManager.ShowModels">
+      <summary>Toggles the display of all entity models.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EntityManager.ShowLines">
+      <summary>Toggles the display of all entity lines.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EntityManager.Queries">
+      <summary>The queries associated with the entity provider.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EntityManager.EventDefinitions">
+      <summary>The event definitions associated with the entity provider.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EntityManager.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EntityManager._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EntityManager.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3EntityManagerClass">
+      <summary>Manages entities generated by a specific entity provider plugin.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManagerClass.ExecuteQuery(AGI.Realtime.Tracking.IAgRt3Query)">
+      <summary>Executes a query over all queries in the entity provider and returns the result.</summary>
+      <param name="Query"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManagerClass.RedistributeEntities">
+      <summary>Evaluates all entities and distributes them among the available queries.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManagerClass.Add(AGI.Entity.IAgEntity)">
+      <summary>Adds an element to the collection.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManagerClass.AddMultiple(System.Array@)">
+      <summary>Adds multiple elements to the collection.</summary>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManagerClass.InsertAt(System.Int32,AGI.Entity.IAgEntity)">
+      <summary>Insert an element into the collection at the specified index</summary>
+      <param name="Index"></param>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManagerClass.Remove(AGI.Entity.IAgEntity)">
+      <summary>Remove the provided element from the collection.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManagerClass.RemoveMultiple(System.Array@)">
+      <summary>Removes multiple elements from the collection.</summary>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManagerClass.RemoveAt(System.Int32)">
+      <summary>Remove the element at the specified index from the collection.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManagerClass.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManagerClass.Copy">
+      <summary>Copy the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManagerClass.Find(System.String)">
+      <summary>Find an element using its IAgEntity ID property.</summary>
+      <param name="EntityID"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManagerClass.OnEntityChanged(AGI.Entity.IAgEntity,AGI.Entity.AgEEntityUpdate)">
+      <summary>Indicates that an entity has changed.</summary>
+      <param name="Entity"></param>
+      <param name="UpdateType"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManagerClass.OnQueryAdded(AGI.Realtime.Tracking.IAgRt3QueryCollection,AGI.Realtime.Tracking.IAgRt3Query)">
+      <summary>Event triggered when a query is added.</summary>
+      <param name="Sender"></param>
+      <param name="Query"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManagerClass.OnQueryRemoved(AGI.Realtime.Tracking.IAgRt3QueryCollection,AGI.Realtime.Tracking.IAgRt3Query)">
+      <summary>Event triggered when a query is removed.</summary>
+      <param name="Sender"></param>
+      <param name="Query"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManagerClass.OnQueryMoved(AGI.Realtime.Tracking.IAgRt3QueryCollection,AGI.Realtime.Tracking.IAgRt3Query,System.Int32,System.Int32)">
+      <summary>Event triggered when a query is reordered.</summary>
+      <param name="Sender"></param>
+      <param name="Query"></param>
+      <param name="OldIndex"></param>
+      <param name="NewIndex"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManagerClass.OnEventDefinitionAdded(AGI.Realtime.Tracking.IAgRt3EventDefinitionCollection,AGI.Realtime.Tracking.IAgRt3EventDefinition)">
+      <summary>Event triggered when a event is added.</summary>
+      <param name="Sender"></param>
+      <param name="Event"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EntityManagerClass.OnEventDefinitionRemoved(AGI.Realtime.Tracking.IAgRt3EventDefinitionCollection,AGI.Realtime.Tracking.IAgRt3EventDefinition)">
+      <summary>Event triggered when a event is removed.</summary>
+      <param name="Sender"></param>
+      <param name="Event"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EntityManagerClass.ShowMarkers">
+      <summary>Toggles the display of all entity markers.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EntityManagerClass.ShowLabels">
+      <summary>Toggles the display of all entity labels.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EntityManagerClass.ShowModels">
+      <summary>Toggles the display of all entity models.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EntityManagerClass.ShowLines">
+      <summary>Toggles the display of all entity lines.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EntityManagerClass.Queries">
+      <summary>The queries associated with the entity provider.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EntityManagerClass.EventDefinitions">
+      <summary>The event definitions associated with the entity provider.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EntityManagerClass.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EntityManagerClass._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EntityManagerClass.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3EntityManagerClass.OnEntityManagerShowMarkers">
+      <summary>Triggered when the query display state changes.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3EntityManagerClass.OnEntityManagerShowLabels">
+      <summary>Triggered when the query display state changes for labels.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3EntityManagerClass.OnEntityManagerShowLines">
+      <summary>Triggered when the query display state changes for lines.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3EntityManagerClass.OnEntityManagerShowModels">
+      <summary>Triggered when the query display state changes for labels.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3FileOps">
+      <summary>Allows Real-Time Tracking Tool settings to be saved and loaded via a file on disk.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3FileOps.Save(AGI.Realtime.Tracking.IAgRt3Application,System.String)">
+      <summary>Save the current application settings.</summary>
+      <param name="Application"></param>
+      <param name="FileName"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3FileOps.Load(AGI.Realtime.Tracking.IAgRt3Application,System.String)">
+      <summary>Load the provided application settings.</summary>
+      <param name="Application"></param>
+      <param name="FileName"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3FileOps.Import(System.Object,System.String)">
+      <summary>Import an object into the provided parent.</summary>
+      <param name="Parent"></param>
+      <param name="FileName"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3FileOps.Export(System.Object,System.String)">
+      <summary>Export the provided object.</summary>
+      <param name="Object"></param>
+      <param name="FileName"></param>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3FileOpsClass">
+      <summary>Allows Real-Time Tracking Tool settings to be saved and loaded via a file on disk.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3FileOpsClass.Save(AGI.Realtime.Tracking.IAgRt3Application,System.String)">
+      <summary>Save the current application settings.</summary>
+      <param name="Application"></param>
+      <param name="FileName"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3FileOpsClass.Load(AGI.Realtime.Tracking.IAgRt3Application,System.String)">
+      <summary>Load the provided application settings.</summary>
+      <param name="Application"></param>
+      <param name="FileName"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3FileOpsClass.Import(System.Object,System.String)">
+      <summary>Import an object into the provided parent.</summary>
+      <param name="Parent"></param>
+      <param name="FileName"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3FileOpsClass.Export(System.Object,System.String)">
+      <summary>Export the provided object.</summary>
+      <param name="Object"></param>
+      <param name="FileName"></param>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3InternalCopyData">
+      <summary>Internal object.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InternalCopyData.GetData(System.Boolean)">
+      <summary>Retrieves the clipboard data.</summary>
+      <param name="NewName"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InternalCopyData.SetData(AGI.Realtime.IAgRtPlugin)">
+      <summary>Sets the clipboard data.</summary>
+      <param name="pPlugin"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InternalCopyData.Clear">
+      <summary>Clears the clipboard.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3InternalCopyDataClass">
+      <summary>Internal object.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InternalCopyDataClass.GetData(System.Boolean)">
+      <summary>Retrieves the clipboard data.</summary>
+      <param name="NewName"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InternalCopyDataClass.SetData(AGI.Realtime.IAgRtPlugin)">
+      <summary>Sets the clipboard data.</summary>
+      <param name="pPlugin"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3InternalCopyDataClass.Clear">
+      <summary>Clears the clipboard.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3EventDefinition">
+      <summary>A user defined Rt3 event.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EventDefinition.Name">
+      <summary>A unique type name for this plug-in.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EventDefinition.InstanceName">
+      <summary>The name of this specific instance of a plugin.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EventDefinition.Enabled">
+      <summary>Toggles whether the event is enabled or not.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EventDefinition.Query">
+      <summary>The query associated with the event.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EventDefinition.Actions">
+      <summary>A list of actions to perform when the event is triggered.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EventDefinition.Description">
+      <summary>A textual description of why the event was generated.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EventDefinition.Code">
+      <summary>The code associated with this event.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3EventDefinitionClass">
+      <summary>A user defined Rt3 event.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EventDefinitionClass.Name">
+      <summary>A unique type name for this plug-in.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EventDefinitionClass.InstanceName">
+      <summary>The name of this specific instance of a plugin.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EventDefinitionClass.Enabled">
+      <summary>Toggles whether the event is enabled or not.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EventDefinitionClass.Query">
+      <summary>The query associated with the event.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EventDefinitionClass.Actions">
+      <summary>A list of actions to perform when the event is triggered.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EventDefinitionClass.Description">
+      <summary>A textual description of why the event was generated.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EventDefinitionClass.Code">
+      <summary>The code associated with this event.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3EventDefinitionClass.OnEventDefinitionChanged">
+      <summary>Triggered when an event object changes in a way that requires re-evaluation.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3EventDefinitionClass.OnEventDefinitionEnabled">
+      <summary>Triggered when a event object is enabled.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3EventDefinitionClass.OnEventDefinitionDisabled">
+      <summary>Triggered when a event object is disabled.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3EventDefinitionCollection">
+      <summary>A collection of event objects.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EventDefinitionCollection.Add(AGI.Realtime.Tracking.IAgRt3EventDefinition)">
+      <summary>Adds an element to the collection.</summary>
+      <param name="Event"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EventDefinitionCollection.InsertAt(System.Int32,AGI.Realtime.Tracking.IAgRt3EventDefinition)">
+      <summary>Insert an element into the collection at the specified index</summary>
+      <param name="Index"></param>
+      <param name="Event"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EventDefinitionCollection.Remove(AGI.Realtime.Tracking.IAgRt3EventDefinition)">
+      <summary>Remove the provided element from the collection.</summary>
+      <param name="Event"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EventDefinitionCollection.RemoveAt(System.Int32)">
+      <summary>Remove the element at the specified index from the collection.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EventDefinitionCollection.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EventDefinitionCollection.Copy">
+      <summary>Copy the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EventDefinitionCollection.IndexOf(AGI.Realtime.Tracking.IAgRt3EventDefinition)">
+      <summary>Returns the index of an event in the collection.  Returns -1 if the event does not exist.</summary>
+      <param name="pEvent"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EventDefinitionCollection.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EventDefinitionCollection._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EventDefinitionCollection.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3EventDefinitionCollectionClass">
+      <summary>A collection of event objects.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EventDefinitionCollectionClass.Add(AGI.Realtime.Tracking.IAgRt3EventDefinition)">
+      <summary>Adds an element to the collection.</summary>
+      <param name="Event"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EventDefinitionCollectionClass.InsertAt(System.Int32,AGI.Realtime.Tracking.IAgRt3EventDefinition)">
+      <summary>Insert an element into the collection at the specified index</summary>
+      <param name="Index"></param>
+      <param name="Event"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EventDefinitionCollectionClass.Remove(AGI.Realtime.Tracking.IAgRt3EventDefinition)">
+      <summary>Remove the provided element from the collection.</summary>
+      <param name="Event"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EventDefinitionCollectionClass.RemoveAt(System.Int32)">
+      <summary>Remove the element at the specified index from the collection.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EventDefinitionCollectionClass.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EventDefinitionCollectionClass.Copy">
+      <summary>Copy the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EventDefinitionCollectionClass.IndexOf(AGI.Realtime.Tracking.IAgRt3EventDefinition)">
+      <summary>Returns the index of an event in the collection.  Returns -1 if the event does not exist.</summary>
+      <param name="pEvent"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EventDefinitionCollectionClass.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EventDefinitionCollectionClass._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EventDefinitionCollectionClass.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3EventDefinitionCollectionClass.OnEventDefinitionAdded">
+      <summary>Event triggered when a event is added.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3EventDefinitionCollectionClass.OnEventDefinitionRemoved">
+      <summary>Event triggered when a event is removed.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3QueryCollection">
+      <summary>A collection of query objects.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryCollection.Add(AGI.Realtime.Tracking.IAgRt3Query)">
+      <summary>Adds an element to the collection.</summary>
+      <param name="Query"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryCollection.InsertAt(System.Int32,AGI.Realtime.Tracking.IAgRt3Query)">
+      <summary>Insert an element into the collection at the specified index</summary>
+      <param name="Index"></param>
+      <param name="Query"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryCollection.Remove(AGI.Realtime.Tracking.IAgRt3Query)">
+      <summary>Remove the provided element from the collection.</summary>
+      <param name="Query"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryCollection.RemoveAt(System.Int32)">
+      <summary>Remove the element at the specified index from the collection.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryCollection.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryCollection.Copy">
+      <summary>Copy the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryCollection.IndexOf(AGI.Realtime.Tracking.IAgRt3Query)">
+      <summary>Returns the index of a query in the collection.  Returns -1 if the query does not exist.</summary>
+      <param name="pQuery"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryCollection.Move(AGI.Realtime.Tracking.IAgRt3Query,System.Int32)">
+      <summary>Moves a query in the collection to the specified index.</summary>
+      <param name="pQuery"></param>
+      <param name="Index"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryCollection.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryCollection._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryCollection.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3QueryCollectionClass">
+      <summary>A collection of query objects.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryCollectionClass.Add(AGI.Realtime.Tracking.IAgRt3Query)">
+      <summary>Adds an element to the collection.</summary>
+      <param name="Query"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryCollectionClass.InsertAt(System.Int32,AGI.Realtime.Tracking.IAgRt3Query)">
+      <summary>Insert an element into the collection at the specified index</summary>
+      <param name="Index"></param>
+      <param name="Query"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryCollectionClass.Remove(AGI.Realtime.Tracking.IAgRt3Query)">
+      <summary>Remove the provided element from the collection.</summary>
+      <param name="Query"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryCollectionClass.RemoveAt(System.Int32)">
+      <summary>Remove the element at the specified index from the collection.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryCollectionClass.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryCollectionClass.Copy">
+      <summary>Copy the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryCollectionClass.IndexOf(AGI.Realtime.Tracking.IAgRt3Query)">
+      <summary>Returns the index of a query in the collection.  Returns -1 if the query does not exist.</summary>
+      <param name="pQuery"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryCollectionClass.Move(AGI.Realtime.Tracking.IAgRt3Query,System.Int32)">
+      <summary>Moves a query in the collection to the specified index.</summary>
+      <param name="pQuery"></param>
+      <param name="Index"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryCollectionClass.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryCollectionClass._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryCollectionClass.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3QueryCollectionClass.OnQueryAdded">
+      <summary>Event triggered when a query is added.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3QueryCollectionClass.OnQueryRemoved">
+      <summary>Event triggered when a query is removed.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3QueryCollectionClass.OnQueryMoved">
+      <summary>Event triggered when a query is reordered.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3QueryGraphics">
+      <summary>Manages entity graphics settings for a query.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryGraphics.SetMarker(AGI.Realtime.Tracking.AgERt3QueryMarker,System.Object)">
+      <summary>Set the marker to the desired type using the provided data.</summary>
+      <param name="Type"></param>
+      <param name="Marker"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryGraphics.SetModel(AGI.Realtime.Tracking.AgERt3QueryModel,System.Object)">
+      <summary>Set the model to the desired type and provided data.</summary>
+      <param name="Type"></param>
+      <param name="Model"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryGraphics.Add(AGI.Entity.IAgEntity)">
+      <summary>Adds an element to the collection.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryGraphics.AddMultiple(System.Array@)">
+      <summary>Adds multiple elements to the collection.</summary>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryGraphics.InsertAt(System.Int32,AGI.Entity.IAgEntity)">
+      <summary>Insert an element into the collection at the specified index</summary>
+      <param name="Index"></param>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryGraphics.Remove(AGI.Entity.IAgEntity)">
+      <summary>Remove the provided element from the collection.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryGraphics.RemoveMultiple(System.Array@)">
+      <summary>Removes multiple elements from the collection.</summary>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryGraphics.RemoveAt(System.Int32)">
+      <summary>Remove the element at the specified index from the collection.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryGraphics.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryGraphics.Copy">
+      <summary>Copy the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryGraphics.Find(System.String)">
+      <summary>Find an element using its IAgEntity ID property.</summary>
+      <param name="EntityID"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryGraphics.OnEntityChanged(AGI.Entity.IAgEntity,AGI.Entity.AgEEntityUpdate)">
+      <summary>Indicates that an entity has changed.</summary>
+      <param name="Entity"></param>
+      <param name="UpdateType"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphics.Color">
+      <summary>The entity color.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphics.Labels">
+      <summary>The list of meta-data fields whose values will be used to generate the entity label.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphics.LabelSeparator">
+      <summary>The string that will separate label fields.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphics.LineStyle">
+      <summary>The entity line style.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphics.LineWidth">
+      <summary>The entity line width.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphics.MarkerType">
+      <summary>The type of marker.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphics.MarkerData">
+      <summary>The marker data.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphics.ModelType">
+      <summary>The type of model .</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphics.ModelData">
+      <summary>The model data.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphics.Query">
+      <summary>The query associated with the graphics.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphics.ShowMarkers">
+      <summary>Toggles the display of the markers.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphics.ShowLabels">
+      <summary>Toggles the display of the labels.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphics.ShowModels">
+      <summary>Toggles the display of all models.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphics.ShowLines">
+      <summary>Toggles the display of all lines.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphics.ShowFieldName">
+      <summary>Toggles the display of the name of the meta-data field as part of the label.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphics.MultiLineLabel">
+      <summary>If the label has multiple fields, show each field on a new line.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphics.MarkerSize">
+      <summary>The size of markers, in pixels.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphics.ModelScale">
+      <summary>The logarithmic scaling factor for the model with 0 being actual size.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphics.LeadTime">
+      <summary>The amount of time in seconds which future points will be displayed.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphics.TrailTime">
+      <summary>The amount of time in seconds which past points will continue to be displayed.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphics.UseLeadTrail">
+      <summary>Indicates if lead and trail times should be used.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphics.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphics._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphics.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass">
+      <summary>Manages entity graphics settings for a query.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.SetMarker(AGI.Realtime.Tracking.AgERt3QueryMarker,System.Object)">
+      <summary>Set the marker to the desired type using the provided data.</summary>
+      <param name="Type"></param>
+      <param name="Marker"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.SetModel(AGI.Realtime.Tracking.AgERt3QueryModel,System.Object)">
+      <summary>Set the model to the desired type and provided data.</summary>
+      <param name="Type"></param>
+      <param name="Model"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.Add(AGI.Entity.IAgEntity)">
+      <summary>Adds an element to the collection.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.AddMultiple(System.Array@)">
+      <summary>Adds multiple elements to the collection.</summary>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.InsertAt(System.Int32,AGI.Entity.IAgEntity)">
+      <summary>Insert an element into the collection at the specified index</summary>
+      <param name="Index"></param>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.Remove(AGI.Entity.IAgEntity)">
+      <summary>Remove the provided element from the collection.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.RemoveMultiple(System.Array@)">
+      <summary>Removes multiple elements from the collection.</summary>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.RemoveAt(System.Int32)">
+      <summary>Remove the element at the specified index from the collection.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.Copy">
+      <summary>Copy the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.Find(System.String)">
+      <summary>Find an element using its IAgEntity ID property.</summary>
+      <param name="EntityID"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.OnEntityChanged(AGI.Entity.IAgEntity,AGI.Entity.AgEEntityUpdate)">
+      <summary>Indicates that an entity has changed.</summary>
+      <param name="Entity"></param>
+      <param name="UpdateType"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.Color">
+      <summary>The entity color.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.Labels">
+      <summary>The list of meta-data fields whose values will be used to generate the entity label.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.LabelSeparator">
+      <summary>The string that will separate label fields.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.LineStyle">
+      <summary>The entity line style.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.LineWidth">
+      <summary>The entity line width.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.MarkerType">
+      <summary>The type of marker.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.MarkerData">
+      <summary>The marker data.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.ModelType">
+      <summary>The type of model .</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.ModelData">
+      <summary>The model data.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.Query">
+      <summary>The query associated with the graphics.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.ShowMarkers">
+      <summary>Toggles the display of the markers.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.ShowLabels">
+      <summary>Toggles the display of the labels.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.ShowModels">
+      <summary>Toggles the display of all models.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.ShowLines">
+      <summary>Toggles the display of all lines.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.ShowFieldName">
+      <summary>Toggles the display of the name of the meta-data field as part of the label.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.MultiLineLabel">
+      <summary>If the label has multiple fields, show each field on a new line.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.MarkerSize">
+      <summary>The size of markers, in pixels.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.ModelScale">
+      <summary>The logarithmic scaling factor for the model with 0 being actual size.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.LeadTime">
+      <summary>The amount of time in seconds which future points will be displayed.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.TrailTime">
+      <summary>The amount of time in seconds which past points will continue to be displayed.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.UseLeadTrail">
+      <summary>Indicates if lead and trail times should be used.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.OnShowMarkers">
+      <summary>Triggered when the query display state changes for entity markers.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.OnShowLabels">
+      <summary>Triggered when the query display state changes for entity labels.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.OnShowLines">
+      <summary>Triggered when the query display state changes for entity lines.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3QueryGraphicsClass.OnShowModels">
+      <summary>Triggered when the query display state changes for entity models.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3SimpleQueryClause">
+      <summary>A clause to be used with AgRt3SimpleQuery.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3SimpleQueryClause.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="AttrBuilder"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3SimpleQueryClause.Field">
+      <summary>The name of the entity meta-data field to use.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3SimpleQueryClause.Value">
+      <summary>The referencevalue to compare to the value in the meta-data field.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3SimpleQueryClause.ComparisonOperand">
+      <summary>The type of comparision to perform.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3SimpleQueryClause.ConjunctiveOperand">
+      <summary>The type of conjunction to use.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3SimpleQueryClauseClass">
+      <summary>A clause to be used with AgRt3SimpleQuery.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3SimpleQueryClauseClass.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="AttrBuilder"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3SimpleQueryClauseClass.Field">
+      <summary>The name of the entity meta-data field to use.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3SimpleQueryClauseClass.Value">
+      <summary>The referencevalue to compare to the value in the meta-data field.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3SimpleQueryClauseClass.ComparisonOperand">
+      <summary>The type of comparision to perform.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3SimpleQueryClauseClass.ConjunctiveOperand">
+      <summary>The type of conjunction to use.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3SimpleQueryClauseCollection">
+      <summary>A collection of AgRt3SimpleQueryClause.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3SimpleQueryClauseCollection.Add(AGI.Realtime.Tracking.IAgRt3SimpleQueryClause)">
+      <summary>Adds an element to the collection.</summary>
+      <param name="SimpleQueryClause"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3SimpleQueryClauseCollection.InsertAt(System.Int32,AGI.Realtime.Tracking.IAgRt3SimpleQueryClause)">
+      <summary>Insert an element into the collection at the specified index</summary>
+      <param name="Index"></param>
+      <param name="SimpleQueryClause"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3SimpleQueryClauseCollection.RemoveAt(System.Int32)">
+      <summary>Remove the element at the specified index from the collection.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3SimpleQueryClauseCollection.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3SimpleQueryClauseCollection.Copy">
+      <summary>Copy the collection</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3SimpleQueryClauseCollection.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3SimpleQueryClauseCollection._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3SimpleQueryClauseCollection.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3SimpleQueryClauseCollectionClass">
+      <summary>A collection of AgRt3SimpleQueryClause.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3SimpleQueryClauseCollectionClass.Add(AGI.Realtime.Tracking.IAgRt3SimpleQueryClause)">
+      <summary>Adds an element to the collection.</summary>
+      <param name="SimpleQueryClause"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3SimpleQueryClauseCollectionClass.InsertAt(System.Int32,AGI.Realtime.Tracking.IAgRt3SimpleQueryClause)">
+      <summary>Insert an element into the collection at the specified index</summary>
+      <param name="Index"></param>
+      <param name="SimpleQueryClause"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3SimpleQueryClauseCollectionClass.RemoveAt(System.Int32)">
+      <summary>Remove the element at the specified index from the collection.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3SimpleQueryClauseCollectionClass.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3SimpleQueryClauseCollectionClass.Copy">
+      <summary>Copy the collection</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3SimpleQueryClauseCollectionClass.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3SimpleQueryClauseCollectionClass._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3SimpleQueryClauseCollectionClass.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3SimpleQuery">
+      <summary>A query which selects entities based on meta-data criteria.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3SimpleQuery.IsMatch(AGI.Entity.IAgEntity)">
+      <summary>Returns true if the provided entity beloings in the query.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3SimpleQuery.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="AttrBuilder"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3SimpleQuery.CommitUpdate">
+      <summary>Called to commit changes made the query to assure all entities are updated properly.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3SimpleQuery.NewClause">
+      <summary>Instatiates a AgRt3SimpleQueryClause.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3SimpleQuery.Name">
+      <summary>The type name for all instances of the plugin.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3SimpleQuery.InstanceName">
+      <summary>The user modifiable name for the specific plugin instance.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3SimpleQuery.Enabled">
+      <summary>Toggles processing of the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3SimpleQuery.Graphics">
+      <summary>Graphical properties to be associated with entities in the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3SimpleQuery.Provider">
+      <summary>The entity provider associated with the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3SimpleQuery.Clauses">
+      <summary>A collection of clauses which make up the expression used to evaluate entities.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3SimpleQuery.UseRegularExpressions">
+      <summary>Toggles the use of regular expressions for equality comparisons.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3SimpleQuery.ClausesArray">
+      <summary>Array of IAgRt3SimpleQueryClause objects used to subselect data.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3SimpleQueryClass">
+      <summary>A query which selects entities based on meta-data criteria.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3SimpleQueryClass.IsMatch(AGI.Entity.IAgEntity)">
+      <summary>Returns true if the provided entity beloings in the query.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3SimpleQueryClass.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="AttrBuilder"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3SimpleQueryClass.CommitUpdate">
+      <summary>Called to commit changes made the query to assure all entities are updated properly.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3SimpleQueryClass.NewClause">
+      <summary>Instatiates a AgRt3SimpleQueryClause.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3SimpleQueryClass.Name">
+      <summary>The type name for all instances of the plugin.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3SimpleQueryClass.InstanceName">
+      <summary>The user modifiable name for the specific plugin instance.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3SimpleQueryClass.Enabled">
+      <summary>Toggles processing of the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3SimpleQueryClass.Graphics">
+      <summary>Graphical properties to be associated with entities in the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3SimpleQueryClass.Provider">
+      <summary>The entity provider associated with the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3SimpleQueryClass.Clauses">
+      <summary>A collection of clauses which make up the expression used to evaluate entities.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3SimpleQueryClass.UseRegularExpressions">
+      <summary>Toggles the use of regular expressions for equality comparisons.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3SimpleQueryClass.ClausesArray">
+      <summary>Array of IAgRt3SimpleQueryClause objects used to subselect data.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3SimpleQueryClass.OnQueryChanged">
+      <summary>Triggered when a query object changes in a way that requires re-evaluation.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3SimpleQueryClass.OnQueryEnabled">
+      <summary>Triggered when a query object is enabled.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3SimpleQueryClass.OnQueryDisabled">
+      <summary>Triggered when a query object is disabled.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3ActionCollection">
+      <summary>A collection of AgRt3Action.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3ActionCollection.Add(AGI.Realtime.Tracking.IAgRt3Action)">
+      <summary>Adds an element to the collection.</summary>
+      <param name="Action"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3ActionCollection.InsertAt(System.Int32,AGI.Realtime.Tracking.IAgRt3Action)">
+      <summary>Insert an element into the collection at the specified index</summary>
+      <param name="Index"></param>
+      <param name="Action"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3ActionCollection.Remove(AGI.Realtime.Tracking.IAgRt3Action)">
+      <summary>Remove the provided element from the collection.</summary>
+      <param name="Action"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3ActionCollection.RemoveAt(System.Int32)">
+      <summary>Remove the element at the specified index from the collection.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3ActionCollection.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3ActionCollection.Copy">
+      <summary>Copy the collection</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3ActionCollection.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3ActionCollection._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3ActionCollection.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3ActionCollectionClass">
+      <summary>A collection of AgRt3Action.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3ActionCollectionClass.Add(AGI.Realtime.Tracking.IAgRt3Action)">
+      <summary>Adds an element to the collection.</summary>
+      <param name="Action"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3ActionCollectionClass.InsertAt(System.Int32,AGI.Realtime.Tracking.IAgRt3Action)">
+      <summary>Insert an element into the collection at the specified index</summary>
+      <param name="Index"></param>
+      <param name="Action"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3ActionCollectionClass.Remove(AGI.Realtime.Tracking.IAgRt3Action)">
+      <summary>Remove the provided element from the collection.</summary>
+      <param name="Action"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3ActionCollectionClass.RemoveAt(System.Int32)">
+      <summary>Remove the element at the specified index from the collection.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3ActionCollectionClass.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3ActionCollectionClass.Copy">
+      <summary>Copy the collection</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3ActionCollectionClass.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3ActionCollectionClass._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3ActionCollectionClass.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3EventManager">
+      <summary>Manages events triggered by the framework.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EventManager.Trigger(AGI.Realtime.IAgRtEventEntity)">
+      <summary>Trigger the provided event.</summary>
+      <param name="RtEvent"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EventManager.Dismiss(AGI.Realtime.IAgRtEventEntity)">
+      <summary>Dimiss a previously triggered event.</summary>
+      <param name="RtEvent"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EventManager.ClearLog">
+      <summary>Clears the system-wide event log.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EventManager.TriggeredEvents">
+      <summary>The array of all triggered events.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EventManager.EventLog">
+      <summary>The array of all events in the system-wide event log.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EventManager.LogFile">
+      <summary>A fully qualified path to the system-wide event log.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3EventManagerClass">
+      <summary>Manages events triggered by the framework.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EventManagerClass.Trigger(AGI.Realtime.IAgRtEventEntity)">
+      <summary>Trigger the provided event.</summary>
+      <param name="RtEvent"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EventManagerClass.Dismiss(AGI.Realtime.IAgRtEventEntity)">
+      <summary>Dimiss a previously triggered event.</summary>
+      <param name="RtEvent"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3EventManagerClass.ClearLog">
+      <summary>Clears the system-wide event log.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EventManagerClass.TriggeredEvents">
+      <summary>The array of all triggered events.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EventManagerClass.EventLog">
+      <summary>The array of all events in the system-wide event log.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3EventManagerClass.LogFile">
+      <summary>A fully qualified path to the system-wide event log.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3EventManagerClass.OnEventTriggered">
+      <summary>Triggered when a real-time event is triggered.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3EventManagerClass.OnEventDismissed">
+      <summary>Triggered when a real-time event is dimissed.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3DistanceQuery">
+      <summary>A query which selects entities based on their distance to a reference point.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3DistanceQuery.IsMatch(AGI.Entity.IAgEntity)">
+      <summary>Returns true if the provided entity beloings in the query.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3DistanceQuery.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="AttrBuilder"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3DistanceQuery.Name">
+      <summary>The type name for all instances of the plugin.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3DistanceQuery.InstanceName">
+      <summary>The user modifiable name for the specific plugin instance.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3DistanceQuery.Enabled">
+      <summary>Toggles processing of the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3DistanceQuery.Graphics">
+      <summary>Graphical properties to be associated with entities in the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3DistanceQuery.Provider">
+      <summary>The entity provider associated with the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3DistanceQuery.ReferencePosition">
+      <summary>The position which entities must be within a certain distance of.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3DistanceQuery.ReferenceEntityID">
+      <summary>The ID of a reference entity which entities must be within a certain distance of.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3DistanceQuery.Distance">
+      <summary>The maximum distance, in meters, from the reference position we want to view.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3DistanceQuery.CalculationType">
+      <summary>The type of distance calculation to perform.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3DistanceQuery.ConfigurationString">
+      <summary>A serialized version of this configuration.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3DistanceQueryClass">
+      <summary>A query which selects entities based on their distance to a reference point.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3DistanceQueryClass.IsMatch(AGI.Entity.IAgEntity)">
+      <summary>Returns true if the provided entity beloings in the query.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3DistanceQueryClass.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="AttrBuilder"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3DistanceQueryClass.Name">
+      <summary>The type name for all instances of the plugin.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3DistanceQueryClass.InstanceName">
+      <summary>The user modifiable name for the specific plugin instance.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3DistanceQueryClass.Enabled">
+      <summary>Toggles processing of the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3DistanceQueryClass.Graphics">
+      <summary>Graphical properties to be associated with entities in the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3DistanceQueryClass.Provider">
+      <summary>The entity provider associated with the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3DistanceQueryClass.ReferencePosition">
+      <summary>The position which entities must be within a certain distance of.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3DistanceQueryClass.ReferenceEntityID">
+      <summary>The ID of a reference entity which entities must be within a certain distance of.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3DistanceQueryClass.Distance">
+      <summary>The maximum distance, in meters, from the reference position we want to view.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3DistanceQueryClass.CalculationType">
+      <summary>The type of distance calculation to perform.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3DistanceQueryClass.ConfigurationString">
+      <summary>A serialized version of this configuration.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3DistanceQueryClass.OnQueryChanged">
+      <summary>Triggered when a query object changes in a way that requires re-evaluation.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3DistanceQueryClass.OnQueryEnabled">
+      <summary>Triggered when a query object is enabled.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3DistanceQueryClass.OnQueryDisabled">
+      <summary>Triggered when a query object is disabled.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking._IAgRt3DistanceQuery">
+      <summary>Merged IDispatch interface for AgRt3DistanceQuery.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3DistanceQuery.IsMatch(AGI.Entity.IAgEntity)">
+      <summary>Returns true if the provided entity beloings in the query.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3DistanceQuery.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="AttrBuilder"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3DistanceQuery.Name">
+      <summary>The type name for all instances of the plugin.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3DistanceQuery.InstanceName">
+      <summary>The user modifiable name for the specific plugin instance.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3DistanceQuery.Enabled">
+      <summary>Toggles processing of the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3DistanceQuery.Graphics">
+      <summary>Graphical properties to be associated with entities in the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3DistanceQuery.Provider">
+      <summary>The entity provider associated with the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3DistanceQuery.ReferencePosition">
+      <summary>The position which entities must be within a certain distance of.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3DistanceQuery.ReferenceEntityID">
+      <summary>The ID of a reference entity which entities must be within a certain distance of.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3DistanceQuery.Distance">
+      <summary>The maximum distance, in meters, from the reference position we want to view.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3DistanceQuery.CalculationType">
+      <summary>The type of distance calculation to perform.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3DistanceQuery.ConfigurationString">
+      <summary>A serialized version of this configuration.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgERt3DistanceCalculation">
+      <summary>The type of distance calculation to perform when using AgRt3DistanceQuery.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3DistanceCalculation.eRt3DistanceCalculationSurface">
+      <summary>Surface distance between two points.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3DistanceCalculation.eRt3DistanceCalculationStraightLine">
+      <summary>Straight line distance between two points.</summary>
+    </member>
+    <member name="F:AGI.Realtime.Tracking.AgERt3DistanceCalculation.eRt3DistanceCalculationAll">
+      <summary>Both surface and straight line distance beween two points.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.IAgRt3DistanceQuery">
+      <summary>The primary interface for AgRt3DistanceQuery.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3DistanceQuery.ReferencePosition">
+      <summary>The position which entities must be within a certain distance of.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3DistanceQuery.ReferenceEntityID">
+      <summary>The ID of a reference entity which entities must be within a certain distance of.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3DistanceQuery.Distance">
+      <summary>The maximum distance, in meters, from the reference position or entity we want entities to be.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3DistanceQuery.CalculationType">
+      <summary>The type of distance calculation to perform.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.IAgRt3DistanceQuery.IsMatch(AGI.Entity.IAgEntity)">
+      <summary>Returns true if the provided entity beloings in the query.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3DistanceQuery.Enabled">
+      <summary>Toggles processing of the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3DistanceQuery.Graphics">
+      <summary>Graphical properties to be associated with entities in the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3DistanceQuery.Provider">
+      <summary>The entity provider associated with the query.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3AreaQuery">
+      <summary>A query which selects entities based on their location inside a well-defined area.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3AreaQuery.IsMatch(AGI.Entity.IAgEntity)">
+      <summary>Returns true if the provided entity beloings in the query.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3AreaQuery.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="AttrBuilder"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3AreaQuery.AreaChanged">
+      <summary>Called by the ReferenceArea when it has been modified in order to update the list of points.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3AreaQuery.Name">
+      <summary>The type name for all instances of the plugin.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3AreaQuery.InstanceName">
+      <summary>The user modifiable name for the specific plugin instance.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3AreaQuery.Enabled">
+      <summary>Toggles processing of the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3AreaQuery.Graphics">
+      <summary>Graphical properties to be associated with entities in the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3AreaQuery.Provider">
+      <summary>The entity provider associated with the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3AreaQuery.ReferenceArea">
+      <summary>The area monitored by the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3AreaQuery.ConfigurationString">
+      <summary>A serialized version of this configuration.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3AreaQueryClass">
+      <summary>A query which selects entities based on their location inside a well-defined area.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3AreaQueryClass.IsMatch(AGI.Entity.IAgEntity)">
+      <summary>Returns true if the provided entity beloings in the query.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3AreaQueryClass.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="AttrBuilder"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3AreaQueryClass.AreaChanged">
+      <summary>Called by the ReferenceArea when it has been modified in order to update the list of points.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3AreaQueryClass.Name">
+      <summary>The type name for all instances of the plugin.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3AreaQueryClass.InstanceName">
+      <summary>The user modifiable name for the specific plugin instance.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3AreaQueryClass.Enabled">
+      <summary>Toggles processing of the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3AreaQueryClass.Graphics">
+      <summary>Graphical properties to be associated with entities in the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3AreaQueryClass.Provider">
+      <summary>The entity provider associated with the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3AreaQueryClass.ReferenceArea">
+      <summary>The area monitored by the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3AreaQueryClass.ConfigurationString">
+      <summary>A serialized version of this configuration.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3AreaQueryClass.OnQueryChanged">
+      <summary>Triggered when a query object changes in a way that requires re-evaluation.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3AreaQueryClass.OnQueryEnabled">
+      <summary>Triggered when a query object is enabled.</summary>
+    </member>
+    <member name="E:AGI.Realtime.Tracking.AgRt3AreaQueryClass.OnQueryDisabled">
+      <summary>Triggered when a query object is disabled.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking._IAgRt3AreaQuery">
+      <summary>Merged IDispatch interface for AgRt3AreaQuery.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3AreaQuery.IsMatch(AGI.Entity.IAgEntity)">
+      <summary>Returns true if the provided entity beloings in the query.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3AreaQuery.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="AttrBuilder"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3AreaQuery.AreaChanged">
+      <summary>Called by the ReferenceArea when it has been modified in order to update the list of points.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3AreaQuery.Name">
+      <summary>The type name for all instances of the plugin.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3AreaQuery.InstanceName">
+      <summary>The user modifiable name for the specific plugin instance.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3AreaQuery.Enabled">
+      <summary>Toggles processing of the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3AreaQuery.Graphics">
+      <summary>Graphical properties to be associated with entities in the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3AreaQuery.Provider">
+      <summary>The entity provider associated with the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3AreaQuery.ReferenceArea">
+      <summary>The area monitored by the query.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3AreaQuery.ConfigurationString">
+      <summary>A serialized version of this configuration.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3PolylineArea">
+      <summary>An area defined by an AgPolylineEntity.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3PolylineArea.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="AttrBuilder"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3PolylineArea.OnEntityChanged(AGI.Entity.IAgEntity)">
+      <summary>Indicates that an entity has changed.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3PolylineArea.Points">
+      <summary>The points defined by the area.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3PolylineArea.Query">
+      <summary>The query associated with this area.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3PolylineArea.ReferenceEntity">
+      <summary>The reference entity to be used as an area.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3PolylineArea.ReferenceEntityID">
+      <summary>The ID of a reference entity to be used as an area.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.AgRt3PolylineAreaClass">
+      <summary>An area defined by an AgPolylineEntity.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3PolylineAreaClass.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="AttrBuilder"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking.AgRt3PolylineAreaClass.OnEntityChanged(AGI.Entity.IAgEntity)">
+      <summary>Indicates that an entity has changed.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3PolylineAreaClass.Points">
+      <summary>The points defined by the area.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3PolylineAreaClass.Query">
+      <summary>The query associated with this area.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3PolylineAreaClass.ReferenceEntity">
+      <summary>The reference entity to be used as an area.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.AgRt3PolylineAreaClass.ReferenceEntityID">
+      <summary>The ID of a reference entity to be used as an area.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking._IAgRt3PolylineArea">
+      <summary>Merged IDispatch interface for AgRt3PolylineArea.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3PolylineArea.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="AttrBuilder"></param>
+    </member>
+    <member name="M:AGI.Realtime.Tracking._IAgRt3PolylineArea.OnEntityChanged(AGI.Entity.IAgEntity)">
+      <summary>Indicates that an entity has changed.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3PolylineArea.Points">
+      <summary>The points defined by the area.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3PolylineArea.Query">
+      <summary>The query associated with this area.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3PolylineArea.ReferenceEntity">
+      <summary>The reference entity to be used as an area.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking._IAgRt3PolylineArea.ReferenceEntityID">
+      <summary>The ID of a reference entity to be used as an area.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Tracking.IAgRt3PolylineArea">
+      <summary>An area that monitors an AgPolylineEntity.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3PolylineArea.ReferenceEntity">
+      <summary>The reference entity to be used as an area.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3PolylineArea.ReferenceEntityID">
+      <summary>The ID of a reference entity to be used as an area.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3PolylineArea.Points">
+      <summary>The points defined by the area.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Tracking.IAgRt3PolylineArea.Query">
+      <summary>The query associated with this area.</summary>
+    </member>
+  </members>
+</doc>

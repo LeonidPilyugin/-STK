@@ -1,0 +1,2700 @@
+<doc>
+  <assembly>
+    <name>AGI.AgFlightSTK</name>
+  </assembly>
+  <members>
+    <member name="T:AGI.AgFlightSTK.tagAgEFlightSTKObjectWptOffset">
+      <summary>Enumeration AgEFlightSTKObjectWptOffset.</summary>
+    </member>
+    <member name="F:AGI.AgFlightSTK.tagAgEFlightSTKObjectWptOffset.eNoWptOffset">
+      <summary>Enumeration AgEFlightSTKObjectWptOffset:eNoWptOffset.</summary>
+    </member>
+    <member name="F:AGI.AgFlightSTK.tagAgEFlightSTKObjectWptOffset.eBrgRngOffset">
+      <summary>Enumeration AgEFlightSTKObjectWptOffset:eBrgRngOffset.</summary>
+    </member>
+    <member name="F:AGI.AgFlightSTK.tagAgEFlightSTKObjectWptOffset.eVGTPointOffset">
+      <summary>Enumeration AgEFlightSTKObjectWptOffset:eVGTPointOffset.</summary>
+    </member>
+    <member name="F:AGI.AgFlightSTK.tagAgEFlightSTKObjectWptOffset.eRelBrgRngOffset">
+      <summary>Enumeration AgEFlightSTKObjectWptOffset:eRelBrgRngOffset.</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.tagAgEFlightTrajectoryBlendMode">
+      <summary>Enumeration AgEFlightTrajectoryBlendMode.</summary>
+    </member>
+    <member name="F:AGI.AgFlightSTK.tagAgEFlightTrajectoryBlendMode.eBlendBodyQuadratic">
+      <summary>Enumeration AgEFlightTrajectoryBlendMode:eBlendBodyQuadratic.</summary>
+    </member>
+    <member name="F:AGI.AgFlightSTK.tagAgEFlightTrajectoryBlendMode.eBlendBodyCubic">
+      <summary>Enumeration AgEFlightTrajectoryBlendMode:eBlendBodyCubic.</summary>
+    </member>
+    <member name="F:AGI.AgFlightSTK.tagAgEFlightTrajectoryBlendMode.eBlendLHQuadratic">
+      <summary>Enumeration AgEFlightTrajectoryBlendMode:eBlendLHQuadratic.</summary>
+    </member>
+    <member name="F:AGI.AgFlightSTK.tagAgEFlightTrajectoryBlendMode.eBlendLHCubic">
+      <summary>Enumeration AgEFlightTrajectoryBlendMode:eBlendLHCubic.</summary>
+    </member>
+    <member name="F:AGI.AgFlightSTK.tagAgEFlightTrajectoryBlendMode.eBlendECFQuadratic">
+      <summary>Enumeration AgEFlightTrajectoryBlendMode:eBlendECFQuadratic.</summary>
+    </member>
+    <member name="F:AGI.AgFlightSTK.tagAgEFlightTrajectoryBlendMode.eBlendECFCubic">
+      <summary>Enumeration AgEFlightTrajectoryBlendMode:eBlendECFCubic.</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.tagAgEFlightSTKLaunchAttitudeMode">
+      <summary>Enumeration AgEFlightSTKLaunchAttitudeMode.</summary>
+    </member>
+    <member name="F:AGI.AgFlightSTK.tagAgEFlightSTKLaunchAttitudeMode.eLaunchAttAlignDirectionVector">
+      <summary>Enumeration AgEFlightSTKLaunchAttitudeMode:eLaunchAttAlignDirectionVector.</summary>
+    </member>
+    <member name="F:AGI.AgFlightSTK.tagAgEFlightSTKLaunchAttitudeMode.eLaunchAttHoldParentAttitude">
+      <summary>Enumeration AgEFlightSTKLaunchAttitudeMode:eLaunchAttHoldParentAttitude.</summary>
+    </member>
+    <member name="F:AGI.AgFlightSTK.tagAgEFlightSTKLaunchAttitudeMode.eLaunchAttVTOL">
+      <summary>Enumeration AgEFlightSTKLaunchAttitudeMode:eLaunchAttVTOL.</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.IAgFlightSiteSTKObject">
+      <summary>IAgFlightSiteSTKObject Interface</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSiteSTKObject.SetDynStateLink(System.Object)">
+      <summary>method SetDynStateLink</summary>
+      <param name="pDynState"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSiteSTKObject.QueryECFPosition(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>Method QueryECFPosition.</summary>
+      <param name="pTime"></param>
+      <param name="presultEcfPos"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSiteSTKObject.QueryECFVelocity(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>Method QueryECFVelocity.</summary>
+      <param name="pTime"></param>
+      <param name="presultEcfVel"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSiteSTKObject.QueryECFAcceleration(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>Method QueryECFAcceleration.</summary>
+      <param name="pTime"></param>
+      <param name="presultEcfAccel"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSiteSTKObject.QueryECFToBodyRotation(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgQuaternion)">
+      <summary>Method QueryECFToBodyRotation.</summary>
+      <param name="pTime"></param>
+      <param name="presultEcfQuat"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSiteSTKObject.QueryBodyAngularVelocity(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>Method QueryBodyAngularVelocity.</summary>
+      <param name="pTime"></param>
+      <param name="presultAngVel"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSiteSTKObject.QueryMission">
+      <summary>Method QueryMission</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSiteSTKObject.QueryValidInterval(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method QueryValidInterval.</summary>
+      <param name="pMinTime"></param>
+      <param name="pMaxTime"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightSiteSTKObject.DynStateLinkName">
+      <summary>property DynStateLinkName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightSiteSTKObject.DisplayName">
+      <summary>property DisplayName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightSiteSTKObject.ValidDynStateLinks">
+      <summary>property ValidDynStateLinks</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightSiteSTKObject.EditLLAHint">
+      <summary>property EditLLAHint</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightSiteSTKObject.IsStationary">
+      <summary>property IsStationary</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightSiteSTKObject.StationaryLLA">
+      <summary>property StationaryLLA</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightSiteSTKObject.IsValid">
+      <summary>property IsValid</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightSiteSTKObject.FullDisplayName">
+      <summary>property FullDisplayName</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.IAgFlightSTKHelper">
+      <summary>IAgFlightSTKHelper Interface</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSTKHelper.LoadFlightFile(System.String,System.Boolean)">
+      <summary>method LoadFlightFile</summary>
+      <param name="filePath"></param>
+      <param name="vbConfigCalculate"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSTKHelper.SaveFlightFile(System.String,AGI.AgFlight.IAgFlightMission)">
+      <summary>method SaveFlightFile</summary>
+      <param name="filePath"></param>
+      <param name="pMission"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSTKHelper.LoadFlightPackage(System.String,System.Boolean)">
+      <summary>method LoadFlightPackage</summary>
+      <param name="filePath"></param>
+      <param name="vbConfigCalculate"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSTKHelper.SaveFlightPackage(System.String,AGI.AgFlight.IAgFlightMission)">
+      <summary>method SaveFlightPackage</summary>
+      <param name="filePath"></param>
+      <param name="pMission"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSTKHelper.MissionToBLOB(AGI.AgFlight.IAgFlightMission)">
+      <summary>method MissionToBLOB</summary>
+      <param name="pMission"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSTKHelper.MissionFromBLOB(System.Object,System.Boolean)">
+      <summary>method MissionFromBLOB</summary>
+      <param name="pBLOB"></param>
+      <param name="vbConfigCalculate"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSTKHelper.GetAMMDefn(System.String)">
+      <summary>method GetAMMDefn</summary>
+      <param name="aircraftPath"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSTKHelper.ImportFlightFile(System.String,System.String,System.Boolean)">
+      <summary>method ImportFlightFile</summary>
+      <param name="aircraftPath"></param>
+      <param name="flightFilePath"></param>
+      <param name="vbUpdate"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSTKHelper.ExportFlightFile(System.String,System.String)">
+      <summary>method ExportFlightFile</summary>
+      <param name="aircraftPath"></param>
+      <param name="flightFilePath"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSTKHelper.ImportFlightPackage(System.String,System.String,System.Boolean)">
+      <summary>method ImportFlightPackage</summary>
+      <param name="aircraftPath"></param>
+      <param name="flightPackagePath"></param>
+      <param name="vbUpdate"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSTKHelper.ExportFlightPackage(System.String,System.String)">
+      <summary>method ExportFlightPackage</summary>
+      <param name="aircraftPath"></param>
+      <param name="flightPackagePath"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSTKHelper.QueryAnimationTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>method QueryAnimationTime</summary>
+      <param name="pAnimTime"></param>
+    </member>
+    <member name="T:AGI.AgFlightSTK.IAgFlightSiteFactorySTKObject">
+      <summary>IAgFlightSiteFactorySTKObject Interface</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.IAgFlightProcedureLaunch">
+      <summary>IAgFlightProcedureLaunch Interface</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightProcedureLaunch.QueryTimeLimits(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method QueryTimeLimits.</summary>
+      <param name="pMinTime"></param>
+      <param name="pMaxTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightProcedureLaunch.QueryLaunchTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method QueryLaunchTime.</summary>
+      <param name="presultTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightProcedureLaunch.SetLaunchTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method SetLaunchTime.</summary>
+      <param name="pTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightProcedureLaunch.GetSiteAltitudeAtTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>method GetSiteAltitudeAtTime</summary>
+      <param name="pTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightProcedureLaunch.SetAcceleration(System.Boolean,System.Double,System.Double,AGI.AgFlight.tagAgEFlightAirspeedType,AGI.AgFlight.tagAgEFlightFuelFlowType,System.Double)">
+      <summary>method SetAcceleration.</summary>
+      <param name="vbAccel"></param>
+      <param name="dAccelG"></param>
+      <param name="dMinAirspeed"></param>
+      <param name="eMinAirspeedType"></param>
+      <param name="eFuelFlowType"></param>
+      <param name="dOverrideFuelFlow"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureLaunch.ProcedureName">
+      <summary>property ProcedureName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureLaunch.Site">
+      <summary>property Site</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureLaunch.PositionPointName">
+      <summary>property PositionPointName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureLaunch.DirectionVecName">
+      <summary>property DirectionVecName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureLaunch.Accelerate">
+      <summary>property Accelerate</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureLaunch.AccelerationG">
+      <summary>property AccelerationG</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureLaunch.MinAirspeed">
+      <summary>property MinAirspeed</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureLaunch.MinAirspeedType">
+      <summary>property MinAirspeedType</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureLaunch.FuelFlowType">
+      <summary>property FuelFlowType</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureLaunch.OverrideFuelFlow">
+      <summary>property OverrideFuelFlow</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureLaunch.AttitudeMode">
+      <summary>property AttitudeMode</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.IAgFlightProcedureFactoryLaunch">
+      <summary>IAgFlightProcedureFactoryLaunch Interface</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.IAgFlightFormRecovSearchMgr">
+      <summary>IAgFlightFormRecovSearchMgr Interface</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightFormRecovSearchMgr.BeginInitialSearch">
+      <summary>Method BeginInitialSearch.</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightFormRecovSearchMgr.UpdateInitialSearchProgress(System.Double)">
+      <summary>Method UpdateInitialSearchProgress.</summary>
+      <param name="fraction"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightFormRecovSearchMgr.EndInitialSearchBeginRefine">
+      <summary>Method EndInitialSearchBeginRefine.</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightFormRecovSearchMgr.UpdateRefineProgress(System.Double)">
+      <summary>Method UpdateRefineProgress.</summary>
+      <param name="fraction"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightFormRecovSearchMgr.Interrupt">
+      <summary>property Interrupt.</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.IAgFlightProcedureFormRecov">
+      <summary>IAgFlightProcedureFormRecov Interface</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.QueryStartRecoverTimeLimits(System.Double,AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgAbsoluteTime,System.Boolean)">
+      <summary>Method QueryStartRecoverTimeLimits.</summary>
+      <param name="pauseTransPauseTime"></param>
+      <param name="pMinTime"></param>
+      <param name="pMaxTime"></param>
+      <param name="vbConsiderPrevProcs"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.QueryStartRecoverTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method QueryStartRecoverTime.</summary>
+      <param name="presultTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.SetStartRecoverTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method SetStartRecoverTime.</summary>
+      <param name="pTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.MinFormationAltitudeOffset(System.String,AGI.AgComUtilities.IAgAbsoluteTime,.double)">
+      <summary>method MinFormationAltitudeOffset</summary>
+      <param name="pointName"></param>
+      <param name="pTime"></param>
+      <param name="pVal"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.MaxFormationAltitudeOffset(System.String,AGI.AgComUtilities.IAgAbsoluteTime,.double)">
+      <summary>method MaxFormationAltitudeOffset</summary>
+      <param name="pointName"></param>
+      <param name="pTime"></param>
+      <param name="pVal"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.FindFirstValidRecoverTime(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgAbsoluteTime,System.Double,AGI.AgFlightSTK.IAgFlightFormRecovSearchMgr,AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>method FindFirstValidRecoverTime</summary>
+      <param name="pMinTime"></param>
+      <param name="pMaxTime"></param>
+      <param name="dStepTime"></param>
+      <param name="pSearchMgr"></param>
+      <param name="pResultFirstTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.SetFormationFuelFlow(AGI.AgFlight.tagAgEFlightFuelFlowType,System.Double,System.Boolean)">
+      <summary>method SetFormationFuelFlow</summary>
+      <param name="eFuelFlowType"></param>
+      <param name="overrideVal"></param>
+      <param name="vbConsiderAccel"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.ReConfigure">
+      <summary>method ReConfigure</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.SetPerfModes(AGI.AgFlight.tagAgEFlightPerformanceMode,AGI.AgFlight.tagAgEFlightPhaseOfFlight)">
+      <summary>method SetPerfModes</summary>
+      <param name="ePerfMode"></param>
+      <param name="ePhaseOfFlight"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.SetMinMaxEnrouteFlightPathAngle(System.Double,System.Double)">
+      <summary>method SetMinMaxEnrouteFlightPathAngle</summary>
+      <param name="minVal"></param>
+      <param name="maxVal"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.ProcedureName">
+      <summary>property ProcedureName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.Site">
+      <summary>property Site</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.PositionPointName">
+      <summary>property PositionPointName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.UseDelay">
+      <summary>property UseDelay</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.DelayTurnDir">
+      <summary>property DelayTurnDir</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.FormationAltitudeOffset">
+      <summary>property FormationAltitudeOffset</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.ApproachFlightPathAngle">
+      <summary>property ApproachFlightPathAngle</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.MaxVertPlaneRadiusFactor">
+      <summary>property MaxVertPlaneRadiusFactor</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.MaxTurnRadiusFactor">
+      <summary>property MaxTurnRadiusFactor</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.UseMaxSpeedTurns">
+      <summary>property UseMaxSpeedTurns</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.FirstPause">
+      <summary>property FirstPause</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.TransitionTime">
+      <summary>property TransitionTime</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.SecondPause">
+      <summary>property SecondPause</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.PosVelTimeStep">
+      <summary>property PosVelTimeStep</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.CanFindFirstValidRecoverTime">
+      <summary>property CanFindFirstValidRecoverTime</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.FormationFuelFlowType">
+      <summary>property FormationFuelFlowType</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.FormationFuelFlow">
+      <summary>property FormationFuelFlow</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.ConsiderAccelForFuelFlow">
+      <summary>property ConsiderAccelForFuelFlow</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.PerformanceMode">
+      <summary>property PerformanceMode</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.PhaseOfFlight">
+      <summary>property PhaseOfFlight</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.DelayCruiseAirspeed">
+      <summary>property DelayCruiseAirspeed</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.MinEnrouteFlightPathAngle">
+      <summary>property MinEnrouteFlightPathAngle</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.MaxEnrouteFlightPathAngle">
+      <summary>property MaxEnrouteFlightPathAngle</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureFormRecov.RefuelDumpProperties">
+      <summary>property RefuelDumpProperties</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.IAgFlightProcedureInFormation">
+      <summary>IAgFlightProcedureInFormation Interface</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightProcedureInFormation.SetFormationFuelFlow(AGI.AgFlight.tagAgEFlightFuelFlowType,System.Double,System.Boolean)">
+      <summary>method SetFormationFuelFlow</summary>
+      <param name="eFuelFlowType"></param>
+      <param name="overrideVal"></param>
+      <param name="vbConsiderAccel"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightProcedureInFormation.SetPerfModes(AGI.AgFlight.tagAgEFlightPerformanceMode,AGI.AgFlight.tagAgEFlightPhaseOfFlight)">
+      <summary>method SetPerfModes</summary>
+      <param name="ePerfMode"></param>
+      <param name="ePhaseOfFlight"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureInFormation.ProcedureName">
+      <summary>property ProcedureName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureInFormation.STKObjectSite">
+      <summary>property STKObjectSite</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureInFormation.PositionPointName">
+      <summary>property PositionPointName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureInFormation.TransitionTime">
+      <summary>property TransitionTime</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureInFormation.HoldTime">
+      <summary>property HoldTime</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureInFormation.PosVelTimeStep">
+      <summary>property PosVelTimeStep</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureInFormation.FormationFuelFlowType">
+      <summary>property FormationFuelFlowType</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureInFormation.FormationFuelFlow">
+      <summary>property FormationFuelFlow</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureInFormation.ConsiderAccelForFuelFlow">
+      <summary>property ConsiderAccelForFuelFlow</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureInFormation.PerformanceMode">
+      <summary>property PerformanceMode</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureInFormation.PhaseOfFlight">
+      <summary>property PhaseOfFlight</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureInFormation.HasMaxDuration">
+      <summary>property HasMaxDuration</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureInFormation.MaxDuration">
+      <summary>property MaxDuration</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureInFormation.TrajBlendMode">
+      <summary>property TrajBlendMode</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureInFormation.RefuelDumpProperties">
+      <summary>property RefuelDumpProperties</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.IAgFlightProcedureFactoryFormRecov">
+      <summary>IAgFlightProcedureFactoryFormRecov Interface</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.IAgFlightProcedureFactoryInFormation">
+      <summary>IAgFlightProcedureFactoryInFormation Interface</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.IAgFlightDynStateSegVGTPointAltOffset">
+      <summary>IAgFlightDynStateSegVGTPointAltOffset Interface</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightDynStateSegVGTPointAltOffset.Construct(AGI.AgFlightSTK.IAgFlightSiteSTKObject,AGI.AgComUtilities.IAgAbsoluteTime,System.String,AGI.AgFlight.IAgFlightProfileItem,System.Double,AGI.AgComUtilities.IAgQuaternion,System.Double,System.Double,AGI.AgFlight.IAgFlightProfileFuelFlow,System.Boolean,AGI.AgFlight.tagAgEFlightPerformanceMode,AGI.AgFlight.tagAgEFlightPhaseOfFlight,AGI.AgFlight.IAgFlightPerfModelCollection,AGI.AgFlight.IAgFlightConfiguration,AGI.AgFlight.IAgFlightAtmosphereCalcData,AGI.AgFlight.IAgFlightWindModel,System.Double,System.Double,System.Double,AGI.AgFlight.IAgFlightMissionCalcResult)">
+      <summary>method Construct</summary>
+      <param name="pSite"></param>
+      <param name="pEpoch"></param>
+      <param name="vgtPointName"></param>
+      <param name="pStartProfileItem"></param>
+      <param name="startOffsetAlt"></param>
+      <param name="pStartECFToBody"></param>
+      <param name="stopOffsetTime"></param>
+      <param name="stopOffsetAlt"></param>
+      <param name="pFuelFlow"></param>
+      <param name="vbConsiderAccelForFuelFlow"></param>
+      <param name="ePerfMode"></param>
+      <param name="ePhaseOfFlight"></param>
+      <param name="pPerfModels"></param>
+      <param name="pStartConfig"></param>
+      <param name="pAtmosCalcData"></param>
+      <param name="pWindModel"></param>
+      <param name="dPosVelTimeStep"></param>
+      <param name="dCacheTimeInterval"></param>
+      <param name="dMaxRelMotionFactor"></param>
+      <param name="pMissionCalcResult"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightDynStateSegVGTPointAltOffset.QueryFinalState(AGI.AgFlight.IAgFlightProfileItem,AGI.AgComUtilities.IAgQuaternion)">
+      <summary>method QueryFinalState</summary>
+      <param name="pProfileItem"></param>
+      <param name="pStopQuat"></param>
+    </member>
+    <member name="T:AGI.AgFlightSTK.IAgFlightDynStateSegVGTPointTransition">
+      <summary>IAgFlightDynStateSegVGTPointTransition Interface</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightDynStateSegVGTPointTransition.Construct(AGI.AgFlightSTK.IAgFlightSiteSTKObject,AGI.AgComUtilities.IAgAbsoluteTime,System.String,AGI.AgFlight.IAgFlightProfileItem,AGI.AgComUtilities.IAgCartVec3,AGI.AgComUtilities.IAgCartVec3,System.Double,System.Double,AGI.AgFlight.IAgFlightProfileFuelFlow,System.Boolean,AGI.AgFlight.tagAgEFlightPerformanceMode,AGI.AgFlight.tagAgEFlightPhaseOfFlight,AGI.AgFlight.IAgFlightPerfModelCollection,AGI.AgFlight.IAgFlightConfiguration,AGI.AgFlight.IAgFlightAtmosphereCalcData,AGI.AgFlight.IAgFlightWindModel,System.Double,AGI.AgFlightSTK.tagAgEFlightTrajectoryBlendMode,System.Double,System.Double,AGI.AgFlight.IAgFlightMissionCalcResult)">
+      <summary>method Construct</summary>
+      <param name="pSite"></param>
+      <param name="pEpoch"></param>
+      <param name="strVgtPointName"></param>
+      <param name="pStartProfileItem"></param>
+      <param name="pStartPos"></param>
+      <param name="pStartVel"></param>
+      <param name="dTransitionTime"></param>
+      <param name="dHoldPointTime"></param>
+      <param name="pFuelFlow"></param>
+      <param name="vbConsiderAccelForFuelFlow"></param>
+      <param name="ePerfMode"></param>
+      <param name="ePhaseOfFlight"></param>
+      <param name="pPerfModels"></param>
+      <param name="pStartConfig"></param>
+      <param name="pAtmosCalcData"></param>
+      <param name="pWindModel"></param>
+      <param name="dPosVelTimeStep"></param>
+      <param name="eBlendMode"></param>
+      <param name="dCacheTimeInterval"></param>
+      <param name="dMaxRelMotionFactor"></param>
+      <param name="pMissionCalcResult"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightDynStateSegVGTPointTransition.QueryFinalState(AGI.AgFlight.IAgFlightProfileItem,AGI.AgComUtilities.IAgQuaternion)">
+      <summary>method QueryFinalState</summary>
+      <param name="pProfileItem"></param>
+      <param name="pStopQuat"></param>
+    </member>
+    <member name="T:AGI.AgFlightSTK.IAgFlightSiteSTKObjectWpt">
+      <summary>IAgFlightSiteSTKObjectWpt Interface</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSiteSTKObjectWpt.SetDynStateLink(System.Object)">
+      <summary>method SetDynStateLink</summary>
+      <param name="pDynState"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSiteSTKObjectWpt.QueryWaypointTimeLimits(System.String,AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method QueryWaypointTimeLimits.</summary>
+      <param name="linkName"></param>
+      <param name="pMinTime"></param>
+      <param name="pMaxTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSiteSTKObjectWpt.QueryWaypointTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method QueryWaypointTime.</summary>
+      <param name="pWptTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSiteSTKObjectWpt.SetWaypointTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method SetWaypointTime.</summary>
+      <param name="pWptTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSiteSTKObjectWpt.SetOffsetModeNone">
+      <summary>method SetOffsetModeNone</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSiteSTKObjectWpt.SetOffsetModeBrgRng(System.Double,System.Boolean,System.Double)">
+      <summary>method SetOffsetModeBrgRng</summary>
+      <param name="brg"></param>
+      <param name="vbMagnetic"></param>
+      <param name="rng"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSiteSTKObjectWpt.SetOffsetModeRelBrgRng(System.Double,System.Double)">
+      <summary>method SetOffsetModeRelBrgRng</summary>
+      <param name="brg"></param>
+      <param name="rng"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSiteSTKObjectWpt.SetOffsetModeVGTPoint(System.String)">
+      <summary>method SetOffsetModeVGTPoint</summary>
+      <param name="pointName"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightSiteSTKObjectWpt.DynStateLinkName">
+      <summary>property DynStateLinkName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightSiteSTKObjectWpt.DisplayName">
+      <summary>property DisplayName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightSiteSTKObjectWpt.ValidDynStateLinks">
+      <summary>property ValidDynStateLinks</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightSiteSTKObjectWpt.EditLLAHint">
+      <summary>property EditLLAHint</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightSiteSTKObjectWpt.OffsetMode">
+      <summary>property OffsetMode</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightSiteSTKObjectWpt.OffsetModeBrg">
+      <summary>property OffsetModeBrg</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightSiteSTKObjectWpt.OffsetModeMagBrg">
+      <summary>property OffsetModeMagBrg</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightSiteSTKObjectWpt.OffsetModeRng">
+      <summary>property OffsetModeRng</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightSiteSTKObjectWpt.OffsetModeVGTPointName">
+      <summary>property OffsetModeVGTPointName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightSiteSTKObjectWpt.MinimizeSiteProcTimeDiff">
+      <summary>property MinimizeSiteProcTimeDiff</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightSiteSTKObjectWpt.Procedure">
+      <summary>property Procedure</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightSiteSTKObjectWpt.Mission">
+      <summary>property Mission</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.IAgFlightSiteFactorySTKObjectWpt">
+      <summary>IAgFlightSiteFactorySTKObjectWpt Interface</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.IAgFlightProcedureFactoryVGTPoint">
+      <summary>IAgFlightProcedureFactoryVGTPoint Interface</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.IAgFlightProcedureVGTPoint">
+      <summary>IAgFlightProcedureVGTPoint Interface</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightProcedureVGTPoint.QueryPointTimeLimits(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method QueryPointTimeLimits.</summary>
+      <param name="pMinTime"></param>
+      <param name="pMaxTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightProcedureVGTPoint.QueryStartTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method QueryStartTime.</summary>
+      <param name="presultTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightProcedureVGTPoint.SetStartTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method SetStartTime.</summary>
+      <param name="pTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightProcedureVGTPoint.SetFuelFlow(AGI.AgFlight.tagAgEFlightFuelFlowType,System.Double,System.Boolean)">
+      <summary>method SetFuelFlow</summary>
+      <param name="eFuelFlowType"></param>
+      <param name="overrideVal"></param>
+      <param name="vbConsiderAccel"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightProcedureVGTPoint.ReConfigure">
+      <summary>method ReConfigure</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightProcedureVGTPoint.SetPerfModes(AGI.AgFlight.tagAgEFlightPerformanceMode,AGI.AgFlight.tagAgEFlightPhaseOfFlight)">
+      <summary>method SetPerfModes</summary>
+      <param name="ePerfMode"></param>
+      <param name="ePhaseOfFlight"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureVGTPoint.ProcedureName">
+      <summary>property ProcedureName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureVGTPoint.Site">
+      <summary>property Site</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureVGTPoint.PositionPointName">
+      <summary>property PositionPointName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureVGTPoint.Duration">
+      <summary>property Duration</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureVGTPoint.PosVelTimeStep">
+      <summary>property PosVelTimeStep</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureVGTPoint.FuelFlowType">
+      <summary>property FuelFlowType</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureVGTPoint.OverrideFuelFlow">
+      <summary>property OverrideFuelFlow</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureVGTPoint.ConsiderAccelForFuelFlow">
+      <summary>property ConsiderAccelForFuelFlow</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureVGTPoint.PerformanceMode">
+      <summary>property PerformanceMode</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureVGTPoint.PhaseOfFlight">
+      <summary>property PhaseOfFlight</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureVGTPoint.RefuelDumpProperties">
+      <summary>property RefuelDumpProperties</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.IAgFlightSiteSTKAreaTarget">
+      <summary>IAgFlightSiteSTKAreaTarget Interface</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSiteSTKAreaTarget.QueryCentroidLatLon(AGI.AgComUtilities.IAgLatLon)">
+      <summary>method QueryCentroidLatLon</summary>
+      <param name="presultLatLon"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSiteSTKAreaTarget.GetBoundaryPointsLatLon">
+      <summary>method GetBoundaryPointsLatLon</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSiteSTKAreaTarget.GetInstPtr">
+      <summary>method GetInstPtr</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.IAgFlightSiteFactorySTKAreaTarget">
+      <summary>IAgFlightSiteFactorySTKAreaTarget Interface</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.tagAgEFlightSTKAreaTgtCentroidCourseMode">
+      <summary>Enumeration AgEFlightSTKAreaTgtCentroidCourseMode.</summary>
+    </member>
+    <member name="F:AGI.AgFlightSTK.tagAgEFlightSTKAreaTgtCentroidCourseMode.eCentroidCourseAutoLow">
+      <summary>Enumeration AgEFlightSTKAreaTgtCentroidCourseMode:eCentroidCourseAutoLow.</summary>
+    </member>
+    <member name="F:AGI.AgFlightSTK.tagAgEFlightSTKAreaTgtCentroidCourseMode.eCentroidCourseAutoHigh">
+      <summary>Enumeration AgEFlightSTKAreaTgtCentroidCourseMode:eCentroidCourseAutoHigh.</summary>
+    </member>
+    <member name="F:AGI.AgFlightSTK.tagAgEFlightSTKAreaTgtCentroidCourseMode.eCentroidCourseOverride">
+      <summary>Enumeration AgEFlightSTKAreaTgtCentroidCourseMode:eCentroidCourseOverride.</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.IAgFlightProcedureAreaTargetSearch">
+      <summary>IAgFlightProcedureAreaTargetSearch Interface</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightProcedureAreaTargetSearch.SetCentroidCourse(AGI.AgFlightSTK.tagAgEFlightSTKAreaTgtCentroidCourseMode,System.Boolean,System.Double)">
+      <summary>method SetCentroidCourse</summary>
+      <param name="eCourseMode"></param>
+      <param name="vbRetrograde"></param>
+      <param name="dOverrideCentroidTrueHeading"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightProcedureAreaTargetSearch.UserSetAltitude">
+      <summary>method UserSetAltitude</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightProcedureAreaTargetSearch.SetAltitude(System.Boolean,System.Boolean,System.Double)">
+      <summary>method SetAltitude</summary>
+      <param name="useDefault"></param>
+      <param name="useAGL"></param>
+      <param name="reqAlt"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureAreaTargetSearch.ProcedureName">
+      <summary>property ProcedureName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureAreaTargetSearch.EmbeddedProcedureType">
+      <summary>property EmbeddedProcedureType</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureAreaTargetSearch.MaxFlightLineSeparation">
+      <summary>property MaxFlightLineSeparation</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureAreaTargetSearch.CentroidCourseMode">
+      <summary>property CentroidCourseMode</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureAreaTargetSearch.RetrogradeCourse">
+      <summary>property RetrogradeCourse</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureAreaTargetSearch.CentroidTrueCourse">
+      <summary>property CentroidTrueCourse</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureAreaTargetSearch.DefaultCruiseAltitude">
+      <summary>property DefaultCruiseAltitude</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureAreaTargetSearch.WaypointTerrainAltitude">
+      <summary>property WaypointTerrainAltitude</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureAreaTargetSearch.AltitudeUseDefault">
+      <summary>property AltitudeUseDefault</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureAreaTargetSearch.AltitudeUseAGL">
+      <summary>property AltitudeUseAGL</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureAreaTargetSearch.Altitude">
+      <summary>property Altitude</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureAreaTargetSearch.MaxTurnRadiusFactor">
+      <summary>property MaxTurnRadiusFactor</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureAreaTargetSearch.EnrouteCruiseAirspeed">
+      <summary>property EnrouteCruiseAirspeed</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureAreaTargetSearch.FlyCruiseAirspeedProfile">
+      <summary>property FlyCruiseAirspeedProfile</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureAreaTargetSearch.UseMaxSpeedTurns">
+      <summary>property UseMaxSpeedTurns</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureAreaTargetSearch.LevelOffMode">
+      <summary>property LevelOffMode</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureAreaTargetSearch.MustLevelOff">
+      <summary>property MustLevelOff</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightProcedureAreaTargetSearch.ProcedureCollectionCopy">
+      <summary>property ProcedureCollectionCopy</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.IAgFlightProcedureFactoryAreaTargetSearch">
+      <summary>IAgFlightProcedureFactoryAreaTargetSearch Interface</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.IAgFlightPrimitiveCartVecArray">
+      <summary>AGI IAgFlightPrimitiveCartVecArray Interface</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightPrimitiveCartVecArray.Clear">
+      <summary>method Clear</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightPrimitiveCartVecArray.AddXYZ(System.Double,System.Double,System.Double)">
+      <summary>method AddXYZ</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightPrimitiveCartVecArray.Count">
+      <summary>method Count</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.IAgFlightPrimitiveColorArray">
+      <summary>AGI IAgFlightPrimitiveColorArray Interface</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightPrimitiveColorArray.Clear">
+      <summary>method Clear</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightPrimitiveColorArray.AddARGB(System.Byte,System.Byte,System.Byte,System.Byte)">
+      <summary>method AddARGB</summary>
+      <param name="alpha"></param>
+      <param name="red"></param>
+      <param name="green"></param>
+      <param name="blue"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightPrimitiveColorArray.Count">
+      <summary>method Count</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.IAgFlightTriangleMeshIndexArray">
+      <summary>AGI IAgFlightTriangleMeshIndexArray Interface</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightTriangleMeshIndexArray.Clear">
+      <summary>method Clear</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightTriangleMeshIndexArray.Add(.UINT)">
+      <summary>method Add</summary>
+      <param name="uiIndex"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightTriangleMeshIndexArray.Count">
+      <summary>method Count</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.IAgFlightTriangleMeshColorArray">
+      <summary>AGI IAgFlightTriangleMeshColorArray Interface</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightTriangleMeshColorArray.Clear">
+      <summary>method Clear</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightTriangleMeshColorArray.AddARGB(System.Byte,System.Byte,System.Byte,System.Byte)">
+      <summary>method AddARGB</summary>
+      <param name="alpha"></param>
+      <param name="red"></param>
+      <param name="green"></param>
+      <param name="blue"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightTriangleMeshColorArray.Count">
+      <summary>method Count</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.IAgFlightFastPrimitiveHelper">
+      <summary>AGI IAgFlightFastPrimitiveHelper Interface</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightFastPrimitiveHelper.SetTriangleMesh(System.Object,AGI.AgFlightSTK.IAgFlightPrimitiveCartVecArray,AGI.AgFlightSTK.IAgFlightPrimitiveCartVecArray,AGI.AgFlightSTK.IAgFlightTriangleMeshIndexArray,AGI.AgFlightSTK.IAgFlightTriangleMeshColorArray)">
+      <summary>method SetTriangleMesh</summary>
+      <param name="pTriangleMeshPrimitive"></param>
+      <param name="pTriangles"></param>
+      <param name="pTriangleNormals"></param>
+      <param name="pIndices"></param>
+      <param name="pPerVertexColors"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightFastPrimitiveHelper.SetPolyline(System.Object,AGI.AgFlightSTK.IAgFlightPrimitiveCartVecArray,AGI.AgFlightSTK.IAgFlightPrimitiveColorArray)">
+      <summary>method SetPolyline</summary>
+      <param name="pPolylinePrimitive"></param>
+      <param name="pVerts"></param>
+      <param name="pColors"></param>
+    </member>
+    <member name="T:AGI.AgFlightSTK.IAgFlightSiteRelToSTKObject">
+      <summary>IAgFlightSiteRelToSTKObject Interface</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSiteRelToSTKObject.SetDynStateLink(System.Object)">
+      <summary>method SetDynStateLink</summary>
+      <param name="pDynState"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.IAgFlightSiteRelToSTKObject.SetBearingRange(System.Double,System.Boolean,System.Double)">
+      <summary>method SetBearingRange</summary>
+      <param name="brg"></param>
+      <param name="vbMagnetic"></param>
+      <param name="rng"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightSiteRelToSTKObject.DynStateLinkName">
+      <summary>property DynStateLinkName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightSiteRelToSTKObject.DisplayName">
+      <summary>property DisplayName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightSiteRelToSTKObject.ValidDynStateLinks">
+      <summary>property ValidDynStateLinks</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightSiteRelToSTKObject.EditLLAHint">
+      <summary>property EditLLAHint</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightSiteRelToSTKObject.Bearing">
+      <summary>property Bearing</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightSiteRelToSTKObject.MagBearing">
+      <summary>property MagBearing</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightSiteRelToSTKObject.Range">
+      <summary>property Range</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightSiteRelToSTKObject.Procedure">
+      <summary>property Procedure</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.IAgFlightSiteRelToSTKObject.Mission">
+      <summary>property Mission</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.IAgFlightSiteFactoryRelToSTKObject">
+      <summary>IAgFlightSiteFactoryRelToSTKObject Interface</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightSiteSTKObjectStatic">
+      <summary>AgFlightSiteSTKObjectStatic Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectStatic.SetDynStateLink(System.Object)">
+      <summary>method SetDynStateLink</summary>
+      <param name="pDynState"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectStatic.QueryECFPosition(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>Method QueryECFPosition.</summary>
+      <param name="pTime"></param>
+      <param name="presultEcfPos"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectStatic.QueryECFVelocity(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>Method QueryECFVelocity.</summary>
+      <param name="pTime"></param>
+      <param name="presultEcfVel"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectStatic.QueryECFAcceleration(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>Method QueryECFAcceleration.</summary>
+      <param name="pTime"></param>
+      <param name="presultEcfAccel"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectStatic.QueryECFToBodyRotation(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgQuaternion)">
+      <summary>Method QueryECFToBodyRotation.</summary>
+      <param name="pTime"></param>
+      <param name="presultEcfQuat"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectStatic.QueryBodyAngularVelocity(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>Method QueryBodyAngularVelocity.</summary>
+      <param name="pTime"></param>
+      <param name="presultAngVel"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectStatic.QueryMission">
+      <summary>Method QueryMission</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectStatic.QueryValidInterval(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method QueryValidInterval.</summary>
+      <param name="pMinTime"></param>
+      <param name="pMaxTime"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectStatic.DynStateLinkName">
+      <summary>property DynStateLinkName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectStatic.DisplayName">
+      <summary>property DisplayName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectStatic.ValidDynStateLinks">
+      <summary>property ValidDynStateLinks</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectStatic.EditLLAHint">
+      <summary>property EditLLAHint</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectStatic.IsStationary">
+      <summary>property IsStationary</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectStatic.StationaryLLA">
+      <summary>property StationaryLLA</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectStatic.IsValid">
+      <summary>property IsValid</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectStatic.FullDisplayName">
+      <summary>property FullDisplayName</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightSiteSTKObjectStaticClass">
+      <summary>AgFlightSiteSTKObjectStatic Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectStaticClass.SetDynStateLink(System.Object)">
+      <summary>method SetDynStateLink</summary>
+      <param name="pDynState"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectStaticClass.QueryECFPosition(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>Method QueryECFPosition.</summary>
+      <param name="pTime"></param>
+      <param name="presultEcfPos"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectStaticClass.QueryECFVelocity(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>Method QueryECFVelocity.</summary>
+      <param name="pTime"></param>
+      <param name="presultEcfVel"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectStaticClass.QueryECFAcceleration(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>Method QueryECFAcceleration.</summary>
+      <param name="pTime"></param>
+      <param name="presultEcfAccel"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectStaticClass.QueryECFToBodyRotation(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgQuaternion)">
+      <summary>Method QueryECFToBodyRotation.</summary>
+      <param name="pTime"></param>
+      <param name="presultEcfQuat"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectStaticClass.QueryBodyAngularVelocity(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>Method QueryBodyAngularVelocity.</summary>
+      <param name="pTime"></param>
+      <param name="presultAngVel"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectStaticClass.QueryMission">
+      <summary>Method QueryMission</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectStaticClass.QueryValidInterval(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method QueryValidInterval.</summary>
+      <param name="pMinTime"></param>
+      <param name="pMaxTime"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectStaticClass.DynStateLinkName">
+      <summary>property DynStateLinkName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectStaticClass.DisplayName">
+      <summary>property DisplayName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectStaticClass.ValidDynStateLinks">
+      <summary>property ValidDynStateLinks</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectStaticClass.EditLLAHint">
+      <summary>property EditLLAHint</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectStaticClass.IsStationary">
+      <summary>property IsStationary</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectStaticClass.StationaryLLA">
+      <summary>property StationaryLLA</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectStaticClass.IsValid">
+      <summary>property IsValid</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectStaticClass.FullDisplayName">
+      <summary>property FullDisplayName</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightSiteFactorySTKObjectStatic">
+      <summary>AgFlightSiteFactorySTKObjectStatic Class</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightSiteFactorySTKObjectStaticClass">
+      <summary>AgFlightSiteFactorySTKObjectStatic Class</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicle">
+      <summary>AgFlightSiteSTKObjectVehicle Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicle.SetDynStateLink(System.Object)">
+      <summary>method SetDynStateLink</summary>
+      <param name="pDynState"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicle.QueryECFPosition(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>Method QueryECFPosition.</summary>
+      <param name="pTime"></param>
+      <param name="presultEcfPos"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicle.QueryECFVelocity(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>Method QueryECFVelocity.</summary>
+      <param name="pTime"></param>
+      <param name="presultEcfVel"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicle.QueryECFAcceleration(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>Method QueryECFAcceleration.</summary>
+      <param name="pTime"></param>
+      <param name="presultEcfAccel"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicle.QueryECFToBodyRotation(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgQuaternion)">
+      <summary>Method QueryECFToBodyRotation.</summary>
+      <param name="pTime"></param>
+      <param name="presultEcfQuat"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicle.QueryBodyAngularVelocity(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>Method QueryBodyAngularVelocity.</summary>
+      <param name="pTime"></param>
+      <param name="presultAngVel"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicle.QueryMission">
+      <summary>Method QueryMission</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicle.QueryValidInterval(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method QueryValidInterval.</summary>
+      <param name="pMinTime"></param>
+      <param name="pMaxTime"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicle.DynStateLinkName">
+      <summary>property DynStateLinkName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicle.DisplayName">
+      <summary>property DisplayName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicle.ValidDynStateLinks">
+      <summary>property ValidDynStateLinks</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicle.EditLLAHint">
+      <summary>property EditLLAHint</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicle.IsStationary">
+      <summary>property IsStationary</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicle.StationaryLLA">
+      <summary>property StationaryLLA</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicle.IsValid">
+      <summary>property IsValid</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicle.FullDisplayName">
+      <summary>property FullDisplayName</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicleClass">
+      <summary>AgFlightSiteSTKObjectVehicle Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicleClass.SetDynStateLink(System.Object)">
+      <summary>method SetDynStateLink</summary>
+      <param name="pDynState"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicleClass.QueryECFPosition(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>Method QueryECFPosition.</summary>
+      <param name="pTime"></param>
+      <param name="presultEcfPos"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicleClass.QueryECFVelocity(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>Method QueryECFVelocity.</summary>
+      <param name="pTime"></param>
+      <param name="presultEcfVel"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicleClass.QueryECFAcceleration(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>Method QueryECFAcceleration.</summary>
+      <param name="pTime"></param>
+      <param name="presultEcfAccel"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicleClass.QueryECFToBodyRotation(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgQuaternion)">
+      <summary>Method QueryECFToBodyRotation.</summary>
+      <param name="pTime"></param>
+      <param name="presultEcfQuat"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicleClass.QueryBodyAngularVelocity(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>Method QueryBodyAngularVelocity.</summary>
+      <param name="pTime"></param>
+      <param name="presultAngVel"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicleClass.QueryMission">
+      <summary>Method QueryMission</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicleClass.QueryValidInterval(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method QueryValidInterval.</summary>
+      <param name="pMinTime"></param>
+      <param name="pMaxTime"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicleClass.DynStateLinkName">
+      <summary>property DynStateLinkName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicleClass.DisplayName">
+      <summary>property DisplayName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicleClass.ValidDynStateLinks">
+      <summary>property ValidDynStateLinks</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicleClass.EditLLAHint">
+      <summary>property EditLLAHint</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicleClass.IsStationary">
+      <summary>property IsStationary</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicleClass.StationaryLLA">
+      <summary>property StationaryLLA</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicleClass.IsValid">
+      <summary>property IsValid</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectVehicleClass.FullDisplayName">
+      <summary>property FullDisplayName</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightSiteFactorySTKObjectVehicle">
+      <summary>AgFlightSiteFactorySTKObjectVehicle Class</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightSiteFactorySTKObjectVehicleClass">
+      <summary>AgFlightSiteFactorySTKObjectVehicle Class</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightProcedureLaunch">
+      <summary>AgFlightProcedureLaunch Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureLaunch.QueryTimeLimits(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method QueryTimeLimits.</summary>
+      <param name="pMinTime"></param>
+      <param name="pMaxTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureLaunch.QueryLaunchTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method QueryLaunchTime.</summary>
+      <param name="presultTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureLaunch.SetLaunchTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method SetLaunchTime.</summary>
+      <param name="pTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureLaunch.GetSiteAltitudeAtTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>method GetSiteAltitudeAtTime</summary>
+      <param name="pTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureLaunch.SetAcceleration(System.Boolean,System.Double,System.Double,AGI.AgFlight.tagAgEFlightAirspeedType,AGI.AgFlight.tagAgEFlightFuelFlowType,System.Double)">
+      <summary>method SetAcceleration.</summary>
+      <param name="vbAccel"></param>
+      <param name="dAccelG"></param>
+      <param name="dMinAirspeed"></param>
+      <param name="eMinAirspeedType"></param>
+      <param name="eFuelFlowType"></param>
+      <param name="dOverrideFuelFlow"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureLaunch.ProcedureName">
+      <summary>property ProcedureName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureLaunch.Site">
+      <summary>property Site</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureLaunch.PositionPointName">
+      <summary>property PositionPointName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureLaunch.DirectionVecName">
+      <summary>property DirectionVecName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureLaunch.Accelerate">
+      <summary>property Accelerate</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureLaunch.AccelerationG">
+      <summary>property AccelerationG</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureLaunch.MinAirspeed">
+      <summary>property MinAirspeed</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureLaunch.MinAirspeedType">
+      <summary>property MinAirspeedType</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureLaunch.FuelFlowType">
+      <summary>property FuelFlowType</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureLaunch.OverrideFuelFlow">
+      <summary>property OverrideFuelFlow</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureLaunch.AttitudeMode">
+      <summary>property AttitudeMode</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightProcedureLaunchClass">
+      <summary>AgFlightProcedureLaunch Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureLaunchClass.QueryTimeLimits(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method QueryTimeLimits.</summary>
+      <param name="pMinTime"></param>
+      <param name="pMaxTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureLaunchClass.QueryLaunchTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method QueryLaunchTime.</summary>
+      <param name="presultTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureLaunchClass.SetLaunchTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method SetLaunchTime.</summary>
+      <param name="pTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureLaunchClass.GetSiteAltitudeAtTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>method GetSiteAltitudeAtTime</summary>
+      <param name="pTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureLaunchClass.SetAcceleration(System.Boolean,System.Double,System.Double,AGI.AgFlight.tagAgEFlightAirspeedType,AGI.AgFlight.tagAgEFlightFuelFlowType,System.Double)">
+      <summary>method SetAcceleration.</summary>
+      <param name="vbAccel"></param>
+      <param name="dAccelG"></param>
+      <param name="dMinAirspeed"></param>
+      <param name="eMinAirspeedType"></param>
+      <param name="eFuelFlowType"></param>
+      <param name="dOverrideFuelFlow"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureLaunchClass.ProcedureName">
+      <summary>property ProcedureName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureLaunchClass.Site">
+      <summary>property Site</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureLaunchClass.PositionPointName">
+      <summary>property PositionPointName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureLaunchClass.DirectionVecName">
+      <summary>property DirectionVecName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureLaunchClass.Accelerate">
+      <summary>property Accelerate</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureLaunchClass.AccelerationG">
+      <summary>property AccelerationG</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureLaunchClass.MinAirspeed">
+      <summary>property MinAirspeed</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureLaunchClass.MinAirspeedType">
+      <summary>property MinAirspeedType</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureLaunchClass.FuelFlowType">
+      <summary>property FuelFlowType</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureLaunchClass.OverrideFuelFlow">
+      <summary>property OverrideFuelFlow</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureLaunchClass.AttitudeMode">
+      <summary>property AttitudeMode</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightProcedureFactoryLaunch">
+      <summary>AgFlightProcedureFactoryLaunch Class</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightProcedureFactoryLaunchClass">
+      <summary>AgFlightProcedureFactoryLaunch Class</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightProcedureFormRecov">
+      <summary>AgFlightProcedureFormRecov Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureFormRecov.QueryStartRecoverTimeLimits(System.Double,AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgAbsoluteTime,System.Boolean)">
+      <summary>Method QueryStartRecoverTimeLimits.</summary>
+      <param name="pauseTransPauseTime"></param>
+      <param name="pMinTime"></param>
+      <param name="pMaxTime"></param>
+      <param name="vbConsiderPrevProcs"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureFormRecov.QueryStartRecoverTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method QueryStartRecoverTime.</summary>
+      <param name="presultTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureFormRecov.SetStartRecoverTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method SetStartRecoverTime.</summary>
+      <param name="pTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureFormRecov.MinFormationAltitudeOffset(System.String,AGI.AgComUtilities.IAgAbsoluteTime,.double)">
+      <summary>method MinFormationAltitudeOffset</summary>
+      <param name="pointName"></param>
+      <param name="pTime"></param>
+      <param name="pVal"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureFormRecov.MaxFormationAltitudeOffset(System.String,AGI.AgComUtilities.IAgAbsoluteTime,.double)">
+      <summary>method MaxFormationAltitudeOffset</summary>
+      <param name="pointName"></param>
+      <param name="pTime"></param>
+      <param name="pVal"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureFormRecov.FindFirstValidRecoverTime(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgAbsoluteTime,System.Double,AGI.AgFlightSTK.IAgFlightFormRecovSearchMgr,AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>method FindFirstValidRecoverTime</summary>
+      <param name="pMinTime"></param>
+      <param name="pMaxTime"></param>
+      <param name="dStepTime"></param>
+      <param name="pSearchMgr"></param>
+      <param name="pResultFirstTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureFormRecov.SetFormationFuelFlow(AGI.AgFlight.tagAgEFlightFuelFlowType,System.Double,System.Boolean)">
+      <summary>method SetFormationFuelFlow</summary>
+      <param name="eFuelFlowType"></param>
+      <param name="overrideVal"></param>
+      <param name="vbConsiderAccel"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureFormRecov.ReConfigure">
+      <summary>method ReConfigure</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureFormRecov.SetPerfModes(AGI.AgFlight.tagAgEFlightPerformanceMode,AGI.AgFlight.tagAgEFlightPhaseOfFlight)">
+      <summary>method SetPerfModes</summary>
+      <param name="ePerfMode"></param>
+      <param name="ePhaseOfFlight"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureFormRecov.SetMinMaxEnrouteFlightPathAngle(System.Double,System.Double)">
+      <summary>method SetMinMaxEnrouteFlightPathAngle</summary>
+      <param name="minVal"></param>
+      <param name="maxVal"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecov.ProcedureName">
+      <summary>property ProcedureName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecov.Site">
+      <summary>property Site</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecov.PositionPointName">
+      <summary>property PositionPointName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecov.UseDelay">
+      <summary>property UseDelay</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecov.DelayTurnDir">
+      <summary>property DelayTurnDir</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecov.FormationAltitudeOffset">
+      <summary>property FormationAltitudeOffset</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecov.ApproachFlightPathAngle">
+      <summary>property ApproachFlightPathAngle</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecov.MaxVertPlaneRadiusFactor">
+      <summary>property MaxVertPlaneRadiusFactor</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecov.MaxTurnRadiusFactor">
+      <summary>property MaxTurnRadiusFactor</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecov.UseMaxSpeedTurns">
+      <summary>property UseMaxSpeedTurns</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecov.FirstPause">
+      <summary>property FirstPause</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecov.TransitionTime">
+      <summary>property TransitionTime</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecov.SecondPause">
+      <summary>property SecondPause</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecov.PosVelTimeStep">
+      <summary>property PosVelTimeStep</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecov.CanFindFirstValidRecoverTime">
+      <summary>property CanFindFirstValidRecoverTime</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecov.FormationFuelFlowType">
+      <summary>property FormationFuelFlowType</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecov.FormationFuelFlow">
+      <summary>property FormationFuelFlow</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecov.ConsiderAccelForFuelFlow">
+      <summary>property ConsiderAccelForFuelFlow</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecov.PerformanceMode">
+      <summary>property PerformanceMode</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecov.PhaseOfFlight">
+      <summary>property PhaseOfFlight</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecov.DelayCruiseAirspeed">
+      <summary>property DelayCruiseAirspeed</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecov.MinEnrouteFlightPathAngle">
+      <summary>property MinEnrouteFlightPathAngle</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecov.MaxEnrouteFlightPathAngle">
+      <summary>property MaxEnrouteFlightPathAngle</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecov.RefuelDumpProperties">
+      <summary>property RefuelDumpProperties</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass">
+      <summary>AgFlightProcedureFormRecov Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.QueryStartRecoverTimeLimits(System.Double,AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgAbsoluteTime,System.Boolean)">
+      <summary>Method QueryStartRecoverTimeLimits.</summary>
+      <param name="pauseTransPauseTime"></param>
+      <param name="pMinTime"></param>
+      <param name="pMaxTime"></param>
+      <param name="vbConsiderPrevProcs"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.QueryStartRecoverTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method QueryStartRecoverTime.</summary>
+      <param name="presultTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.SetStartRecoverTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method SetStartRecoverTime.</summary>
+      <param name="pTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.MinFormationAltitudeOffset(System.String,AGI.AgComUtilities.IAgAbsoluteTime,.double)">
+      <summary>method MinFormationAltitudeOffset</summary>
+      <param name="pointName"></param>
+      <param name="pTime"></param>
+      <param name="pVal"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.MaxFormationAltitudeOffset(System.String,AGI.AgComUtilities.IAgAbsoluteTime,.double)">
+      <summary>method MaxFormationAltitudeOffset</summary>
+      <param name="pointName"></param>
+      <param name="pTime"></param>
+      <param name="pVal"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.FindFirstValidRecoverTime(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgAbsoluteTime,System.Double,AGI.AgFlightSTK.IAgFlightFormRecovSearchMgr,AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>method FindFirstValidRecoverTime</summary>
+      <param name="pMinTime"></param>
+      <param name="pMaxTime"></param>
+      <param name="dStepTime"></param>
+      <param name="pSearchMgr"></param>
+      <param name="pResultFirstTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.SetFormationFuelFlow(AGI.AgFlight.tagAgEFlightFuelFlowType,System.Double,System.Boolean)">
+      <summary>method SetFormationFuelFlow</summary>
+      <param name="eFuelFlowType"></param>
+      <param name="overrideVal"></param>
+      <param name="vbConsiderAccel"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.ReConfigure">
+      <summary>method ReConfigure</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.SetPerfModes(AGI.AgFlight.tagAgEFlightPerformanceMode,AGI.AgFlight.tagAgEFlightPhaseOfFlight)">
+      <summary>method SetPerfModes</summary>
+      <param name="ePerfMode"></param>
+      <param name="ePhaseOfFlight"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.SetMinMaxEnrouteFlightPathAngle(System.Double,System.Double)">
+      <summary>method SetMinMaxEnrouteFlightPathAngle</summary>
+      <param name="minVal"></param>
+      <param name="maxVal"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.ProcedureName">
+      <summary>property ProcedureName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.Site">
+      <summary>property Site</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.PositionPointName">
+      <summary>property PositionPointName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.UseDelay">
+      <summary>property UseDelay</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.DelayTurnDir">
+      <summary>property DelayTurnDir</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.FormationAltitudeOffset">
+      <summary>property FormationAltitudeOffset</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.ApproachFlightPathAngle">
+      <summary>property ApproachFlightPathAngle</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.MaxVertPlaneRadiusFactor">
+      <summary>property MaxVertPlaneRadiusFactor</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.MaxTurnRadiusFactor">
+      <summary>property MaxTurnRadiusFactor</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.UseMaxSpeedTurns">
+      <summary>property UseMaxSpeedTurns</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.FirstPause">
+      <summary>property FirstPause</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.TransitionTime">
+      <summary>property TransitionTime</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.SecondPause">
+      <summary>property SecondPause</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.PosVelTimeStep">
+      <summary>property PosVelTimeStep</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.CanFindFirstValidRecoverTime">
+      <summary>property CanFindFirstValidRecoverTime</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.FormationFuelFlowType">
+      <summary>property FormationFuelFlowType</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.FormationFuelFlow">
+      <summary>property FormationFuelFlow</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.ConsiderAccelForFuelFlow">
+      <summary>property ConsiderAccelForFuelFlow</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.PerformanceMode">
+      <summary>property PerformanceMode</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.PhaseOfFlight">
+      <summary>property PhaseOfFlight</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.DelayCruiseAirspeed">
+      <summary>property DelayCruiseAirspeed</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.MinEnrouteFlightPathAngle">
+      <summary>property MinEnrouteFlightPathAngle</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.MaxEnrouteFlightPathAngle">
+      <summary>property MaxEnrouteFlightPathAngle</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureFormRecovClass.RefuelDumpProperties">
+      <summary>property RefuelDumpProperties</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightProcedureInFormation">
+      <summary>AgFlightProcedureInFormation Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureInFormation.SetFormationFuelFlow(AGI.AgFlight.tagAgEFlightFuelFlowType,System.Double,System.Boolean)">
+      <summary>method SetFormationFuelFlow</summary>
+      <param name="eFuelFlowType"></param>
+      <param name="overrideVal"></param>
+      <param name="vbConsiderAccel"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureInFormation.SetPerfModes(AGI.AgFlight.tagAgEFlightPerformanceMode,AGI.AgFlight.tagAgEFlightPhaseOfFlight)">
+      <summary>method SetPerfModes</summary>
+      <param name="ePerfMode"></param>
+      <param name="ePhaseOfFlight"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureInFormation.ProcedureName">
+      <summary>property ProcedureName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureInFormation.STKObjectSite">
+      <summary>property STKObjectSite</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureInFormation.PositionPointName">
+      <summary>property PositionPointName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureInFormation.TransitionTime">
+      <summary>property TransitionTime</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureInFormation.HoldTime">
+      <summary>property HoldTime</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureInFormation.PosVelTimeStep">
+      <summary>property PosVelTimeStep</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureInFormation.FormationFuelFlowType">
+      <summary>property FormationFuelFlowType</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureInFormation.FormationFuelFlow">
+      <summary>property FormationFuelFlow</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureInFormation.ConsiderAccelForFuelFlow">
+      <summary>property ConsiderAccelForFuelFlow</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureInFormation.PerformanceMode">
+      <summary>property PerformanceMode</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureInFormation.PhaseOfFlight">
+      <summary>property PhaseOfFlight</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureInFormation.HasMaxDuration">
+      <summary>property HasMaxDuration</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureInFormation.MaxDuration">
+      <summary>property MaxDuration</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureInFormation.TrajBlendMode">
+      <summary>property TrajBlendMode</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureInFormation.RefuelDumpProperties">
+      <summary>property RefuelDumpProperties</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightProcedureInFormationClass">
+      <summary>AgFlightProcedureInFormation Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureInFormationClass.SetFormationFuelFlow(AGI.AgFlight.tagAgEFlightFuelFlowType,System.Double,System.Boolean)">
+      <summary>method SetFormationFuelFlow</summary>
+      <param name="eFuelFlowType"></param>
+      <param name="overrideVal"></param>
+      <param name="vbConsiderAccel"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureInFormationClass.SetPerfModes(AGI.AgFlight.tagAgEFlightPerformanceMode,AGI.AgFlight.tagAgEFlightPhaseOfFlight)">
+      <summary>method SetPerfModes</summary>
+      <param name="ePerfMode"></param>
+      <param name="ePhaseOfFlight"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureInFormationClass.ProcedureName">
+      <summary>property ProcedureName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureInFormationClass.STKObjectSite">
+      <summary>property STKObjectSite</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureInFormationClass.PositionPointName">
+      <summary>property PositionPointName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureInFormationClass.TransitionTime">
+      <summary>property TransitionTime</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureInFormationClass.HoldTime">
+      <summary>property HoldTime</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureInFormationClass.PosVelTimeStep">
+      <summary>property PosVelTimeStep</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureInFormationClass.FormationFuelFlowType">
+      <summary>property FormationFuelFlowType</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureInFormationClass.FormationFuelFlow">
+      <summary>property FormationFuelFlow</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureInFormationClass.ConsiderAccelForFuelFlow">
+      <summary>property ConsiderAccelForFuelFlow</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureInFormationClass.PerformanceMode">
+      <summary>property PerformanceMode</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureInFormationClass.PhaseOfFlight">
+      <summary>property PhaseOfFlight</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureInFormationClass.HasMaxDuration">
+      <summary>property HasMaxDuration</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureInFormationClass.MaxDuration">
+      <summary>property MaxDuration</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureInFormationClass.TrajBlendMode">
+      <summary>property TrajBlendMode</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureInFormationClass.RefuelDumpProperties">
+      <summary>property RefuelDumpProperties</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightProcedureFactoryFormRecov">
+      <summary>AgFlightProcedureFactoryFormRecov Class</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightProcedureFactoryFormRecovClass">
+      <summary>AgFlightProcedureFactoryFormRecov Class</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightProcedureFactoryInFormation">
+      <summary>AgFlightProcedureFactoryInFormation Class</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightProcedureFactoryInFormationClass">
+      <summary>AgFlightProcedureFactoryInFormation Class</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightSiteSTKObjectWpt">
+      <summary>AgFlightSiteSTKObjectWpt Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectWpt.SetDynStateLink(System.Object)">
+      <summary>method SetDynStateLink</summary>
+      <param name="pDynState"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectWpt.QueryWaypointTimeLimits(System.String,AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method QueryWaypointTimeLimits.</summary>
+      <param name="linkName"></param>
+      <param name="pMinTime"></param>
+      <param name="pMaxTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectWpt.QueryWaypointTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method QueryWaypointTime.</summary>
+      <param name="pWptTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectWpt.SetWaypointTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method SetWaypointTime.</summary>
+      <param name="pWptTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectWpt.SetOffsetModeNone">
+      <summary>method SetOffsetModeNone</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectWpt.SetOffsetModeBrgRng(System.Double,System.Boolean,System.Double)">
+      <summary>method SetOffsetModeBrgRng</summary>
+      <param name="brg"></param>
+      <param name="vbMagnetic"></param>
+      <param name="rng"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectWpt.SetOffsetModeRelBrgRng(System.Double,System.Double)">
+      <summary>method SetOffsetModeRelBrgRng</summary>
+      <param name="brg"></param>
+      <param name="rng"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectWpt.SetOffsetModeVGTPoint(System.String)">
+      <summary>method SetOffsetModeVGTPoint</summary>
+      <param name="pointName"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectWpt.DynStateLinkName">
+      <summary>property DynStateLinkName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectWpt.DisplayName">
+      <summary>property DisplayName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectWpt.ValidDynStateLinks">
+      <summary>property ValidDynStateLinks</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectWpt.EditLLAHint">
+      <summary>property EditLLAHint</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectWpt.OffsetMode">
+      <summary>property OffsetMode</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectWpt.OffsetModeBrg">
+      <summary>property OffsetModeBrg</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectWpt.OffsetModeMagBrg">
+      <summary>property OffsetModeMagBrg</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectWpt.OffsetModeRng">
+      <summary>property OffsetModeRng</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectWpt.OffsetModeVGTPointName">
+      <summary>property OffsetModeVGTPointName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectWpt.MinimizeSiteProcTimeDiff">
+      <summary>property MinimizeSiteProcTimeDiff</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectWpt.Procedure">
+      <summary>property Procedure</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectWpt.Mission">
+      <summary>property Mission</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightSiteSTKObjectWptClass">
+      <summary>AgFlightSiteSTKObjectWpt Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectWptClass.SetDynStateLink(System.Object)">
+      <summary>method SetDynStateLink</summary>
+      <param name="pDynState"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectWptClass.QueryWaypointTimeLimits(System.String,AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method QueryWaypointTimeLimits.</summary>
+      <param name="linkName"></param>
+      <param name="pMinTime"></param>
+      <param name="pMaxTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectWptClass.QueryWaypointTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method QueryWaypointTime.</summary>
+      <param name="pWptTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectWptClass.SetWaypointTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method SetWaypointTime.</summary>
+      <param name="pWptTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectWptClass.SetOffsetModeNone">
+      <summary>method SetOffsetModeNone</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectWptClass.SetOffsetModeBrgRng(System.Double,System.Boolean,System.Double)">
+      <summary>method SetOffsetModeBrgRng</summary>
+      <param name="brg"></param>
+      <param name="vbMagnetic"></param>
+      <param name="rng"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectWptClass.SetOffsetModeRelBrgRng(System.Double,System.Double)">
+      <summary>method SetOffsetModeRelBrgRng</summary>
+      <param name="brg"></param>
+      <param name="rng"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKObjectWptClass.SetOffsetModeVGTPoint(System.String)">
+      <summary>method SetOffsetModeVGTPoint</summary>
+      <param name="pointName"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectWptClass.DynStateLinkName">
+      <summary>property DynStateLinkName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectWptClass.DisplayName">
+      <summary>property DisplayName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectWptClass.ValidDynStateLinks">
+      <summary>property ValidDynStateLinks</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectWptClass.EditLLAHint">
+      <summary>property EditLLAHint</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectWptClass.OffsetMode">
+      <summary>property OffsetMode</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectWptClass.OffsetModeBrg">
+      <summary>property OffsetModeBrg</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectWptClass.OffsetModeMagBrg">
+      <summary>property OffsetModeMagBrg</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectWptClass.OffsetModeRng">
+      <summary>property OffsetModeRng</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectWptClass.OffsetModeVGTPointName">
+      <summary>property OffsetModeVGTPointName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectWptClass.MinimizeSiteProcTimeDiff">
+      <summary>property MinimizeSiteProcTimeDiff</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectWptClass.Procedure">
+      <summary>property Procedure</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKObjectWptClass.Mission">
+      <summary>property Mission</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightSiteFactorySTKObjectWpt">
+      <summary>AgFlightSiteFactorySTKObjectWpt Class</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightSiteFactorySTKObjectWptClass">
+      <summary>AgFlightSiteFactorySTKObjectWpt Class</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightSTKHelper">
+      <summary>AgFlightSTKHelper Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSTKHelper.LoadFlightFile(System.String,System.Boolean)">
+      <summary>method LoadFlightFile</summary>
+      <param name="filePath"></param>
+      <param name="vbConfigCalculate"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSTKHelper.SaveFlightFile(System.String,AGI.AgFlight.IAgFlightMission)">
+      <summary>method SaveFlightFile</summary>
+      <param name="filePath"></param>
+      <param name="pMission"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSTKHelper.LoadFlightPackage(System.String,System.Boolean)">
+      <summary>method LoadFlightPackage</summary>
+      <param name="filePath"></param>
+      <param name="vbConfigCalculate"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSTKHelper.SaveFlightPackage(System.String,AGI.AgFlight.IAgFlightMission)">
+      <summary>method SaveFlightPackage</summary>
+      <param name="filePath"></param>
+      <param name="pMission"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSTKHelper.MissionToBLOB(AGI.AgFlight.IAgFlightMission)">
+      <summary>method MissionToBLOB</summary>
+      <param name="pMission"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSTKHelper.MissionFromBLOB(System.Object,System.Boolean)">
+      <summary>method MissionFromBLOB</summary>
+      <param name="pBLOB"></param>
+      <param name="vbConfigCalculate"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSTKHelper.GetAMMDefn(System.String)">
+      <summary>method GetAMMDefn</summary>
+      <param name="aircraftPath"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSTKHelper.ImportFlightFile(System.String,System.String,System.Boolean)">
+      <summary>method ImportFlightFile</summary>
+      <param name="aircraftPath"></param>
+      <param name="flightFilePath"></param>
+      <param name="vbUpdate"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSTKHelper.ExportFlightFile(System.String,System.String)">
+      <summary>method ExportFlightFile</summary>
+      <param name="aircraftPath"></param>
+      <param name="flightFilePath"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSTKHelper.ImportFlightPackage(System.String,System.String,System.Boolean)">
+      <summary>method ImportFlightPackage</summary>
+      <param name="aircraftPath"></param>
+      <param name="flightPackagePath"></param>
+      <param name="vbUpdate"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSTKHelper.ExportFlightPackage(System.String,System.String)">
+      <summary>method ExportFlightPackage</summary>
+      <param name="aircraftPath"></param>
+      <param name="flightPackagePath"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSTKHelper.QueryAnimationTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>method QueryAnimationTime</summary>
+      <param name="pAnimTime"></param>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightSTKHelperClass">
+      <summary>AgFlightSTKHelper Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSTKHelperClass.LoadFlightFile(System.String,System.Boolean)">
+      <summary>method LoadFlightFile</summary>
+      <param name="filePath"></param>
+      <param name="vbConfigCalculate"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSTKHelperClass.SaveFlightFile(System.String,AGI.AgFlight.IAgFlightMission)">
+      <summary>method SaveFlightFile</summary>
+      <param name="filePath"></param>
+      <param name="pMission"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSTKHelperClass.LoadFlightPackage(System.String,System.Boolean)">
+      <summary>method LoadFlightPackage</summary>
+      <param name="filePath"></param>
+      <param name="vbConfigCalculate"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSTKHelperClass.SaveFlightPackage(System.String,AGI.AgFlight.IAgFlightMission)">
+      <summary>method SaveFlightPackage</summary>
+      <param name="filePath"></param>
+      <param name="pMission"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSTKHelperClass.MissionToBLOB(AGI.AgFlight.IAgFlightMission)">
+      <summary>method MissionToBLOB</summary>
+      <param name="pMission"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSTKHelperClass.MissionFromBLOB(System.Object,System.Boolean)">
+      <summary>method MissionFromBLOB</summary>
+      <param name="pBLOB"></param>
+      <param name="vbConfigCalculate"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSTKHelperClass.GetAMMDefn(System.String)">
+      <summary>method GetAMMDefn</summary>
+      <param name="aircraftPath"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSTKHelperClass.ImportFlightFile(System.String,System.String,System.Boolean)">
+      <summary>method ImportFlightFile</summary>
+      <param name="aircraftPath"></param>
+      <param name="flightFilePath"></param>
+      <param name="vbUpdate"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSTKHelperClass.ExportFlightFile(System.String,System.String)">
+      <summary>method ExportFlightFile</summary>
+      <param name="aircraftPath"></param>
+      <param name="flightFilePath"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSTKHelperClass.ImportFlightPackage(System.String,System.String,System.Boolean)">
+      <summary>method ImportFlightPackage</summary>
+      <param name="aircraftPath"></param>
+      <param name="flightPackagePath"></param>
+      <param name="vbUpdate"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSTKHelperClass.ExportFlightPackage(System.String,System.String)">
+      <summary>method ExportFlightPackage</summary>
+      <param name="aircraftPath"></param>
+      <param name="flightPackagePath"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSTKHelperClass.QueryAnimationTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>method QueryAnimationTime</summary>
+      <param name="pAnimTime"></param>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightProcedureFactoryVGTPoint">
+      <summary>AgFlightProcedureFactoryVGTPoint Class</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightProcedureFactoryVGTPointClass">
+      <summary>AgFlightProcedureFactoryVGTPoint Class</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightProcedureVGTPoint">
+      <summary>AgFlightProcedureVGTPoint Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureVGTPoint.QueryPointTimeLimits(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method QueryPointTimeLimits.</summary>
+      <param name="pMinTime"></param>
+      <param name="pMaxTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureVGTPoint.QueryStartTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method QueryStartTime.</summary>
+      <param name="presultTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureVGTPoint.SetStartTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method SetStartTime.</summary>
+      <param name="pTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureVGTPoint.SetFuelFlow(AGI.AgFlight.tagAgEFlightFuelFlowType,System.Double,System.Boolean)">
+      <summary>method SetFuelFlow</summary>
+      <param name="eFuelFlowType"></param>
+      <param name="overrideVal"></param>
+      <param name="vbConsiderAccel"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureVGTPoint.ReConfigure">
+      <summary>method ReConfigure</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureVGTPoint.SetPerfModes(AGI.AgFlight.tagAgEFlightPerformanceMode,AGI.AgFlight.tagAgEFlightPhaseOfFlight)">
+      <summary>method SetPerfModes</summary>
+      <param name="ePerfMode"></param>
+      <param name="ePhaseOfFlight"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureVGTPoint.ProcedureName">
+      <summary>property ProcedureName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureVGTPoint.Site">
+      <summary>property Site</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureVGTPoint.PositionPointName">
+      <summary>property PositionPointName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureVGTPoint.Duration">
+      <summary>property Duration</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureVGTPoint.PosVelTimeStep">
+      <summary>property PosVelTimeStep</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureVGTPoint.FuelFlowType">
+      <summary>property FuelFlowType</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureVGTPoint.OverrideFuelFlow">
+      <summary>property OverrideFuelFlow</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureVGTPoint.ConsiderAccelForFuelFlow">
+      <summary>property ConsiderAccelForFuelFlow</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureVGTPoint.PerformanceMode">
+      <summary>property PerformanceMode</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureVGTPoint.PhaseOfFlight">
+      <summary>property PhaseOfFlight</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureVGTPoint.RefuelDumpProperties">
+      <summary>property RefuelDumpProperties</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightProcedureVGTPointClass">
+      <summary>AgFlightProcedureVGTPoint Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureVGTPointClass.QueryPointTimeLimits(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method QueryPointTimeLimits.</summary>
+      <param name="pMinTime"></param>
+      <param name="pMaxTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureVGTPointClass.QueryStartTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method QueryStartTime.</summary>
+      <param name="presultTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureVGTPointClass.SetStartTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method SetStartTime.</summary>
+      <param name="pTime"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureVGTPointClass.SetFuelFlow(AGI.AgFlight.tagAgEFlightFuelFlowType,System.Double,System.Boolean)">
+      <summary>method SetFuelFlow</summary>
+      <param name="eFuelFlowType"></param>
+      <param name="overrideVal"></param>
+      <param name="vbConsiderAccel"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureVGTPointClass.ReConfigure">
+      <summary>method ReConfigure</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureVGTPointClass.SetPerfModes(AGI.AgFlight.tagAgEFlightPerformanceMode,AGI.AgFlight.tagAgEFlightPhaseOfFlight)">
+      <summary>method SetPerfModes</summary>
+      <param name="ePerfMode"></param>
+      <param name="ePhaseOfFlight"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureVGTPointClass.ProcedureName">
+      <summary>property ProcedureName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureVGTPointClass.Site">
+      <summary>property Site</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureVGTPointClass.PositionPointName">
+      <summary>property PositionPointName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureVGTPointClass.Duration">
+      <summary>property Duration</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureVGTPointClass.PosVelTimeStep">
+      <summary>property PosVelTimeStep</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureVGTPointClass.FuelFlowType">
+      <summary>property FuelFlowType</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureVGTPointClass.OverrideFuelFlow">
+      <summary>property OverrideFuelFlow</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureVGTPointClass.ConsiderAccelForFuelFlow">
+      <summary>property ConsiderAccelForFuelFlow</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureVGTPointClass.PerformanceMode">
+      <summary>property PerformanceMode</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureVGTPointClass.PhaseOfFlight">
+      <summary>property PhaseOfFlight</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureVGTPointClass.RefuelDumpProperties">
+      <summary>property RefuelDumpProperties</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightDynStateSegVGTPointAltOffset">
+      <summary>AgFlightDynStateSegVGTPointAltOffset Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightDynStateSegVGTPointAltOffset.Construct(AGI.AgFlightSTK.IAgFlightSiteSTKObject,AGI.AgComUtilities.IAgAbsoluteTime,System.String,AGI.AgFlight.IAgFlightProfileItem,System.Double,AGI.AgComUtilities.IAgQuaternion,System.Double,System.Double,AGI.AgFlight.IAgFlightProfileFuelFlow,System.Boolean,AGI.AgFlight.tagAgEFlightPerformanceMode,AGI.AgFlight.tagAgEFlightPhaseOfFlight,AGI.AgFlight.IAgFlightPerfModelCollection,AGI.AgFlight.IAgFlightConfiguration,AGI.AgFlight.IAgFlightAtmosphereCalcData,AGI.AgFlight.IAgFlightWindModel,System.Double,System.Double,System.Double,AGI.AgFlight.IAgFlightMissionCalcResult)">
+      <summary>method Construct</summary>
+      <param name="pSite"></param>
+      <param name="pEpoch"></param>
+      <param name="vgtPointName"></param>
+      <param name="pStartProfileItem"></param>
+      <param name="startOffsetAlt"></param>
+      <param name="pStartECFToBody"></param>
+      <param name="stopOffsetTime"></param>
+      <param name="stopOffsetAlt"></param>
+      <param name="pFuelFlow"></param>
+      <param name="vbConsiderAccelForFuelFlow"></param>
+      <param name="ePerfMode"></param>
+      <param name="ePhaseOfFlight"></param>
+      <param name="pPerfModels"></param>
+      <param name="pStartConfig"></param>
+      <param name="pAtmosCalcData"></param>
+      <param name="pWindModel"></param>
+      <param name="dPosVelTimeStep"></param>
+      <param name="dCacheTimeInterval"></param>
+      <param name="dMaxRelMotionFactor"></param>
+      <param name="pMissionCalcResult"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightDynStateSegVGTPointAltOffset.QueryFinalState(AGI.AgFlight.IAgFlightProfileItem,AGI.AgComUtilities.IAgQuaternion)">
+      <summary>method QueryFinalState</summary>
+      <param name="pProfileItem"></param>
+      <param name="pStopQuat"></param>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightDynStateSegVGTPointAltOffsetClass">
+      <summary>AgFlightDynStateSegVGTPointAltOffset Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightDynStateSegVGTPointAltOffsetClass.Construct(AGI.AgFlightSTK.IAgFlightSiteSTKObject,AGI.AgComUtilities.IAgAbsoluteTime,System.String,AGI.AgFlight.IAgFlightProfileItem,System.Double,AGI.AgComUtilities.IAgQuaternion,System.Double,System.Double,AGI.AgFlight.IAgFlightProfileFuelFlow,System.Boolean,AGI.AgFlight.tagAgEFlightPerformanceMode,AGI.AgFlight.tagAgEFlightPhaseOfFlight,AGI.AgFlight.IAgFlightPerfModelCollection,AGI.AgFlight.IAgFlightConfiguration,AGI.AgFlight.IAgFlightAtmosphereCalcData,AGI.AgFlight.IAgFlightWindModel,System.Double,System.Double,System.Double,AGI.AgFlight.IAgFlightMissionCalcResult)">
+      <summary>method Construct</summary>
+      <param name="pSite"></param>
+      <param name="pEpoch"></param>
+      <param name="vgtPointName"></param>
+      <param name="pStartProfileItem"></param>
+      <param name="startOffsetAlt"></param>
+      <param name="pStartECFToBody"></param>
+      <param name="stopOffsetTime"></param>
+      <param name="stopOffsetAlt"></param>
+      <param name="pFuelFlow"></param>
+      <param name="vbConsiderAccelForFuelFlow"></param>
+      <param name="ePerfMode"></param>
+      <param name="ePhaseOfFlight"></param>
+      <param name="pPerfModels"></param>
+      <param name="pStartConfig"></param>
+      <param name="pAtmosCalcData"></param>
+      <param name="pWindModel"></param>
+      <param name="dPosVelTimeStep"></param>
+      <param name="dCacheTimeInterval"></param>
+      <param name="dMaxRelMotionFactor"></param>
+      <param name="pMissionCalcResult"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightDynStateSegVGTPointAltOffsetClass.QueryFinalState(AGI.AgFlight.IAgFlightProfileItem,AGI.AgComUtilities.IAgQuaternion)">
+      <summary>method QueryFinalState</summary>
+      <param name="pProfileItem"></param>
+      <param name="pStopQuat"></param>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightDynStateSegVGTPointTransition">
+      <summary>AgFlightDynStateSegVGTPointTransition Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightDynStateSegVGTPointTransition.Construct(AGI.AgFlightSTK.IAgFlightSiteSTKObject,AGI.AgComUtilities.IAgAbsoluteTime,System.String,AGI.AgFlight.IAgFlightProfileItem,AGI.AgComUtilities.IAgCartVec3,AGI.AgComUtilities.IAgCartVec3,System.Double,System.Double,AGI.AgFlight.IAgFlightProfileFuelFlow,System.Boolean,AGI.AgFlight.tagAgEFlightPerformanceMode,AGI.AgFlight.tagAgEFlightPhaseOfFlight,AGI.AgFlight.IAgFlightPerfModelCollection,AGI.AgFlight.IAgFlightConfiguration,AGI.AgFlight.IAgFlightAtmosphereCalcData,AGI.AgFlight.IAgFlightWindModel,System.Double,AGI.AgFlightSTK.tagAgEFlightTrajectoryBlendMode,System.Double,System.Double,AGI.AgFlight.IAgFlightMissionCalcResult)">
+      <summary>method Construct</summary>
+      <param name="pSite"></param>
+      <param name="pEpoch"></param>
+      <param name="strVgtPointName"></param>
+      <param name="pStartProfileItem"></param>
+      <param name="pStartPos"></param>
+      <param name="pStartVel"></param>
+      <param name="dTransitionTime"></param>
+      <param name="dHoldPointTime"></param>
+      <param name="pFuelFlow"></param>
+      <param name="vbConsiderAccelForFuelFlow"></param>
+      <param name="ePerfMode"></param>
+      <param name="ePhaseOfFlight"></param>
+      <param name="pPerfModels"></param>
+      <param name="pStartConfig"></param>
+      <param name="pAtmosCalcData"></param>
+      <param name="pWindModel"></param>
+      <param name="dPosVelTimeStep"></param>
+      <param name="eBlendMode"></param>
+      <param name="dCacheTimeInterval"></param>
+      <param name="dMaxRelMotionFactor"></param>
+      <param name="pMissionCalcResult"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightDynStateSegVGTPointTransition.QueryFinalState(AGI.AgFlight.IAgFlightProfileItem,AGI.AgComUtilities.IAgQuaternion)">
+      <summary>method QueryFinalState</summary>
+      <param name="pProfileItem"></param>
+      <param name="pStopQuat"></param>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightDynStateSegVGTPointTransitionClass">
+      <summary>AgFlightDynStateSegVGTPointTransition Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightDynStateSegVGTPointTransitionClass.Construct(AGI.AgFlightSTK.IAgFlightSiteSTKObject,AGI.AgComUtilities.IAgAbsoluteTime,System.String,AGI.AgFlight.IAgFlightProfileItem,AGI.AgComUtilities.IAgCartVec3,AGI.AgComUtilities.IAgCartVec3,System.Double,System.Double,AGI.AgFlight.IAgFlightProfileFuelFlow,System.Boolean,AGI.AgFlight.tagAgEFlightPerformanceMode,AGI.AgFlight.tagAgEFlightPhaseOfFlight,AGI.AgFlight.IAgFlightPerfModelCollection,AGI.AgFlight.IAgFlightConfiguration,AGI.AgFlight.IAgFlightAtmosphereCalcData,AGI.AgFlight.IAgFlightWindModel,System.Double,AGI.AgFlightSTK.tagAgEFlightTrajectoryBlendMode,System.Double,System.Double,AGI.AgFlight.IAgFlightMissionCalcResult)">
+      <summary>method Construct</summary>
+      <param name="pSite"></param>
+      <param name="pEpoch"></param>
+      <param name="strVgtPointName"></param>
+      <param name="pStartProfileItem"></param>
+      <param name="pStartPos"></param>
+      <param name="pStartVel"></param>
+      <param name="dTransitionTime"></param>
+      <param name="dHoldPointTime"></param>
+      <param name="pFuelFlow"></param>
+      <param name="vbConsiderAccelForFuelFlow"></param>
+      <param name="ePerfMode"></param>
+      <param name="ePhaseOfFlight"></param>
+      <param name="pPerfModels"></param>
+      <param name="pStartConfig"></param>
+      <param name="pAtmosCalcData"></param>
+      <param name="pWindModel"></param>
+      <param name="dPosVelTimeStep"></param>
+      <param name="eBlendMode"></param>
+      <param name="dCacheTimeInterval"></param>
+      <param name="dMaxRelMotionFactor"></param>
+      <param name="pMissionCalcResult"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightDynStateSegVGTPointTransitionClass.QueryFinalState(AGI.AgFlight.IAgFlightProfileItem,AGI.AgComUtilities.IAgQuaternion)">
+      <summary>method QueryFinalState</summary>
+      <param name="pProfileItem"></param>
+      <param name="pStopQuat"></param>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightSiteSTKAreaTarget">
+      <summary>AgFlightSiteSTKAreaTarget Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKAreaTarget.QueryCentroidLatLon(AGI.AgComUtilities.IAgLatLon)">
+      <summary>method QueryCentroidLatLon</summary>
+      <param name="presultLatLon"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKAreaTarget.GetBoundaryPointsLatLon">
+      <summary>method GetBoundaryPointsLatLon</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKAreaTarget.GetInstPtr">
+      <summary>method GetInstPtr</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightSiteSTKAreaTargetClass">
+      <summary>AgFlightSiteSTKAreaTarget Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKAreaTargetClass.QueryCentroidLatLon(AGI.AgComUtilities.IAgLatLon)">
+      <summary>method QueryCentroidLatLon</summary>
+      <param name="presultLatLon"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKAreaTargetClass.GetBoundaryPointsLatLon">
+      <summary>method GetBoundaryPointsLatLon</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKAreaTargetClass.GetInstPtr">
+      <summary>method GetInstPtr</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKAreaTargetClass.SetDynStateLink(System.Object)">
+      <summary>method SetDynStateLink</summary>
+      <param name="pDynState"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKAreaTargetClass.QueryECFPosition(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>Method QueryECFPosition.</summary>
+      <param name="pTime"></param>
+      <param name="presultEcfPos"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKAreaTargetClass.QueryECFVelocity(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>Method QueryECFVelocity.</summary>
+      <param name="pTime"></param>
+      <param name="presultEcfVel"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKAreaTargetClass.QueryECFAcceleration(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>Method QueryECFAcceleration.</summary>
+      <param name="pTime"></param>
+      <param name="presultEcfAccel"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKAreaTargetClass.QueryECFToBodyRotation(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgQuaternion)">
+      <summary>Method QueryECFToBodyRotation.</summary>
+      <param name="pTime"></param>
+      <param name="presultEcfQuat"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKAreaTargetClass.QueryBodyAngularVelocity(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>Method QueryBodyAngularVelocity.</summary>
+      <param name="pTime"></param>
+      <param name="presultAngVel"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKAreaTargetClass.QueryMission">
+      <summary>Method QueryMission</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteSTKAreaTargetClass.QueryValidInterval(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>Method QueryValidInterval.</summary>
+      <param name="pMinTime"></param>
+      <param name="pMaxTime"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKAreaTargetClass.DynStateLinkName">
+      <summary>property DynStateLinkName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKAreaTargetClass.DisplayName">
+      <summary>property DisplayName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKAreaTargetClass.ValidDynStateLinks">
+      <summary>property ValidDynStateLinks</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKAreaTargetClass.EditLLAHint">
+      <summary>property EditLLAHint</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKAreaTargetClass.IsStationary">
+      <summary>property IsStationary</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKAreaTargetClass.StationaryLLA">
+      <summary>property StationaryLLA</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKAreaTargetClass.IsValid">
+      <summary>property IsValid</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteSTKAreaTargetClass.FullDisplayName">
+      <summary>property FullDisplayName</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightSiteFactorySTKAreaTarget">
+      <summary>AgFlightSiteFactorySTKAreaTarget Class</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightSiteFactorySTKAreaTargetClass">
+      <summary>AgFlightSiteFactorySTKAreaTarget Class</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearch">
+      <summary>AgFlightProcedureAreaTargetSearch Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearch.SetCentroidCourse(AGI.AgFlightSTK.tagAgEFlightSTKAreaTgtCentroidCourseMode,System.Boolean,System.Double)">
+      <summary>method SetCentroidCourse</summary>
+      <param name="eCourseMode"></param>
+      <param name="vbRetrograde"></param>
+      <param name="dOverrideCentroidTrueHeading"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearch.UserSetAltitude">
+      <summary>method UserSetAltitude</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearch.SetAltitude(System.Boolean,System.Boolean,System.Double)">
+      <summary>method SetAltitude</summary>
+      <param name="useDefault"></param>
+      <param name="useAGL"></param>
+      <param name="reqAlt"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearch.ProcedureName">
+      <summary>property ProcedureName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearch.EmbeddedProcedureType">
+      <summary>property EmbeddedProcedureType</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearch.MaxFlightLineSeparation">
+      <summary>property MaxFlightLineSeparation</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearch.CentroidCourseMode">
+      <summary>property CentroidCourseMode</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearch.RetrogradeCourse">
+      <summary>property RetrogradeCourse</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearch.CentroidTrueCourse">
+      <summary>property CentroidTrueCourse</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearch.DefaultCruiseAltitude">
+      <summary>property DefaultCruiseAltitude</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearch.WaypointTerrainAltitude">
+      <summary>property WaypointTerrainAltitude</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearch.AltitudeUseDefault">
+      <summary>property AltitudeUseDefault</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearch.AltitudeUseAGL">
+      <summary>property AltitudeUseAGL</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearch.Altitude">
+      <summary>property Altitude</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearch.MaxTurnRadiusFactor">
+      <summary>property MaxTurnRadiusFactor</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearch.EnrouteCruiseAirspeed">
+      <summary>property EnrouteCruiseAirspeed</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearch.FlyCruiseAirspeedProfile">
+      <summary>property FlyCruiseAirspeedProfile</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearch.UseMaxSpeedTurns">
+      <summary>property UseMaxSpeedTurns</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearch.LevelOffMode">
+      <summary>property LevelOffMode</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearch.MustLevelOff">
+      <summary>property MustLevelOff</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearch.ProcedureCollectionCopy">
+      <summary>property ProcedureCollectionCopy</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearchClass">
+      <summary>AgFlightProcedureAreaTargetSearch Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearchClass.SetCentroidCourse(AGI.AgFlightSTK.tagAgEFlightSTKAreaTgtCentroidCourseMode,System.Boolean,System.Double)">
+      <summary>method SetCentroidCourse</summary>
+      <param name="eCourseMode"></param>
+      <param name="vbRetrograde"></param>
+      <param name="dOverrideCentroidTrueHeading"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearchClass.UserSetAltitude">
+      <summary>method UserSetAltitude</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearchClass.SetAltitude(System.Boolean,System.Boolean,System.Double)">
+      <summary>method SetAltitude</summary>
+      <param name="useDefault"></param>
+      <param name="useAGL"></param>
+      <param name="reqAlt"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearchClass.ProcedureName">
+      <summary>property ProcedureName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearchClass.EmbeddedProcedureType">
+      <summary>property EmbeddedProcedureType</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearchClass.MaxFlightLineSeparation">
+      <summary>property MaxFlightLineSeparation</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearchClass.CentroidCourseMode">
+      <summary>property CentroidCourseMode</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearchClass.RetrogradeCourse">
+      <summary>property RetrogradeCourse</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearchClass.CentroidTrueCourse">
+      <summary>property CentroidTrueCourse</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearchClass.DefaultCruiseAltitude">
+      <summary>property DefaultCruiseAltitude</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearchClass.WaypointTerrainAltitude">
+      <summary>property WaypointTerrainAltitude</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearchClass.AltitudeUseDefault">
+      <summary>property AltitudeUseDefault</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearchClass.AltitudeUseAGL">
+      <summary>property AltitudeUseAGL</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearchClass.Altitude">
+      <summary>property Altitude</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearchClass.MaxTurnRadiusFactor">
+      <summary>property MaxTurnRadiusFactor</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearchClass.EnrouteCruiseAirspeed">
+      <summary>property EnrouteCruiseAirspeed</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearchClass.FlyCruiseAirspeedProfile">
+      <summary>property FlyCruiseAirspeedProfile</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearchClass.UseMaxSpeedTurns">
+      <summary>property UseMaxSpeedTurns</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearchClass.LevelOffMode">
+      <summary>property LevelOffMode</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearchClass.MustLevelOff">
+      <summary>property MustLevelOff</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightProcedureAreaTargetSearchClass.ProcedureCollectionCopy">
+      <summary>property ProcedureCollectionCopy</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightProcedureFactoryAreaTargetSearch">
+      <summary>AgFlightProcedureFactoryAreaTargetSearch Class</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightProcedureFactoryAreaTargetSearchClass">
+      <summary>AgFlightProcedureFactoryAreaTargetSearch Class</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightPrimitiveCartVecArray">
+      <summary>AgFlightPrimitiveCartVecArray Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightPrimitiveCartVecArray.Clear">
+      <summary>method Clear</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightPrimitiveCartVecArray.AddXYZ(System.Double,System.Double,System.Double)">
+      <summary>method AddXYZ</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightPrimitiveCartVecArray.Count">
+      <summary>method Count</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightPrimitiveCartVecArrayClass">
+      <summary>AgFlightPrimitiveCartVecArray Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightPrimitiveCartVecArrayClass.Clear">
+      <summary>method Clear</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightPrimitiveCartVecArrayClass.AddXYZ(System.Double,System.Double,System.Double)">
+      <summary>method AddXYZ</summary>
+      <param name="x"></param>
+      <param name="y"></param>
+      <param name="z"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightPrimitiveCartVecArrayClass.Count">
+      <summary>method Count</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightPrimitiveColorArray">
+      <summary>AgFlightPrimitiveColorArray Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightPrimitiveColorArray.Clear">
+      <summary>method Clear</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightPrimitiveColorArray.AddARGB(System.Byte,System.Byte,System.Byte,System.Byte)">
+      <summary>method AddARGB</summary>
+      <param name="alpha"></param>
+      <param name="red"></param>
+      <param name="green"></param>
+      <param name="blue"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightPrimitiveColorArray.Count">
+      <summary>method Count</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightPrimitiveColorArrayClass">
+      <summary>AgFlightPrimitiveColorArray Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightPrimitiveColorArrayClass.Clear">
+      <summary>method Clear</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightPrimitiveColorArrayClass.AddARGB(System.Byte,System.Byte,System.Byte,System.Byte)">
+      <summary>method AddARGB</summary>
+      <param name="alpha"></param>
+      <param name="red"></param>
+      <param name="green"></param>
+      <param name="blue"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightPrimitiveColorArrayClass.Count">
+      <summary>method Count</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightTriangleMeshIndexArray">
+      <summary>AgFlightTriangleMeshIndexArray Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightTriangleMeshIndexArray.Clear">
+      <summary>method Clear</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightTriangleMeshIndexArray.Add(.UINT)">
+      <summary>method Add</summary>
+      <param name="uiIndex"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightTriangleMeshIndexArray.Count">
+      <summary>method Count</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightTriangleMeshIndexArrayClass">
+      <summary>AgFlightTriangleMeshIndexArray Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightTriangleMeshIndexArrayClass.Clear">
+      <summary>method Clear</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightTriangleMeshIndexArrayClass.Add(.UINT)">
+      <summary>method Add</summary>
+      <param name="uiIndex"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightTriangleMeshIndexArrayClass.Count">
+      <summary>method Count</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightTriangleMeshColorArray">
+      <summary>AgFlightTriangleMeshColorArray Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightTriangleMeshColorArray.Clear">
+      <summary>method Clear</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightTriangleMeshColorArray.AddARGB(System.Byte,System.Byte,System.Byte,System.Byte)">
+      <summary>method AddARGB</summary>
+      <param name="alpha"></param>
+      <param name="red"></param>
+      <param name="green"></param>
+      <param name="blue"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightTriangleMeshColorArray.Count">
+      <summary>method Count</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightTriangleMeshColorArrayClass">
+      <summary>AgFlightTriangleMeshColorArray Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightTriangleMeshColorArrayClass.Clear">
+      <summary>method Clear</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightTriangleMeshColorArrayClass.AddARGB(System.Byte,System.Byte,System.Byte,System.Byte)">
+      <summary>method AddARGB</summary>
+      <param name="alpha"></param>
+      <param name="red"></param>
+      <param name="green"></param>
+      <param name="blue"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightTriangleMeshColorArrayClass.Count">
+      <summary>method Count</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightFastPrimitiveHelper">
+      <summary>AgFlightFastPrimitiveHelper Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightFastPrimitiveHelper.SetTriangleMesh(System.Object,AGI.AgFlightSTK.IAgFlightPrimitiveCartVecArray,AGI.AgFlightSTK.IAgFlightPrimitiveCartVecArray,AGI.AgFlightSTK.IAgFlightTriangleMeshIndexArray,AGI.AgFlightSTK.IAgFlightTriangleMeshColorArray)">
+      <summary>method SetTriangleMesh</summary>
+      <param name="pTriangleMeshPrimitive"></param>
+      <param name="pTriangles"></param>
+      <param name="pTriangleNormals"></param>
+      <param name="pIndices"></param>
+      <param name="pPerVertexColors"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightFastPrimitiveHelper.SetPolyline(System.Object,AGI.AgFlightSTK.IAgFlightPrimitiveCartVecArray,AGI.AgFlightSTK.IAgFlightPrimitiveColorArray)">
+      <summary>method SetPolyline</summary>
+      <param name="pPolylinePrimitive"></param>
+      <param name="pVerts"></param>
+      <param name="pColors"></param>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightFastPrimitiveHelperClass">
+      <summary>AgFlightFastPrimitiveHelper Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightFastPrimitiveHelperClass.SetTriangleMesh(System.Object,AGI.AgFlightSTK.IAgFlightPrimitiveCartVecArray,AGI.AgFlightSTK.IAgFlightPrimitiveCartVecArray,AGI.AgFlightSTK.IAgFlightTriangleMeshIndexArray,AGI.AgFlightSTK.IAgFlightTriangleMeshColorArray)">
+      <summary>method SetTriangleMesh</summary>
+      <param name="pTriangleMeshPrimitive"></param>
+      <param name="pTriangles"></param>
+      <param name="pTriangleNormals"></param>
+      <param name="pIndices"></param>
+      <param name="pPerVertexColors"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightFastPrimitiveHelperClass.SetPolyline(System.Object,AGI.AgFlightSTK.IAgFlightPrimitiveCartVecArray,AGI.AgFlightSTK.IAgFlightPrimitiveColorArray)">
+      <summary>method SetPolyline</summary>
+      <param name="pPolylinePrimitive"></param>
+      <param name="pVerts"></param>
+      <param name="pColors"></param>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightSiteRelToSTKObject">
+      <summary>AgFlightSiteSTKObjectWpt Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteRelToSTKObject.SetDynStateLink(System.Object)">
+      <summary>method SetDynStateLink</summary>
+      <param name="pDynState"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteRelToSTKObject.SetBearingRange(System.Double,System.Boolean,System.Double)">
+      <summary>method SetBearingRange</summary>
+      <param name="brg"></param>
+      <param name="vbMagnetic"></param>
+      <param name="rng"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteRelToSTKObject.DynStateLinkName">
+      <summary>property DynStateLinkName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteRelToSTKObject.DisplayName">
+      <summary>property DisplayName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteRelToSTKObject.ValidDynStateLinks">
+      <summary>property ValidDynStateLinks</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteRelToSTKObject.EditLLAHint">
+      <summary>property EditLLAHint</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteRelToSTKObject.Bearing">
+      <summary>property Bearing</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteRelToSTKObject.MagBearing">
+      <summary>property MagBearing</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteRelToSTKObject.Range">
+      <summary>property Range</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteRelToSTKObject.Procedure">
+      <summary>property Procedure</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteRelToSTKObject.Mission">
+      <summary>property Mission</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightSiteRelToSTKObjectClass">
+      <summary>AgFlightSiteSTKObjectWpt Class</summary>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteRelToSTKObjectClass.SetDynStateLink(System.Object)">
+      <summary>method SetDynStateLink</summary>
+      <param name="pDynState"></param>
+    </member>
+    <member name="M:AGI.AgFlightSTK.AgFlightSiteRelToSTKObjectClass.SetBearingRange(System.Double,System.Boolean,System.Double)">
+      <summary>method SetBearingRange</summary>
+      <param name="brg"></param>
+      <param name="vbMagnetic"></param>
+      <param name="rng"></param>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteRelToSTKObjectClass.DynStateLinkName">
+      <summary>property DynStateLinkName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteRelToSTKObjectClass.DisplayName">
+      <summary>property DisplayName</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteRelToSTKObjectClass.ValidDynStateLinks">
+      <summary>property ValidDynStateLinks</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteRelToSTKObjectClass.EditLLAHint">
+      <summary>property EditLLAHint</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteRelToSTKObjectClass.Bearing">
+      <summary>property Bearing</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteRelToSTKObjectClass.MagBearing">
+      <summary>property MagBearing</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteRelToSTKObjectClass.Range">
+      <summary>property Range</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteRelToSTKObjectClass.Procedure">
+      <summary>property Procedure</summary>
+    </member>
+    <member name="P:AGI.AgFlightSTK.AgFlightSiteRelToSTKObjectClass.Mission">
+      <summary>property Mission</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightSiteFactoryRelToSTKObject">
+      <summary>AgFlightSiteFactoryRelToSTKObject Class</summary>
+    </member>
+    <member name="T:AGI.AgFlightSTK.AgFlightSiteFactoryRelToSTKObjectClass">
+      <summary>AgFlightSiteFactoryRelToSTKObject Class</summary>
+    </member>
+  </members>
+</doc>

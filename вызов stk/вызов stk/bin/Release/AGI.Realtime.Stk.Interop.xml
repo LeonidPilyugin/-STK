@@ -1,0 +1,145 @@
+<doc>
+  <assembly>
+    <name>AGI.Realtime.Stk</name>
+  </assembly>
+  <members>
+    <member name="T:AGI.Realtime.Stk.IAgRt3StkArea">
+      <summary>Defines an Rt3 area representing an STK AreaTarget.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Stk.IAgRt3StkArea.AreaTargetPath">
+      <summary>The instance path of the STK area target object.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Stk.AgRt3StkCalculationEngine">
+      <summary>Internal Object.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Stk.AgRt3StkCalculationEngineClass">
+      <summary>Internal Object.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Stk.AgRt3StkEventHandler">
+      <summary>Internal Object.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Stk.AgRt3StkEventHandler.OnScenarioNew(System.String)">
+      <summary>Triggered when a new scenario is created.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.Realtime.Stk.AgRt3StkEventHandler.OnScenarioLoad(System.String)">
+      <summary>Triggered when a scenario is loaded.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.Realtime.Stk.AgRt3StkEventHandler.OnScenarioClose">
+      <summary>Triggered when a scenario is closed.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Stk.AgRt3StkEventHandler.OnScenarioSave(System.String)">
+      <summary>Triggered when a scenario is saved.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="T:AGI.Realtime.Stk.AgRt3StkEventHandlerClass">
+      <summary>Internal Object.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Stk.AgRt3StkEventHandlerClass.OnScenarioNew(System.String)">
+      <summary>Triggered when a new scenario is created.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.Realtime.Stk.AgRt3StkEventHandlerClass.OnScenarioLoad(System.String)">
+      <summary>Triggered when a scenario is loaded.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.Realtime.Stk.AgRt3StkEventHandlerClass.OnScenarioClose">
+      <summary>Triggered when a scenario is closed.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Stk.AgRt3StkEventHandlerClass.OnScenarioSave(System.String)">
+      <summary>Triggered when a scenario is saved.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="T:AGI.Realtime.Stk.IAgRt3StkEventHandler">
+      <summary>Internal Interface.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Stk.IAgRt3StkEventHandler.OnScenarioNew(System.String)">
+      <summary>Triggered when a new scenario is created.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.Realtime.Stk.IAgRt3StkEventHandler.OnScenarioLoad(System.String)">
+      <summary>Triggered when a scenario is loaded.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.Realtime.Stk.IAgRt3StkEventHandler.OnScenarioClose">
+      <summary>Triggered when a scenario is closed.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Stk.IAgRt3StkEventHandler.OnScenarioSave(System.String)">
+      <summary>Triggered when a scenario is saved.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="T:AGI.Realtime.Stk.AgRt3StkArea">
+      <summary>An Rt3 area object representing an STK AreaTarget.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Stk.AgRt3StkArea.OnStkObjectDeleted(System.Object)">
+      <summary>Triggered when an STK object is deleted.</summary>
+      <param name="Sender"></param>
+    </member>
+    <member name="M:AGI.Realtime.Stk.AgRt3StkArea.OnStkObjectChanged(AGI.STKObjects.IAgStkObjectChangedEventArgs)">
+      <summary>Event handle for modifications to the area target.</summary>
+      <param name="Args"></param>
+    </member>
+    <member name="M:AGI.Realtime.Stk.AgRt3StkArea.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="AttrBuilder"></param>
+    </member>
+    <member name="P:AGI.Realtime.Stk.AgRt3StkArea.Points">
+      <summary>The points defined by the area.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Stk.AgRt3StkArea.Query">
+      <summary>The query associated with this area.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Stk.AgRt3StkArea.AreaTargetPath">
+      <summary>The instance path of the STK area target object.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Stk.AgRt3StkAreaClass">
+      <summary>An Rt3 area object representing an STK AreaTarget.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Stk.AgRt3StkAreaClass.OnStkObjectDeleted(System.Object)">
+      <summary>Triggered when an STK object is deleted.</summary>
+      <param name="Sender"></param>
+    </member>
+    <member name="M:AGI.Realtime.Stk.AgRt3StkAreaClass.OnStkObjectChanged(AGI.STKObjects.IAgStkObjectChangedEventArgs)">
+      <summary>Event handle for modifications to the area target.</summary>
+      <param name="Args"></param>
+    </member>
+    <member name="M:AGI.Realtime.Stk.AgRt3StkAreaClass.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="AttrBuilder"></param>
+    </member>
+    <member name="P:AGI.Realtime.Stk.AgRt3StkAreaClass.Points">
+      <summary>The points defined by the area.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Stk.AgRt3StkAreaClass.Query">
+      <summary>The query associated with this area.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Stk.AgRt3StkAreaClass.AreaTargetPath">
+      <summary>The instance path of the STK area target object.</summary>
+    </member>
+    <member name="T:AGI.Realtime.Stk._IAgRt3StkArea">
+      <summary>Merged IDispatch interface for AgRt3StkArea.</summary>
+    </member>
+    <member name="M:AGI.Realtime.Stk._IAgRt3StkArea.OnStkObjectDeleted(System.Object)">
+      <summary>Triggered when an STK object is deleted.</summary>
+      <param name="Sender"></param>
+    </member>
+    <member name="M:AGI.Realtime.Stk._IAgRt3StkArea.OnStkObjectChanged(AGI.STKObjects.IAgStkObjectChangedEventArgs)">
+      <summary>Event handle for modifications to the area target.</summary>
+      <param name="Args"></param>
+    </member>
+    <member name="M:AGI.Realtime.Stk._IAgRt3StkArea.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="AttrBuilder"></param>
+    </member>
+    <member name="P:AGI.Realtime.Stk._IAgRt3StkArea.Points">
+      <summary>The points defined by the area.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Stk._IAgRt3StkArea.Query">
+      <summary>The query associated with this area.</summary>
+    </member>
+    <member name="P:AGI.Realtime.Stk._IAgRt3StkArea.AreaTargetPath">
+      <summary>The instance path of the STK area target object.</summary>
+    </member>
+  </members>
+</doc>

@@ -1,0 +1,1277 @@
+<doc>
+  <assembly>
+    <name>AGI.Realtime.DistributedSimulation</name>
+  </assembly>
+  <members>
+    <member name="T:AGI.Realtime.DistributedSimulation.IAgRtDSimProvider">
+      <summary>Base interface for all DSim entity providers.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.IAgRtDSimProvider.UpdateCycleTime">
+      <summary>The rate, in milliseconds, that entities will be dead-reckoned.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.IAgRtDSimProvider.ConfigurationFile">
+      <summary>A configuration file mapping entity types to markers, models and template objects.</summary>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation.IAgRtDISConnection">
+      <summary>Defines the parameters for a DIS network connection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.IAgRtDISConnection.Port">
+      <summary>The port.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.IAgRtDISConnection.ExerciseID">
+      <summary>The exercise ID.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.IAgRtDISConnection.SiteID">
+      <summary>The site ID.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.IAgRtDISConnection.ApplicationNumber">
+      <summary>The application number.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.IAgRtDISConnection.ConnectionMode">
+      <summary>The connection mode.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.IAgRtDISConnection.Address">
+      <summary>The address to use for multicast and unicast connection modes.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.IAgRtDISConnection.MulticastTimeToLive">
+      <summary>The time to live for multicast traffic.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.IAgRtDISConnection.Heartbeat">
+      <summary>The heartbeat in seconds.</summary>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation.AgERtDISConnectionMode">
+      <summary>DIS connection modes.</summary>
+    </member>
+    <member name="F:AGI.Realtime.DistributedSimulation.AgERtDISConnectionMode.eRtDISConnectionModeBroadcast">
+      <summary>Broadcast</summary>
+    </member>
+    <member name="F:AGI.Realtime.DistributedSimulation.AgERtDISConnectionMode.eRtDISConnectionModeMulticast">
+      <summary>Multicast</summary>
+    </member>
+    <member name="F:AGI.Realtime.DistributedSimulation.AgERtDISConnectionMode.eRtDISConnectionModeUnicast">
+      <summary>Unicast</summary>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation.IAgRtHLAConnection">
+      <summary>Defines the parameters for an HLA network connection.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.IAgRtHLAConnection.Specification">
+      <summary>The HLA specification.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.IAgRtHLAConnection.FederationName">
+      <summary>The federation name.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.IAgRtHLAConnection.FederateName">
+      <summary>The federate name.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.IAgRtHLAConnection.RPRFOMVersion">
+      <summary>The RPR FOM version.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.IAgRtHLAConnection.FOM">
+      <summary>If set, uses the specified FOM, if null, RPR FOM is used with the version specified in RPRFOMVersion.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.IAgRtHLAConnection.FEDFile">
+      <summary>The FED file.</summary>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation.AgERtDsHLASpecification">
+      <summary>High Level Architecture specifications.</summary>
+    </member>
+    <member name="F:AGI.Realtime.DistributedSimulation.AgERtDsHLASpecification.eAgERtDsHLASpecification13">
+      <summary>High Level Architecture 1.3.</summary>
+    </member>
+    <member name="F:AGI.Realtime.DistributedSimulation.AgERtDsHLASpecification.eAgERtDsHLASpecification1516">
+      <summary>High Level Architecture 1516.</summary>
+    </member>
+    <member name="F:AGI.Realtime.DistributedSimulation.AgERtDsHLASpecification.eAgERtDsHLASpecificationEvolved">
+      <summary>High Level Architecture Evolved.</summary>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation.AgERtDsRPRFOMVersion">
+      <summary>Supported RPR FOM versions.</summary>
+    </member>
+    <member name="F:AGI.Realtime.DistributedSimulation.AgERtDsRPRFOMVersion.eAgERtDsRPRVersion1">
+      <summary>RPR FOM Version 1.0</summary>
+    </member>
+    <member name="F:AGI.Realtime.DistributedSimulation.AgERtDsRPRFOMVersion.eAgERtDsRPRVersion2Draft17">
+      <summary>RPR FOM Version 2 Draft 17</summary>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation.IAgRtDSimFOM">
+      <summary>Base interface for all HLA FOM plugins.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.IAgRtDSimFOM.IsSpecificationSupported(AGI.Realtime.DistributedSimulation.AgERtDsHLASpecification)">
+      <summary>Returns true if a FOM mapper can be created to support the desired specification.</summary>
+      <param name="Version"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.IAgRtDSimFOM.CreateFOMMapper(AGI.Realtime.DistributedSimulation.AgERtDsHLASpecification)">
+      <summary>Create a FOM mapper for the desired HLA specification.</summary>
+      <param name="Specification"></param>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation._IAgRtProvideDISEntities">
+      <summary>Merged IDispatch interface for AgRtProvideDISEntities.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation._IAgRtProvideDISEntities.Start">
+      <summary>Starts the entity provider.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation._IAgRtProvideDISEntities.Stop">
+      <summary>Stops the entity provider.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation._IAgRtProvideDISEntities.Validate">
+      <summary>Generates an error if the plugin configuration is not in a valid state.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation._IAgRtProvideDISEntities.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="pAttrBuilder"></param>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideDISEntities.Name">
+      <summary>The type name for all instances of the plugin.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideDISEntities.InstanceName">
+      <summary>The user modifiable name for the specific plugin instance.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideDISEntities.ID">
+      <summary>A unique ID associated with this provider instance.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideDISEntities.Active">
+      <summary>Indicates if the provider is currently enabled.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideDISEntities.Entities">
+      <summary>The collection of all entities created by the provider.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideDISEntities.MetaDataDictionary">
+      <summary>The array of IAgRtDataDictionaryEntry entries which defines the meta-data used by the provider.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideDISEntities.UpdateCycleTime">
+      <summary>The rate, in milliseconds, that entities will be dead-reckoned.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideDISEntities.ConfigurationFile">
+      <summary>A configuration file mapping entity types to markers, models and template objects.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideDISEntities.Port">
+      <summary>The port.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideDISEntities.ExerciseID">
+      <summary>The exercise ID.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideDISEntities.SiteID">
+      <summary>The site ID.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideDISEntities.ApplicationNumber">
+      <summary>The application number.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideDISEntities.ConnectionMode">
+      <summary>The connection mode.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideDISEntities.Address">
+      <summary>The address to use for multicast and unicast connection modes.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideDISEntities.MulticastTimeToLive">
+      <summary>The time to live for multicast traffic.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideDISEntities.Heartbeat">
+      <summary>The heartbeat in seconds.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideDISEntities.NetworkAdapter">
+      <summary>The name of the adapter to use for network communication.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideDISEntities.AdapterAddress">
+      <summary>The IP address of the connection to use for network communication.</summary>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation._IAgRtProvideHLAEntities">
+      <summary>Merged IDispatch interface for AgRtProvideHLAEntities.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation._IAgRtProvideHLAEntities.Start">
+      <summary>Starts the entity provider.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation._IAgRtProvideHLAEntities.Stop">
+      <summary>Stops the entity provider.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation._IAgRtProvideHLAEntities.Validate">
+      <summary>Generates an error if the plugin configuration is not in a valid state.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation._IAgRtProvideHLAEntities.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="pAttrBuilder"></param>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideHLAEntities.Specification">
+      <summary>The HLA specification.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideHLAEntities.FederationName">
+      <summary>The federation name.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideHLAEntities.FederateName">
+      <summary>The federate name.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideHLAEntities.RPRFOMVersion">
+      <summary>The RPR FOM version.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideHLAEntities.FOM">
+      <summary>If set, uses the specified FOM, if null, RPR FOM is used with the version specified in RPRFOMVersion.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideHLAEntities.FEDFile">
+      <summary>The FED file.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideHLAEntities.Name">
+      <summary>The type name for all instances of the plugin.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideHLAEntities.InstanceName">
+      <summary>The user modifiable name for the specific plugin instance.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideHLAEntities.ID">
+      <summary>A unique ID associated with this provider instance.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideHLAEntities.Active">
+      <summary>Indicates if the provider is currently enabled.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideHLAEntities.Entities">
+      <summary>The collection of all entities created by the provider.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideHLAEntities.MetaDataDictionary">
+      <summary>The array of IAgRtDataDictionaryEntry entries which defines the meta-data used by the provider.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideHLAEntities.UpdateCycleTime">
+      <summary>The rate, in milliseconds, that entities will be dead-reckoned.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideHLAEntities.ConfigurationFile">
+      <summary>A configuration file mapping entity types to markers, models and template objects.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideHLAEntities.FOMXML">
+      <summary>A serialized version of this configuration.</summary>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntities">
+      <summary>An Rt3 entity provider for DIS.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntities.Start">
+      <summary>Starts the entity provider.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntities.Stop">
+      <summary>Stops the entity provider.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntities.Validate">
+      <summary>Generates an error if the plugin configuration is not in a valid state.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntities.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="pAttrBuilder"></param>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntities.Name">
+      <summary>The type name for all instances of the plugin.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntities.InstanceName">
+      <summary>The user modifiable name for the specific plugin instance.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntities.ID">
+      <summary>A unique ID associated with this provider instance.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntities.Active">
+      <summary>Indicates if the provider is currently enabled.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntities.Entities">
+      <summary>The collection of all entities created by the provider.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntities.MetaDataDictionary">
+      <summary>The array of IAgRtDataDictionaryEntry entries which defines the meta-data used by the provider.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntities.UpdateCycleTime">
+      <summary>The rate, in milliseconds, that entities will be dead-reckoned.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntities.ConfigurationFile">
+      <summary>A configuration file mapping entity types to markers, models and template objects.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntities.Port">
+      <summary>The port.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntities.ExerciseID">
+      <summary>The exercise ID.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntities.SiteID">
+      <summary>The site ID.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntities.ApplicationNumber">
+      <summary>The application number.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntities.ConnectionMode">
+      <summary>The connection mode.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntities.Address">
+      <summary>The address to use for multicast and unicast connection modes.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntities.MulticastTimeToLive">
+      <summary>The time to live for multicast traffic.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntities.Heartbeat">
+      <summary>The heartbeat in seconds.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntities.NetworkAdapter">
+      <summary>The name of the adapter to use for network communication.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntities.AdapterAddress">
+      <summary>The IP address of the connection to use for network communication.</summary>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntitiesClass">
+      <summary>An Rt3 entity provider for DIS.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntitiesClass.Start">
+      <summary>Starts the entity provider.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntitiesClass.Stop">
+      <summary>Stops the entity provider.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntitiesClass.Validate">
+      <summary>Generates an error if the plugin configuration is not in a valid state.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntitiesClass.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="pAttrBuilder"></param>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntitiesClass.Name">
+      <summary>The type name for all instances of the plugin.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntitiesClass.InstanceName">
+      <summary>The user modifiable name for the specific plugin instance.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntitiesClass.ID">
+      <summary>A unique ID associated with this provider instance.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntitiesClass.Active">
+      <summary>Indicates if the provider is currently enabled.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntitiesClass.Entities">
+      <summary>The collection of all entities created by the provider.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntitiesClass.MetaDataDictionary">
+      <summary>The array of IAgRtDataDictionaryEntry entries which defines the meta-data used by the provider.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntitiesClass.UpdateCycleTime">
+      <summary>The rate, in milliseconds, that entities will be dead-reckoned.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntitiesClass.ConfigurationFile">
+      <summary>A configuration file mapping entity types to markers, models and template objects.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntitiesClass.Port">
+      <summary>The port.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntitiesClass.ExerciseID">
+      <summary>The exercise ID.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntitiesClass.SiteID">
+      <summary>The site ID.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntitiesClass.ApplicationNumber">
+      <summary>The application number.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntitiesClass.ConnectionMode">
+      <summary>The connection mode.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntitiesClass.Address">
+      <summary>The address to use for multicast and unicast connection modes.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntitiesClass.MulticastTimeToLive">
+      <summary>The time to live for multicast traffic.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntitiesClass.Heartbeat">
+      <summary>The heartbeat in seconds.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntitiesClass.NetworkAdapter">
+      <summary>The name of the adapter to use for network communication.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISEntitiesClass.AdapterAddress">
+      <summary>The IP address of the connection to use for network communication.</summary>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntities">
+      <summary>An Rt3 entity provider for HLA.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntities.Start">
+      <summary>Starts the entity provider.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntities.Stop">
+      <summary>Stops the entity provider.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntities.Validate">
+      <summary>Generates an error if the plugin configuration is not in a valid state.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntities.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="pAttrBuilder"></param>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntities.Specification">
+      <summary>The HLA specification.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntities.FederationName">
+      <summary>The federation name.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntities.FederateName">
+      <summary>The federate name.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntities.RPRFOMVersion">
+      <summary>The RPR FOM version.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntities.FOM">
+      <summary>If set, uses the specified FOM, if null, RPR FOM is used with the version specified in RPRFOMVersion.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntities.FEDFile">
+      <summary>The FED file.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntities.Name">
+      <summary>The type name for all instances of the plugin.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntities.InstanceName">
+      <summary>The user modifiable name for the specific plugin instance.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntities.ID">
+      <summary>A unique ID associated with this provider instance.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntities.Active">
+      <summary>Indicates if the provider is currently enabled.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntities.Entities">
+      <summary>The collection of all entities created by the provider.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntities.MetaDataDictionary">
+      <summary>The array of IAgRtDataDictionaryEntry entries which defines the meta-data used by the provider.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntities.UpdateCycleTime">
+      <summary>The rate, in milliseconds, that entities will be dead-reckoned.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntities.ConfigurationFile">
+      <summary>A configuration file mapping entity types to markers, models and template objects.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntities.FOMXML">
+      <summary>A serialized version of this configuration.</summary>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntitiesClass">
+      <summary>An Rt3 entity provider for HLA.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntitiesClass.Start">
+      <summary>Starts the entity provider.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntitiesClass.Stop">
+      <summary>Stops the entity provider.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntitiesClass.Validate">
+      <summary>Generates an error if the plugin configuration is not in a valid state.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntitiesClass.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="pAttrBuilder"></param>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntitiesClass.Specification">
+      <summary>The HLA specification.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntitiesClass.FederationName">
+      <summary>The federation name.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntitiesClass.FederateName">
+      <summary>The federate name.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntitiesClass.RPRFOMVersion">
+      <summary>The RPR FOM version.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntitiesClass.FOM">
+      <summary>If set, uses the specified FOM, if null, RPR FOM is used with the version specified in RPRFOMVersion.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntitiesClass.FEDFile">
+      <summary>The FED file.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntitiesClass.Name">
+      <summary>The type name for all instances of the plugin.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntitiesClass.InstanceName">
+      <summary>The user modifiable name for the specific plugin instance.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntitiesClass.ID">
+      <summary>A unique ID associated with this provider instance.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntitiesClass.Active">
+      <summary>Indicates if the provider is currently enabled.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntitiesClass.Entities">
+      <summary>The collection of all entities created by the provider.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntitiesClass.MetaDataDictionary">
+      <summary>The array of IAgRtDataDictionaryEntry entries which defines the meta-data used by the provider.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntitiesClass.UpdateCycleTime">
+      <summary>The rate, in milliseconds, that entities will be dead-reckoned.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntitiesClass.ConfigurationFile">
+      <summary>A configuration file mapping entity types to markers, models and template objects.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLAEntitiesClass.FOMXML">
+      <summary>A serialized version of this configuration.</summary>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingData">
+      <summary>An Rt3 tracking data provider for HLA.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingData.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="pAttrBuilder"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingData.GetConfigurationForEntity(System.String)">
+      <summary>Retrieves the current configuration entry for the provided entity.</summary>
+      <param name="EntityID"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingData.SetConfigurationForEntity(System.String,AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry)">
+      <summary>Assigns the provided configuration entry to the provided entity.</summary>
+      <param name="EntityID"></param>
+      <param name="Entry"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingData.Initialize">
+      <summary>Initializes the plugin for use.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingData.Uninitialize">
+      <summary>Terminates the previously initialized plugin.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingData.OutputEntity(AGI.Entity.IAgEntity)">
+      <summary>Outputs the provided entity.</summary>
+      <param name="pEntity"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingData.Validate">
+      <summary>Generates an error if the plugin configuration is not in a valid state.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingData.Name">
+      <summary>The type name for all instances of the plugin.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingData.InstanceName">
+      <summary>The user modifiable name for the specific plugin instance.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingData.Specification">
+      <summary>The HLA specification.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingData.FederationName">
+      <summary>The federation name.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingData.FederateName">
+      <summary>The federate name.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingData.RPRFOMVersion">
+      <summary>The RPR FOM version.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingData.FOM">
+      <summary>If set, uses the specified FOM, if null, RPR FOM is used with the version specified in RPRFOMVersion.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingData.FEDFile">
+      <summary>The FED file.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingData.ConfigurationString">
+      <summary>A serialized version of this configuration.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingData.FOMXML">
+      <summary>A serialized version of this configuration.</summary>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingDataClass">
+      <summary>An Rt3 tracking data provider for HLA.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingDataClass.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="pAttrBuilder"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingDataClass.GetConfigurationForEntity(System.String)">
+      <summary>Retrieves the current configuration entry for the provided entity.</summary>
+      <param name="EntityID"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingDataClass.SetConfigurationForEntity(System.String,AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry)">
+      <summary>Assigns the provided configuration entry to the provided entity.</summary>
+      <param name="EntityID"></param>
+      <param name="Entry"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingDataClass.Initialize">
+      <summary>Initializes the plugin for use.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingDataClass.Uninitialize">
+      <summary>Terminates the previously initialized plugin.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingDataClass.OutputEntity(AGI.Entity.IAgEntity)">
+      <summary>Outputs the provided entity.</summary>
+      <param name="pEntity"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingDataClass.Validate">
+      <summary>Generates an error if the plugin configuration is not in a valid state.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingDataClass.Name">
+      <summary>The type name for all instances of the plugin.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingDataClass.InstanceName">
+      <summary>The user modifiable name for the specific plugin instance.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingDataClass.Specification">
+      <summary>The HLA specification.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingDataClass.FederationName">
+      <summary>The federation name.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingDataClass.FederateName">
+      <summary>The federate name.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingDataClass.RPRFOMVersion">
+      <summary>The RPR FOM version.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingDataClass.FOM">
+      <summary>If set, uses the specified FOM, if null, RPR FOM is used with the version specified in RPRFOMVersion.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingDataClass.FEDFile">
+      <summary>The FED file.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingDataClass.ConfigurationString">
+      <summary>A serialized version of this configuration.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideHLATrackingDataClass.FOMXML">
+      <summary>A serialized version of this configuration.</summary>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation._IAgRtProvideHLATrackingData">
+      <summary>Merged IDispatch interface for AgRtProvideHLATrackingData.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation._IAgRtProvideHLATrackingData.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="pAttrBuilder"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation._IAgRtProvideHLATrackingData.GetConfigurationForEntity(System.String)">
+      <summary>Retrieves the current configuration entry for the provided entity.</summary>
+      <param name="EntityID"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation._IAgRtProvideHLATrackingData.SetConfigurationForEntity(System.String,AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry)">
+      <summary>Assigns the provided configuration entry to the provided entity.</summary>
+      <param name="EntityID"></param>
+      <param name="Entry"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation._IAgRtProvideHLATrackingData.Initialize">
+      <summary>Initializes the plugin for use.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation._IAgRtProvideHLATrackingData.Uninitialize">
+      <summary>Terminates the previously initialized plugin.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation._IAgRtProvideHLATrackingData.OutputEntity(AGI.Entity.IAgEntity)">
+      <summary>Outputs the provided entity.</summary>
+      <param name="pEntity"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation._IAgRtProvideHLATrackingData.Validate">
+      <summary>Generates an error if the plugin configuration is not in a valid state.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideHLATrackingData.Name">
+      <summary>The type name for all instances of the plugin.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideHLATrackingData.InstanceName">
+      <summary>The user modifiable name for the specific plugin instance.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideHLATrackingData.Specification">
+      <summary>The HLA specification.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideHLATrackingData.FederationName">
+      <summary>The federation name.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideHLATrackingData.FederateName">
+      <summary>The federate name.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideHLATrackingData.RPRFOMVersion">
+      <summary>The RPR FOM version.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideHLATrackingData.FOM">
+      <summary>If set, uses the specified FOM, if null, RPR FOM is used with the version specified in RPRFOMVersion.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideHLATrackingData.FEDFile">
+      <summary>The FED file.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideHLATrackingData.ConfigurationString">
+      <summary>A serialized version of this configuration.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideHLATrackingData.FOMXML">
+      <summary>A serialized version of this configuration.</summary>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry">
+      <summary>A set of parameters configuring how an entity it output onto the simulation.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry.Kind">
+      <summary>The Entity Kind.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry.Domain">
+      <summary>The Entity Domain.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry.Country">
+      <summary>The country of origin.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry.Category">
+      <summary>The Entity Category.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry.SubCategory">
+      <summary>The Entity SubCategory.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry.Specific">
+      <summary>The Entity Specific.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry.Extra">
+      <summary>The Extra field.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry.Force">
+      <summary>The Force type.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry.DeadReckonModel">
+      <summary>The dead reckoning algorithm to be used for the entity.</summary>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation.AgERtDsForce">
+      <summary>Entity force.</summary>
+    </member>
+    <member name="F:AGI.Realtime.DistributedSimulation.AgERtDsForce.eAgERtDsForceOther">
+      <summary>An unknown force.</summary>
+    </member>
+    <member name="F:AGI.Realtime.DistributedSimulation.AgERtDsForce.eAgERtDsForceFriendly">
+      <summary>Friendly force.</summary>
+    </member>
+    <member name="F:AGI.Realtime.DistributedSimulation.AgERtDsForce.eAgERtDsForceOpposing">
+      <summary>Opposing force.</summary>
+    </member>
+    <member name="F:AGI.Realtime.DistributedSimulation.AgERtDsForce.eAgERtDsForceNeutral">
+      <summary>Neutral force.</summary>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation.AgERtDsDeadReckon">
+      <summary>Dead reckoning algorithms.</summary>
+    </member>
+    <member name="F:AGI.Realtime.DistributedSimulation.AgERtDsDeadReckon.eAgERtDsDeadReckonStatic">
+      <summary>Static</summary>
+    </member>
+    <member name="F:AGI.Realtime.DistributedSimulation.AgERtDsDeadReckon.eAgERtDsDeadReckonDRMFPW">
+      <summary>Fixed Rotation, Rate of Position, World Coordinates</summary>
+    </member>
+    <member name="F:AGI.Realtime.DistributedSimulation.AgERtDsDeadReckon.eAgERtDsDeadReckonDRMRPW">
+      <summary>Rotating, Rate of Position, World Coordinates</summary>
+    </member>
+    <member name="F:AGI.Realtime.DistributedSimulation.AgERtDsDeadReckon.eAgERtDsDeadReckonDRMRVW">
+      <summary>Rotating, Rate of Velocity, World Coordinates</summary>
+    </member>
+    <member name="F:AGI.Realtime.DistributedSimulation.AgERtDsDeadReckon.eAgERtDsDeadReckonDRMFVW">
+      <summary>Fixed Rotation, Rate of Velocity, World Coordinates</summary>
+    </member>
+    <member name="F:AGI.Realtime.DistributedSimulation.AgERtDsDeadReckon.eAgERtDsDeadReckonDRMFPB">
+      <summary>Fixed Rotation, Rate of Position, Body Axis Coordinates</summary>
+    </member>
+    <member name="F:AGI.Realtime.DistributedSimulation.AgERtDsDeadReckon.eAgERtDsDeadReckonDRMRPB">
+      <summary>Rotating, Rate of Position, Body Axis Coordinates</summary>
+    </member>
+    <member name="F:AGI.Realtime.DistributedSimulation.AgERtDsDeadReckon.eAgERtDsDeadReckonDRMRVB">
+      <summary>Rotating, Rate of Velocity, Body Axis Coordinates</summary>
+    </member>
+    <member name="F:AGI.Realtime.DistributedSimulation.AgERtDsDeadReckon.eAgERtDsDeadReckonDRMFVB">
+      <summary>Fixed Rotation, Rate of Velocity, Body Axis Coordinates</summary>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation.IAgRtDSimOutput">
+      <summary>Base interface for all DSim tracking data providers.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.IAgRtDSimOutput.GetConfigurationForEntity(System.String)">
+      <summary>Retrieves the current configuration entry for the provided entity.</summary>
+      <param name="EntityID"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.IAgRtDSimOutput.SetConfigurationForEntity(System.String,AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry)">
+      <summary>Assigns the provided configuration entry to the provided entity.</summary>
+      <param name="EntityID"></param>
+      <param name="Entry"></param>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingData">
+      <summary>An Rt3 tracking data provider for DIS.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingData.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="pAttrBuilder"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingData.GetConfigurationForEntity(System.String)">
+      <summary>Retrieves the current configuration entry for the provided entity.</summary>
+      <param name="EntityID"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingData.SetConfigurationForEntity(System.String,AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry)">
+      <summary>Assigns the provided configuration entry to the provided entity.</summary>
+      <param name="EntityID"></param>
+      <param name="Entry"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingData.Initialize">
+      <summary>Initializes the plugin for use.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingData.Uninitialize">
+      <summary>Terminates the previously initialized plugin.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingData.OutputEntity(AGI.Entity.IAgEntity)">
+      <summary>Outputs the provided entity.</summary>
+      <param name="pEntity"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingData.Validate">
+      <summary>Generates an error if the plugin configuration is not in a valid state.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingData.Name">
+      <summary>The type name for all instances of the plugin.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingData.InstanceName">
+      <summary>The user modifiable name for the specific plugin instance.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingData.Port">
+      <summary>The port.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingData.ExerciseID">
+      <summary>The exercise ID.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingData.SiteID">
+      <summary>The site ID.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingData.ApplicationNumber">
+      <summary>The application number.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingData.ConnectionMode">
+      <summary>The connection mode.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingData.Address">
+      <summary>The address to use for multicast and unicast connection modes.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingData.MulticastTimeToLive">
+      <summary>The time to live for multicast traffic.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingData.Heartbeat">
+      <summary>The heartbeat in seconds.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingData.ConfigurationString">
+      <summary>A serialized version of this configuration.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingData.NetworkAdapter">
+      <summary>The name of the adapter to use for network communication.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingData.AdapterAddress">
+      <summary>The IP address of the connection to use for network communication.</summary>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingDataClass">
+      <summary>An Rt3 tracking data provider for DIS.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingDataClass.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="pAttrBuilder"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingDataClass.GetConfigurationForEntity(System.String)">
+      <summary>Retrieves the current configuration entry for the provided entity.</summary>
+      <param name="EntityID"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingDataClass.SetConfigurationForEntity(System.String,AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry)">
+      <summary>Assigns the provided configuration entry to the provided entity.</summary>
+      <param name="EntityID"></param>
+      <param name="Entry"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingDataClass.Initialize">
+      <summary>Initializes the plugin for use.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingDataClass.Uninitialize">
+      <summary>Terminates the previously initialized plugin.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingDataClass.OutputEntity(AGI.Entity.IAgEntity)">
+      <summary>Outputs the provided entity.</summary>
+      <param name="pEntity"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingDataClass.Validate">
+      <summary>Generates an error if the plugin configuration is not in a valid state.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingDataClass.Name">
+      <summary>The type name for all instances of the plugin.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingDataClass.InstanceName">
+      <summary>The user modifiable name for the specific plugin instance.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingDataClass.Port">
+      <summary>The port.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingDataClass.ExerciseID">
+      <summary>The exercise ID.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingDataClass.SiteID">
+      <summary>The site ID.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingDataClass.ApplicationNumber">
+      <summary>The application number.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingDataClass.ConnectionMode">
+      <summary>The connection mode.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingDataClass.Address">
+      <summary>The address to use for multicast and unicast connection modes.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingDataClass.MulticastTimeToLive">
+      <summary>The time to live for multicast traffic.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingDataClass.Heartbeat">
+      <summary>The heartbeat in seconds.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingDataClass.ConfigurationString">
+      <summary>A serialized version of this configuration.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingDataClass.NetworkAdapter">
+      <summary>The name of the adapter to use for network communication.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtProvideDISTrackingDataClass.AdapterAddress">
+      <summary>The IP address of the connection to use for network communication.</summary>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation._IAgRtProvideDISTrackingData">
+      <summary>Merged IDispatch interface for AgRtProvideDISTrackingData.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation._IAgRtProvideDISTrackingData.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="pAttrBuilder"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation._IAgRtProvideDISTrackingData.GetConfigurationForEntity(System.String)">
+      <summary>Retrieves the current configuration entry for the provided entity.</summary>
+      <param name="EntityID"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation._IAgRtProvideDISTrackingData.SetConfigurationForEntity(System.String,AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry)">
+      <summary>Assigns the provided configuration entry to the provided entity.</summary>
+      <param name="EntityID"></param>
+      <param name="Entry"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation._IAgRtProvideDISTrackingData.Initialize">
+      <summary>Initializes the plugin for use.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation._IAgRtProvideDISTrackingData.Uninitialize">
+      <summary>Terminates the previously initialized plugin.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation._IAgRtProvideDISTrackingData.OutputEntity(AGI.Entity.IAgEntity)">
+      <summary>Outputs the provided entity.</summary>
+      <param name="pEntity"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation._IAgRtProvideDISTrackingData.Validate">
+      <summary>Generates an error if the plugin configuration is not in a valid state.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideDISTrackingData.Name">
+      <summary>The type name for all instances of the plugin.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideDISTrackingData.InstanceName">
+      <summary>The user modifiable name for the specific plugin instance.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideDISTrackingData.Port">
+      <summary>The port.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideDISTrackingData.ExerciseID">
+      <summary>The exercise ID.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideDISTrackingData.SiteID">
+      <summary>The site ID.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideDISTrackingData.ApplicationNumber">
+      <summary>The application number.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideDISTrackingData.ConnectionMode">
+      <summary>The connection mode.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideDISTrackingData.Address">
+      <summary>The address to use for multicast and unicast connection modes.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideDISTrackingData.MulticastTimeToLive">
+      <summary>The time to live for multicast traffic.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideDISTrackingData.Heartbeat">
+      <summary>The heartbeat in seconds.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideDISTrackingData.ConfigurationString">
+      <summary>A serialized version of this configuration.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideDISTrackingData.NetworkAdapter">
+      <summary>The name of the adapter to use for network communication.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtProvideDISTrackingData.AdapterAddress">
+      <summary>The IP address of the connection to use for network communication.</summary>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation.AgRtDSimOutputConfigurationEntry">
+      <summary>Entity configuration settings for tracking data providers.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtDSimOutputConfigurationEntry.Kind">
+      <summary>The Entity Kind.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtDSimOutputConfigurationEntry.Domain">
+      <summary>The Entity Domain.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtDSimOutputConfigurationEntry.Country">
+      <summary>The country of origin.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtDSimOutputConfigurationEntry.Category">
+      <summary>The Entity Category.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtDSimOutputConfigurationEntry.SubCategory">
+      <summary>The Entity SubCategory.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtDSimOutputConfigurationEntry.Specific">
+      <summary>The Entity Specific.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtDSimOutputConfigurationEntry.Extra">
+      <summary>The Extra field.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtDSimOutputConfigurationEntry.Force">
+      <summary>The Force type.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtDSimOutputConfigurationEntry.DeadReckonModel">
+      <summary>The dead reckoning algorithm to be used for the entity.</summary>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation.AgRtDSimOutputConfigurationEntryClass">
+      <summary>Entity configuration settings for tracking data providers.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtDSimOutputConfigurationEntryClass.Kind">
+      <summary>The Entity Kind.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtDSimOutputConfigurationEntryClass.Domain">
+      <summary>The Entity Domain.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtDSimOutputConfigurationEntryClass.Country">
+      <summary>The country of origin.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtDSimOutputConfigurationEntryClass.Category">
+      <summary>The Entity Category.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtDSimOutputConfigurationEntryClass.SubCategory">
+      <summary>The Entity SubCategory.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtDSimOutputConfigurationEntryClass.Specific">
+      <summary>The Entity Specific.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtDSimOutputConfigurationEntryClass.Extra">
+      <summary>The Extra field.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtDSimOutputConfigurationEntryClass.Force">
+      <summary>The Force type.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtDSimOutputConfigurationEntryClass.DeadReckonModel">
+      <summary>The dead reckoning algorithm to be used for the entity.</summary>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation._IAgRtDSimOutputConfigurationEntry">
+      <summary>The hidden interface for IAgRtDSimOutputConfigurationEntry</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtDSimOutputConfigurationEntry.Kind">
+      <summary>The Entity Kind.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtDSimOutputConfigurationEntry.Domain">
+      <summary>The Entity Domain.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtDSimOutputConfigurationEntry.Country">
+      <summary>The country of origin.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtDSimOutputConfigurationEntry.Category">
+      <summary>The Entity Category.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtDSimOutputConfigurationEntry.SubCategory">
+      <summary>The Entity SubCategory.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtDSimOutputConfigurationEntry.Specific">
+      <summary>The Entity Specific.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtDSimOutputConfigurationEntry.Extra">
+      <summary>The Extra field.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtDSimOutputConfigurationEntry.Force">
+      <summary>The Force type.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtDSimOutputConfigurationEntry.DeadReckonModel">
+      <summary>The dead reckoning algorithm to be used for the entity.</summary>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation.AgRtDSimEnumerationRegistry">
+      <summary>Maps DIS and HLA enumeration values to textual descriptions</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtDSimEnumerationRegistry.GetFieldValueFromDescription(AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry,AGI.Realtime.DistributedSimulation.AgERtDsEntityTypeField,System.String)">
+      <summary>Returns the associated DIS enum value given the description.</summary>
+      <param name="Entry"></param>
+      <param name="Field"></param>
+      <param name="Description"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtDSimEnumerationRegistry.GetDescription(AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry,AGI.Realtime.DistributedSimulation.AgERtDsEntityTypeField)">
+      <summary>Returns a textual description of the provided DIS enum value.</summary>
+      <param name="Entry"></param>
+      <param name="Field"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtDSimEnumerationRegistry.GetValue(AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry,AGI.Realtime.DistributedSimulation.AgERtDsEntityTypeField)">
+      <summary>Returns the associated DIS enum value given an entry and field.</summary>
+      <param name="Entry"></param>
+      <param name="Field"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtDSimEnumerationRegistry.GetDescriptionList(AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry,AGI.Realtime.DistributedSimulation.AgERtDsEntityTypeField)">
+      <summary>Returns all possible DIS enum descriptions given an entry and field.</summary>
+      <param name="Entry"></param>
+      <param name="Field"></param>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation.AgRtDSimEnumerationRegistryClass">
+      <summary>Maps DIS and HLA enumeration values to textual descriptions</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtDSimEnumerationRegistryClass.GetFieldValueFromDescription(AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry,AGI.Realtime.DistributedSimulation.AgERtDsEntityTypeField,System.String)">
+      <summary>Returns the associated DIS enum value given the description.</summary>
+      <param name="Entry"></param>
+      <param name="Field"></param>
+      <param name="Description"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtDSimEnumerationRegistryClass.GetDescription(AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry,AGI.Realtime.DistributedSimulation.AgERtDsEntityTypeField)">
+      <summary>Returns a textual description of the provided DIS enum value.</summary>
+      <param name="Entry"></param>
+      <param name="Field"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtDSimEnumerationRegistryClass.GetValue(AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry,AGI.Realtime.DistributedSimulation.AgERtDsEntityTypeField)">
+      <summary>Returns the associated DIS enum value given an entry and field.</summary>
+      <param name="Entry"></param>
+      <param name="Field"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtDSimEnumerationRegistryClass.GetDescriptionList(AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry,AGI.Realtime.DistributedSimulation.AgERtDsEntityTypeField)">
+      <summary>Returns all possible DIS enum descriptions given an entry and field.</summary>
+      <param name="Entry"></param>
+      <param name="Field"></param>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation._IAgRtDSimEnumerationRegistry">
+      <summary>Merged IDispatch interface for IAgRtDSimEnumerationRegistry</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation._IAgRtDSimEnumerationRegistry.GetFieldValueFromDescription(AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry,AGI.Realtime.DistributedSimulation.AgERtDsEntityTypeField,System.String)">
+      <summary>Returns the associated DIS enum value given the description.</summary>
+      <param name="Entry"></param>
+      <param name="Field"></param>
+      <param name="Description"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation._IAgRtDSimEnumerationRegistry.GetDescription(AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry,AGI.Realtime.DistributedSimulation.AgERtDsEntityTypeField)">
+      <summary>Returns a textual description of the provided DIS enum value.</summary>
+      <param name="Entry"></param>
+      <param name="Field"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation._IAgRtDSimEnumerationRegistry.GetValue(AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry,AGI.Realtime.DistributedSimulation.AgERtDsEntityTypeField)">
+      <summary>Returns the associated DIS enum value given an entry and field.</summary>
+      <param name="Entry"></param>
+      <param name="Field"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation._IAgRtDSimEnumerationRegistry.GetDescriptionList(AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry,AGI.Realtime.DistributedSimulation.AgERtDsEntityTypeField)">
+      <summary>Returns all possible DIS enum descriptions given an entry and field.</summary>
+      <param name="Entry"></param>
+      <param name="Field"></param>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation.AgERtDsEntityTypeField">
+      <summary>The available fields for a DSim entity.</summary>
+    </member>
+    <member name="F:AGI.Realtime.DistributedSimulation.AgERtDsEntityTypeField.eAgERtDsEntityTypeFieldKind">
+      <summary>Kind.</summary>
+    </member>
+    <member name="F:AGI.Realtime.DistributedSimulation.AgERtDsEntityTypeField.eAgERtDsEntityTypeFieldDomain">
+      <summary>Domain.</summary>
+    </member>
+    <member name="F:AGI.Realtime.DistributedSimulation.AgERtDsEntityTypeField.eAgERtDsEntityTypeFieldCountry">
+      <summary>Country.</summary>
+    </member>
+    <member name="F:AGI.Realtime.DistributedSimulation.AgERtDsEntityTypeField.eAgERtDsEntityTypeFieldCategory">
+      <summary>Category.</summary>
+    </member>
+    <member name="F:AGI.Realtime.DistributedSimulation.AgERtDsEntityTypeField.eAgERtDsEntityTypeFieldSubCategory">
+      <summary>SubCategory.</summary>
+    </member>
+    <member name="F:AGI.Realtime.DistributedSimulation.AgERtDsEntityTypeField.eAgERtDsEntityTypeFieldSpecific">
+      <summary>Specific.</summary>
+    </member>
+    <member name="F:AGI.Realtime.DistributedSimulation.AgERtDsEntityTypeField.eAgERtDsEntityTypeFieldExtra">
+      <summary>Extra.</summary>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation.IAgRtDSimEnumerationRegistry">
+      <summary>Defines an interface for mapping DIS enumeration values to textual descriptions.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.IAgRtDSimEnumerationRegistry.GetFieldValueFromDescription(AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry,AGI.Realtime.DistributedSimulation.AgERtDsEntityTypeField,System.String)">
+      <summary>Returns the associated DIS enum value given the description.</summary>
+      <param name="Entry"></param>
+      <param name="Field"></param>
+      <param name="Description"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.IAgRtDSimEnumerationRegistry.GetDescription(AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry,AGI.Realtime.DistributedSimulation.AgERtDsEntityTypeField)">
+      <summary>Returns a textual description of the provided DIS enum value.</summary>
+      <param name="Entry"></param>
+      <param name="Field"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.IAgRtDSimEnumerationRegistry.GetValue(AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry,AGI.Realtime.DistributedSimulation.AgERtDsEntityTypeField)">
+      <summary>Returns the associated DIS enum value given an entry and field.</summary>
+      <param name="Entry"></param>
+      <param name="Field"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.IAgRtDSimEnumerationRegistry.GetDescriptionList(AGI.Realtime.DistributedSimulation.IAgRtDSimOutputConfigurationEntry,AGI.Realtime.DistributedSimulation.AgERtDsEntityTypeField)">
+      <summary>Returns all possible DIS enum descriptions given an entry and field.</summary>
+      <param name="Entry"></param>
+      <param name="Field"></param>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation.AgRtDSimFOMFromDLL">
+      <summary>Custom FOM Plugin for HLA from a DLL</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtDSimFOMFromDLL.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="pAttrBuilder"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtDSimFOMFromDLL.IsSpecificationSupported(AGI.Realtime.DistributedSimulation.AgERtDsHLASpecification)">
+      <summary>Returns true if a FOM mapper can be created to support the desired specification.</summary>
+      <param name="Version"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtDSimFOMFromDLL.CreateFOMMapper(AGI.Realtime.DistributedSimulation.AgERtDsHLASpecification)">
+      <summary>Create a FOM mapper for the desired HLA specification.</summary>
+      <param name="Specification"></param>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtDSimFOMFromDLL.Name">
+      <summary>The type name for all instances of the plugin.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtDSimFOMFromDLL.InstanceName">
+      <summary>The user modifiable name for the specific plugin instance.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtDSimFOMFromDLL.FOMMapperDLL">
+      <summary>The path to the DLL containing the FOM mapper.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtDSimFOMFromDLL.InitializationData">
+      <summary>Initialization string to be passed to the FOM mapper DLL.</summary>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation.AgRtDSimFOMFromDLLClass">
+      <summary>Custom FOM Plugin for HLA from a DLL</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtDSimFOMFromDLLClass.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="pAttrBuilder"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtDSimFOMFromDLLClass.IsSpecificationSupported(AGI.Realtime.DistributedSimulation.AgERtDsHLASpecification)">
+      <summary>Returns true if a FOM mapper can be created to support the desired specification.</summary>
+      <param name="Version"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.AgRtDSimFOMFromDLLClass.CreateFOMMapper(AGI.Realtime.DistributedSimulation.AgERtDsHLASpecification)">
+      <summary>Create a FOM mapper for the desired HLA specification.</summary>
+      <param name="Specification"></param>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtDSimFOMFromDLLClass.Name">
+      <summary>The type name for all instances of the plugin.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtDSimFOMFromDLLClass.InstanceName">
+      <summary>The user modifiable name for the specific plugin instance.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtDSimFOMFromDLLClass.FOMMapperDLL">
+      <summary>The path to the DLL containing the FOM mapper.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.AgRtDSimFOMFromDLLClass.InitializationData">
+      <summary>Initialization string to be passed to the FOM mapper DLL.</summary>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation._IAgRtDSimFOMFromDLL">
+      <summary>Merged IDispatch interface for AgRtDSimFOMFromDLL.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation._IAgRtDSimFOMFromDLL.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="pAttrBuilder"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation._IAgRtDSimFOMFromDLL.IsSpecificationSupported(AGI.Realtime.DistributedSimulation.AgERtDsHLASpecification)">
+      <summary>Returns true if a FOM mapper can be created to support the desired specification.</summary>
+      <param name="Version"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation._IAgRtDSimFOMFromDLL.CreateFOMMapper(AGI.Realtime.DistributedSimulation.AgERtDsHLASpecification)">
+      <summary>Create a FOM mapper for the desired HLA specification.</summary>
+      <param name="Specification"></param>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtDSimFOMFromDLL.Name">
+      <summary>The type name for all instances of the plugin.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtDSimFOMFromDLL.InstanceName">
+      <summary>The user modifiable name for the specific plugin instance.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtDSimFOMFromDLL.FOMMapperDLL">
+      <summary>The path to the DLL containing the FOM mapper.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation._IAgRtDSimFOMFromDLL.InitializationData">
+      <summary>Initialization string to be passed to the FOM mapper DLL.</summary>
+    </member>
+    <member name="T:AGI.Realtime.DistributedSimulation.IAgRtDSimFOMFromDLL">
+      <summary>Defines the attributes for configuring a generic FOM mapper.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.IAgRtDSimFOMFromDLL.FOMMapperDLL">
+      <summary>The path to the DLL containing the FOM mapper.</summary>
+    </member>
+    <member name="P:AGI.Realtime.DistributedSimulation.IAgRtDSimFOMFromDLL.InitializationData">
+      <summary>Initialization string to be passed to the FOM mapper DLL.</summary>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.IAgRtDSimFOMFromDLL.IsSpecificationSupported(AGI.Realtime.DistributedSimulation.AgERtDsHLASpecification)">
+      <summary>Returns true if a FOM mapper can be created to support the desired specification.</summary>
+      <param name="Version"></param>
+    </member>
+    <member name="M:AGI.Realtime.DistributedSimulation.IAgRtDSimFOMFromDLL.CreateFOMMapper(AGI.Realtime.DistributedSimulation.AgERtDsHLASpecification)">
+      <summary>Create a FOM mapper for the desired HLA specification.</summary>
+      <param name="Specification"></param>
+    </member>
+  </members>
+</doc>

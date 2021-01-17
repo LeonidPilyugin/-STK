@@ -1,0 +1,1548 @@
+<doc>
+  <assembly>
+    <name>AGI.STKObjects.Broker</name>
+  </assembly>
+  <members>
+    <member name="T:AGI.STKObjects.Broker.AgEBrokerEventDispatchID">
+      <summary>Dispatch IDs for event interfaces.</summary>
+    </member>
+    <member name="F:AGI.STKObjects.Broker.AgEBrokerEventDispatchID.ePromoteEvent">
+      <summary>An STK object has been promoted by the Broker.</summary>
+    </member>
+    <member name="F:AGI.STKObjects.Broker.AgEBrokerEventDispatchID.eDemoteEvent">
+      <summary>An STK object has been demoted by the Broker.</summary>
+    </member>
+    <member name="F:AGI.STKObjects.Broker.AgEBrokerEventDispatchID.eSelectedPathAddEvent">
+      <summary>An STK object has selected for output.</summary>
+    </member>
+    <member name="F:AGI.STKObjects.Broker.AgEBrokerEventDispatchID.eSelectedPathRemoveEvent">
+      <summary>An STK object has been removed from output.</summary>
+    </member>
+    <member name="F:AGI.STKObjects.Broker.AgEBrokerEventDispatchID.eOutputBrokerLoad">
+      <summary>The output broker has just loaded a configuration file.</summary>
+    </member>
+    <member name="T:AGI.STKObjects.Broker.AgEStkBrokerError">
+      <summary>Error codes.</summary>
+    </member>
+    <member name="F:AGI.STKObjects.Broker.AgEStkBrokerError.eStkBrokerErrorObjectAlreadyRegistered">
+      <summary>The provided object is already registered with the Broker.</summary>
+    </member>
+    <member name="F:AGI.STKObjects.Broker.AgEStkBrokerError.eStkBrokerErrorObjectNotRegistered">
+      <summary>The provided object is not registered with the Broker.</summary>
+    </member>
+    <member name="F:AGI.STKObjects.Broker.AgEStkBrokerError.eStkBrokerErrorReadOnly">
+      <summary>The object or property is readonly.</summary>
+    </member>
+    <member name="F:AGI.STKObjects.Broker.AgEStkBrokerError.eStkBrokerErrorIndexOutOfRange">
+      <summary>Index out of range.</summary>
+    </member>
+    <member name="F:AGI.STKObjects.Broker.AgEStkBrokerError.eErrorEntityAlreadyPromoted">
+      <summary>Object already promoted.</summary>
+    </member>
+    <member name="F:AGI.STKObjects.Broker.AgEStkBrokerError.eErrorEntityFailedPromotion">
+      <summary>Object failed promotion.</summary>
+    </member>
+    <member name="F:AGI.STKObjects.Broker.AgEStkBrokerError.eErrorEntityNotDemotedHasChildren">
+      <summary>Object can't be demoted because it has child objects in Stk.</summary>
+    </member>
+    <member name="F:AGI.STKObjects.Broker.AgEStkBrokerError.eErrorEntityNotDemotedAlwaysHeavy">
+      <summary>Object can't be demoted because it is specified to always be represented as a heavy.</summary>
+    </member>
+    <member name="F:AGI.STKObjects.Broker.AgEStkBrokerError.eErrorEntityNotDemotedNeverPromoted">
+      <summary>Object can't be demoted because it was never promoted to begin with.</summary>
+    </member>
+    <member name="T:AGI.STKObjects.Broker.AgBrokerInterfaces">
+      <summary>Internal object.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfaces.PromoteAndLockObject(AGI.Entity.IAgEntity,AGI.STKObjects.AgESTKObjectType)">
+      <summary>Promotes the STK representation of an entity to the provided STK object type.</summary>
+      <param name="Entity"></param>
+      <param name="ObjectType"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfaces.UnlockObject(System.String)">
+      <summary>Allows a previously user-promoted object to be managed by the broker.</summary>
+      <param name="ObjectPath"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfaces.PickEntities(System.Double,System.Double,System.Double,System.Double)">
+      <summary>Returns all entities within the provded latitude longitude bound in degrees.</summary>
+      <param name="North"></param>
+      <param name="West"></param>
+      <param name="South"></param>
+      <param name="East"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfaces.GetEntityFromStkPath(System.String)">
+      <summary>Returns the entity object being represented as the provided STK path.</summary>
+      <param name="ObjectPath"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfaces.GetStkPathFromEntity(AGI.Entity.IAgEntity)">
+      <summary>Returns the STK object path which represents the provided entity.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfaces.LoadChildObject(AGI.Entity.IAgEntity,System.String)">
+      <summary>Imports an STK object as a child of the provided Entity.</summary>
+      <param name="Entity"></param>
+      <param name="FullPath"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfaces.ViewEntities(AGI.Entity.IAgEntityCollection,System.Int32)">
+      <summary>Zooms to a region defined by the entity locations.</summary>
+      <param name="Entities"></param>
+      <param name="SceneID"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfaces.ViewEntity(AGI.Entity.IAgEntity,System.Int32)">
+      <summary>Zooms to an entity.</summary>
+      <param name="Entity"></param>
+      <param name="SceneID"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfaces.ProcessCommandQueue">
+      <summary>Forces the broker command queue to be processed immediately.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgBrokerInterfaces.PruneThreshold">
+      <summary>Any positions older than TimeInSeconds will be continually trimmed from all objects.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgBrokerInterfaces.ShowCorrelated">
+      <summary>Toggles the visualization of correlated entities.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgBrokerInterfaces.Threshold">
+      <summary>The STK Broker threshold object.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgBrokerInterfaces.AutoProcessCommands">
+      <summary>Toggles the automatic proccessing of Broker commands.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgBrokerInterfaces.AutoProcessRate">
+      <summary>Rate, in seconds, at which the Broker command processing cycle will attempt to process commands.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgBrokerInterfaces.SecondsBehind">
+      <summary>The number of seconds the broker has fallen behind attempting to process data at the previously set process rate.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgBrokerInterfaces.AutoPromote">
+      <summary>If true, allows the broker to automatically promote from an MTO track as it sees fit.  If false, the Broker will only promote an entity when explicitly told to do so.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgBrokerInterfaces.RotateMarkers">
+      <summary>If true, rotates entity markers to follow their velocity vector.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgBrokerInterfaces.ScenarioCreationMode">
+      <summary>If true, entities removed from the Broker are not removed from the scenario. Instead, processing of that entity stops and the STK object representing it remains.  The resulting scenario can be saved for further offline analysis.</summary>
+    </member>
+    <member name="E:AGI.STKObjects.Broker.IAgStkBrokerEvents_Event.OnAdd">
+      <summary>Event triggered when an entity is added.</summary>
+    </member>
+    <member name="E:AGI.STKObjects.Broker.IAgStkBrokerEvents_Event.OnAddMultiple">
+      <summary>Event triggered when multiple entities is added.</summary>
+    </member>
+    <member name="E:AGI.STKObjects.Broker.IAgStkBrokerEvents_Event.OnRemove">
+      <summary>Event triggered when an entity is removed.</summary>
+    </member>
+    <member name="E:AGI.STKObjects.Broker.IAgStkBrokerEvents_Event.OnRemoveMultiple">
+      <summary>Event triggered when multiple entities are removed.</summary>
+    </member>
+    <member name="E:AGI.STKObjects.Broker.IAgStkBrokerEvents_Event.OnRemoveAll">
+      <summary>Event triggered when all entities are removed.</summary>
+    </member>
+    <member name="E:AGI.STKObjects.Broker.IAgStkBrokerEvents_Event.OnPromote">
+      <summary>Event triggered when an MTO track is promoted to a Heavy object.</summary>
+    </member>
+    <member name="E:AGI.STKObjects.Broker.IAgStkBrokerEvents_Event.OnDemote">
+      <summary>Event triggered when a Heavy object is demoted to an MTO track.</summary>
+    </member>
+    <member name="T:AGI.STKObjects.Broker.AgBrokerInterfacesClass">
+      <summary>Internal object.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.PromoteAndLockObject(AGI.Entity.IAgEntity,AGI.STKObjects.AgESTKObjectType)">
+      <summary>Promotes the STK representation of an entity to the provided STK object type.</summary>
+      <param name="Entity"></param>
+      <param name="ObjectType"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.UnlockObject(System.String)">
+      <summary>Allows a previously user-promoted object to be managed by the broker.</summary>
+      <param name="ObjectPath"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.PickEntities(System.Double,System.Double,System.Double,System.Double)">
+      <summary>Returns all entities within the provded latitude longitude bound in degrees.</summary>
+      <param name="North"></param>
+      <param name="West"></param>
+      <param name="South"></param>
+      <param name="East"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.GetEntityFromStkPath(System.String)">
+      <summary>Returns the entity object being represented as the provided STK path.</summary>
+      <param name="ObjectPath"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.GetStkPathFromEntity(AGI.Entity.IAgEntity)">
+      <summary>Returns the STK object path which represents the provided entity.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.LoadChildObject(AGI.Entity.IAgEntity,System.String)">
+      <summary>Imports an STK object as a child of the provided Entity.</summary>
+      <param name="Entity"></param>
+      <param name="FullPath"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.ViewEntities(AGI.Entity.IAgEntityCollection,System.Int32)">
+      <summary>Zooms to a region defined by the entity locations.</summary>
+      <param name="Entities"></param>
+      <param name="SceneID"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.ViewEntity(AGI.Entity.IAgEntity,System.Int32)">
+      <summary>Zooms to an entity.</summary>
+      <param name="Entity"></param>
+      <param name="SceneID"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.ProcessCommandQueue">
+      <summary>Forces the broker command queue to be processed immediately.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgBrokerInterfacesClass.PruneThreshold">
+      <summary>Any positions older than TimeInSeconds will be continually trimmed from all objects.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgBrokerInterfacesClass.ShowCorrelated">
+      <summary>Toggles the visualization of correlated entities.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgBrokerInterfacesClass.Threshold">
+      <summary>The STK Broker threshold object.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgBrokerInterfacesClass.AutoProcessCommands">
+      <summary>Toggles the automatic proccessing of Broker commands.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgBrokerInterfacesClass.AutoProcessRate">
+      <summary>Rate, in seconds, at which the Broker command processing cycle will attempt to process commands.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgBrokerInterfacesClass.SecondsBehind">
+      <summary>The number of seconds the broker has fallen behind attempting to process data at the previously set process rate.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgBrokerInterfacesClass.AutoPromote">
+      <summary>If true, allows the broker to automatically promote from an MTO track as it sees fit.  If false, the Broker will only promote an entity when explicitly told to do so.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgBrokerInterfacesClass.RotateMarkers">
+      <summary>If true, rotates entity markers to follow their velocity vector.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgBrokerInterfacesClass.ScenarioCreationMode">
+      <summary>If true, entities removed from the Broker are not removed from the scenario. Instead, processing of that entity stops and the STK object representing it remains.  The resulting scenario can be saved for further offline analysis.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.Fire_OnPromote(AGI.STKObjects.Broker.IAgStkBroker,AGI.STKObjects.IAgStkObject,AGI.STKObjects.IAgMto,System.Int32)">
+      <summary>Triggers OnPromote.</summary>
+      <param name="Sender"></param>
+      <param name="Heavy"></param>
+      <param name="Mto"></param>
+      <param name="TrackID"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.Fire_OnDemote(AGI.STKObjects.Broker.IAgStkBroker,AGI.STKObjects.IAgStkObject,AGI.STKObjects.IAgMto,System.Int32)">
+      <summary>Triggers OnDemote.</summary>
+      <param name="Sender"></param>
+      <param name="Heavy"></param>
+      <param name="Mto"></param>
+      <param name="TrackID"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.Terminate">
+      <summary>Terminate the broker and perform any neccessary cleanup.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgBrokerInterfacesClass.Stk">
+      <summary>The STK application object to which the broker will output.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgBrokerInterfacesClass.CommandProcessor">
+      <summary>An instance of AgStkBrokerCommandProcessor which was created in the same thread as STK.</summary>
+    </member>
+    <member name="E:AGI.STKObjects.Broker.AgBrokerInterfacesClass.OnAdd">
+      <summary>Event triggered when an entity is added.</summary>
+    </member>
+    <member name="E:AGI.STKObjects.Broker.AgBrokerInterfacesClass.OnAddMultiple">
+      <summary>Event triggered when multiple entities is added.</summary>
+    </member>
+    <member name="E:AGI.STKObjects.Broker.AgBrokerInterfacesClass.OnRemove">
+      <summary>Event triggered when an entity is removed.</summary>
+    </member>
+    <member name="E:AGI.STKObjects.Broker.AgBrokerInterfacesClass.OnRemoveMultiple">
+      <summary>Event triggered when multiple entities are removed.</summary>
+    </member>
+    <member name="E:AGI.STKObjects.Broker.AgBrokerInterfacesClass.OnRemoveAll">
+      <summary>Event triggered when all entities are removed.</summary>
+    </member>
+    <member name="E:AGI.STKObjects.Broker.AgBrokerInterfacesClass.OnPromote">
+      <summary>Event triggered when an MTO track is promoted to a Heavy object.</summary>
+    </member>
+    <member name="E:AGI.STKObjects.Broker.AgBrokerInterfacesClass.OnDemote">
+      <summary>Event triggered when a Heavy object is demoted to an MTO track.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.Reset">
+      <summary>Reset the thresholds to default values.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgBrokerInterfacesClass.Enabled">
+      <summary>Enables or disables threshold processing for all objects in the broker.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgBrokerInterfacesClass.MaximumLabelDistance">
+      <summary>The maximum viewing distance at which a label is visible.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgBrokerInterfacesClass.MaximumPointDistance">
+      <summary>The maximum viewing distance at which a point is visible.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgBrokerInterfacesClass.MaximumMarkerDistance">
+      <summary>The maximum viewing distance at which a marker is visible.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgBrokerInterfacesClass.MaximumModelDistance">
+      <summary>The maximum viewing distance at which the model, vectors, attitude sphere, and geostationary box is displayed.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.Save(System.String)">
+      <summary>Saves current settings to the provided file.</summary>
+      <param name="Filename"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.Load(System.String)">
+      <summary>Loads previously saved settings from the provided file.</summary>
+      <param name="Filename"></param>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgBrokerInterfacesClass.Output">
+      <summary>The output plugin to use.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgBrokerInterfacesClass.SelectedObjectPaths">
+      <summary>The collection of STK object paths to be output.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.Add(System.String)">
+      <summary>Adds an element to the collection and returns the unique ID that will be used to represent the entity that is generated.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.AddWithID(System.String,System.String)">
+      <summary>Adds an element to the collection and use the unique ID to represent the entity that is generated.</summary>
+      <param name="Path"></param>
+      <param name="EntityID"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.Remove(System.String)">
+      <summary>Remove the provided element from the collection.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.GetUniqueIDFromPath(System.String)">
+      <summary>Get the unique Entity ID associated with an STK object path.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.IsObjectAvailableForOutput(System.String)">
+      <summary>Returns true if the supplied object path can be output, false otherwise.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.IsObjectSelectedForOutput(System.String)">
+      <summary>Returns true if the supplied object path can be output, false otherwise.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgBrokerInterfacesClass._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgBrokerInterfacesClass.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.AddMultiple(System.Array@)">
+      <summary>Adds multiple elements to the collection.</summary>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.InsertAt(System.Int32,AGI.Entity.IAgEntity)">
+      <summary>Insert an element into the collection at the specified index</summary>
+      <param name="Index"></param>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.RemoveMultiple(System.Array@)">
+      <summary>Removes multiple elements from the collection.</summary>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.RemoveAt(System.Int32)">
+      <summary>Remove the element at the specified index from the collection.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.Copy">
+      <summary>Copy the collection</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.Find(System.String)">
+      <summary>Find an element using its IAgEntity ID property.</summary>
+      <param name="EntityID"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="pAttrBuilder"></param>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgBrokerInterfacesClass.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.OnScenarioNew(System.String)">
+      <summary>Triggered when a new scenario is created.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.OnScenarioLoad(System.String)">
+      <summary>Triggered when a scenario is loaded.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.OnScenarioClose">
+      <summary>Triggered when a scenario is closed.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.OnAnimationPlayback(System.Double,AGI.STKObjects.AgEAnimationActions,AGI.STKObjects.AgEAnimationDirections)">
+      <summary>Triggered when an animation action is performed.</summary>
+      <param name="CurrentTime"></param>
+      <param name="Action"></param>
+      <param name="Direction"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.OnAnimationRewind">
+      <summary>Triggered when animation is rewound.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgBrokerInterfacesClass.OnAnimationPause(System.Double)">
+      <summary>Triggered when animation is paused.</summary>
+      <param name="CurrentTime"></param>
+    </member>
+    <member name="T:AGI.STKObjects.Broker.IAgStkBroker">
+      <summary>Primary interface for the STK Broker.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkBroker.PromoteAndLockObject(AGI.Entity.IAgEntity,AGI.STKObjects.AgESTKObjectType)">
+      <summary>Promotes the STK representation of an entity to the provided STK object type.</summary>
+      <param name="Entity"></param>
+      <param name="ObjectType"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkBroker.UnlockObject(System.String)">
+      <summary>Allows a previously user-promoted object to be managed by the broker.</summary>
+      <param name="ObjectPath"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkBroker.PickEntities(System.Double,System.Double,System.Double,System.Double)">
+      <summary>Returns all entities within the provded latitude longitude bound in degrees.</summary>
+      <param name="North"></param>
+      <param name="West"></param>
+      <param name="South"></param>
+      <param name="East"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkBroker.GetEntityFromStkPath(System.String)">
+      <summary>Returns the entity object being represented as the provided STK path.</summary>
+      <param name="ObjectPath"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkBroker.GetStkPathFromEntity(AGI.Entity.IAgEntity)">
+      <summary>Returns the STK object path which represents the provided entity.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkBroker.LoadChildObject(AGI.Entity.IAgEntity,System.String)">
+      <summary>Imports an STK object as a child of the provided Entity.</summary>
+      <param name="Entity"></param>
+      <param name="FullPath"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkBroker.ViewEntities(AGI.Entity.IAgEntityCollection,System.Int32)">
+      <summary>Zooms to a region defined by the entity locations.</summary>
+      <param name="Entities"></param>
+      <param name="SceneID"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkBroker.ViewEntity(AGI.Entity.IAgEntity,System.Int32)">
+      <summary>Zooms to an entity.</summary>
+      <param name="Entity"></param>
+      <param name="SceneID"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkBroker.ProcessCommandQueue">
+      <summary>Forces the broker command queue to be processed immediately.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.IAgStkBroker.PruneThreshold">
+      <summary>Any positions older than TimeInSeconds will be continually trimmed from all objects.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.IAgStkBroker.ShowCorrelated">
+      <summary>Toggles the visualization of correlated entities.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.IAgStkBroker.Threshold">
+      <summary>The STK Broker threshold object.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.IAgStkBroker.AutoProcessCommands">
+      <summary>Toggles the automatic proccessing of Broker commands.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.IAgStkBroker.AutoProcessRate">
+      <summary>Rate, in seconds, at which the Broker command processing cycle will attempt to process commands.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.IAgStkBroker.SecondsBehind">
+      <summary>The number of seconds the broker has fallen behind attempting to process data at the previously set process rate.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.IAgStkBroker.AutoPromote">
+      <summary>If true, allows the broker to automatically promote from an MTO track as it sees fit.  If false, the Broker will only promote an entity when explicitly told to do so.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.IAgStkBroker.RotateMarkers">
+      <summary>If true, rotates entity markers to follow their velocity vector.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.IAgStkBroker.ScenarioCreationMode">
+      <summary>If true, entities removed from the Broker are not removed from the scenario. Instead, processing of that entity stops and the STK object representing it remains.  The resulting scenario can be saved for further offline analysis.</summary>
+    </member>
+    <member name="T:AGI.STKObjects.Broker.IAgStkBrokerThreshold">
+      <summary>Defines the view distance thresholds for entities in the Broker.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkBrokerThreshold.Reset">
+      <summary>Reset the thresholds to default values.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.IAgStkBrokerThreshold.Enabled">
+      <summary>Enables or disables threshold processing for all objects in the broker.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.IAgStkBrokerThreshold.MaximumLabelDistance">
+      <summary>The maximum viewing distance at which a label is visible.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.IAgStkBrokerThreshold.MaximumPointDistance">
+      <summary>The maximum viewing distance at which a point is visible.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.IAgStkBrokerThreshold.MaximumMarkerDistance">
+      <summary>The maximum viewing distance at which a marker is visible.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.IAgStkBrokerThreshold.MaximumModelDistance">
+      <summary>The maximum viewing distance at which the model, vectors, attitude sphere, and geostationary box is displayed.</summary>
+    </member>
+    <member name="T:AGI.STKObjects.Broker.IAgStkInternalBroker">
+      <summary>Internal interface.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkInternalBroker.Fire_OnPromote(AGI.STKObjects.Broker.IAgStkBroker,AGI.STKObjects.IAgStkObject,AGI.STKObjects.IAgMto,System.Int32)">
+      <summary>Triggers OnPromote.</summary>
+      <param name="Sender"></param>
+      <param name="Heavy"></param>
+      <param name="Mto"></param>
+      <param name="TrackID"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkInternalBroker.Fire_OnDemote(AGI.STKObjects.Broker.IAgStkBroker,AGI.STKObjects.IAgStkObject,AGI.STKObjects.IAgMto,System.Int32)">
+      <summary>Triggers OnDemote.</summary>
+      <param name="Sender"></param>
+      <param name="Heavy"></param>
+      <param name="Mto"></param>
+      <param name="TrackID"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkInternalBroker.Terminate">
+      <summary>Terminate the broker and perform any neccessary cleanup.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.IAgStkInternalBroker.Stk">
+      <summary>The STK application object to which the broker will output.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.IAgStkInternalBroker.CommandProcessor">
+      <summary>An instance of AgStkBrokerCommandProcessor which was created in the same thread as STK.</summary>
+    </member>
+    <member name="T:AGI.STKObjects.Broker.IAgStkBrokerEvents">
+      <summary>Events triggered by AgStkBroker.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkBrokerEvents.OnAdd(AGI.Entity.IAgEntityCollection,AGI.Entity.IAgEntity)">
+      <summary>Event triggered when an entity is added.</summary>
+      <param name="Sender"></param>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkBrokerEvents.OnAddMultiple(AGI.Entity.IAgEntityCollection,System.Array@)">
+      <summary>Event triggered when multiple entities is added.</summary>
+      <param name="Sender"></param>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkBrokerEvents.OnRemove(AGI.Entity.IAgEntityCollection,AGI.Entity.IAgEntity)">
+      <summary>Event triggered when an entity is removed.</summary>
+      <param name="Sender"></param>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkBrokerEvents.OnRemoveMultiple(AGI.Entity.IAgEntityCollection,System.Array@)">
+      <summary>Event triggered when multiple entities are removed.</summary>
+      <param name="Sender"></param>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkBrokerEvents.OnRemoveAll(AGI.Entity.IAgEntityCollection)">
+      <summary>Event triggered when all entities are removed.</summary>
+      <param name="Sender"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkBrokerEvents.OnPromote(AGI.STKObjects.Broker.IAgStkBroker,System.String,System.String)">
+      <summary>Event triggered when an MTO track is promoted to a Heavy object.</summary>
+      <param name="Sender"></param>
+      <param name="OldObjectPath"></param>
+      <param name="PromotedObjectPath"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkBrokerEvents.OnDemote(AGI.STKObjects.Broker.IAgStkBroker,System.String,System.String)">
+      <summary>Event triggered when a Heavy object is demoted to an MTO track.</summary>
+      <param name="Sender"></param>
+      <param name="OldObjectPath"></param>
+      <param name="DemotedObjectPath"></param>
+    </member>
+    <member name="T:AGI.STKObjects.Broker.IAgStkOutputBroker">
+      <summary>Primary interface for the STK Output Broker.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkOutputBroker.Save(System.String)">
+      <summary>Saves current settings to the provided file.</summary>
+      <param name="Filename"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkOutputBroker.Load(System.String)">
+      <summary>Loads previously saved settings from the provided file.</summary>
+      <param name="Filename"></param>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.IAgStkOutputBroker.Output">
+      <summary>The output plugin to use.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.IAgStkOutputBroker.SelectedObjectPaths">
+      <summary>The collection of STK object paths to be output.</summary>
+    </member>
+    <member name="T:AGI.STKObjects.Broker.IAgStkOutputObjectPathCollection">
+      <summary>The collection of STK object paths which will be processed by the Output Broker.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkOutputObjectPathCollection.Add(System.String)">
+      <summary>Adds an element to the collection and returns the unique ID that will be used to represent the entity that is generated.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkOutputObjectPathCollection.AddWithID(System.String,System.String)">
+      <summary>Adds an element to the collection and use the unique ID to represent the entity that is generated.</summary>
+      <param name="Path"></param>
+      <param name="EntityID"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkOutputObjectPathCollection.Remove(System.String)">
+      <summary>Remove the provided element from the collection.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkOutputObjectPathCollection.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkOutputObjectPathCollection.GetUniqueIDFromPath(System.String)">
+      <summary>Get the unique Entity ID associated with an STK object path.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkOutputObjectPathCollection.IsObjectAvailableForOutput(System.String)">
+      <summary>Returns true if the supplied object path can be output, false otherwise.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkOutputObjectPathCollection.IsObjectSelectedForOutput(System.String)">
+      <summary>Returns true if the supplied object path can be output, false otherwise.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.IAgStkOutputObjectPathCollection._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.IAgStkOutputObjectPathCollection.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="T:AGI.STKObjects.Broker.IAgStkInternalOutputBroker">
+      <summary>Internal interface.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.IAgStkInternalOutputBroker.Stk">
+      <summary>The STK application object to which the broker will receive objects.</summary>
+    </member>
+    <member name="T:AGI.STKObjects.Broker._IAgStkBroker">
+      <summary>Merged IDispatch interface for AgStkBroker.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgStkBroker.PromoteAndLockObject(AGI.Entity.IAgEntity,AGI.STKObjects.AgESTKObjectType)">
+      <summary>Promotes the STK representation of an entity to the provided STK object type.</summary>
+      <param name="Entity"></param>
+      <param name="ObjectType"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgStkBroker.UnlockObject(System.String)">
+      <summary>Allows a previously user-promoted object to be managed by the broker.</summary>
+      <param name="ObjectPath"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgStkBroker.PickEntities(System.Double,System.Double,System.Double,System.Double)">
+      <summary>Returns all entities within the provded latitude longitude bound in degrees.</summary>
+      <param name="North"></param>
+      <param name="West"></param>
+      <param name="South"></param>
+      <param name="East"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgStkBroker.GetEntityFromStkPath(System.String)">
+      <summary>Returns the entity object being represented as the provided STK path.</summary>
+      <param name="ObjectPath"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgStkBroker.GetStkPathFromEntity(AGI.Entity.IAgEntity)">
+      <summary>Returns the STK object path which represents the provided entity.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgStkBroker.LoadChildObject(AGI.Entity.IAgEntity,System.String)">
+      <summary>Imports an STK object as a child of the provided Entity.</summary>
+      <param name="Entity"></param>
+      <param name="FullPath"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgStkBroker.ViewEntities(AGI.Entity.IAgEntityCollection,System.Int32)">
+      <summary>Zooms to a region defined by the entity locations.</summary>
+      <param name="Entities"></param>
+      <param name="SceneID"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgStkBroker.ViewEntity(AGI.Entity.IAgEntity,System.Int32)">
+      <summary>Zooms to an entity.</summary>
+      <param name="Entity"></param>
+      <param name="SceneID"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgStkBroker.ProcessCommandQueue">
+      <summary>Forces the broker command queue to be processed immediately.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgStkBroker.Add(AGI.Entity.IAgEntity)">
+      <summary>Adds an element to the collection.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgStkBroker.AddMultiple(System.Array@)">
+      <summary>Adds multiple elements to the collection.</summary>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgStkBroker.InsertAt(System.Int32,AGI.Entity.IAgEntity)">
+      <summary>Insert an element into the collection at the specified index</summary>
+      <param name="Index"></param>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgStkBroker.Remove(AGI.Entity.IAgEntity)">
+      <summary>Remove the provided element from the collection.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgStkBroker.RemoveMultiple(System.Array@)">
+      <summary>Removes multiple elements from the collection.</summary>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgStkBroker.RemoveAt(System.Int32)">
+      <summary>Remove the element at the specified index from the collection.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgStkBroker.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgStkBroker.Copy">
+      <summary>Copy the collection</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgStkBroker.Find(System.String)">
+      <summary>Find an element using its IAgEntity ID property.</summary>
+      <param name="EntityID"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgStkBroker.Terminate">
+      <summary>Terminate the broker and perform any neccessary cleanup.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgStkBroker.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="pAttrBuilder"></param>
+    </member>
+    <member name="P:AGI.STKObjects.Broker._IAgStkBroker.PruneThreshold">
+      <summary>Any positions older than TimeInSeconds will be continually trimmed from all objects.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker._IAgStkBroker.ShowCorrelated">
+      <summary>Toggles the visualization of correlated entities.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker._IAgStkBroker.Threshold">
+      <summary>The STK Broker threshold object.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker._IAgStkBroker.AutoProcessCommands">
+      <summary>Toggles the automatic proccessing of Broker commands.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker._IAgStkBroker.AutoProcessRate">
+      <summary>Rate, in seconds, at which the Broker command processing cycle will attempt to process commands.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker._IAgStkBroker.SecondsBehind">
+      <summary>The number of seconds the broker has fallen behind attempting to process data at the previously set process rate.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker._IAgStkBroker.AutoPromote">
+      <summary>If true, allows the broker to automatically promote from an MTO track as it sees fit.  If false, the Broker will only promote an entity when explicitly told to do so.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker._IAgStkBroker.RotateMarkers">
+      <summary>If true, rotates entity markers to follow their velocity vector.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker._IAgStkBroker.ScenarioCreationMode">
+      <summary>If true, entities removed from the Broker are not removed from the scenario. Instead, processing of that entity stops and the STK object representing it remains.  The resulting scenario can be saved for further offline analysis.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker._IAgStkBroker.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker._IAgStkBroker._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker._IAgStkBroker.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="T:AGI.STKObjects.Broker._IAgStkBrokerThreshold">
+      <summary>Merged IDispatch interface for AgStkBrokerThreshold.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgStkBrokerThreshold.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="pAttrBuilder"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgStkBrokerThreshold.Reset">
+      <summary>Reset the thresholds to default values.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker._IAgStkBrokerThreshold.Enabled">
+      <summary>Enables or disables threshold processing for all objects in the broker.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker._IAgStkBrokerThreshold.MaximumLabelDistance">
+      <summary>The maximum viewing distance at which a label is visible.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker._IAgStkBrokerThreshold.MaximumPointDistance">
+      <summary>The maximum viewing distance at which a point is visible.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker._IAgStkBrokerThreshold.MaximumMarkerDistance">
+      <summary>The maximum viewing distance at which a marker is visible.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker._IAgStkBrokerThreshold.MaximumModelDistance">
+      <summary>The maximum viewing distance at which the model, vectors, attitude sphere, and geostationary box is displayed.</summary>
+    </member>
+    <member name="T:AGI.STKObjects.Broker._IAgStkOutputBroker">
+      <summary>Merged IDispatch interface for AgStkOutputBroker.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgStkOutputBroker.OnScenarioNew(System.String)">
+      <summary>Triggered when a new scenario is created.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgStkOutputBroker.OnScenarioLoad(System.String)">
+      <summary>Triggered when a scenario is loaded.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgStkOutputBroker.OnScenarioClose">
+      <summary>Triggered when a scenario is closed.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgStkOutputBroker.OnAnimationPlayback(System.Double,AGI.STKObjects.AgEAnimationActions,AGI.STKObjects.AgEAnimationDirections)">
+      <summary>Triggered when an animation action is performed.</summary>
+      <param name="CurrentTime"></param>
+      <param name="Action"></param>
+      <param name="Direction"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgStkOutputBroker.OnAnimationRewind">
+      <summary>Triggered when animation is rewound.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgStkOutputBroker.OnAnimationPause(System.Double)">
+      <summary>Triggered when animation is paused.</summary>
+      <param name="CurrentTime"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgStkOutputBroker.Save(System.String)">
+      <summary>Saves current settings to the provided file.</summary>
+      <param name="Filename"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgStkOutputBroker.Load(System.String)">
+      <summary>Loads previously saved settings from the provided file.</summary>
+      <param name="Filename"></param>
+    </member>
+    <member name="P:AGI.STKObjects.Broker._IAgStkOutputBroker.Output">
+      <summary>The output plugin to use.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker._IAgStkOutputBroker.SelectedObjectPaths">
+      <summary>The collection of STK object paths to be output.</summary>
+    </member>
+    <member name="T:AGI.STKObjects.Broker.AgStkBroker">
+      <summary>STK Object Model Broker.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBroker.PromoteAndLockObject(AGI.Entity.IAgEntity,AGI.STKObjects.AgESTKObjectType)">
+      <summary>Promotes the STK representation of an entity to the provided STK object type.</summary>
+      <param name="Entity"></param>
+      <param name="ObjectType"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBroker.UnlockObject(System.String)">
+      <summary>Allows a previously user-promoted object to be managed by the broker.</summary>
+      <param name="ObjectPath"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBroker.PickEntities(System.Double,System.Double,System.Double,System.Double)">
+      <summary>Returns all entities within the provded latitude longitude bound in degrees.</summary>
+      <param name="North"></param>
+      <param name="West"></param>
+      <param name="South"></param>
+      <param name="East"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBroker.GetEntityFromStkPath(System.String)">
+      <summary>Returns the entity object being represented as the provided STK path.</summary>
+      <param name="ObjectPath"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBroker.GetStkPathFromEntity(AGI.Entity.IAgEntity)">
+      <summary>Returns the STK object path which represents the provided entity.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBroker.LoadChildObject(AGI.Entity.IAgEntity,System.String)">
+      <summary>Imports an STK object as a child of the provided Entity.</summary>
+      <param name="Entity"></param>
+      <param name="FullPath"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBroker.ViewEntities(AGI.Entity.IAgEntityCollection,System.Int32)">
+      <summary>Zooms to a region defined by the entity locations.</summary>
+      <param name="Entities"></param>
+      <param name="SceneID"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBroker.ViewEntity(AGI.Entity.IAgEntity,System.Int32)">
+      <summary>Zooms to an entity.</summary>
+      <param name="Entity"></param>
+      <param name="SceneID"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBroker.ProcessCommandQueue">
+      <summary>Forces the broker command queue to be processed immediately.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBroker.Add(AGI.Entity.IAgEntity)">
+      <summary>Adds an element to the collection.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBroker.AddMultiple(System.Array@)">
+      <summary>Adds multiple elements to the collection.</summary>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBroker.InsertAt(System.Int32,AGI.Entity.IAgEntity)">
+      <summary>Insert an element into the collection at the specified index</summary>
+      <param name="Index"></param>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBroker.Remove(AGI.Entity.IAgEntity)">
+      <summary>Remove the provided element from the collection.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBroker.RemoveMultiple(System.Array@)">
+      <summary>Removes multiple elements from the collection.</summary>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBroker.RemoveAt(System.Int32)">
+      <summary>Remove the element at the specified index from the collection.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBroker.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBroker.Copy">
+      <summary>Copy the collection</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBroker.Find(System.String)">
+      <summary>Find an element using its IAgEntity ID property.</summary>
+      <param name="EntityID"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBroker.Terminate">
+      <summary>Terminate the broker and perform any neccessary cleanup.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBroker.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="pAttrBuilder"></param>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBroker.PruneThreshold">
+      <summary>Any positions older than TimeInSeconds will be continually trimmed from all objects.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBroker.ShowCorrelated">
+      <summary>Toggles the visualization of correlated entities.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBroker.Threshold">
+      <summary>The STK Broker threshold object.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBroker.AutoProcessCommands">
+      <summary>Toggles the automatic proccessing of Broker commands.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBroker.AutoProcessRate">
+      <summary>Rate, in seconds, at which the Broker command processing cycle will attempt to process commands.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBroker.SecondsBehind">
+      <summary>The number of seconds the broker has fallen behind attempting to process data at the previously set process rate.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBroker.AutoPromote">
+      <summary>If true, allows the broker to automatically promote from an MTO track as it sees fit.  If false, the Broker will only promote an entity when explicitly told to do so.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBroker.RotateMarkers">
+      <summary>If true, rotates entity markers to follow their velocity vector.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBroker.ScenarioCreationMode">
+      <summary>If true, entities removed from the Broker are not removed from the scenario. Instead, processing of that entity stops and the STK object representing it remains.  The resulting scenario can be saved for further offline analysis.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBroker.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBroker._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBroker.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="T:AGI.STKObjects.Broker.AgStkBrokerClass">
+      <summary>STK Object Model Broker.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerClass.PromoteAndLockObject(AGI.Entity.IAgEntity,AGI.STKObjects.AgESTKObjectType)">
+      <summary>Promotes the STK representation of an entity to the provided STK object type.</summary>
+      <param name="Entity"></param>
+      <param name="ObjectType"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerClass.UnlockObject(System.String)">
+      <summary>Allows a previously user-promoted object to be managed by the broker.</summary>
+      <param name="ObjectPath"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerClass.PickEntities(System.Double,System.Double,System.Double,System.Double)">
+      <summary>Returns all entities within the provded latitude longitude bound in degrees.</summary>
+      <param name="North"></param>
+      <param name="West"></param>
+      <param name="South"></param>
+      <param name="East"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerClass.GetEntityFromStkPath(System.String)">
+      <summary>Returns the entity object being represented as the provided STK path.</summary>
+      <param name="ObjectPath"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerClass.GetStkPathFromEntity(AGI.Entity.IAgEntity)">
+      <summary>Returns the STK object path which represents the provided entity.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerClass.LoadChildObject(AGI.Entity.IAgEntity,System.String)">
+      <summary>Imports an STK object as a child of the provided Entity.</summary>
+      <param name="Entity"></param>
+      <param name="FullPath"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerClass.ViewEntities(AGI.Entity.IAgEntityCollection,System.Int32)">
+      <summary>Zooms to a region defined by the entity locations.</summary>
+      <param name="Entities"></param>
+      <param name="SceneID"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerClass.ViewEntity(AGI.Entity.IAgEntity,System.Int32)">
+      <summary>Zooms to an entity.</summary>
+      <param name="Entity"></param>
+      <param name="SceneID"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerClass.ProcessCommandQueue">
+      <summary>Forces the broker command queue to be processed immediately.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerClass.Add(AGI.Entity.IAgEntity)">
+      <summary>Adds an element to the collection.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerClass.AddMultiple(System.Array@)">
+      <summary>Adds multiple elements to the collection.</summary>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerClass.InsertAt(System.Int32,AGI.Entity.IAgEntity)">
+      <summary>Insert an element into the collection at the specified index</summary>
+      <param name="Index"></param>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerClass.Remove(AGI.Entity.IAgEntity)">
+      <summary>Remove the provided element from the collection.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerClass.RemoveMultiple(System.Array@)">
+      <summary>Removes multiple elements from the collection.</summary>
+      <param name="Entities"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerClass.RemoveAt(System.Int32)">
+      <summary>Remove the element at the specified index from the collection.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerClass.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerClass.Copy">
+      <summary>Copy the collection</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerClass.Find(System.String)">
+      <summary>Find an element using its IAgEntity ID property.</summary>
+      <param name="EntityID"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerClass.Terminate">
+      <summary>Terminate the broker and perform any neccessary cleanup.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerClass.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="pAttrBuilder"></param>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerClass.PruneThreshold">
+      <summary>Any positions older than TimeInSeconds will be continually trimmed from all objects.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerClass.ShowCorrelated">
+      <summary>Toggles the visualization of correlated entities.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerClass.Threshold">
+      <summary>The STK Broker threshold object.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerClass.AutoProcessCommands">
+      <summary>Toggles the automatic proccessing of Broker commands.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerClass.AutoProcessRate">
+      <summary>Rate, in seconds, at which the Broker command processing cycle will attempt to process commands.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerClass.SecondsBehind">
+      <summary>The number of seconds the broker has fallen behind attempting to process data at the previously set process rate.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerClass.AutoPromote">
+      <summary>If true, allows the broker to automatically promote from an MTO track as it sees fit.  If false, the Broker will only promote an entity when explicitly told to do so.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerClass.RotateMarkers">
+      <summary>If true, rotates entity markers to follow their velocity vector.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerClass.ScenarioCreationMode">
+      <summary>If true, entities removed from the Broker are not removed from the scenario. Instead, processing of that entity stops and the STK object representing it remains.  The resulting scenario can be saved for further offline analysis.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerClass.Item">
+      <summary>Given an index, returns the element in the collection.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerClass._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerClass.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerClass.Fire_OnPromote(AGI.STKObjects.Broker.IAgStkBroker,AGI.STKObjects.IAgStkObject,AGI.STKObjects.IAgMto,System.Int32)">
+      <summary>Triggers OnPromote.</summary>
+      <param name="Sender"></param>
+      <param name="Heavy"></param>
+      <param name="Mto"></param>
+      <param name="TrackID"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerClass.Fire_OnDemote(AGI.STKObjects.Broker.IAgStkBroker,AGI.STKObjects.IAgStkObject,AGI.STKObjects.IAgMto,System.Int32)">
+      <summary>Triggers OnDemote.</summary>
+      <param name="Sender"></param>
+      <param name="Heavy"></param>
+      <param name="Mto"></param>
+      <param name="TrackID"></param>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerClass.Stk">
+      <summary>The STK application object to which the broker will output.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerClass.CommandProcessor">
+      <summary>An instance of AgStkBrokerCommandProcessor which was created in the same thread as STK.</summary>
+    </member>
+    <member name="E:AGI.STKObjects.Broker.AgStkBrokerClass.OnAdd">
+      <summary>Event triggered when an entity is added.</summary>
+    </member>
+    <member name="E:AGI.STKObjects.Broker.AgStkBrokerClass.OnAddMultiple">
+      <summary>Event triggered when multiple entities is added.</summary>
+    </member>
+    <member name="E:AGI.STKObjects.Broker.AgStkBrokerClass.OnRemove">
+      <summary>Event triggered when an entity is removed.</summary>
+    </member>
+    <member name="E:AGI.STKObjects.Broker.AgStkBrokerClass.OnRemoveMultiple">
+      <summary>Event triggered when multiple entities are removed.</summary>
+    </member>
+    <member name="E:AGI.STKObjects.Broker.AgStkBrokerClass.OnRemoveAll">
+      <summary>Event triggered when all entities are removed.</summary>
+    </member>
+    <member name="E:AGI.STKObjects.Broker.AgStkBrokerClass.OnPromote">
+      <summary>Event triggered when an MTO track is promoted to a Heavy object.</summary>
+    </member>
+    <member name="E:AGI.STKObjects.Broker.AgStkBrokerClass.OnDemote">
+      <summary>Event triggered when a Heavy object is demoted to an MTO track.</summary>
+    </member>
+    <member name="T:AGI.STKObjects.Broker.AgStkBrokerCommandProcessor">
+      <summary>Internal object.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerCommandProcessor.OnScenarioNew(System.String)">
+      <summary>Triggered when a new scenario is created.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerCommandProcessor.OnScenarioLoad(System.String)">
+      <summary>Triggered when a scenario is loaded.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerCommandProcessor.OnScenarioClose">
+      <summary>Triggered when a scenario is closed.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerCommandProcessor.PromoteAndLockObject(AGI.Entity.IAgEntity,AGI.STKObjects.AgESTKObjectType)">
+      <summary>Promotes the STK representation of an entity to the provided STK object type.</summary>
+      <param name="Entity"></param>
+      <param name="ObjectType"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerCommandProcessor.UnlockObject(AGI.STKObjects.IAgStkObject)">
+      <summary>Allows a previously user-promoted object to be managed by the broker.</summary>
+      <param name="StkObject"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerCommandProcessor.ProcessCommandQueue">
+      <summary>Processes all pending broker commands.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerCommandProcessor.PruneOldTrackPositions(System.Int32)">
+      <summary>Prunes all MTO track points older than Threshold in seconds.</summary>
+      <param name="Threshold"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerCommandProcessor.GetEntityFromStkPath(System.String)">
+      <summary>Gets an entity ID from the currently represented Stk object path.</summary>
+      <param name="ObjectPath"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerCommandProcessor.GetStkPathFromEntity(AGI.Entity.IAgEntity)">
+      <summary>Gets an STK Object path that represents the provided entity ID.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerCommandProcessor.LoadChildObject(AGI.Entity.IAgEntity,System.String)">
+      <summary>Loads a STK object as a child object of the provided entity.</summary>
+      <param name="Entity"></param>
+      <param name="FullPath"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerCommandProcessor.DemoteApplicableObjects">
+      <summary>Demotes all objects which do not need to be heavies.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerCommandProcessor.ViewEntities(AGI.Entity.IAgEntityCollection,System.Int32)">
+      <summary>Zooms to a region defined by the entity locations.</summary>
+      <param name="Entities"></param>
+      <param name="SceneID"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerCommandProcessor.ViewEntity(AGI.Entity.IAgEntity,System.Int32)">
+      <summary>Zooms to an entity.</summary>
+      <param name="Entity"></param>
+      <param name="SceneID"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerCommandProcessor.UpdateCorrelation">
+      <summary>Updates correlation status.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerCommandProcessor.Stk">
+      <summary>The STK application object to which the broker will output.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerCommandProcessor.Threshold">
+      <summary>The STK Broker threshold object.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerCommandProcessor.RotateMarkers">
+      <summary>If true, rotates entity markers to follow their velocity vector.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerCommandProcessor.AutoPromote">
+      <summary>If true, allows the broker to automatically promote from an MTO track as it sees fit.  If false, the Broker will only promote an entity when explicitly told to do so.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerCommandProcessor.ScenarioCreationMode">
+      <summary>If true, entities removed from the Broker are not removed from the scenario. Instead, processing of that entity stops and the STK object representing it remains.  The resulting scenario can be saved for further offline analysis.</summary>
+    </member>
+    <member name="T:AGI.STKObjects.Broker.AgStkBrokerCommandProcessorClass">
+      <summary>Internal object.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerCommandProcessorClass.OnScenarioNew(System.String)">
+      <summary>Triggered when a new scenario is created.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerCommandProcessorClass.OnScenarioLoad(System.String)">
+      <summary>Triggered when a scenario is loaded.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerCommandProcessorClass.OnScenarioClose">
+      <summary>Triggered when a scenario is closed.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerCommandProcessorClass.PromoteAndLockObject(AGI.Entity.IAgEntity,AGI.STKObjects.AgESTKObjectType)">
+      <summary>Promotes the STK representation of an entity to the provided STK object type.</summary>
+      <param name="Entity"></param>
+      <param name="ObjectType"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerCommandProcessorClass.UnlockObject(AGI.STKObjects.IAgStkObject)">
+      <summary>Allows a previously user-promoted object to be managed by the broker.</summary>
+      <param name="StkObject"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerCommandProcessorClass.ProcessCommandQueue">
+      <summary>Processes all pending broker commands.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerCommandProcessorClass.PruneOldTrackPositions(System.Int32)">
+      <summary>Prunes all MTO track points older than Threshold in seconds.</summary>
+      <param name="Threshold"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerCommandProcessorClass.GetEntityFromStkPath(System.String)">
+      <summary>Gets an entity ID from the currently represented Stk object path.</summary>
+      <param name="ObjectPath"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerCommandProcessorClass.GetStkPathFromEntity(AGI.Entity.IAgEntity)">
+      <summary>Gets an STK Object path that represents the provided entity ID.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerCommandProcessorClass.LoadChildObject(AGI.Entity.IAgEntity,System.String)">
+      <summary>Loads a STK object as a child object of the provided entity.</summary>
+      <param name="Entity"></param>
+      <param name="FullPath"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerCommandProcessorClass.DemoteApplicableObjects">
+      <summary>Demotes all objects which do not need to be heavies.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerCommandProcessorClass.ViewEntities(AGI.Entity.IAgEntityCollection,System.Int32)">
+      <summary>Zooms to a region defined by the entity locations.</summary>
+      <param name="Entities"></param>
+      <param name="SceneID"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerCommandProcessorClass.ViewEntity(AGI.Entity.IAgEntity,System.Int32)">
+      <summary>Zooms to an entity.</summary>
+      <param name="Entity"></param>
+      <param name="SceneID"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerCommandProcessorClass.UpdateCorrelation">
+      <summary>Updates correlation status.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerCommandProcessorClass.Stk">
+      <summary>The STK application object to which the broker will output.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerCommandProcessorClass.Threshold">
+      <summary>The STK Broker threshold object.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerCommandProcessorClass.RotateMarkers">
+      <summary>If true, rotates entity markers to follow their velocity vector.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerCommandProcessorClass.AutoPromote">
+      <summary>If true, allows the broker to automatically promote from an MTO track as it sees fit.  If false, the Broker will only promote an entity when explicitly told to do so.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerCommandProcessorClass.ScenarioCreationMode">
+      <summary>If true, entities removed from the Broker are not removed from the scenario. Instead, processing of that entity stops and the STK object representing it remains.  The resulting scenario can be saved for further offline analysis.</summary>
+    </member>
+    <member name="T:AGI.STKObjects.Broker._IAgInternalStkBrokerCommandProcessor">
+      <summary>Internal interface.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgInternalStkBrokerCommandProcessor.OnScenarioNew(System.String)">
+      <summary>Triggered when a new scenario is created.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgInternalStkBrokerCommandProcessor.OnScenarioLoad(System.String)">
+      <summary>Triggered when a scenario is loaded.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgInternalStkBrokerCommandProcessor.OnScenarioClose">
+      <summary>Triggered when a scenario is closed.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgInternalStkBrokerCommandProcessor.PromoteAndLockObject(AGI.Entity.IAgEntity,AGI.STKObjects.AgESTKObjectType)">
+      <summary>Promotes the STK representation of an entity to the provided STK object type.</summary>
+      <param name="Entity"></param>
+      <param name="ObjectType"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgInternalStkBrokerCommandProcessor.UnlockObject(AGI.STKObjects.IAgStkObject)">
+      <summary>Allows a previously user-promoted object to be managed by the broker.</summary>
+      <param name="StkObject"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgInternalStkBrokerCommandProcessor.ProcessCommandQueue">
+      <summary>Processes all pending broker commands.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgInternalStkBrokerCommandProcessor.PruneOldTrackPositions(System.Int32)">
+      <summary>Prunes all MTO track points older than Threshold in seconds.</summary>
+      <param name="Threshold"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgInternalStkBrokerCommandProcessor.GetEntityFromStkPath(System.String)">
+      <summary>Gets an entity ID from the currently represented Stk object path.</summary>
+      <param name="ObjectPath"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgInternalStkBrokerCommandProcessor.GetStkPathFromEntity(AGI.Entity.IAgEntity)">
+      <summary>Gets an STK Object path that represents the provided entity ID.</summary>
+      <param name="Entity"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgInternalStkBrokerCommandProcessor.LoadChildObject(AGI.Entity.IAgEntity,System.String)">
+      <summary>Loads a STK object as a child object of the provided entity.</summary>
+      <param name="Entity"></param>
+      <param name="FullPath"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgInternalStkBrokerCommandProcessor.DemoteApplicableObjects">
+      <summary>Demotes all objects which do not need to be heavies.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgInternalStkBrokerCommandProcessor.ViewEntities(AGI.Entity.IAgEntityCollection,System.Int32)">
+      <summary>Zooms to a region defined by the entity locations.</summary>
+      <param name="Entities"></param>
+      <param name="SceneID"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgInternalStkBrokerCommandProcessor.ViewEntity(AGI.Entity.IAgEntity,System.Int32)">
+      <summary>Zooms to an entity.</summary>
+      <param name="Entity"></param>
+      <param name="SceneID"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker._IAgInternalStkBrokerCommandProcessor.UpdateCorrelation">
+      <summary>Updates correlation status.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker._IAgInternalStkBrokerCommandProcessor.Stk">
+      <summary>The STK application object to which the broker will output.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker._IAgInternalStkBrokerCommandProcessor.Threshold">
+      <summary>The STK Broker threshold object.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker._IAgInternalStkBrokerCommandProcessor.RotateMarkers">
+      <summary>If true, rotates entity markers to follow their velocity vector.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker._IAgInternalStkBrokerCommandProcessor.AutoPromote">
+      <summary>If true, allows the broker to automatically promote from an MTO track as it sees fit.  If false, the Broker will only promote an entity when explicitly told to do so.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker._IAgInternalStkBrokerCommandProcessor.ScenarioCreationMode">
+      <summary>If true, entities removed from the Broker are not removed from the scenario. Instead, processing of that entity stops and the STK object representing it remains.  The resulting scenario can be saved for further offline analysis.</summary>
+    </member>
+    <member name="T:AGI.STKObjects.Broker.AgStkBrokerThreshold">
+      <summary>STK Object Thresholds.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerThreshold.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="pAttrBuilder"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerThreshold.Reset">
+      <summary>Reset the thresholds to default values.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerThreshold.Enabled">
+      <summary>Enables or disables threshold processing for all objects in the broker.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerThreshold.MaximumLabelDistance">
+      <summary>The maximum viewing distance at which a label is visible.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerThreshold.MaximumPointDistance">
+      <summary>The maximum viewing distance at which a point is visible.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerThreshold.MaximumMarkerDistance">
+      <summary>The maximum viewing distance at which a marker is visible.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerThreshold.MaximumModelDistance">
+      <summary>The maximum viewing distance at which the model, vectors, attitude sphere, and geostationary box is displayed.</summary>
+    </member>
+    <member name="T:AGI.STKObjects.Broker.AgStkBrokerThresholdClass">
+      <summary>STK Object Thresholds.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerThresholdClass.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get an attribute container of the configuration settings.</summary>
+      <param name="pAttrBuilder"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkBrokerThresholdClass.Reset">
+      <summary>Reset the thresholds to default values.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerThresholdClass.Enabled">
+      <summary>Enables or disables threshold processing for all objects in the broker.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerThresholdClass.MaximumLabelDistance">
+      <summary>The maximum viewing distance at which a label is visible.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerThresholdClass.MaximumPointDistance">
+      <summary>The maximum viewing distance at which a point is visible.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerThresholdClass.MaximumMarkerDistance">
+      <summary>The maximum viewing distance at which a marker is visible.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkBrokerThresholdClass.MaximumModelDistance">
+      <summary>The maximum viewing distance at which the model, vectors, attitude sphere, and geostationary box is displayed.</summary>
+    </member>
+    <member name="T:AGI.STKObjects.Broker.AgStkOutputBroker">
+      <summary>STK Object Model Output Broker.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkOutputBroker.OnScenarioNew(System.String)">
+      <summary>Triggered when a new scenario is created.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkOutputBroker.OnScenarioLoad(System.String)">
+      <summary>Triggered when a scenario is loaded.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkOutputBroker.OnScenarioClose">
+      <summary>Triggered when a scenario is closed.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkOutputBroker.OnAnimationPlayback(System.Double,AGI.STKObjects.AgEAnimationActions,AGI.STKObjects.AgEAnimationDirections)">
+      <summary>Triggered when an animation action is performed.</summary>
+      <param name="CurrentTime"></param>
+      <param name="Action"></param>
+      <param name="Direction"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkOutputBroker.OnAnimationRewind">
+      <summary>Triggered when animation is rewound.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkOutputBroker.OnAnimationPause(System.Double)">
+      <summary>Triggered when animation is paused.</summary>
+      <param name="CurrentTime"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkOutputBroker.Save(System.String)">
+      <summary>Saves current settings to the provided file.</summary>
+      <param name="Filename"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkOutputBroker.Load(System.String)">
+      <summary>Loads previously saved settings from the provided file.</summary>
+      <param name="Filename"></param>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkOutputBroker.Output">
+      <summary>The output plugin to use.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkOutputBroker.SelectedObjectPaths">
+      <summary>The collection of STK object paths to be output.</summary>
+    </member>
+    <member name="E:AGI.STKObjects.Broker.IAgStkOutputBrokerEvents_Event.OnLoad">
+      <summary>The output broker has just loaded a configuration file.</summary>
+    </member>
+    <member name="T:AGI.STKObjects.Broker.AgStkOutputBrokerClass">
+      <summary>STK Object Model Output Broker.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkOutputBrokerClass.OnScenarioNew(System.String)">
+      <summary>Triggered when a new scenario is created.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkOutputBrokerClass.OnScenarioLoad(System.String)">
+      <summary>Triggered when a scenario is loaded.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkOutputBrokerClass.OnScenarioClose">
+      <summary>Triggered when a scenario is closed.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkOutputBrokerClass.OnAnimationPlayback(System.Double,AGI.STKObjects.AgEAnimationActions,AGI.STKObjects.AgEAnimationDirections)">
+      <summary>Triggered when an animation action is performed.</summary>
+      <param name="CurrentTime"></param>
+      <param name="Action"></param>
+      <param name="Direction"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkOutputBrokerClass.OnAnimationRewind">
+      <summary>Triggered when animation is rewound.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkOutputBrokerClass.OnAnimationPause(System.Double)">
+      <summary>Triggered when animation is paused.</summary>
+      <param name="CurrentTime"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkOutputBrokerClass.Save(System.String)">
+      <summary>Saves current settings to the provided file.</summary>
+      <param name="Filename"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkOutputBrokerClass.Load(System.String)">
+      <summary>Loads previously saved settings from the provided file.</summary>
+      <param name="Filename"></param>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkOutputBrokerClass.Output">
+      <summary>The output plugin to use.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkOutputBrokerClass.SelectedObjectPaths">
+      <summary>The collection of STK object paths to be output.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkOutputBrokerClass.Stk">
+      <summary>The STK application object to which the broker will receive objects.</summary>
+    </member>
+    <member name="E:AGI.STKObjects.Broker.AgStkOutputBrokerClass.OnLoad">
+      <summary>The output broker has just loaded a configuration file.</summary>
+    </member>
+    <member name="T:AGI.STKObjects.Broker.IAgStkOutputBrokerEvents">
+      <summary>Events raised by AgStkOutputBroker</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkOutputBrokerEvents.OnLoad(AGI.STKObjects.Broker.IAgStkOutputBroker)">
+      <summary>The output broker has just loaded a configuration file.</summary>
+      <param name="Sender"></param>
+    </member>
+    <member name="T:AGI.STKObjects.Broker.AgStkOutputObjectPathCollection">
+      <summary>The collection of STK object paths which will be processed by the Output Broker.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkOutputObjectPathCollection.Add(System.String)">
+      <summary>Adds an element to the collection and returns the unique ID that will be used to represent the entity that is generated.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkOutputObjectPathCollection.AddWithID(System.String,System.String)">
+      <summary>Adds an element to the collection and use the unique ID to represent the entity that is generated.</summary>
+      <param name="Path"></param>
+      <param name="EntityID"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkOutputObjectPathCollection.Remove(System.String)">
+      <summary>Remove the provided element from the collection.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkOutputObjectPathCollection.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkOutputObjectPathCollection.GetUniqueIDFromPath(System.String)">
+      <summary>Get the unique Entity ID associated with an STK object path.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkOutputObjectPathCollection.IsObjectAvailableForOutput(System.String)">
+      <summary>Returns true if the supplied object path can be output, false otherwise.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkOutputObjectPathCollection.IsObjectSelectedForOutput(System.String)">
+      <summary>Returns true if the supplied object path can be output, false otherwise.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkOutputObjectPathCollection._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkOutputObjectPathCollection.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="E:AGI.STKObjects.Broker.IAgStkOutputObjectPathCollectionEvents_Event.OnSelectedPathAdd">
+      <summary>A new path has been selected for output.</summary>
+    </member>
+    <member name="E:AGI.STKObjects.Broker.IAgStkOutputObjectPathCollectionEvents_Event.OnSelectedPathRemove">
+      <summary>A path has been removed from output.</summary>
+    </member>
+    <member name="T:AGI.STKObjects.Broker.AgStkOutputObjectPathCollectionClass">
+      <summary>The collection of STK object paths which will be processed by the Output Broker.</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkOutputObjectPathCollectionClass.Add(System.String)">
+      <summary>Adds an element to the collection and returns the unique ID that will be used to represent the entity that is generated.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkOutputObjectPathCollectionClass.AddWithID(System.String,System.String)">
+      <summary>Adds an element to the collection and use the unique ID to represent the entity that is generated.</summary>
+      <param name="Path"></param>
+      <param name="EntityID"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkOutputObjectPathCollectionClass.Remove(System.String)">
+      <summary>Remove the provided element from the collection.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkOutputObjectPathCollectionClass.RemoveAll">
+      <summary>Remove all elements from the collection</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkOutputObjectPathCollectionClass.GetUniqueIDFromPath(System.String)">
+      <summary>Get the unique Entity ID associated with an STK object path.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkOutputObjectPathCollectionClass.IsObjectAvailableForOutput(System.String)">
+      <summary>Returns true if the supplied object path can be output, false otherwise.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.AgStkOutputObjectPathCollectionClass.IsObjectSelectedForOutput(System.String)">
+      <summary>Returns true if the supplied object path can be output, false otherwise.</summary>
+      <param name="Path"></param>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkOutputObjectPathCollectionClass._NewEnum">
+      <summary>Returns an enumerator for the collection.</summary>
+    </member>
+    <member name="P:AGI.STKObjects.Broker.AgStkOutputObjectPathCollectionClass.Count">
+      <summary>Number of items in the collection</summary>
+    </member>
+    <member name="E:AGI.STKObjects.Broker.AgStkOutputObjectPathCollectionClass.OnSelectedPathAdd">
+      <summary>A new path has been selected for output.</summary>
+    </member>
+    <member name="E:AGI.STKObjects.Broker.AgStkOutputObjectPathCollectionClass.OnSelectedPathRemove">
+      <summary>A path has been removed from output.</summary>
+    </member>
+    <member name="T:AGI.STKObjects.Broker.IAgStkOutputObjectPathCollectionEvents">
+      <summary>Events raised by AgStkOutputObjectPathCollection</summary>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkOutputObjectPathCollectionEvents.OnSelectedPathAdd(AGI.STKObjects.Broker.IAgStkOutputObjectPathCollection,System.String)">
+      <summary>A new path has been selected for output.</summary>
+      <param name="Sender"></param>
+      <param name="ObjectPath"></param>
+    </member>
+    <member name="M:AGI.STKObjects.Broker.IAgStkOutputObjectPathCollectionEvents.OnSelectedPathRemove(AGI.STKObjects.Broker.IAgStkOutputObjectPathCollection,System.String)">
+      <summary>A path has been removed from output.</summary>
+      <param name="Sender"></param>
+      <param name="ObjectPath"></param>
+    </member>
+  </members>
+</doc>

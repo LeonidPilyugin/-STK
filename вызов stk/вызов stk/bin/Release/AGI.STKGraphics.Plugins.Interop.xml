@@ -1,0 +1,493 @@
+<doc>
+  <assembly>
+    <name>AGI.STKGraphics.Plugins</name>
+  </assembly>
+  <members>
+    <member name="T:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginRasterStreamAttributes">
+      <summary>Configure the raster stream attributes, such as the width, height, format, etc.</summary>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginRasterStreamAttributes.InitializeFromBitmap(System.IntPtr)">
+      <summary>Initializes the attributes from the bitmap.</summary>
+      <param name="Bitmap"></param>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginRasterStreamAttributes.Width">
+      <summary>Gets the width in pixels.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginRasterStreamAttributes.Height">
+      <summary>Gets the height in pixels.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginRasterStreamAttributes.RasterFormat">
+      <summary>Gets the format.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginRasterStreamAttributes.RasterType">
+      <summary>Gets the type.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginRasterStreamAttributes.RasterOrientation">
+      <summary>Gets the orientation.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginRasterStreamAttributes.RowAlignment">
+      <summary>Gets the alignment in bytes.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginRasterStreamAttributes.PixelAspectRatio">
+      <summary>Gets the pixel aspect ratio.</summary>
+    </member>
+    <member name="T:AGI.STKGraphics.Plugins.AgEStkGraphicsPluginRasterFormat">
+      <summary>Common raster band layouts that may be contained within a raster dataset. Each pixel of the raster will contain the bands defined by the layout in the specified order. A typical color raster image will have an RGB raster format.</summary>
+    </member>
+    <member name="F:AGI.STKGraphics.Plugins.AgEStkGraphicsPluginRasterFormat.eStkGraphicsPluginRasterFormatRed">
+      <summary>The format of the raster is a single band consisting of red values.</summary>
+    </member>
+    <member name="F:AGI.STKGraphics.Plugins.AgEStkGraphicsPluginRasterFormat.eStkGraphicsPluginRasterFormatGreen">
+      <summary>The format of the raster is a single band consisting of green values.</summary>
+    </member>
+    <member name="F:AGI.STKGraphics.Plugins.AgEStkGraphicsPluginRasterFormat.eStkGraphicsPluginRasterFormatBlue">
+      <summary>The format of the raster is a single band consisting of blue values.</summary>
+    </member>
+    <member name="F:AGI.STKGraphics.Plugins.AgEStkGraphicsPluginRasterFormat.eStkGraphicsPluginRasterFormatAlpha">
+      <summary>The format of the raster is a single band consisting of alpha values.</summary>
+    </member>
+    <member name="F:AGI.STKGraphics.Plugins.AgEStkGraphicsPluginRasterFormat.eStkGraphicsPluginRasterFormatRgb">
+      <summary>The format of the raster is three bands consisting of red, green, and blue values.</summary>
+    </member>
+    <member name="F:AGI.STKGraphics.Plugins.AgEStkGraphicsPluginRasterFormat.eStkGraphicsPluginRasterFormatBgr">
+      <summary>The format of the raster is three bands consisting of blue, green, and red values.</summary>
+    </member>
+    <member name="F:AGI.STKGraphics.Plugins.AgEStkGraphicsPluginRasterFormat.eStkGraphicsPluginRasterFormatRgba">
+      <summary>The format of the raster is four bands consisting of red, green, blue, and alpha values.</summary>
+    </member>
+    <member name="F:AGI.STKGraphics.Plugins.AgEStkGraphicsPluginRasterFormat.eStkGraphicsPluginRasterFormatBgra">
+      <summary>The format of the raster is four bands consisting of blue, green, red, and alpha values.</summary>
+    </member>
+    <member name="F:AGI.STKGraphics.Plugins.AgEStkGraphicsPluginRasterFormat.eStkGraphicsPluginRasterFormatLuminance">
+      <summary>The format of the raster is a single band consisting of luminance values.</summary>
+    </member>
+    <member name="F:AGI.STKGraphics.Plugins.AgEStkGraphicsPluginRasterFormat.eStkGraphicsPluginRasterFormatLuminanceAlpha">
+      <summary>The format of the raster is two bands consisting of luminance and alpha values.</summary>
+    </member>
+    <member name="T:AGI.STKGraphics.Plugins.AgEStkGraphicsPluginRasterType">
+      <summary>The type of data contained within each band of a raster dataset.</summary>
+    </member>
+    <member name="F:AGI.STKGraphics.Plugins.AgEStkGraphicsPluginRasterType.eStkGraphicsPluginRasterTypeUnsignedByte">
+      <summary>Each value contained within a band can be represented with an unsigned byte.</summary>
+    </member>
+    <member name="F:AGI.STKGraphics.Plugins.AgEStkGraphicsPluginRasterType.eStkGraphicsPluginRasterTypeByte">
+      <summary>Each value contained within a band can be represented with a byte.</summary>
+    </member>
+    <member name="F:AGI.STKGraphics.Plugins.AgEStkGraphicsPluginRasterType.eStkGraphicsPluginRasterTypeUnsignedShort">
+      <summary>Each value contained within a band can be represented with an unsigned short.</summary>
+    </member>
+    <member name="F:AGI.STKGraphics.Plugins.AgEStkGraphicsPluginRasterType.eStkGraphicsPluginRasterTypeShort">
+      <summary>Each value contained within a band can be represented with a short.</summary>
+    </member>
+    <member name="F:AGI.STKGraphics.Plugins.AgEStkGraphicsPluginRasterType.eStkGraphicsPluginRasterTypeUnsignedInt">
+      <summary>Each value contained within a band can be represented with an unsigned int.</summary>
+    </member>
+    <member name="F:AGI.STKGraphics.Plugins.AgEStkGraphicsPluginRasterType.eStkGraphicsPluginRasterTypeInt">
+      <summary>Each value contained within a band can be represented with an int.</summary>
+    </member>
+    <member name="F:AGI.STKGraphics.Plugins.AgEStkGraphicsPluginRasterType.eStkGraphicsPluginRasterTypeFloat">
+      <summary>Each value contained within a band can be represented with a float.</summary>
+    </member>
+    <member name="F:AGI.STKGraphics.Plugins.AgEStkGraphicsPluginRasterType.eStkGraphicsPluginRasterTypeDouble">
+      <summary>Each value contained within a band can be represented with a double.</summary>
+    </member>
+    <member name="T:AGI.STKGraphics.Plugins.AgEStkGraphicsPluginRasterOrientation">
+      <summary>The vertical orientation of the raster.</summary>
+    </member>
+    <member name="F:AGI.STKGraphics.Plugins.AgEStkGraphicsPluginRasterOrientation.eStkGraphicsPluginRasterOrientationTopToBottom">
+      <summary>The raster has a top to bottom orientation.</summary>
+    </member>
+    <member name="F:AGI.STKGraphics.Plugins.AgEStkGraphicsPluginRasterOrientation.eStkGraphicsPluginRasterOrientationBottomToTop">
+      <summary>The raster has a bottom to top orientation.</summary>
+    </member>
+    <member name="T:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginRasterStream">
+      <summary>A raster that is updated dynamically.</summary>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginRasterStream.OnGetRasterAttributes(AGI.STKGraphics.Plugins.IAgStkGraphicsPluginRasterStreamAttributes)">
+      <summary>Configure the raster attributes, such as width, height, format, etc. Called after the object has been created.</summary>
+      <param name="Attributes"></param>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginRasterStream.OnGetNextRaster(AGI.STKUtil.IAgDate,AGI.STKUtil.IAgDate,AGI.STKGraphics.Plugins.IAgStkGraphicsPluginRasterStreamContext)">
+      <summary>Updates the raster. Set the raster data through the context.</summary>
+      <param name="Time"></param>
+      <param name="NextTime"></param>
+      <param name="Context"></param>
+    </member>
+    <member name="T:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginRasterStreamContext">
+      <summary>Provides interfaces to set a raster.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginRasterStreamContext.RasterAsBitmap">
+      <summary>Gets an interface to set a raster from a bitmap.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginRasterStreamContext.RasterAsBits">
+      <summary>Gets an interface to set a raster from an array.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginRasterStreamContext.RasterAsOleAuto">
+      <summary>Gets an interface to set a raster from a safe array.</summary>
+    </member>
+    <member name="T:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginRasterBitmap">
+      <summary>An interface to set a raster from a bitmap.</summary>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginRasterBitmap.SetBitmap(System.IntPtr)">
+      <summary>Set a raster from a bitmap.</summary>
+      <param name="Bitmap"></param>
+    </member>
+    <member name="T:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginRasterDataBits">
+      <summary>An interface to set a raster from an array.</summary>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginRasterDataBits.SetFromMemory(.ULONG,.BYTE)">
+      <summary>Set a raster from an array.</summary>
+      <param name="NumberOfBytes"></param>
+      <param name="Buffer"></param>
+    </member>
+    <member name="T:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginRasterDataOleAuto">
+      <summary>An interface to set a raster from a safe array.</summary>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginRasterDataOleAuto.SetFromArray(System.Array@)">
+      <summary>Set a raster from a safe array.</summary>
+      <param name="ByteArray"></param>
+    </member>
+    <member name="T:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginProjectionStream">
+      <summary>A projection that is updated dynamically.</summary>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginProjectionStream.OnGetFirstProjection(AGI.STKUtil.IAgDate,AGI.STKGraphics.Plugins.IAgStkGraphicsPluginProjectionStreamContext)">
+      <summary>Configure the projection stream update delta, field of view, etc. You can change the frustum attributes at any time in OnGetNextProjection.</summary>
+      <param name="Time"></param>
+      <param name="Context"></param>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginProjectionStream.OnGetNextProjection(AGI.STKUtil.IAgDate,AGI.STKUtil.IAgDate,AGI.STKGraphics.Plugins.IAgStkGraphicsPluginProjectionStreamContext)">
+      <summary>Update the projection stream update delta, field of view, etc.</summary>
+      <param name="Time"></param>
+      <param name="NextTime"></param>
+      <param name="Context"></param>
+    </member>
+    <member name="T:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginProjectionStreamContext">
+      <summary>Configure the projection attributes, such as field of view, near plane, far plane, etc.</summary>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginProjectionStreamContext.GetPosition">
+      <summary>Gets a position of the projection in the central body's fixed reference frame. The value is a one-dimensional array with three elements representing X, Y and Z (in meters).</summary>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginProjectionStreamContext.GetPositionInSystem(AGI.STKUtil.IAgDate,AGI.STKVgt.IAgCrdnSystem)">
+      <summary>Gets a position of the projection in the central body's fixed reference frame. The value is a one-dimensional array with three elements representing X, Y and Z (in meters).</summary>
+      <param name="Time"></param>
+      <param name="OutputSystem"></param>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginProjectionStreamContext.GetPositionInSystemAtEpoch(System.Double,AGI.STKVgt.IAgCrdnSystem)">
+      <summary>Gets a position of the projection in the central body's fixed reference frame. The value is a one-dimensional array with three elements representing X, Y and Z (in meters).</summary>
+      <param name="ScenarioEpochInSecs"></param>
+      <param name="OutputSystem"></param>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginProjectionStreamContext.SetPosition(System.Array@)">
+      <summary>Sets a new position of the projection. The position is in the central body's fixed reference frame. The input is a one-dimensional array which contains three elements X, Y and Z that define the new position (in meters).</summary>
+      <param name="XYZ"></param>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginProjectionStreamContext.SetPositionInSystem(AGI.STKUtil.IAgDate,AGI.STKVgt.IAgCrdnSystem,System.Array@)">
+      <summary>Sets a new position of the projection. The position is in the central body's fixed reference frame. The input is a one-dimensional array which contains three elements X, Y and Z that define the new position (in meters).</summary>
+      <param name="Time"></param>
+      <param name="InputSystem"></param>
+      <param name="XYZ"></param>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginProjectionStreamContext.SetPositionInSystemAtEpoch(System.Double,AGI.STKVgt.IAgCrdnSystem,System.Array@)">
+      <summary>Sets a new position of the projection. The position is in the specified reference frame. The input is a one-dimensional array which contains three elements X, Y and Z that define the new position (in meters).</summary>
+      <param name="ScenarioEpochInSecs"></param>
+      <param name="InputSystem"></param>
+      <param name="XYZ"></param>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginProjectionStreamContext.GetOrientation">
+      <summary>Gets an orientation of the projection. The value is a one-dimensional array representing a quaternion (X, Y, Z and W).</summary>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginProjectionStreamContext.SetOrientation(System.Array@)">
+      <summary>Sets a new orientation of the projection. The value is a one-dimensional array representing a quaternion (X, Y, Z and W).</summary>
+      <param name="Quat"></param>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginProjectionStreamContext.UpdateDeltaInSecs">
+      <summary>Gets the update interval in seconds.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginProjectionStreamContext.FieldOfViewVertical">
+      <summary>Gets the vertical field of view.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginProjectionStreamContext.FieldOfViewHorizontal">
+      <summary>Gets the horizontal field of view.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginProjectionStreamContext.NearPlane">
+      <summary>Gets the near plane distance.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginProjectionStreamContext.FarPlane">
+      <summary>Gets the far plane distance.</summary>
+    </member>
+    <member name="T:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginCustomImageGlobeOverlay">
+      <summary>A base class for custom globe overlay plugins. Your class must derive from the interface to add custom globe overlays.</summary>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginCustomImageGlobeOverlay.OnInitialize(System.Object,AGI.STKGraphics.Plugins.IAgStkGraphicsPluginCustomImageGlobeOverlayContext)">
+      <summary>Called automatically when imagery is being added to the globe. Use the Context object to initialize the imagery extents, specify a Tiler object, projection, translucency, etc. The Scene is the scene the imagery is being added to.</summary>
+      <param name="Scene"></param>
+      <param name="Context"></param>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginCustomImageGlobeOverlay.OnUninitialize(System.Object,AGI.STKGraphics.Plugins.IAgStkGraphicsPluginCustomImageGlobeOverlayContext)">
+      <summary>Called automatically when imagery is being removed from the globe. The Scene is the scene the imagery is being removed from.</summary>
+      <param name="Scene"></param>
+      <param name="Context"></param>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginCustomImageGlobeOverlay.Read(System.Array@,System.String,System.Int32,System.Int32,AGI.STKGraphics.Plugins.IAgStkGraphicsPluginCustomImageGlobeOverlayContext)">
+      <summary>Reads a tile for the specified extent and data. Set the raster through the context. Extent is the extent of the tile, Data is a user-specified data for the tile (valid only if Tiler was provided). Returns true if the operation was successful.</summary>
+      <param name="Extent"></param>
+      <param name="Data"></param>
+      <param name="ImageWidth"></param>
+      <param name="ImageHeight"></param>
+      <param name="Context"></param>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginCustomImageGlobeOverlay.GetURI">
+      <summary>Gets the URI, if applicable.</summary>
+    </member>
+    <member name="T:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginCustomImageGlobeOverlayContext">
+      <summary>Configure a custom image globe overlay. Set the extent, tiler, projection, etc.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginCustomImageGlobeOverlayContext.Extent">
+      <summary>Gets the cartographic extent that represents the area covered by the GlobeOverlay. The array elements are arranged in the order west longitude, south latitude, east longitude, north latitude.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginCustomImageGlobeOverlayContext.Tiler">
+      <summary>Gets a custom tiler, if the plugin requires it. The tiler is used to control which extents are requested during a call to Read.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginCustomImageGlobeOverlayContext.IsTranslucent">
+      <summary>Gets whether the overlay contains translucent imagery.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginCustomImageGlobeOverlayContext.MaximumMetersPerPixel">
+      <summary>Gets the maximum resolution of the inlay in meters per pixel.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginCustomImageGlobeOverlayContext.Projection">
+      <summary>Gets the map projection. Valid values are mercator and equidistant cylindical.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginCustomImageGlobeOverlayContext.Translucency">
+      <summary>Gets the translucency value for the image. The translucency is between 0 and 1, where 0 is fully opaque and 1 is invisible.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginCustomImageGlobeOverlayContext.UseAltitudeBasedTranslucency">
+      <summary>Gets whether to use altitude to determine the translucency value for the image or not.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginCustomImageGlobeOverlayContext.AltitudeBasedTranslucencyLowerTranslucency">
+      <summary>Gets the lower translucency value for the image.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginCustomImageGlobeOverlayContext.AltitudeBasedTranslucencyUpperTranslucency">
+      <summary>Gets the upper translucency value for the image.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginCustomImageGlobeOverlayContext.AltitudeBasedTranslucencyLowerAltitude">
+      <summary>Gets the lower altitude bound used to calculate translucency for the image.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginCustomImageGlobeOverlayContext.AltitudeBasedTranslucencyUpperAltitude">
+      <summary>Gets the upper altitude bound used to calculate translucency for the image.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginCustomImageGlobeOverlayContext.RasterAsBitmap">
+      <summary>Get an interface to set a raster from a bitmap.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginCustomImageGlobeOverlayContext.RasterAsBits">
+      <summary>Get an interface to set a raster from an array.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginCustomImageGlobeOverlayContext.RasterAsOleAuto">
+      <summary>Get an interface to set a raster from a safe array.</summary>
+    </member>
+    <member name="T:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginTiler">
+      <summary>Specifies a cartographic tiling scheme for a custom image globe overlay.</summary>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginTiler.GetRootTile">
+      <summary>Gets the root tile of the tree.</summary>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginTiler.GetTiles(AGI.STKGraphics.Plugins.IAgStkGraphicsPluginTile,AGI.STKGraphics.Plugins.IAgStkGraphicsPluginTileCollection)">
+      <summary>Gets the child tiles of parentTile.</summary>
+      <param name="ParentTile"></param>
+      <param name="Tiles"></param>
+    </member>
+    <member name="T:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginTile">
+      <summary>Represents individual custom globe overlay tile and its properties.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginTile.Extent">
+      <summary>Gets the extent of the tile in radians.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginTile.Width">
+      <summary>Gets the width of the tile in pixels.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginTile.Height">
+      <summary>Gets the height of the tile in pixels.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginTile.Children">
+      <summary>Gets the number of child tiles.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginTile.Data">
+      <summary>Gets the user data that is stored for each tile. This is used to store tiler specific data.</summary>
+    </member>
+    <member name="T:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginTileCollection">
+      <summary>A collection of tiles used to get the children of a tiler.</summary>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginTileCollection.Add(AGI.STKGraphics.Plugins.IAgStkGraphicsPluginTile)">
+      <summary>Add a tile to the collection.</summary>
+      <param name="Tile"></param>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginTileCollection.Remove(System.Int32)">
+      <summary>Remove tile at index from the collection.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginTileCollection.Get(System.Int32)">
+      <summary>Get tile at index.</summary>
+      <param name="Index"></param>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginTileCollection.GetCount">
+      <summary>Get the number of tiles in the collection.</summary>
+    </member>
+    <member name="T:AGI.STKGraphics.Plugins.AgEStkGraphicsPluginMapProjection">
+      <summary>The projection of the pixel data returned from a CustomImageGlobeOverlay.</summary>
+    </member>
+    <member name="F:AGI.STKGraphics.Plugins.AgEStkGraphicsPluginMapProjection.eStkGraphicsPluginMapProjectionMercator">
+      <summary>Mercator projection</summary>
+    </member>
+    <member name="F:AGI.STKGraphics.Plugins.AgEStkGraphicsPluginMapProjection.eStkGraphicsPluginMapProjectionEquidistantCylindrical">
+      <summary>Equidistant Cylindrical projection</summary>
+    </member>
+    <member name="T:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginCustomImageGlobeOverlayDescription">
+      <summary>Allows a custom globe overlay plugin to provide more information about itself.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginCustomImageGlobeOverlayDescription.Name">
+      <summary>Gets the name of the plugin instance.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginCustomImageGlobeOverlayDescription.Description">
+      <summary>Gets the description of the plugin instance.</summary>
+    </member>
+    <member name="T:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginCustomImageGlobeOverlaySerialize">
+      <summary>Allows a custom globe overlay plugin to save/load itself.</summary>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginCustomImageGlobeOverlaySerialize.Save">
+      <summary>Gets the save data from the overlay.</summary>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginCustomImageGlobeOverlaySerialize.Load(System.String)">
+      <summary>Loads the overlay from saved data.</summary>
+      <param name="LoadData"></param>
+    </member>
+    <member name="T:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginSite">
+      <summary>The Graphics Plugin Site which allows access to the STK Object Model.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginSite.StkRootObject">
+      <summary>Returns an instance of the STK Object Model Root Object.</summary>
+    </member>
+    <member name="T:AGI.STKGraphics.Plugins._IAgStkGraphicsPluginSite">
+      <summary>The Graphics Plugin Site which allows access to the STK Object Model.</summary>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins._IAgStkGraphicsPluginSite.Message(AGI.Plugin.AgEUtLogMsgType,System.String)">
+      <summary>Send a message to the message viewer.</summary>
+      <param name="MsgType"></param>
+      <param name="Message"></param>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins._IAgStkGraphicsPluginSite.SiteName">
+      <summary>Returns the site name calling the plugin.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins._IAgStkGraphicsPluginSite.StkRootObject">
+      <summary>Returns an instance of the STK Object Model Root Object.</summary>
+    </member>
+    <member name="T:AGI.STKGraphics.Plugins._IAgStkGraphicsPluginGlobeOverlaySite">
+      <summary>The Graphics Plugin Site which allows access to the STK Object Model and control the overlay cache.</summary>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins._IAgStkGraphicsPluginGlobeOverlaySite.Message(AGI.Plugin.AgEUtLogMsgType,System.String)">
+      <summary>Send a message to the message viewer.</summary>
+      <param name="MsgType"></param>
+      <param name="Message"></param>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins._IAgStkGraphicsPluginGlobeOverlaySite.Reload">
+      <summary>Reloads the image data associated with this instance. Preserves the current image data until new image data replaces it.</summary>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins._IAgStkGraphicsPluginGlobeOverlaySite.ClearCache">
+      <summary>Clears the image data cache associated with this instance. This is equivalent to deleting and re-adding the overlay.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins._IAgStkGraphicsPluginGlobeOverlaySite.SiteName">
+      <summary>Returns the site name calling the plugin.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins._IAgStkGraphicsPluginGlobeOverlaySite.StkRootObject">
+      <summary>Returns an instance of the STK Object Model Root Object.</summary>
+    </member>
+    <member name="T:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginGlobeOverlaySite">
+      <summary>The Graphics Plugin Site which allows access to the STK Object Model and control the overlay cache.</summary>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginGlobeOverlaySite.Reload">
+      <summary>Reloads the image data associated with this instance. Preserves the current image data until new image data replaces it.</summary>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginGlobeOverlaySite.ClearCache">
+      <summary>Clears the image data cache associated with this instance. This is equivalent to deleting and re-adding the overlay.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginGlobeOverlaySite.StkRootObject">
+      <summary>Returns an instance of the STK Object Model Root Object.</summary>
+    </member>
+    <member name="T:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginWithSite">
+      <summary>The interface provides a mechanism for the plugin to communicate with the container using the specified site object. The Site allows getting to the STK Object Model.</summary>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginWithSite.OnStartUp(AGI.STKGraphics.Plugins.IAgStkGraphicsPluginSite)">
+      <summary>Method is invoked after the plugin is loaded.</summary>
+      <param name="Site"></param>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.IAgStkGraphicsPluginWithSite.OnShutDown">
+      <summary>Method is invoked before the plugin is freed.</summary>
+    </member>
+    <member name="T:AGI.STKGraphics.Plugins.AgStkGraphicsPluginSite">
+      <summary>A graphic plugin site.</summary>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.AgStkGraphicsPluginSite.Message(AGI.Plugin.AgEUtLogMsgType,System.String)">
+      <summary>Send a message to the message viewer.</summary>
+      <param name="MsgType"></param>
+      <param name="Message"></param>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.AgStkGraphicsPluginSite.SiteName">
+      <summary>Returns the site name calling the plugin.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.AgStkGraphicsPluginSite.StkRootObject">
+      <summary>Returns an instance of the STK Object Model Root Object.</summary>
+    </member>
+    <member name="T:AGI.STKGraphics.Plugins.AgStkGraphicsPluginSiteClass">
+      <summary>A graphic plugin site.</summary>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.AgStkGraphicsPluginSiteClass.Message(AGI.Plugin.AgEUtLogMsgType,System.String)">
+      <summary>Send a message to the message viewer.</summary>
+      <param name="MsgType"></param>
+      <param name="Message"></param>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.AgStkGraphicsPluginSiteClass.SiteName">
+      <summary>Returns the site name calling the plugin.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.AgStkGraphicsPluginSiteClass.StkRootObject">
+      <summary>Returns an instance of the STK Object Model Root Object.</summary>
+    </member>
+    <member name="T:AGI.STKGraphics.Plugins.AgStkGraphicsPluginGlobeOverlaySite">
+      <summary>A graphic plugin site with globe overlay cache control.</summary>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.AgStkGraphicsPluginGlobeOverlaySite.Message(AGI.Plugin.AgEUtLogMsgType,System.String)">
+      <summary>Send a message to the message viewer.</summary>
+      <param name="MsgType"></param>
+      <param name="Message"></param>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.AgStkGraphicsPluginGlobeOverlaySite.Reload">
+      <summary>Reloads the image data associated with this instance. Preserves the current image data until new image data replaces it.</summary>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.AgStkGraphicsPluginGlobeOverlaySite.ClearCache">
+      <summary>Clears the image data cache associated with this instance. This is equivalent to deleting and re-adding the overlay.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.AgStkGraphicsPluginGlobeOverlaySite.SiteName">
+      <summary>Returns the site name calling the plugin.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.AgStkGraphicsPluginGlobeOverlaySite.StkRootObject">
+      <summary>Returns an instance of the STK Object Model Root Object.</summary>
+    </member>
+    <member name="T:AGI.STKGraphics.Plugins.AgStkGraphicsPluginGlobeOverlaySiteClass">
+      <summary>A graphic plugin site with globe overlay cache control.</summary>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.AgStkGraphicsPluginGlobeOverlaySiteClass.Message(AGI.Plugin.AgEUtLogMsgType,System.String)">
+      <summary>Send a message to the message viewer.</summary>
+      <param name="MsgType"></param>
+      <param name="Message"></param>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.AgStkGraphicsPluginGlobeOverlaySiteClass.Reload">
+      <summary>Reloads the image data associated with this instance. Preserves the current image data until new image data replaces it.</summary>
+    </member>
+    <member name="M:AGI.STKGraphics.Plugins.AgStkGraphicsPluginGlobeOverlaySiteClass.ClearCache">
+      <summary>Clears the image data cache associated with this instance. This is equivalent to deleting and re-adding the overlay.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.AgStkGraphicsPluginGlobeOverlaySiteClass.SiteName">
+      <summary>Returns the site name calling the plugin.</summary>
+    </member>
+    <member name="P:AGI.STKGraphics.Plugins.AgStkGraphicsPluginGlobeOverlaySiteClass.StkRootObject">
+      <summary>Returns an instance of the STK Object Model Root Object.</summary>
+    </member>
+  </members>
+</doc>

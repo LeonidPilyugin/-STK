@@ -1,0 +1,824 @@
+<doc>
+  <assembly>
+    <name>AGI.Attr</name>
+  </assembly>
+  <members>
+    <member name="T:AGI.Attr.AgEAttrAddFlags">
+      <summary>Enumeration of Attribute Flags</summary>
+    </member>
+    <member name="F:AGI.Attr.AgEAttrAddFlags.eAddFlagNone">
+      <summary>No special flag</summary>
+    </member>
+    <member name="F:AGI.Attr.AgEAttrAddFlags.eAddFlagTransparent">
+      <summary>When applied to a container makes the container transparent (i.e. its attributes are directly visible without having to navigate into the container)</summary>
+    </member>
+    <member name="F:AGI.Attr.AgEAttrAddFlags.eAddFlagHidden">
+      <summary>The attribute is not visible in the user interface property page.</summary>
+    </member>
+    <member name="F:AGI.Attr.AgEAttrAddFlags.eAddFlagTransient">
+      <summary>The attribute is ignored during save/load.</summary>
+    </member>
+    <member name="F:AGI.Attr.AgEAttrAddFlags.eAddFlagReadOnly">
+      <summary>The attribute is read-only and cannot be modified by the user.</summary>
+    </member>
+    <member name="F:AGI.Attr.AgEAttrAddFlags.eAddFlagFixed">
+      <summary>The attribute container has a fixed size. Additions/removals of sub-elements are prohibited.</summary>
+    </member>
+    <member name="T:AGI.Attr.IAgAttrConfig">
+      <summary>Attributes Configuration Interface</summary>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrConfig.GetConfig(AGI.Attr.IAgAttrBuilder)">
+      <summary>Get the configuration represented by an attribute container (also called attribute scope).</summary>
+      <param name="pAttrBuilder"></param>
+    </member>
+    <member name="T:AGI.Attr.IAgAttrBuilder">
+      <summary>Attribute Automation Builder Interface helps construct an Attribute Scope</summary>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrBuilder.NewScope">
+      <summary>Create a new Attribute Scope for use in Attribute Builder method calls</summary>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrBuilder.AddIntDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type int to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrBuilder.AddLongDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type long to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrBuilder.AddStringDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type string to the Attribute Scope. Only allows single line strings. For multi-line strings use AddMultiLineStringDispatchProperty.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrBuilder.AddBoolDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type bool to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrBuilder.AddFileDispatchProperty(System.Object,System.String,System.String,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type file (string) to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="FileType"></param>
+      <param name="FileFilter"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrBuilder.AddDirectoryDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type directory (string) to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrBuilder.AddRelFileDispatchProperty(System.Object,System.String,System.String,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type relative file path (string) to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="FileType"></param>
+      <param name="FileFilter"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrBuilder.AddDoubleDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type double to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrBuilder.AddQuantityDispatchProperty(System.Object,System.String,System.String,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type quantity (double) to the Attribute Scope. Deprecated, use AddQuantityDispatchProperty2 instead.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="DisplayUnit"></param>
+      <param name="InternalUnit"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrBuilder.AddDateDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type date (represented as a double in EpSec) to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrBuilder.ToString(System.Object,System.Object)">
+      <summary>Serialize an Attribute scope for a plugin to a formatted XML String representation. (internal use)</summary>
+      <param name="DispPlugin"></param>
+      <param name="DispScope"></param>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrBuilder.MergeFromString(System.Object,System.Object,System.String)">
+      <summary>Deserialize an Attribute scope into a plugin from a formatted XML String representation. (internal use)</summary>
+      <param name="DispPlugin"></param>
+      <param name="DispScope"></param>
+      <param name="XmlString"></param>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrBuilder.AddDependencyDispatchProperty(System.Object,System.String,System.String)">
+      <summary>Add a Dependency between two Attributes within the Attribute Scope provided. Dependencies are used to force the update of the child attribute when the parent attribute is modified by the user.</summary>
+      <param name="DispScope"></param>
+      <param name="ParentAttributeName"></param>
+      <param name="ChildAttributeName"></param>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrBuilder.AddFlagsDispatchProperty(System.Object,System.String,System.String)">
+      <summary>Add a callback to retrieve the flags for the provided Attribute name from the provided property name.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="FlagPropName"></param>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrBuilder.AddChoicesDispatchProperty(System.Object,System.String,System.String,System.String,System.Array)">
+      <summary>Add an Attribute that provides a combobox of values from which the user can choose.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Choices"></param>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrBuilder.AddListDispatchProperty(System.Object,System.String,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute that represents a list of values.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="NewElemMethodName"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrBuilder.AddVARIANTDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type variant to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrBuilder.AddMultiLineStringDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type multi-line string to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrBuilder.ToFormattedString(System.Object,System.Object,System.String)">
+      <summary>Get a String representation of the Attribute Scope, formatted using the specified FormatId. (internal use)</summary>
+      <param name="DispPlugin"></param>
+      <param name="DispScope"></param>
+      <param name="FormatId"></param>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrBuilder.AddQuantityDispatchProperty2(System.Object,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type quantity to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Dimension"></param>
+      <param name="DisplayUnit"></param>
+      <param name="InternalUnit"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrBuilder.AddQuantityMinMaxDispatchProperty2(System.Object,System.String,System.String,System.String,System.String,System.String,System.String,System.Double,System.Double,System.Int32)">
+      <summary>Add an Attribute of type quantity to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Dimension"></param>
+      <param name="DisplayUnit"></param>
+      <param name="InternalUnit"></param>
+      <param name="MinVal"></param>
+      <param name="MaxVal"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrBuilder.AddScopeDispatchProperty(System.Object,System.String,System.String,System.Object)">
+      <summary>Add an Attribute to the 'NewDispScope' Scope (to construct a hierarchy).</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="NewDispScope"></param>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrBuilder.AddQuantityMinMaxDispatchProperty(System.Object,System.String,System.String,System.String,System.String,System.String,System.Double,System.Double,System.Int32)">
+      <summary>Add an Attribute of type quantity to the Attribute Scope. Deprecated, use AddQuantityMinMaxDispatchProperty2 instead.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="DisplayUnit"></param>
+      <param name="InternalUnit"></param>
+      <param name="MinVal"></param>
+      <param name="MaxVal"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrBuilder.AddChoicesFuncDispatchProperty(System.Object,System.String,System.String,System.String,System.String)">
+      <summary>Add an Attribute that provides a combobox of values from which the user can choose. Similar to AddChoicesDispatchProperty but uses a callback to get the list of available values instead of a static array of strings.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="FuncPropName"></param>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrBuilder.AddDoubleMinDispatchProperty(System.Object,System.String,System.String,System.String,System.Double,System.Int32)">
+      <summary>Add an Attribute of type double with a min to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="MinVal"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrBuilder.AddDoubleMinMaxDispatchProperty(System.Object,System.String,System.String,System.String,System.Double,System.Double,System.Int32)">
+      <summary>Add an Attribute of type double with a min and max to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="MinVal"></param>
+      <param name="MaxVal"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrBuilder.AddQuantityMinDispatchProperty2(System.Object,System.String,System.String,System.String,System.String,System.String,System.String,System.Double,System.Int32)">
+      <summary>Add an Attribute of type quantity with a min to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Dimension"></param>
+      <param name="DisplayUnit"></param>
+      <param name="InternalUnit"></param>
+      <param name="MinVal"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrBuilder.AddIntMinDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32,System.Int32)">
+      <summary>Add an Attribute of type int with a minimum to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="MinVal"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrBuilder.AddIntMinMaxDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32,System.Int32,System.Int32)">
+      <summary>Add an Attribute of type int with a min and max to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="MinVal"></param>
+      <param name="MaxVal"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.IAgAttrBuilder.AddScopeDispatchProperty2(System.Object,System.String,System.String)">
+      <summary>Add an Attribute to the current Attribute Scope (to construct a hierarchy).</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+    </member>
+    <member name="T:AGI.Attr.AgAttrBuilder">
+      <summary>Attribute Automation Builder Class helps construct an Attribute Scope</summary>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilder.NewScope">
+      <summary>Create a new Attribute Scope for use in Attribute Builder method calls</summary>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilder.AddIntDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type int to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilder.AddLongDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type long to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilder.AddStringDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type string to the Attribute Scope. Only allows single line strings. For multi-line strings use AddMultiLineStringDispatchProperty.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilder.AddBoolDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type bool to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilder.AddFileDispatchProperty(System.Object,System.String,System.String,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type file (string) to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="FileType"></param>
+      <param name="FileFilter"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilder.AddDirectoryDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type directory (string) to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilder.AddRelFileDispatchProperty(System.Object,System.String,System.String,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type relative file path (string) to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="FileType"></param>
+      <param name="FileFilter"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilder.AddDoubleDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type double to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilder.AddQuantityDispatchProperty(System.Object,System.String,System.String,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type quantity (double) to the Attribute Scope. Deprecated, use AddQuantityDispatchProperty2 instead.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="DisplayUnit"></param>
+      <param name="InternalUnit"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilder.AddDateDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type date (represented as a double in EpSec) to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilder.ToString(System.Object,System.Object)">
+      <summary>Serialize an Attribute scope for a plugin to a formatted XML String representation. (internal use)</summary>
+      <param name="DispPlugin"></param>
+      <param name="DispScope"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilder.MergeFromString(System.Object,System.Object,System.String)">
+      <summary>Deserialize an Attribute scope into a plugin from a formatted XML String representation. (internal use)</summary>
+      <param name="DispPlugin"></param>
+      <param name="DispScope"></param>
+      <param name="XmlString"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilder.AddDependencyDispatchProperty(System.Object,System.String,System.String)">
+      <summary>Add a Dependency between two Attributes within the Attribute Scope provided. Dependencies are used to force the update of the child attribute when the parent attribute is modified by the user.</summary>
+      <param name="DispScope"></param>
+      <param name="ParentAttributeName"></param>
+      <param name="ChildAttributeName"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilder.AddFlagsDispatchProperty(System.Object,System.String,System.String)">
+      <summary>Add a callback to retrieve the flags for the provided Attribute name from the provided property name.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="FlagPropName"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilder.AddChoicesDispatchProperty(System.Object,System.String,System.String,System.String,System.Array)">
+      <summary>Add an Attribute that provides a combobox of values from which the user can choose.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Choices"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilder.AddListDispatchProperty(System.Object,System.String,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute that represents a list of values.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="NewElemMethodName"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilder.AddVARIANTDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type variant to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilder.AddMultiLineStringDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type multi-line string to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilder.ToFormattedString(System.Object,System.Object,System.String)">
+      <summary>Get a String representation of the Attribute Scope, formatted using the specified FormatId. (internal use)</summary>
+      <param name="DispPlugin"></param>
+      <param name="DispScope"></param>
+      <param name="FormatId"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilder.AddQuantityDispatchProperty2(System.Object,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type quantity to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Dimension"></param>
+      <param name="DisplayUnit"></param>
+      <param name="InternalUnit"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilder.AddQuantityMinMaxDispatchProperty2(System.Object,System.String,System.String,System.String,System.String,System.String,System.String,System.Double,System.Double,System.Int32)">
+      <summary>Add an Attribute of type quantity to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Dimension"></param>
+      <param name="DisplayUnit"></param>
+      <param name="InternalUnit"></param>
+      <param name="MinVal"></param>
+      <param name="MaxVal"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilder.AddScopeDispatchProperty(System.Object,System.String,System.String,System.Object)">
+      <summary>Add an Attribute to the 'NewDispScope' Scope (to construct a hierarchy).</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="NewDispScope"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilder.AddQuantityMinMaxDispatchProperty(System.Object,System.String,System.String,System.String,System.String,System.String,System.Double,System.Double,System.Int32)">
+      <summary>Add an Attribute of type quantity to the Attribute Scope. Deprecated, use AddQuantityMinMaxDispatchProperty2 instead.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="DisplayUnit"></param>
+      <param name="InternalUnit"></param>
+      <param name="MinVal"></param>
+      <param name="MaxVal"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilder.AddChoicesFuncDispatchProperty(System.Object,System.String,System.String,System.String,System.String)">
+      <summary>Add an Attribute that provides a combobox of values from which the user can choose. Similar to AddChoicesDispatchProperty but uses a callback to get the list of available values instead of a static array of strings.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="FuncPropName"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilder.AddDoubleMinDispatchProperty(System.Object,System.String,System.String,System.String,System.Double,System.Int32)">
+      <summary>Add an Attribute of type double with a min to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="MinVal"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilder.AddDoubleMinMaxDispatchProperty(System.Object,System.String,System.String,System.String,System.Double,System.Double,System.Int32)">
+      <summary>Add an Attribute of type double with a min and max to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="MinVal"></param>
+      <param name="MaxVal"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilder.AddQuantityMinDispatchProperty2(System.Object,System.String,System.String,System.String,System.String,System.String,System.String,System.Double,System.Int32)">
+      <summary>Add an Attribute of type quantity with a min to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Dimension"></param>
+      <param name="DisplayUnit"></param>
+      <param name="InternalUnit"></param>
+      <param name="MinVal"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilder.AddIntMinDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32,System.Int32)">
+      <summary>Add an Attribute of type int with a minimum to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="MinVal"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilder.AddIntMinMaxDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32,System.Int32,System.Int32)">
+      <summary>Add an Attribute of type int with a min and max to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="MinVal"></param>
+      <param name="MaxVal"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilder.AddScopeDispatchProperty2(System.Object,System.String,System.String)">
+      <summary>Add an Attribute to the current Attribute Scope (to construct a hierarchy).</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+    </member>
+    <member name="T:AGI.Attr.AgAttrBuilderClass">
+      <summary>Attribute Automation Builder Class helps construct an Attribute Scope</summary>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilderClass.NewScope">
+      <summary>Create a new Attribute Scope for use in Attribute Builder method calls</summary>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilderClass.AddIntDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type int to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilderClass.AddLongDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type long to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilderClass.AddStringDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type string to the Attribute Scope. Only allows single line strings. For multi-line strings use AddMultiLineStringDispatchProperty.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilderClass.AddBoolDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type bool to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilderClass.AddFileDispatchProperty(System.Object,System.String,System.String,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type file (string) to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="FileType"></param>
+      <param name="FileFilter"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilderClass.AddDirectoryDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type directory (string) to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilderClass.AddRelFileDispatchProperty(System.Object,System.String,System.String,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type relative file path (string) to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="FileType"></param>
+      <param name="FileFilter"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilderClass.AddDoubleDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type double to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilderClass.AddQuantityDispatchProperty(System.Object,System.String,System.String,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type quantity (double) to the Attribute Scope. Deprecated, use AddQuantityDispatchProperty2 instead.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="DisplayUnit"></param>
+      <param name="InternalUnit"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilderClass.AddDateDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type date (represented as a double in EpSec) to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilderClass.ToString(System.Object,System.Object)">
+      <summary>Serialize an Attribute scope for a plugin to a formatted XML String representation. (internal use)</summary>
+      <param name="DispPlugin"></param>
+      <param name="DispScope"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilderClass.MergeFromString(System.Object,System.Object,System.String)">
+      <summary>Deserialize an Attribute scope into a plugin from a formatted XML String representation. (internal use)</summary>
+      <param name="DispPlugin"></param>
+      <param name="DispScope"></param>
+      <param name="XmlString"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilderClass.AddDependencyDispatchProperty(System.Object,System.String,System.String)">
+      <summary>Add a Dependency between two Attributes within the Attribute Scope provided. Dependencies are used to force the update of the child attribute when the parent attribute is modified by the user.</summary>
+      <param name="DispScope"></param>
+      <param name="ParentAttributeName"></param>
+      <param name="ChildAttributeName"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilderClass.AddFlagsDispatchProperty(System.Object,System.String,System.String)">
+      <summary>Add a callback to retrieve the flags for the provided Attribute name from the provided property name.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="FlagPropName"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilderClass.AddChoicesDispatchProperty(System.Object,System.String,System.String,System.String,System.Array)">
+      <summary>Add an Attribute that provides a combobox of values from which the user can choose.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Choices"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilderClass.AddListDispatchProperty(System.Object,System.String,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute that represents a list of values.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="NewElemMethodName"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilderClass.AddVARIANTDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type variant to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilderClass.AddMultiLineStringDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type multi-line string to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilderClass.ToFormattedString(System.Object,System.Object,System.String)">
+      <summary>Get a String representation of the Attribute Scope, formatted using the specified FormatId. (internal use)</summary>
+      <param name="DispPlugin"></param>
+      <param name="DispScope"></param>
+      <param name="FormatId"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilderClass.AddQuantityDispatchProperty2(System.Object,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32)">
+      <summary>Add an Attribute of type quantity to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Dimension"></param>
+      <param name="DisplayUnit"></param>
+      <param name="InternalUnit"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilderClass.AddQuantityMinMaxDispatchProperty2(System.Object,System.String,System.String,System.String,System.String,System.String,System.String,System.Double,System.Double,System.Int32)">
+      <summary>Add an Attribute of type quantity to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Dimension"></param>
+      <param name="DisplayUnit"></param>
+      <param name="InternalUnit"></param>
+      <param name="MinVal"></param>
+      <param name="MaxVal"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilderClass.AddScopeDispatchProperty(System.Object,System.String,System.String,System.Object)">
+      <summary>Add an Attribute to the 'NewDispScope' Scope (to construct a hierarchy).</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="NewDispScope"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilderClass.AddQuantityMinMaxDispatchProperty(System.Object,System.String,System.String,System.String,System.String,System.String,System.Double,System.Double,System.Int32)">
+      <summary>Add an Attribute of type quantity to the Attribute Scope. Deprecated, use AddQuantityMinMaxDispatchProperty2 instead.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="DisplayUnit"></param>
+      <param name="InternalUnit"></param>
+      <param name="MinVal"></param>
+      <param name="MaxVal"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilderClass.AddChoicesFuncDispatchProperty(System.Object,System.String,System.String,System.String,System.String)">
+      <summary>Add an Attribute that provides a combobox of values from which the user can choose. Similar to AddChoicesDispatchProperty but uses a callback to get the list of available values instead of a static array of strings.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="FuncPropName"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilderClass.AddDoubleMinDispatchProperty(System.Object,System.String,System.String,System.String,System.Double,System.Int32)">
+      <summary>Add an Attribute of type double with a min to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="MinVal"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilderClass.AddDoubleMinMaxDispatchProperty(System.Object,System.String,System.String,System.String,System.Double,System.Double,System.Int32)">
+      <summary>Add an Attribute of type double with a min and max to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="MinVal"></param>
+      <param name="MaxVal"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilderClass.AddQuantityMinDispatchProperty2(System.Object,System.String,System.String,System.String,System.String,System.String,System.String,System.Double,System.Int32)">
+      <summary>Add an Attribute of type quantity with a min to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="Dimension"></param>
+      <param name="DisplayUnit"></param>
+      <param name="InternalUnit"></param>
+      <param name="MinVal"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilderClass.AddIntMinDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32,System.Int32)">
+      <summary>Add an Attribute of type int with a minimum to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="MinVal"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilderClass.AddIntMinMaxDispatchProperty(System.Object,System.String,System.String,System.String,System.Int32,System.Int32,System.Int32)">
+      <summary>Add an Attribute of type int with a min and max to the Attribute Scope.</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+      <param name="PropName"></param>
+      <param name="MinVal"></param>
+      <param name="MaxVal"></param>
+      <param name="Flags"></param>
+    </member>
+    <member name="M:AGI.Attr.AgAttrBuilderClass.AddScopeDispatchProperty2(System.Object,System.String,System.String)">
+      <summary>Add an Attribute to the current Attribute Scope (to construct a hierarchy).</summary>
+      <param name="DispScope"></param>
+      <param name="Name"></param>
+      <param name="Description"></param>
+    </member>
+    <member name="T:AGI.Attr.AgAttrHolder">
+      <summary>Attributes Automation Holder CoClass</summary>
+    </member>
+    <member name="T:AGI.Attr.AgAttrHolderClass">
+      <summary>Attributes Automation Holder CoClass</summary>
+    </member>
+  </members>
+</doc>

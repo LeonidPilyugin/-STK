@@ -1,0 +1,71 @@
+<doc>
+  <assembly>
+    <name>AGI.AgUiFlightDotNetSupport</name>
+  </assembly>
+  <members>
+    <member name="T:AGI.AgUiFlightDotNetSupport.IAgUiFlightUIFactoryDotNet">
+      <summary>AGI IAgUiFlightUIFactoryDotNet Interface</summary>
+    </member>
+    <member name="M:AGI.AgUiFlightDotNetSupport.IAgUiFlightUIFactoryDotNet.GetDotNetFormForObject(System.Object,.BSTR@,.BSTR@)">
+      <summary>method GetDotNetFormForObject</summary>
+      <param name="pObj"></param>
+      <param name="pAssemblyName"></param>
+      <param name="pControlType"></param>
+    </member>
+    <member name="T:AGI.AgUiFlightDotNetSupport.IAgUiFlightDotNetControl">
+      <summary>AGI IAgUiFlightDotNetControl Interface</summary>
+    </member>
+    <member name="M:AGI.AgUiFlightDotNetSupport.IAgUiFlightDotNetControl.OnApply">
+      <summary>method OnApply</summary>
+    </member>
+    <member name="M:AGI.AgUiFlightDotNetSupport.IAgUiFlightDotNetControl.OnCancel">
+      <summary>method OnCancel</summary>
+    </member>
+    <member name="M:AGI.AgUiFlightDotNetSupport.IAgUiFlightDotNetControl.OnHelp">
+      <summary>method OnHelp</summary>
+    </member>
+    <member name="M:AGI.AgUiFlightDotNetSupport.IAgUiFlightDotNetControl.ValidateControl(AGI.AgComUtilities.tagAgEControlValidationMode,.BSTR@)">
+      <summary>method ValidateControl</summary>
+      <param name="validationMode"></param>
+      <param name="pValidationMessage"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightDotNetSupport.IAgUiFlightDotNetControl.PostCreate">
+      <summary>method PostCreate</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightDotNetSupport.IAgUiFlightDotNetControl.ControlClassID">
+      <summary>property ControlClassID</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightDotNetSupport.IAgUiFlightDotNetControl.ObjectUnknown">
+      <summary>property ObjectUnknown</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightDotNetSupport.IAgUiFlightDotNetControl.ReadOnly">
+      <summary>property ReadOnly</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightDotNetSupport.IAgUiFlightDotNetControl.Modified">
+      <summary>property Modified</summary>
+    </member>
+    <member name="P:AGI.AgUiFlightDotNetSupport.IAgUiFlightDotNetControl.IsValid">
+      <summary>property IsValid</summary>
+    </member>
+    <member name="T:AGI.AgUiFlightDotNetSupport.IAgUiFlightDotNetFormWrapper">
+      <summary>IAgUiFlightDotNetFormWrapper Interface</summary>
+    </member>
+    <member name="M:AGI.AgUiFlightDotNetSupport.IAgUiFlightDotNetFormWrapper.SetInitWindowSize(System.Int32,System.Int32)">
+      <summary>method SetInitWindowSize</summary>
+      <param name="cxPixels"></param>
+      <param name="cyPixels"></param>
+    </member>
+    <member name="M:AGI.AgUiFlightDotNetSupport.IAgUiFlightDotNetFormWrapper.SetInitWindowSizeDefault">
+      <summary>method SetInitWindowSizeDefault</summary>
+    </member>
+    <member name="T:AGI.AgUiFlightDotNetSupport._IAgUiFlightDotNetFormWrapperEvents">
+      <summary>AGI _IAgUiFlightDotNetFormWrapperEvents Interface</summary>
+    </member>
+    <member name="T:AGI.AgUiFlightDotNetSupport.AgUiFlightDotNetFormWrapper">
+      <summary>AgUiFlightDotNetFormWrapper Class</summary>
+    </member>
+    <member name="T:AGI.AgUiFlightDotNetSupport.AgUiFlightDotNetFormWrapperClass">
+      <summary>AgUiFlightDotNetFormWrapper Class</summary>
+    </member>
+  </members>
+</doc>

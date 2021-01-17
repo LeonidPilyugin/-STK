@@ -1,0 +1,1010 @@
+<doc>
+  <assembly>
+    <name>AGI.STKesriDisplay</name>
+  </assembly>
+  <members>
+    <member name="T:AGI.STKesriDisplay.IAgEsri3dRendererConfig">
+      <summary>3D renderer configuration options.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.IAgEsri3dRendererConfig.FillPolygons">
+      <summary>Render filled polygons.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.IAgEsri3dRendererConfig.DisplayLatLonBox">
+      <summary>Debugging: Display the latitude/longitude envelope for the current 3D view.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.IAgEsri3dRendererConfig.MapScaleFactor">
+      <summary>Factor to apply to the map scale.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.IAgEsri3dRendererConfig.FlashColor">
+      <summary>Color used to flash features.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.IAgEsri3dRendererConfig.FlashWidth">
+      <summary>Line width used to flash features.</summary>
+    </member>
+    <member name="T:AGI.STKesriDisplay.IAgEsri3dRendererContext">
+      <summary>Context used to instantiate COM components in COM apartment.</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay.IAgEsri3dRendererContext.CreateObject(System.String)">
+      <summary>Creates an instance of a component in the GIS thread.</summary>
+      <param name="ProgID"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.IAgEsri3dRendererContext.CreateEnvelope(System.Double,System.Double,System.Double,System.Double)">
+      <summary>Creates an envelope with the current display spatial reference in the GIS thread.</summary>
+      <param name="XMin"></param>
+      <param name="YMin"></param>
+      <param name="XMax"></param>
+      <param name="YMax"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.IAgEsri3dRendererContext.SaveObject(System.Object)">
+      <summary>Saves an instance of a component into a object in the GIS thread.</summary>
+      <param name="Object"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.IAgEsri3dRendererContext.LoadObject(System.Object)">
+      <summary>Loads an instance of a component in the GIS thread from a object.</summary>
+      <param name="Stream"></param>
+    </member>
+    <member name="T:AGI.STKesriDisplay.IAgEsri3dRenderer">
+      <summary>STK 3D GIS renderer.</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay.IAgEsri3dRenderer.OpenMapDocument(System.String,System.String)">
+      <summary>Opens the specified MapDocument in preparation for reading it.</summary>
+      <param name="MapDocument"></param>
+      <param name="Password"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.IAgEsri3dRenderer.CloseMapDocument(AGI.STKesriDisplay.AgESTKesriCallOptions)">
+      <summary>Closes the map document.</summary>
+      <param name="Option"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.IAgEsri3dRenderer.Refresh(System.Boolean)">
+      <summary>Refreshes the GIS display. If SelectionOnly is specified, only the selected features are re-redendered.</summary>
+      <param name="SelectionOnly"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.IAgEsri3dRenderer.Pause">
+      <summary>Pause the GIS data rendering. If the view changes, the GIS data will not redraw.</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay.IAgEsri3dRenderer.Resume">
+      <summary>Resume the GIS data rendering. The GIS display will be updated when the view changes.</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay.IAgEsri3dRenderer.ZoomToLayer(esriCarto.ILayer)">
+      <summary>Zoom to a specific layer.</summary>
+      <param name="Layer"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.IAgEsri3dRenderer.Message(System.String,AGI.STKesriDisplay.AgESTKesriMsgCodes)">
+      <summary>Outputs a message to the log.</summary>
+      <param name="Message"></param>
+      <param name="MsgCode"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.IAgEsri3dRenderer.Identify(esriGeometry.IGeometry,AGI.STKesriDisplay.AgESTKesriIdentifyType,esriCarto.ILayer,esriSystem.ITrackCancel)">
+      <summary>Identifies features at the specified location.</summary>
+      <param name="Location"></param>
+      <param name="IdentifyType"></param>
+      <param name="Layer"></param>
+      <param name="TrackCancel"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.IAgEsri3dRenderer.SelectFeature(esriCarto.ILayer,esriGeoDatabase.IFeature,esriCarto.esriSelectionResultEnum,System.Boolean)">
+      <summary>Select the specified feature. Optionally refreshes the GIS information.</summary>
+      <param name="Layer"></param>
+      <param name="Feature"></param>
+      <param name="SelectionResult"></param>
+      <param name="Refresh"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.IAgEsri3dRenderer.SelectFeatures(esriCarto.ILayer,System.Array@,esriCarto.esriSelectionResultEnum,System.Boolean)">
+      <summary>Select the specified features. Optionally refreshes the GIS information.</summary>
+      <param name="Layer"></param>
+      <param name="Features"></param>
+      <param name="SelectionResult"></param>
+      <param name="Refresh"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.IAgEsri3dRenderer.FlashFeature(esriCarto.ILayer,esriGeoDatabase.IFeature)">
+      <summary>Flashes the specified feature on the screen.</summary>
+      <param name="Layer"></param>
+      <param name="Feature"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.IAgEsri3dRenderer.FlashIdentifyObj(esriCarto.IIdentifyObj)">
+      <summary>Flashes the specified IdentifyObj on the screen.</summary>
+      <param name="IdentifyObj"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.IAgEsri3dRenderer.ClearSelection(System.Boolean)">
+      <summary>Clears the selection.</summary>
+      <param name="Refresh"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.IAgEsri3dRenderer.IsValidLayer(esriCarto.ILayer)">
+      <summary>Indicates if the specified layer is supported by the STK 3D renderer.</summary>
+      <param name="Layer"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.IAgEsri3dRenderer.Promote(esriGeoDatabase.IFeature,System.String,AGI.STKesriDisplay.AgESTKesriPromoteType)">
+      <summary>Promotes a feature to an STK object</summary>
+      <param name="Feature"></param>
+      <param name="Name"></param>
+      <param name="PromoteType"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.IAgEsri3dRenderer.DrawPause">
+      <summary>Pauses drawing immediately.</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay.IAgEsri3dRenderer.DrawResume">
+      <summary>Resumes drawing.</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay.IAgEsri3dRenderer.StartMapEditing(AGI.STKesriDisplay.AgESTKesriCallOptions)">
+      <summary>Call before starting to modify the map document.</summary>
+      <param name="Option"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.IAgEsri3dRenderer.StopMapEditing(System.Boolean)">
+      <summary>Call after modifying the map document.</summary>
+      <param name="Canceled"></param>
+    </member>
+    <member name="P:AGI.STKesriDisplay.IAgEsri3dRenderer.Config">
+      <summary>Configuration options.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.IAgEsri3dRenderer.Paused">
+      <summary>State of the GIS data rendering.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.IAgEsri3dRenderer.SceneID">
+      <summary>3D scene identifier associated with this renderer.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.IAgEsri3dRenderer.MapDocument">
+      <summary>The map document currently opened.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.IAgEsri3dRenderer.Context">
+      <summary>The context in which the ArcObjects components are manipulated. This object lives in the GIS COM apartment.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.IAgEsri3dRenderer.MapDocumentName">
+      <summary>The name of the map document currently opened.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.IAgEsri3dRenderer.MapDocumentPassword">
+      <summary>The password for the map document currently opened.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.IAgEsri3dRenderer.MapDocumentLoaded">
+      <summary>Indicates if a map document is currently loaded.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.IAgEsri3dRenderer.DrapeMapOnGlobeSurface">
+      <summary>Drape vector data on terrain.</summary>
+    </member>
+    <member name="T:AGI.STKesriDisplay.AgESTKesriCallOptions">
+      <summary>Call options for the CloseMapDocument &amp; StopMapEditing methods of the IAgEsri3dRenderer interface.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriCallOptions.eEsri3dBlocking">
+      <summary>The call to the method will block until the map is closed. Use for in-process calls.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriCallOptions.eEsri3dNonBlocking">
+      <summary>The call to the method will not block. Use for out-of-process calls. Loop until the call succeeds.</summary>
+    </member>
+    <member name="T:AGI.STKesriDisplay.AgESTKesriMsgCodes">
+      <summary>STKesriDisplay msg codes.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriMsgCodes.eEsri3dMsgDebug">
+      <summary>Debug message.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriMsgCodes.eEsri3dMsgInfo">
+      <summary>Informational message.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriMsgCodes.eEsri3dMsgForceInfo">
+      <summary>Force info message.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriMsgCodes.eEsri3dMsgWarning">
+      <summary>Warning message.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriMsgCodes.eEsri3dMsgAlarm">
+      <summary>Alarm message.</summary>
+    </member>
+    <member name="T:AGI.STKesriDisplay.AgESTKesriIdentifyType">
+      <summary>Identify Type.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriIdentifyType.eIdentifyAll">
+      <summary>Identify from all layers.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriIdentifyType.eIdentifyTop">
+      <summary>Identify from top-most layer</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriIdentifyType.eIdentifyVisible">
+      <summary>Identify from visible layers</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriIdentifyType.eIdentifySelectable">
+      <summary>Identify from selectable layers</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriIdentifyType.eIdentifySingleLayer">
+      <summary>Identify from single layer</summary>
+    </member>
+    <member name="T:AGI.STKesriDisplay.IAgEsri3dIdentifyResult">
+      <summary>Result returned by the Identify method of the IAgEsri3dRenderer interface.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.IAgEsri3dIdentifyResult.Count">
+      <summary>Returns the number of elements in the collection.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.IAgEsri3dIdentifyResult.Element">
+      <summary>Returns the element at the Index position.</summary>
+    </member>
+    <member name="T:AGI.STKesriDisplay.AgESTKesriPromoteType">
+      <summary>Promote Type.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriPromoteType.ePromoteFacilities">
+      <summary>Promote point(s) to facilities.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriPromoteType.ePromoteTargets">
+      <summary>Promote point(s) to targets.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriPromoteType.ePromoteFacilitiesConstellation">
+      <summary>Promote points to facilities and puts them in a constellation.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriPromoteType.ePromoteTargetsConstellation">
+      <summary>Promote points to targets and puts them in a constellation.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriPromoteType.ePromoteLineTargets">
+      <summary>Promote line(s) to line targets.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriPromoteType.ePromoteLineTargetsConstellation">
+      <summary>Promote lines to line targets and puts them in a constellation.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriPromoteType.ePromoteAreaTargets">
+      <summary>Promote polygons(s) to area targets.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriPromoteType.ePromoteAreaTargetsConstellation">
+      <summary>Promote polygons to area targets and puts them in a constellation.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriPromoteType.ePromoteSelection">
+      <summary>Promote selection to STK Objects.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriPromoteType.ePromoteSelectionConstellation">
+      <summary>Promote selection to STK Objects and puts them in a constellation.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriPromoteType.ePromoteAircrafts">
+      <summary>Promote line(s) to aircrafts.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriPromoteType.ePromoteAircraftsConstellation">
+      <summary>Promote lines to aircrafts and puts them in a constellation.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriPromoteType.ePromoteShips">
+      <summary>Promote line(s) to ships.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriPromoteType.ePromoteShipsConstellation">
+      <summary>Promote lines to ships and puts them in a constellation.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriPromoteType.ePromoteGroundVehicles">
+      <summary>Promote line(s) to ground vehicles.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriPromoteType.ePromoteGroundVehiclesConstellation">
+      <summary>Promote lines to ground vehicles and puts them in a constellation.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriPromoteType.ePromotePlaces">
+      <summary>Promote point(s) to places.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriPromoteType.ePromotePlacesConstellation">
+      <summary>Promote points to places and puts them in a constellation.</summary>
+    </member>
+    <member name="T:AGI.STKesriDisplay.AgESTKesriDisplayErrorCodes">
+      <summary>Error codes.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriDisplayErrorCodes.eEsri3dInvalidSceneID">
+      <summary>The scene ID is invalid.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriDisplayErrorCodes.eEsri3dObjCreateFailed">
+      <summary>Object creation failed.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriDisplayErrorCodes.eEsri3dObjPromoteFailed">
+      <summary>Object promotion failed.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriDisplayErrorCodes.eEsri3dClippingFailedEmptyGeometry">
+      <summary>Clipping failed. The geometry is empty.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriDisplayErrorCodes.eEsri3dFailedToAddRasterLayerToGlobe">
+      <summary>Failed to add raster layer to globe.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriDisplayErrorCodes.eEsri3dFailedToProcessRasterLayer">
+      <summary>Failed to process raster layer.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriDisplayErrorCodes.eEsri3dCouldNotOpenMapDocument">
+      <summary>Could not open map document. Is a map document already opened? Do you have the required licenses?</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriDisplayErrorCodes.eEsri3dUnsupportedSymbolType">
+      <summary>Unsupported symbol type.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriDisplayErrorCodes.eEsri3dCannotAccessRenderer">
+      <summary>Cannot create or access GIS renderer.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriDisplayErrorCodes.eEsri3dInvalidFlashWidth">
+      <summary>Invalid flash width (must be positive).</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriDisplayErrorCodes.eEsri3dFlashFailedBadDisplay">
+      <summary>Failed to flash feature due to incorrect display.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriDisplayErrorCodes.eEsri3dInvalidMessageCodeArg">
+      <summary>Invalid message code argument.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriDisplayErrorCodes.eEsri3dUnsupportedLayerType">
+      <summary>Unsupported layer type.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriDisplayErrorCodes.eEsri3dInvalidGISRenderer">
+      <summary>The GIS renderer is no longer invalid.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriDisplayErrorCodes.eEsri3dCouldNotClearLoadedRasterData">
+      <summary>Failed to clear loaded raster data.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriDisplayErrorCodes.eEsri3dFailedToRemoveRaster">
+      <summary>Failed to remove raster from globe.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriDisplayErrorCodes.eEsri3dFailedToDeleteImageSetDefinition">
+      <summary>Failed to delete image set definition.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriDisplayErrorCodes.eEsri3dIndexOutOfRange">
+      <summary>Index out of range.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriDisplayErrorCodes.eEsri3dInvalidEnvelope">
+      <summary>Invalid Envelope.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriDisplayErrorCodes.eEsri3dNoMapDocumentOpened">
+      <summary>No map document opened.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriDisplayErrorCodes.eEsri3dNotEditing">
+      <summary>Map document not being edited.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriDisplayErrorCodes.eEsri3dAlreadyEditing">
+      <summary>Already editing the map.</summary>
+    </member>
+    <member name="F:AGI.STKesriDisplay.AgESTKesriDisplayErrorCodes.eEsri3dInvalidStream">
+      <summary>Invalid Stream.</summary>
+    </member>
+    <member name="T:AGI.STKesriDisplay.IAgEsri3dRendererFactory">
+      <summary>Provides access to the GIS renderer associated with a 3D scene.</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay.IAgEsri3dRendererFactory.GetRenderer(System.Int32)">
+      <summary>Get the renderer associated with the specified 3d scene.</summary>
+      <param name="SceneID"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.IAgEsri3dRendererFactory.IsLicenseAvailable">
+      <summary>Checks that the required Esri &amp; AGI licenses are available.</summary>
+    </member>
+    <member name="T:AGI.STKesriDisplay._IAgEsri3dRendererFactory">
+      <summary>The hidden interface for IAgEsri3dRendererFactory</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRendererFactory.GetRenderer(System.Int32)">
+      <summary>Get the renderer associated with the specified 3d scene.</summary>
+      <param name="SceneID"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRendererFactory.IsLicenseAvailable">
+      <summary>Checks that the required Esri &amp; AGI licenses are available.</summary>
+    </member>
+    <member name="T:AGI.STKesriDisplay.IAgEsri3dSymbolHelper">
+      <summary>Utility to convert an ArcObjects symbol to a bitmap.</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay.IAgEsri3dSymbolHelper.ToBitmap(esriDisplay.ISymbol)">
+      <summary>Convert the symbol to a bitmap.</summary>
+      <param name="Symbol"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.IAgEsri3dSymbolHelper.SetUseSymbolSize(System.Boolean)">
+      <summary>Use the exact symbol size, do not make the bitmap dimensions power of two.</summary>
+      <param name="UseSymbolSize"></param>
+    </member>
+    <member name="T:AGI.STKesriDisplay._IAgEsri3dSymbolHelper">
+      <summary>The hidden interface for IAgEsri3dSymbolHelper</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dSymbolHelper.ToBitmap(esriDisplay.ISymbol)">
+      <summary>Convert the symbol to a bitmap.</summary>
+      <param name="Symbol"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dSymbolHelper.SetUseSymbolSize(System.Boolean)">
+      <summary>Use the exact symbol size, do not make the bitmap dimensions power of two.</summary>
+      <param name="UseSymbolSize"></param>
+    </member>
+    <member name="T:AGI.STKesriDisplay._IAgEsri3dIdentifyResult">
+      <summary>The hidden interface for IAgEsri3dIdentifyResult</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay._IAgEsri3dIdentifyResult.Count">
+      <summary>Returns the number of elements identified (QI to IIdentifyObj).</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay._IAgEsri3dIdentifyResult.Element">
+      <summary>Returns the element at the Index position.</summary>
+    </member>
+    <member name="T:AGI.STKesriDisplay._IAgEsri3dRenderer">
+      <summary>The hidden interface for IAgEsri3dRenderer</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRenderer.OpenMapDocument(System.String,System.String)">
+      <summary>Opens the specified MapDocument in preparation for reading it.</summary>
+      <param name="MapDocument"></param>
+      <param name="Password"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRenderer.CloseMapDocument(AGI.STKesriDisplay.AgESTKesriCallOptions)">
+      <summary>Closes the map document.</summary>
+      <param name="Option"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRenderer.Refresh(System.Boolean)">
+      <summary>Refreshes the GIS display. If SelectionOnly is specified, only the selected features are re-redendered.</summary>
+      <param name="SelectionOnly"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRenderer.Pause">
+      <summary>Pause the GIS data rendering. If the view changes, the GIS data will not redraw.</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRenderer.Resume">
+      <summary>Resume the GIS data rendering. The GIS display will be updated when the view changes.</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRenderer.ZoomToLayer(esriCarto.ILayer)">
+      <summary>Zoom to a specific layer.</summary>
+      <param name="Layer"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRenderer.Message(System.String,AGI.STKesriDisplay.AgESTKesriMsgCodes)">
+      <summary>Outputs a message to the log.</summary>
+      <param name="Message"></param>
+      <param name="MsgCode"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRenderer.Identify(esriGeometry.IGeometry,AGI.STKesriDisplay.AgESTKesriIdentifyType,esriCarto.ILayer,esriSystem.ITrackCancel)">
+      <summary>Identifies features at the specified location.</summary>
+      <param name="Location"></param>
+      <param name="IdentifyType"></param>
+      <param name="Layer"></param>
+      <param name="TrackCancel"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRenderer.SelectFeature(esriCarto.ILayer,esriGeoDatabase.IFeature,esriCarto.esriSelectionResultEnum,System.Boolean)">
+      <summary>Select the specified feature. Optionally refreshes the GIS information.</summary>
+      <param name="Layer"></param>
+      <param name="Feature"></param>
+      <param name="SelectionResult"></param>
+      <param name="Refresh"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRenderer.SelectFeatures(esriCarto.ILayer,System.Array@,esriCarto.esriSelectionResultEnum,System.Boolean)">
+      <summary>Select the specified features. Optionally refreshes the GIS information.</summary>
+      <param name="Layer"></param>
+      <param name="Features"></param>
+      <param name="SelectionResult"></param>
+      <param name="Refresh"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRenderer.FlashFeature(esriCarto.ILayer,esriGeoDatabase.IFeature)">
+      <summary>Flashes the specified feature on the screen.</summary>
+      <param name="Layer"></param>
+      <param name="Feature"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRenderer.FlashIdentifyObj(esriCarto.IIdentifyObj)">
+      <summary>Flashes the specified IdentifyObj on the screen.</summary>
+      <param name="IdentifyObj"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRenderer.ClearSelection(System.Boolean)">
+      <summary>Clears the selection.</summary>
+      <param name="Refresh"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRenderer.IsValidLayer(esriCarto.ILayer)">
+      <summary>Indicates if the specified layer is supported by the STK 3D renderer.</summary>
+      <param name="Layer"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRenderer.Promote(esriGeoDatabase.IFeature,System.String,AGI.STKesriDisplay.AgESTKesriPromoteType)">
+      <summary>Promotes a feature to an STK object</summary>
+      <param name="Feature"></param>
+      <param name="Name"></param>
+      <param name="PromoteType"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRenderer.DrawPause">
+      <summary>Pauses drawing immediately.</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRenderer.DrawResume">
+      <summary>Resumes drawing.</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRenderer.StartMapEditing(AGI.STKesriDisplay.AgESTKesriCallOptions)">
+      <summary>Call before starting to modify the map document.</summary>
+      <param name="Option"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRenderer.StopMapEditing(System.Boolean)">
+      <summary>Call after modifying the map document.</summary>
+      <param name="Canceled"></param>
+    </member>
+    <member name="P:AGI.STKesriDisplay._IAgEsri3dRenderer.Config">
+      <summary>Configuration options.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay._IAgEsri3dRenderer.Paused">
+      <summary>State of the GIS data rendering.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay._IAgEsri3dRenderer.SceneID">
+      <summary>3D scene identifier associated with this renderer.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay._IAgEsri3dRenderer.MapDocument">
+      <summary>The map document currently opened.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay._IAgEsri3dRenderer.Context">
+      <summary>The context in which the ArcObjects components are manipulated. This object leaves in the GIS COM apartment.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay._IAgEsri3dRenderer.MapDocumentName">
+      <summary>The name of the map document currently opened.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay._IAgEsri3dRenderer.MapDocumentPassword">
+      <summary>The password for the map document currently opened.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay._IAgEsri3dRenderer.MapDocumentLoaded">
+      <summary>Indicates if a map document is currently loaded.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay._IAgEsri3dRenderer.DrapeMapOnGlobeSurface">
+      <summary>Drape map (including vector data) on the globe surface.</summary>
+    </member>
+    <member name="T:AGI.STKesriDisplay._IAgEsri3dRendererConfig">
+      <summary>The hidden interface for IAgEsri3dRendererConfig</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay._IAgEsri3dRendererConfig.FillPolygons">
+      <summary>Render filled polygons.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay._IAgEsri3dRendererConfig.DisplayLatLonBox">
+      <summary>Debugging: Display the latitude/longitude envelope for the current 3D view.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay._IAgEsri3dRendererConfig.MapScaleFactor">
+      <summary>Factor to apply to the map scale.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay._IAgEsri3dRendererConfig.FlashColor">
+      <summary>Color used to flash features.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay._IAgEsri3dRendererConfig.FlashWidth">
+      <summary>Line width used to flash features.</summary>
+    </member>
+    <member name="T:AGI.STKesriDisplay._IAgEsri3dRendererContext">
+      <summary>The hidden interface for IAgEsri3dRendererContext</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRendererContext.CreateObject(System.String)">
+      <summary>Creates an instance of a component in the GIS thread.</summary>
+      <param name="ProgID"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRendererContext.CreateEnvelope(System.Double,System.Double,System.Double,System.Double)">
+      <summary>Creates an envelope with the current display spatial reference in the GIS thread.</summary>
+      <param name="XMin"></param>
+      <param name="YMin"></param>
+      <param name="XMax"></param>
+      <param name="YMax"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRendererContext.SaveObject(System.Object)">
+      <summary>Saves an instance of a component into a object in the GIS thread.</summary>
+      <param name="Object"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRendererContext.LoadObject(System.Object)">
+      <summary>Loads an instance of a component in the GIS thread from a object.</summary>
+      <param name="Stream"></param>
+    </member>
+    <member name="T:AGI.STKesriDisplay._IAgEsri3dRendererEvents">
+      <summary>Events exposed by the AgEsri3dRenderer interface.</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRendererEvents.OnDrawBegin(AGI.STKesriDisplay.IAgEsri3dRenderer,System.Double,System.Double,System.Double,System.Double,System.Int32,System.Int32,System.Int32,System.Int32,System.Double)">
+      <summary>Fired at the beginning of draw.</summary>
+      <param name="Renderer"></param>
+      <param name="West"></param>
+      <param name="South"></param>
+      <param name="East"></param>
+      <param name="North"></param>
+      <param name="Left"></param>
+      <param name="Top"></param>
+      <param name="Right"></param>
+      <param name="Bottom"></param>
+      <param name="ScaleRatio"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRendererEvents.OnDrawEnd(AGI.STKesriDisplay.IAgEsri3dRenderer,System.Boolean)">
+      <summary>Fired at the end of draw.</summary>
+      <param name="Renderer"></param>
+      <param name="Cancelled"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRendererEvents.OnDrawProgress(AGI.STKesriDisplay.IAgEsri3dRenderer,System.String)">
+      <summary>Fired to inform about rendering progress.</summary>
+      <param name="Renderer"></param>
+      <param name="ProgressMsg"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRendererEvents.OnMapDocumentOpened(AGI.STKesriDisplay.IAgEsri3dRenderer,AGI.STKesriDisplay.IAgEsri3dRendererContext)">
+      <summary>Fired after opening map.</summary>
+      <param name="Renderer"></param>
+      <param name="Context"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRendererEvents.OnMapDocumentClosed(AGI.STKesriDisplay.IAgEsri3dRenderer)">
+      <summary>Fired before closing map.</summary>
+      <param name="Renderer"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRendererEvents.OnMapDocumentOpenFailed(AGI.STKesriDisplay.IAgEsri3dRenderer)">
+      <summary>Fired when open fails.</summary>
+      <param name="Renderer"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay._IAgEsri3dRendererEvents.OnMapDocumentEdited(AGI.STKesriDisplay.IAgEsri3dRenderer)">
+      <summary>Fired when a map document is edited.</summary>
+      <param name="Renderer"></param>
+    </member>
+    <member name="T:AGI.STKesriDisplay.AgEsri3dRenderer">
+      <summary>STK 3D GIS renderer.</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRenderer.OpenMapDocument(System.String,System.String)">
+      <summary>Opens the specified MapDocument in preparation for reading it.</summary>
+      <param name="MapDocument"></param>
+      <param name="Password"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRenderer.CloseMapDocument(AGI.STKesriDisplay.AgESTKesriCallOptions)">
+      <summary>Closes the map document.</summary>
+      <param name="Option"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRenderer.Refresh(System.Boolean)">
+      <summary>Refreshes the GIS display. If SelectionOnly is specified, only the selected features are re-redendered.</summary>
+      <param name="SelectionOnly"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRenderer.Pause">
+      <summary>Pause the GIS data rendering. If the view changes, the GIS data will not redraw.</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRenderer.Resume">
+      <summary>Resume the GIS data rendering. The GIS display will be updated when the view changes.</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRenderer.ZoomToLayer(esriCarto.ILayer)">
+      <summary>Zoom to a specific layer.</summary>
+      <param name="Layer"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRenderer.Message(System.String,AGI.STKesriDisplay.AgESTKesriMsgCodes)">
+      <summary>Outputs a message to the log.</summary>
+      <param name="Message"></param>
+      <param name="MsgCode"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRenderer.Identify(esriGeometry.IGeometry,AGI.STKesriDisplay.AgESTKesriIdentifyType,esriCarto.ILayer,esriSystem.ITrackCancel)">
+      <summary>Identifies features at the specified location.</summary>
+      <param name="Location"></param>
+      <param name="IdentifyType"></param>
+      <param name="Layer"></param>
+      <param name="TrackCancel"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRenderer.SelectFeature(esriCarto.ILayer,esriGeoDatabase.IFeature,esriCarto.esriSelectionResultEnum,System.Boolean)">
+      <summary>Select the specified feature. Optionally refreshes the GIS information.</summary>
+      <param name="Layer"></param>
+      <param name="Feature"></param>
+      <param name="SelectionResult"></param>
+      <param name="Refresh"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRenderer.SelectFeatures(esriCarto.ILayer,System.Array@,esriCarto.esriSelectionResultEnum,System.Boolean)">
+      <summary>Select the specified features. Optionally refreshes the GIS information.</summary>
+      <param name="Layer"></param>
+      <param name="Features"></param>
+      <param name="SelectionResult"></param>
+      <param name="Refresh"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRenderer.FlashFeature(esriCarto.ILayer,esriGeoDatabase.IFeature)">
+      <summary>Flashes the specified feature on the screen.</summary>
+      <param name="Layer"></param>
+      <param name="Feature"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRenderer.FlashIdentifyObj(esriCarto.IIdentifyObj)">
+      <summary>Flashes the specified IdentifyObj on the screen.</summary>
+      <param name="IdentifyObj"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRenderer.ClearSelection(System.Boolean)">
+      <summary>Clears the selection.</summary>
+      <param name="Refresh"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRenderer.IsValidLayer(esriCarto.ILayer)">
+      <summary>Indicates if the specified layer is supported by the STK 3D renderer.</summary>
+      <param name="Layer"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRenderer.Promote(esriGeoDatabase.IFeature,System.String,AGI.STKesriDisplay.AgESTKesriPromoteType)">
+      <summary>Promotes a feature to an STK object</summary>
+      <param name="Feature"></param>
+      <param name="Name"></param>
+      <param name="PromoteType"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRenderer.DrawPause">
+      <summary>Pauses drawing immediately.</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRenderer.DrawResume">
+      <summary>Resumes drawing.</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRenderer.StartMapEditing(AGI.STKesriDisplay.AgESTKesriCallOptions)">
+      <summary>Call before starting to modify the map document.</summary>
+      <param name="Option"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRenderer.StopMapEditing(System.Boolean)">
+      <summary>Call after modifying the map document.</summary>
+      <param name="Canceled"></param>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dRenderer.Config">
+      <summary>Configuration options.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dRenderer.Paused">
+      <summary>State of the GIS data rendering.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dRenderer.SceneID">
+      <summary>3D scene identifier associated with this renderer.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dRenderer.MapDocument">
+      <summary>The map document currently opened.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dRenderer.Context">
+      <summary>The context in which the ArcObjects components are manipulated. This object lives in the GIS COM apartment.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dRenderer.MapDocumentName">
+      <summary>The name of the map document currently opened.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dRenderer.MapDocumentPassword">
+      <summary>The password for the map document currently opened.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dRenderer.MapDocumentLoaded">
+      <summary>Indicates if a map document is currently loaded.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dRenderer.DrapeMapOnGlobeSurface">
+      <summary>Drape vector data on terrain.</summary>
+    </member>
+    <member name="E:AGI.STKesriDisplay._IAgEsri3dRendererEvents_Event.OnDrawBegin">
+      <summary>Fired at the beginning of draw.</summary>
+    </member>
+    <member name="E:AGI.STKesriDisplay._IAgEsri3dRendererEvents_Event.OnDrawEnd">
+      <summary>Fired at the end of draw.</summary>
+    </member>
+    <member name="E:AGI.STKesriDisplay._IAgEsri3dRendererEvents_Event.OnDrawProgress">
+      <summary>Fired to inform about rendering progress.</summary>
+    </member>
+    <member name="E:AGI.STKesriDisplay._IAgEsri3dRendererEvents_Event.OnMapDocumentOpened">
+      <summary>Fired after opening map.</summary>
+    </member>
+    <member name="E:AGI.STKesriDisplay._IAgEsri3dRendererEvents_Event.OnMapDocumentClosed">
+      <summary>Fired before closing map.</summary>
+    </member>
+    <member name="E:AGI.STKesriDisplay._IAgEsri3dRendererEvents_Event.OnMapDocumentOpenFailed">
+      <summary>Fired when open fails.</summary>
+    </member>
+    <member name="E:AGI.STKesriDisplay._IAgEsri3dRendererEvents_Event.OnMapDocumentEdited">
+      <summary>Fired when a map document is edited.</summary>
+    </member>
+    <member name="T:AGI.STKesriDisplay.AgEsri3dRendererClass">
+      <summary>STK 3D GIS renderer.</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRendererClass.OpenMapDocument(System.String,System.String)">
+      <summary>Opens the specified MapDocument in preparation for reading it.</summary>
+      <param name="MapDocument"></param>
+      <param name="Password"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRendererClass.CloseMapDocument(AGI.STKesriDisplay.AgESTKesriCallOptions)">
+      <summary>Closes the map document.</summary>
+      <param name="Option"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRendererClass.Refresh(System.Boolean)">
+      <summary>Refreshes the GIS display. If SelectionOnly is specified, only the selected features are re-redendered.</summary>
+      <param name="SelectionOnly"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRendererClass.Pause">
+      <summary>Pause the GIS data rendering. If the view changes, the GIS data will not redraw.</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRendererClass.Resume">
+      <summary>Resume the GIS data rendering. The GIS display will be updated when the view changes.</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRendererClass.ZoomToLayer(esriCarto.ILayer)">
+      <summary>Zoom to a specific layer.</summary>
+      <param name="Layer"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRendererClass.Message(System.String,AGI.STKesriDisplay.AgESTKesriMsgCodes)">
+      <summary>Outputs a message to the log.</summary>
+      <param name="Message"></param>
+      <param name="MsgCode"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRendererClass.Identify(esriGeometry.IGeometry,AGI.STKesriDisplay.AgESTKesriIdentifyType,esriCarto.ILayer,esriSystem.ITrackCancel)">
+      <summary>Identifies features at the specified location.</summary>
+      <param name="Location"></param>
+      <param name="IdentifyType"></param>
+      <param name="Layer"></param>
+      <param name="TrackCancel"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRendererClass.SelectFeature(esriCarto.ILayer,esriGeoDatabase.IFeature,esriCarto.esriSelectionResultEnum,System.Boolean)">
+      <summary>Select the specified feature. Optionally refreshes the GIS information.</summary>
+      <param name="Layer"></param>
+      <param name="Feature"></param>
+      <param name="SelectionResult"></param>
+      <param name="Refresh"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRendererClass.SelectFeatures(esriCarto.ILayer,System.Array@,esriCarto.esriSelectionResultEnum,System.Boolean)">
+      <summary>Select the specified features. Optionally refreshes the GIS information.</summary>
+      <param name="Layer"></param>
+      <param name="Features"></param>
+      <param name="SelectionResult"></param>
+      <param name="Refresh"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRendererClass.FlashFeature(esriCarto.ILayer,esriGeoDatabase.IFeature)">
+      <summary>Flashes the specified feature on the screen.</summary>
+      <param name="Layer"></param>
+      <param name="Feature"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRendererClass.FlashIdentifyObj(esriCarto.IIdentifyObj)">
+      <summary>Flashes the specified IdentifyObj on the screen.</summary>
+      <param name="IdentifyObj"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRendererClass.ClearSelection(System.Boolean)">
+      <summary>Clears the selection.</summary>
+      <param name="Refresh"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRendererClass.IsValidLayer(esriCarto.ILayer)">
+      <summary>Indicates if the specified layer is supported by the STK 3D renderer.</summary>
+      <param name="Layer"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRendererClass.Promote(esriGeoDatabase.IFeature,System.String,AGI.STKesriDisplay.AgESTKesriPromoteType)">
+      <summary>Promotes a feature to an STK object</summary>
+      <param name="Feature"></param>
+      <param name="Name"></param>
+      <param name="PromoteType"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRendererClass.DrawPause">
+      <summary>Pauses drawing immediately.</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRendererClass.DrawResume">
+      <summary>Resumes drawing.</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRendererClass.StartMapEditing(AGI.STKesriDisplay.AgESTKesriCallOptions)">
+      <summary>Call before starting to modify the map document.</summary>
+      <param name="Option"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRendererClass.StopMapEditing(System.Boolean)">
+      <summary>Call after modifying the map document.</summary>
+      <param name="Canceled"></param>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dRendererClass.Config">
+      <summary>Configuration options.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dRendererClass.Paused">
+      <summary>State of the GIS data rendering.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dRendererClass.SceneID">
+      <summary>3D scene identifier associated with this renderer.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dRendererClass.MapDocument">
+      <summary>The map document currently opened.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dRendererClass.Context">
+      <summary>The context in which the ArcObjects components are manipulated. This object lives in the GIS COM apartment.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dRendererClass.MapDocumentName">
+      <summary>The name of the map document currently opened.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dRendererClass.MapDocumentPassword">
+      <summary>The password for the map document currently opened.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dRendererClass.MapDocumentLoaded">
+      <summary>Indicates if a map document is currently loaded.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dRendererClass.DrapeMapOnGlobeSurface">
+      <summary>Drape vector data on terrain.</summary>
+    </member>
+    <member name="E:AGI.STKesriDisplay.AgEsri3dRendererClass.OnDrawBegin">
+      <summary>Fired at the beginning of draw.</summary>
+    </member>
+    <member name="E:AGI.STKesriDisplay.AgEsri3dRendererClass.OnDrawEnd">
+      <summary>Fired at the end of draw.</summary>
+    </member>
+    <member name="E:AGI.STKesriDisplay.AgEsri3dRendererClass.OnDrawProgress">
+      <summary>Fired to inform about rendering progress.</summary>
+    </member>
+    <member name="E:AGI.STKesriDisplay.AgEsri3dRendererClass.OnMapDocumentOpened">
+      <summary>Fired after opening map.</summary>
+    </member>
+    <member name="E:AGI.STKesriDisplay.AgEsri3dRendererClass.OnMapDocumentClosed">
+      <summary>Fired before closing map.</summary>
+    </member>
+    <member name="E:AGI.STKesriDisplay.AgEsri3dRendererClass.OnMapDocumentOpenFailed">
+      <summary>Fired when open fails.</summary>
+    </member>
+    <member name="E:AGI.STKesriDisplay.AgEsri3dRendererClass.OnMapDocumentEdited">
+      <summary>Fired when a map document is edited.</summary>
+    </member>
+    <member name="T:AGI.STKesriDisplay.AgEsri3dRendererConfig">
+      <summary>3D renderer configuration options.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dRendererConfig.FillPolygons">
+      <summary>Render filled polygons.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dRendererConfig.DisplayLatLonBox">
+      <summary>Debugging: Display the latitude/longitude envelope for the current 3D view.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dRendererConfig.MapScaleFactor">
+      <summary>Factor to apply to the map scale.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dRendererConfig.FlashColor">
+      <summary>Color used to flash features.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dRendererConfig.FlashWidth">
+      <summary>Line width used to flash features.</summary>
+    </member>
+    <member name="T:AGI.STKesriDisplay.AgEsri3dRendererConfigClass">
+      <summary>3D renderer configuration options.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dRendererConfigClass.FillPolygons">
+      <summary>Render filled polygons.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dRendererConfigClass.DisplayLatLonBox">
+      <summary>Debugging: Display the latitude/longitude envelope for the current 3D view.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dRendererConfigClass.MapScaleFactor">
+      <summary>Factor to apply to the map scale.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dRendererConfigClass.FlashColor">
+      <summary>Color used to flash features.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dRendererConfigClass.FlashWidth">
+      <summary>Line width used to flash features.</summary>
+    </member>
+    <member name="T:AGI.STKesriDisplay.AgEsri3dRendererContext">
+      <summary>Context used to instantiate components in specific COM apartment.</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRendererContext.CreateObject(System.String)">
+      <summary>Creates an instance of a component in the GIS thread.</summary>
+      <param name="ProgID"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRendererContext.CreateEnvelope(System.Double,System.Double,System.Double,System.Double)">
+      <summary>Creates an envelope with the current display spatial reference in the GIS thread.</summary>
+      <param name="XMin"></param>
+      <param name="YMin"></param>
+      <param name="XMax"></param>
+      <param name="YMax"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRendererContext.SaveObject(System.Object)">
+      <summary>Saves an instance of a component into a object in the GIS thread.</summary>
+      <param name="Object"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRendererContext.LoadObject(System.Object)">
+      <summary>Loads an instance of a component in the GIS thread from a object.</summary>
+      <param name="Stream"></param>
+    </member>
+    <member name="T:AGI.STKesriDisplay.AgEsri3dRendererContextClass">
+      <summary>Context used to instantiate components in specific COM apartment.</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRendererContextClass.CreateObject(System.String)">
+      <summary>Creates an instance of a component in the GIS thread.</summary>
+      <param name="ProgID"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRendererContextClass.CreateEnvelope(System.Double,System.Double,System.Double,System.Double)">
+      <summary>Creates an envelope with the current display spatial reference in the GIS thread.</summary>
+      <param name="XMin"></param>
+      <param name="YMin"></param>
+      <param name="XMax"></param>
+      <param name="YMax"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRendererContextClass.SaveObject(System.Object)">
+      <summary>Saves an instance of a component into a object in the GIS thread.</summary>
+      <param name="Object"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRendererContextClass.LoadObject(System.Object)">
+      <summary>Loads an instance of a component in the GIS thread from a object.</summary>
+      <param name="Stream"></param>
+    </member>
+    <member name="T:AGI.STKesriDisplay.AgEsri3dIdentifyResult">
+      <summary>Result returned by the Identify method of the IAgEsri3dRenderer interface.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dIdentifyResult.Count">
+      <summary>Returns the number of elements identified (QI to IIdentifyObj).</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dIdentifyResult.Element">
+      <summary>Returns the element at the Index position.</summary>
+    </member>
+    <member name="T:AGI.STKesriDisplay.AgEsri3dIdentifyResultClass">
+      <summary>Result returned by the Identify method of the IAgEsri3dRenderer interface.</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dIdentifyResultClass.Count">
+      <summary>Returns the number of elements identified (QI to IIdentifyObj).</summary>
+    </member>
+    <member name="P:AGI.STKesriDisplay.AgEsri3dIdentifyResultClass.Element">
+      <summary>Returns the element at the Index position.</summary>
+    </member>
+    <member name="T:AGI.STKesriDisplay.AgEsri3dSymbolHelper">
+      <summary>Utility to convert an ArcObjects symbol to a bitmap.</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dSymbolHelper.ToBitmap(esriDisplay.ISymbol)">
+      <summary>Convert the symbol to a bitmap.</summary>
+      <param name="Symbol"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dSymbolHelper.SetUseSymbolSize(System.Boolean)">
+      <summary>Use the exact symbol size, do not make the bitmap dimensions power of two.</summary>
+      <param name="UseSymbolSize"></param>
+    </member>
+    <member name="T:AGI.STKesriDisplay.AgEsri3dSymbolHelperClass">
+      <summary>Utility to convert an ArcObjects symbol to a bitmap.</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dSymbolHelperClass.ToBitmap(esriDisplay.ISymbol)">
+      <summary>Convert the symbol to a bitmap.</summary>
+      <param name="Symbol"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dSymbolHelperClass.SetUseSymbolSize(System.Boolean)">
+      <summary>Use the exact symbol size, do not make the bitmap dimensions power of two.</summary>
+      <param name="UseSymbolSize"></param>
+    </member>
+    <member name="T:AGI.STKesriDisplay.AgEsri3dRendererFactory">
+      <summary>Provides access to the GIS renderer associated with a 3D scene.</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRendererFactory.GetRenderer(System.Int32)">
+      <summary>Get the renderer associated with the specified 3d scene.</summary>
+      <param name="SceneID"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRendererFactory.IsLicenseAvailable">
+      <summary>Checks that the required Esri &amp; AGI licenses are available.</summary>
+    </member>
+    <member name="T:AGI.STKesriDisplay.AgEsri3dRendererFactoryClass">
+      <summary>Provides access to the GIS renderer associated with a 3D scene.</summary>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRendererFactoryClass.GetRenderer(System.Int32)">
+      <summary>Get the renderer associated with the specified 3d scene.</summary>
+      <param name="SceneID"></param>
+    </member>
+    <member name="M:AGI.STKesriDisplay.AgEsri3dRendererFactoryClass.IsLicenseAvailable">
+      <summary>Checks that the required Esri &amp; AGI licenses are available.</summary>
+    </member>
+  </members>
+</doc>

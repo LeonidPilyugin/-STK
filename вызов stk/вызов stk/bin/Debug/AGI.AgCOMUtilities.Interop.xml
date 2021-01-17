@@ -1,0 +1,1802 @@
+<doc>
+  <assembly>
+    <name>AGI.AgComUtilities</name>
+  </assembly>
+  <members>
+    <member name="T:AGI.AgComUtilities.IAgQuaternion">
+      <summary>IAgQuaternion interface.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgQuaternion.SetToIdentity">
+      <summary>method SetToIdentity.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgQuaternion.ConstructFromQuat(AGI.AgComUtilities.IAgQuaternion)">
+      <summary>method ConstructFromQuat.</summary>
+      <param name="pQuat"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgQuaternion.ConstructFromComponents(System.Double,System.Double,System.Double,System.Double)">
+      <summary>method ConstructFromComponents.</summary>
+      <param name="inQ1"></param>
+      <param name="inQ2"></param>
+      <param name="inQ3"></param>
+      <param name="inQ4"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgQuaternion.ConstructFromRotation(AGI.AgComUtilities.IAgQuaternion,AGI.AgComUtilities.IAgQuaternion)">
+      <summary>method ConstructFromRotation, results in rotation from Qa to Qc.</summary>
+      <param name="pQa2b"></param>
+      <param name="pQb2c"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgQuaternion.PreRotateByQuat(AGI.AgComUtilities.IAgQuaternion)">
+      <summary>method PreRotateByQuat, if the quaternion state is Qa to Qb, result is Qz to Qb.</summary>
+      <param name="pQz2a"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgQuaternion.PostRotateByQuat(AGI.AgComUtilities.IAgQuaternion)">
+      <summary>method PostRotateByQuat, if the quaternion state is Qa to Qb, result is rotation from Qa to Qc.</summary>
+      <param name="pQb2c"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgQuaternion.Invert">
+      <summary>method Invert.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgQuaternion.IsEqualTo(AGI.AgComUtilities.IAgQuaternion,System.Double)">
+      <summary>method IsEqualTo.</summary>
+      <param name="pQuat"></param>
+      <param name="tolerance"></param>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgQuaternion.Q1">
+      <summary>property Q1.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgQuaternion.Q2">
+      <summary>property Q2.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgQuaternion.Q3">
+      <summary>property Q3.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgQuaternion.Q4">
+      <summary>property Q4.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgQuaternion.IsIdentity">
+      <summary>property IsIdentity.</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.IAgCartVec2">
+      <summary>IAgCartVec2 interface</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec2.ConstructFromComponents(System.Double,System.Double)">
+      <summary>method ConstructFromComponents</summary>
+      <param name="inX"></param>
+      <param name="inY"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec2.ConstructFromCartVec2(AGI.AgComUtilities.IAgCartVec2)">
+      <summary>method ConstructFromCartVec2</summary>
+      <param name="pCV2"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec2.ConstructFromCartVec3(AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method ConstructFromCartVec3</summary>
+      <param name="pCV3"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec2.ConstructFromSum(AGI.AgComUtilities.IAgCartVec2,AGI.AgComUtilities.IAgCartVec2)">
+      <summary>method ConstructFromSum</summary>
+      <param name="pCV1"></param>
+      <param name="pCV2"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec2.ConstructFromDiff(AGI.AgComUtilities.IAgCartVec2,AGI.AgComUtilities.IAgCartVec2)">
+      <summary>method ConstructFromDiff, results in vector pointing from pCV2 to pCV1</summary>
+      <param name="pCV1"></param>
+      <param name="pCV2"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec2.Move(System.Double,System.Double)">
+      <summary>method Move.</summary>
+      <param name="dx"></param>
+      <param name="dy"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec2.Add(AGI.AgComUtilities.IAgCartVec2)">
+      <summary>method Add, adds to the vector inplace.</summary>
+      <param name="pCV"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec2.Subtract(AGI.AgComUtilities.IAgCartVec2)">
+      <summary>method Subtract, subtract from the vector inplace.</summary>
+      <param name="pCV"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec2.ScalarMultiply(System.Double)">
+      <summary>method ScalarMultiply.</summary>
+      <param name="factor"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec2.SetToZero">
+      <summary>method SetToZero.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec2.Normalize">
+      <summary>method Normalize.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec2.IsEqualTo(AGI.AgComUtilities.IAgCartVec2,System.Double)">
+      <summary>method IsEqualTo.</summary>
+      <param name="pOtherVec"></param>
+      <param name="tolerance"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec2.AngleBetween(AGI.AgComUtilities.IAgCartVec2)">
+      <summary>method AngleBetween.</summary>
+      <param name="pOtherVec"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec2.CrossProduct(AGI.AgComUtilities.IAgCartVec2)">
+      <summary>method CrossProduct.</summary>
+      <param name="pOtherVec"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec2.DotProduct(AGI.AgComUtilities.IAgCartVec2)">
+      <summary>method DotProduct.</summary>
+      <param name="pOtherVec"></param>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgCartVec2.X">
+      <summary>property X</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgCartVec2.Y">
+      <summary>property Y</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgCartVec2.Magnitude">
+      <summary>property Magnitude</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.IAgCartVec3">
+      <summary>IAgCartVec3 interface.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec3.ConstructFromCartVec3(AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method ConstructFromCartVec3.</summary>
+      <param name="pCV"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec3.ConstructFromCartVec2(AGI.AgComUtilities.IAgCartVec2,System.Double)">
+      <summary>method ConstructFromCartVec2.</summary>
+      <param name="pCV"></param>
+      <param name="inZ"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec3.ConstructFromComponents(System.Double,System.Double,System.Double)">
+      <summary>method ConstructFromComponents.</summary>
+      <param name="inX"></param>
+      <param name="inY"></param>
+      <param name="inZ"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec3.ConstructFromSum(AGI.AgComUtilities.IAgCartVec3,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method ConstructFromSum.</summary>
+      <param name="pCV1"></param>
+      <param name="pCV2"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec3.ConstructFromDiff(AGI.AgComUtilities.IAgCartVec3,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method ConstructFromDiff, results in vector pointing from pCV2 to pCV1.</summary>
+      <param name="pCV1"></param>
+      <param name="pCV2"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec3.ConstructFromCrossProduct(AGI.AgComUtilities.IAgCartVec3,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method ConstructFromCrossProduct, results in pCV1 X pCV2.</summary>
+      <param name="pCV1"></param>
+      <param name="pCV2"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec3.Move(System.Double,System.Double,System.Double)">
+      <summary>method Move.</summary>
+      <param name="dx"></param>
+      <param name="dy"></param>
+      <param name="dz"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec3.Add(AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method Add, adds to the vector inplace.</summary>
+      <param name="pCV"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec3.Subtract(AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method Subtract, subtract from the vector inplace.</summary>
+      <param name="pCV"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec3.PreCrossProduct(AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method PreCrossProduct, result is pCV X thisVector.</summary>
+      <param name="pCV"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec3.PostCrossProduct(AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method PostCrossProduct, result is thisVector X pCV.</summary>
+      <param name="pCV"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec3.ScalarMultiply(System.Double)">
+      <summary>method ScalarMultiply.</summary>
+      <param name="factor"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec3.SetToZero">
+      <summary>method SetToZero.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec3.RotateByQuat(AGI.AgComUtilities.IAgQuaternion)">
+      <summary>method RotateByQuat.</summary>
+      <param name="pQuat"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec3.Normalize">
+      <summary>method Normalize.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec3.IsEqualTo(AGI.AgComUtilities.IAgCartVec3,System.Double)">
+      <summary>method IsEqualTo.</summary>
+      <param name="pOtherVec"></param>
+      <param name="tolerance"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec3.Invert">
+      <summary>method Invert.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec3.AngleBetween(AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method AngleBetween.</summary>
+      <param name="pOtherVec"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCartVec3.DotProduct(AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method DotProduct.</summary>
+      <param name="pOtherVec"></param>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgCartVec3.X">
+      <summary>property X.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgCartVec3.Y">
+      <summary>property Y.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgCartVec3.Z">
+      <summary>property Z.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgCartVec3.IsZero">
+      <summary>property IsZero.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgCartVec3.Magnitude">
+      <summary>property Magnitude.</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.IAgAbsoluteTime">
+      <summary>IAgAbsoluteTime interface.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgAbsoluteTime.ConstructFromTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>method ConstructFromTime.</summary>
+      <param name="pAbsTime"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgAbsoluteTime.ConstructFromComponents(System.Int32,System.Double)">
+      <summary>method ConstructFromComponents.</summary>
+      <param name="inWholeDays"></param>
+      <param name="inSecIntoDay"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgAbsoluteTime.ConstructFromDate(System.DateTime)">
+      <summary>method ConstructFromDate.</summary>
+      <param name="oDate"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgAbsoluteTime.GetDate">
+      <summary>method GetDate.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgAbsoluteTime.ConstructFromGregUTC(System.String)">
+      <summary>method ConstructFromGregUTC.</summary>
+      <param name="gregUTC"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgAbsoluteTime.GetGregUTC">
+      <summary>method GetGregUTC.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgAbsoluteTime.IsEqualTo(AGI.AgComUtilities.IAgAbsoluteTime,System.Double)">
+      <summary>method IsEqualTo.</summary>
+      <param name="pOtherTime"></param>
+      <param name="tolerance"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgAbsoluteTime.AddSeconds(System.Double)">
+      <summary>method AddSeconds.</summary>
+      <param name="secToAdd"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgAbsoluteTime.SecondsElapsedTill(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>method SecondsElapsedTill, equivalent to pNextTime - thisTime, returned in seconds.</summary>
+      <param name="pNextTime"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgAbsoluteTime.LessThan(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>method LessThan.</summary>
+      <param name="pOtherTime"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgAbsoluteTime.ConstructUtcYMD(System.Int32,System.Int32,System.Int32)">
+      <summary>method ConstructUtcYMD.</summary>
+      <param name="year"></param>
+      <param name="month"></param>
+      <param name="day"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgAbsoluteTime.GetUtcYMD(.long@,.long@,.long@)">
+      <summary>method GetUtcYMD.</summary>
+      <param name="pYear"></param>
+      <param name="pMonth"></param>
+      <param name="pDay"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgAbsoluteTime.Clone">
+      <summary>method Clone.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgAbsoluteTime.GetComponents(.long@,.double@)">
+      <summary>method GetComponents.</summary>
+      <param name="pWholeDays"></param>
+      <param name="pSecIntoDay"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgAbsoluteTime.SetDefaultComponents(System.Int32,System.Double)">
+      <summary>method SetDefaultComponents.</summary>
+      <param name="lWholeDays"></param>
+      <param name="dSecIntoDay"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgAbsoluteTime.SetDefaultToday">
+      <summary>method SetDefaultToday.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgAbsoluteTime.WholeDays">
+      <summary>property WholeDays.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgAbsoluteTime.SecIntoDay">
+      <summary>property SecIntoDay.</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.IAgLatLon">
+      <summary>IAgLatLon interface</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgLatLon.ConstructFromComponents(System.Double,System.Double)">
+      <summary>method ConstructFromComponents</summary>
+      <param name="inLat"></param>
+      <param name="inLon"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgLatLon.ConstructFromLatLon(AGI.AgComUtilities.IAgLatLon)">
+      <summary>method ConstructFromLatLon</summary>
+      <param name="pOther"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgLatLon.ConstructFromLatLonAlt(AGI.AgComUtilities.IAgLatLonAlt)">
+      <summary>method ConstructFromLatLonAlt</summary>
+      <param name="pOther"></param>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgLatLon.Lat">
+      <summary>property Lat</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgLatLon.Lon">
+      <summary>property Lon</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.IAgLatLonAlt">
+      <summary>IAgLatLonAlt interface</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgLatLonAlt.ConstructFromComponents(System.Double,System.Double,System.Double)">
+      <summary>method ConstructFromComponents</summary>
+      <param name="inLat"></param>
+      <param name="inLon"></param>
+      <param name="inAlt"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgLatLonAlt.ConstructFromLatLonAlt(AGI.AgComUtilities.IAgLatLonAlt)">
+      <summary>method ConstructFromLatLonAlt</summary>
+      <param name="pLLA"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgLatLonAlt.ConstructFromLatLon(AGI.AgComUtilities.IAgLatLon,System.Double)">
+      <summary>method ConstructFromLatLon</summary>
+      <param name="pLatLon"></param>
+      <param name="inAlt"></param>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgLatLonAlt.Lat">
+      <summary>property Lat</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgLatLonAlt.Lon">
+      <summary>property Lon</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgLatLonAlt.Alt">
+      <summary>property Alt</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.IAgComUnkCollection">
+      <summary>IAgComUnkCollection interface</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgComUnkCollection.Count">
+      <summary>property Count</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgComUnkCollection._NewEnum">
+      <summary>property _NewEnum</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgComUnkCollection.Item">
+      <summary>property Item</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.IAgComBSTRCollection">
+      <summary>IAgComBSTRCollection interface</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgComBSTRCollection.Count">
+      <summary>property Count</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgComBSTRCollection._NewEnum">
+      <summary>property _NewEnum</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgComBSTRCollection.Item">
+      <summary>property Item</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.tagAgEControlValidationMode">
+      <summary>enumeration AgEControlValidationMode.</summary>
+    </member>
+    <member name="F:AGI.AgComUtilities.tagAgEControlValidationMode.eImmediatePrompt">
+      <summary>enumeration AgEControlValidationMode:eImmediatePrompt.</summary>
+    </member>
+    <member name="F:AGI.AgComUtilities.tagAgEControlValidationMode.eSupressPrompt">
+      <summary>enumeration AgEControlValidationMode:eSupressPrompt.</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.IAgValidate">
+      <summary>AGI IAgValidate interface</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgValidate.Validate(AGI.AgComUtilities.tagAgEControlValidationMode)">
+      <summary>method Validate</summary>
+      <param name="validationMode"></param>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgValidate.IsValid">
+      <summary>property IsValid</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.IAgValidateChildren">
+      <summary>AGI IAgValidateChildren interface</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgValidateChildren.AddChildNoAddRef(AGI.AgComUtilities.IAgValidate)">
+      <summary>method AddChildNoAddRef</summary>
+      <param name="pChild"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgValidateChildren.RemoveChildNoRelease(AGI.AgComUtilities.IAgValidate)">
+      <summary>method RemoveChildNoRelease</summary>
+      <param name="pChild"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgValidateChildren.Validate(AGI.AgComUtilities.tagAgEControlValidationMode)">
+      <summary>method Validate</summary>
+      <param name="validationMode"></param>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgValidateChildren.ChildrenAreValid">
+      <summary>property ChildrenAreValid</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.IAgUiCompositeControlInit">
+      <summary>AGI IAgUiCompositeControlInit interface</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgUiCompositeControlInit.OnApply">
+      <summary>method OnApply</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgUiCompositeControlInit.OnCancel">
+      <summary>method OnCancel</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgUiCompositeControlInit.OnHelp">
+      <summary>method OnHelp</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgUiCompositeControlInit.Validate(AGI.AgComUtilities.tagAgEControlValidationMode)">
+      <summary>method Validate</summary>
+      <param name="validationMode"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgUiCompositeControlInit.SetParentDialog(System.Int32,System.Object)">
+      <summary>property SetParentDialog</summary>
+      <param name="dialogHWnd"></param>
+      <param name="pDialogInterface"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgUiCompositeControlInit.PostCreate">
+      <summary>method PostCreate</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgUiCompositeControlInit.ObjectUnknown">
+      <summary>property ObjectUnknown</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgUiCompositeControlInit.HeightPixels">
+      <summary>property HeightPixels</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgUiCompositeControlInit.WidthPixels">
+      <summary>property WidthPixels</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgUiCompositeControlInit.ReadOnly">
+      <summary>property ReadOnly</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgUiCompositeControlInit.Modified">
+      <summary>property Modified</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgUiCompositeControlInit.IsValid">
+      <summary>property IsValid</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgUiCompositeControlInit.WindowHandle">
+      <summary>property WindowHandle</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgUiCompositeControlInit.DialogWindowHandle">
+      <summary>property DialogWindowHandle</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgUiCompositeControlInit.DialogInterface">
+      <summary>property DialogInterface</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.IAgVersionInfo">
+      <summary>IAgVersionInfo interface.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgVersionInfo.LessThan(AGI.AgComUtilities.IAgVersionInfo)">
+      <summary>method LessThan.</summary>
+      <param name="pOtherVer"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgVersionInfo.LessThanString(System.String)">
+      <summary>method LessThanString.</summary>
+      <param name="otherVer"></param>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgVersionInfo.Major">
+      <summary>property Major.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgVersionInfo.Minor">
+      <summary>property Minor.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgVersionInfo.Rev">
+      <summary>property Rev.</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.IAgUserProperties">
+      <summary>IAgUserProperties interface.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgUserProperties.GetUserPropertyCount">
+      <summary>method GetUserPropertyCount.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgUserProperties.GetUserPropertyByIndex(System.Int32)">
+      <summary>method GetUserPropertyByIndex.</summary>
+      <param name="index"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgUserProperties.GetUserProperty(System.String)">
+      <summary>method GetUserProperty.</summary>
+      <param name="prop"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgUserProperties.AddUserProperty(System.String,System.Object,System.Boolean)">
+      <summary>method AddUserProperty.</summary>
+      <param name="prop"></param>
+      <param name="value"></param>
+      <param name="persistProp"></param>
+    </member>
+    <member name="T:AGI.AgComUtilities.AgCartVec3">
+      <summary>AgCartVec3 class</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3.ConstructFromCartVec3(AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method ConstructFromCartVec3.</summary>
+      <param name="pCV"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3.ConstructFromCartVec2(AGI.AgComUtilities.IAgCartVec2,System.Double)">
+      <summary>method ConstructFromCartVec2.</summary>
+      <param name="pCV"></param>
+      <param name="inZ"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3.ConstructFromComponents(System.Double,System.Double,System.Double)">
+      <summary>method ConstructFromComponents.</summary>
+      <param name="inX"></param>
+      <param name="inY"></param>
+      <param name="inZ"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3.ConstructFromSum(AGI.AgComUtilities.IAgCartVec3,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method ConstructFromSum.</summary>
+      <param name="pCV1"></param>
+      <param name="pCV2"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3.ConstructFromDiff(AGI.AgComUtilities.IAgCartVec3,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method ConstructFromDiff, results in vector pointing from pCV2 to pCV1.</summary>
+      <param name="pCV1"></param>
+      <param name="pCV2"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3.ConstructFromCrossProduct(AGI.AgComUtilities.IAgCartVec3,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method ConstructFromCrossProduct, results in pCV1 X pCV2.</summary>
+      <param name="pCV1"></param>
+      <param name="pCV2"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3.Move(System.Double,System.Double,System.Double)">
+      <summary>method Move.</summary>
+      <param name="dx"></param>
+      <param name="dy"></param>
+      <param name="dz"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3.Add(AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method Add, adds to the vector inplace.</summary>
+      <param name="pCV"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3.Subtract(AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method Subtract, subtract from the vector inplace.</summary>
+      <param name="pCV"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3.PreCrossProduct(AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method PreCrossProduct, result is pCV X thisVector.</summary>
+      <param name="pCV"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3.PostCrossProduct(AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method PostCrossProduct, result is thisVector X pCV.</summary>
+      <param name="pCV"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3.ScalarMultiply(System.Double)">
+      <summary>method ScalarMultiply.</summary>
+      <param name="factor"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3.SetToZero">
+      <summary>method SetToZero.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3.RotateByQuat(AGI.AgComUtilities.IAgQuaternion)">
+      <summary>method RotateByQuat.</summary>
+      <param name="pQuat"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3.Normalize">
+      <summary>method Normalize.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3.IsEqualTo(AGI.AgComUtilities.IAgCartVec3,System.Double)">
+      <summary>method IsEqualTo.</summary>
+      <param name="pOtherVec"></param>
+      <param name="tolerance"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3.Invert">
+      <summary>method Invert.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3.AngleBetween(AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method AngleBetween.</summary>
+      <param name="pOtherVec"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3.DotProduct(AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method DotProduct.</summary>
+      <param name="pOtherVec"></param>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgCartVec3.X">
+      <summary>property X.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgCartVec3.Y">
+      <summary>property Y.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgCartVec3.Z">
+      <summary>property Z.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgCartVec3.IsZero">
+      <summary>property IsZero.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgCartVec3.Magnitude">
+      <summary>property Magnitude.</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.AgCartVec3Class">
+      <summary>AgCartVec3 class</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3Class.ConstructFromCartVec3(AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method ConstructFromCartVec3.</summary>
+      <param name="pCV"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3Class.ConstructFromCartVec2(AGI.AgComUtilities.IAgCartVec2,System.Double)">
+      <summary>method ConstructFromCartVec2.</summary>
+      <param name="pCV"></param>
+      <param name="inZ"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3Class.ConstructFromComponents(System.Double,System.Double,System.Double)">
+      <summary>method ConstructFromComponents.</summary>
+      <param name="inX"></param>
+      <param name="inY"></param>
+      <param name="inZ"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3Class.ConstructFromSum(AGI.AgComUtilities.IAgCartVec3,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method ConstructFromSum.</summary>
+      <param name="pCV1"></param>
+      <param name="pCV2"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3Class.ConstructFromDiff(AGI.AgComUtilities.IAgCartVec3,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method ConstructFromDiff, results in vector pointing from pCV2 to pCV1.</summary>
+      <param name="pCV1"></param>
+      <param name="pCV2"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3Class.ConstructFromCrossProduct(AGI.AgComUtilities.IAgCartVec3,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method ConstructFromCrossProduct, results in pCV1 X pCV2.</summary>
+      <param name="pCV1"></param>
+      <param name="pCV2"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3Class.Move(System.Double,System.Double,System.Double)">
+      <summary>method Move.</summary>
+      <param name="dx"></param>
+      <param name="dy"></param>
+      <param name="dz"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3Class.Add(AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method Add, adds to the vector inplace.</summary>
+      <param name="pCV"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3Class.Subtract(AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method Subtract, subtract from the vector inplace.</summary>
+      <param name="pCV"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3Class.PreCrossProduct(AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method PreCrossProduct, result is pCV X thisVector.</summary>
+      <param name="pCV"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3Class.PostCrossProduct(AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method PostCrossProduct, result is thisVector X pCV.</summary>
+      <param name="pCV"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3Class.ScalarMultiply(System.Double)">
+      <summary>method ScalarMultiply.</summary>
+      <param name="factor"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3Class.SetToZero">
+      <summary>method SetToZero.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3Class.RotateByQuat(AGI.AgComUtilities.IAgQuaternion)">
+      <summary>method RotateByQuat.</summary>
+      <param name="pQuat"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3Class.Normalize">
+      <summary>method Normalize.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3Class.IsEqualTo(AGI.AgComUtilities.IAgCartVec3,System.Double)">
+      <summary>method IsEqualTo.</summary>
+      <param name="pOtherVec"></param>
+      <param name="tolerance"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3Class.Invert">
+      <summary>method Invert.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3Class.AngleBetween(AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method AngleBetween.</summary>
+      <param name="pOtherVec"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec3Class.DotProduct(AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method DotProduct.</summary>
+      <param name="pOtherVec"></param>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgCartVec3Class.X">
+      <summary>property X.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgCartVec3Class.Y">
+      <summary>property Y.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgCartVec3Class.Z">
+      <summary>property Z.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgCartVec3Class.IsZero">
+      <summary>property IsZero.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgCartVec3Class.Magnitude">
+      <summary>property Magnitude.</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.AgQuaternion">
+      <summary>AgQuaternion class</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgQuaternion.SetToIdentity">
+      <summary>method SetToIdentity.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgQuaternion.ConstructFromQuat(AGI.AgComUtilities.IAgQuaternion)">
+      <summary>method ConstructFromQuat.</summary>
+      <param name="pQuat"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgQuaternion.ConstructFromComponents(System.Double,System.Double,System.Double,System.Double)">
+      <summary>method ConstructFromComponents.</summary>
+      <param name="inQ1"></param>
+      <param name="inQ2"></param>
+      <param name="inQ3"></param>
+      <param name="inQ4"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgQuaternion.ConstructFromRotation(AGI.AgComUtilities.IAgQuaternion,AGI.AgComUtilities.IAgQuaternion)">
+      <summary>method ConstructFromRotation, results in rotation from Qa to Qc.</summary>
+      <param name="pQa2b"></param>
+      <param name="pQb2c"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgQuaternion.PreRotateByQuat(AGI.AgComUtilities.IAgQuaternion)">
+      <summary>method PreRotateByQuat, if the quaternion state is Qa to Qb, result is Qz to Qb.</summary>
+      <param name="pQz2a"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgQuaternion.PostRotateByQuat(AGI.AgComUtilities.IAgQuaternion)">
+      <summary>method PostRotateByQuat, if the quaternion state is Qa to Qb, result is rotation from Qa to Qc.</summary>
+      <param name="pQb2c"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgQuaternion.Invert">
+      <summary>method Invert.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgQuaternion.IsEqualTo(AGI.AgComUtilities.IAgQuaternion,System.Double)">
+      <summary>method IsEqualTo.</summary>
+      <param name="pQuat"></param>
+      <param name="tolerance"></param>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgQuaternion.Q1">
+      <summary>property Q1.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgQuaternion.Q2">
+      <summary>property Q2.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgQuaternion.Q3">
+      <summary>property Q3.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgQuaternion.Q4">
+      <summary>property Q4.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgQuaternion.IsIdentity">
+      <summary>property IsIdentity.</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.AgQuaternionClass">
+      <summary>AgQuaternion class</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgQuaternionClass.SetToIdentity">
+      <summary>method SetToIdentity.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgQuaternionClass.ConstructFromQuat(AGI.AgComUtilities.IAgQuaternion)">
+      <summary>method ConstructFromQuat.</summary>
+      <param name="pQuat"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgQuaternionClass.ConstructFromComponents(System.Double,System.Double,System.Double,System.Double)">
+      <summary>method ConstructFromComponents.</summary>
+      <param name="inQ1"></param>
+      <param name="inQ2"></param>
+      <param name="inQ3"></param>
+      <param name="inQ4"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgQuaternionClass.ConstructFromRotation(AGI.AgComUtilities.IAgQuaternion,AGI.AgComUtilities.IAgQuaternion)">
+      <summary>method ConstructFromRotation, results in rotation from Qa to Qc.</summary>
+      <param name="pQa2b"></param>
+      <param name="pQb2c"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgQuaternionClass.PreRotateByQuat(AGI.AgComUtilities.IAgQuaternion)">
+      <summary>method PreRotateByQuat, if the quaternion state is Qa to Qb, result is Qz to Qb.</summary>
+      <param name="pQz2a"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgQuaternionClass.PostRotateByQuat(AGI.AgComUtilities.IAgQuaternion)">
+      <summary>method PostRotateByQuat, if the quaternion state is Qa to Qb, result is rotation from Qa to Qc.</summary>
+      <param name="pQb2c"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgQuaternionClass.Invert">
+      <summary>method Invert.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgQuaternionClass.IsEqualTo(AGI.AgComUtilities.IAgQuaternion,System.Double)">
+      <summary>method IsEqualTo.</summary>
+      <param name="pQuat"></param>
+      <param name="tolerance"></param>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgQuaternionClass.Q1">
+      <summary>property Q1.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgQuaternionClass.Q2">
+      <summary>property Q2.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgQuaternionClass.Q3">
+      <summary>property Q3.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgQuaternionClass.Q4">
+      <summary>property Q4.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgQuaternionClass.IsIdentity">
+      <summary>property IsIdentity.</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.AgAbsoluteTime">
+      <summary>AgAbsoluteTime class</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTime.ConstructFromTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>method ConstructFromTime.</summary>
+      <param name="pAbsTime"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTime.ConstructFromComponents(System.Int32,System.Double)">
+      <summary>method ConstructFromComponents.</summary>
+      <param name="inWholeDays"></param>
+      <param name="inSecIntoDay"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTime.ConstructFromDate(System.DateTime)">
+      <summary>method ConstructFromDate.</summary>
+      <param name="oDate"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTime.GetDate">
+      <summary>method GetDate.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTime.ConstructFromGregUTC(System.String)">
+      <summary>method ConstructFromGregUTC.</summary>
+      <param name="gregUTC"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTime.GetGregUTC">
+      <summary>method GetGregUTC.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTime.IsEqualTo(AGI.AgComUtilities.IAgAbsoluteTime,System.Double)">
+      <summary>method IsEqualTo.</summary>
+      <param name="pOtherTime"></param>
+      <param name="tolerance"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTime.AddSeconds(System.Double)">
+      <summary>method AddSeconds.</summary>
+      <param name="secToAdd"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTime.SecondsElapsedTill(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>method SecondsElapsedTill, equivalent to pNextTime - thisTime, returned in seconds.</summary>
+      <param name="pNextTime"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTime.LessThan(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>method LessThan.</summary>
+      <param name="pOtherTime"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTime.ConstructUtcYMD(System.Int32,System.Int32,System.Int32)">
+      <summary>method ConstructUtcYMD.</summary>
+      <param name="year"></param>
+      <param name="month"></param>
+      <param name="day"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTime.GetUtcYMD(.long@,.long@,.long@)">
+      <summary>method GetUtcYMD.</summary>
+      <param name="pYear"></param>
+      <param name="pMonth"></param>
+      <param name="pDay"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTime.Clone">
+      <summary>method Clone.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTime.GetComponents(.long@,.double@)">
+      <summary>method GetComponents.</summary>
+      <param name="pWholeDays"></param>
+      <param name="pSecIntoDay"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTime.SetDefaultComponents(System.Int32,System.Double)">
+      <summary>method SetDefaultComponents.</summary>
+      <param name="lWholeDays"></param>
+      <param name="dSecIntoDay"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTime.SetDefaultToday">
+      <summary>method SetDefaultToday.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgAbsoluteTime.WholeDays">
+      <summary>property WholeDays.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgAbsoluteTime.SecIntoDay">
+      <summary>property SecIntoDay.</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.AgAbsoluteTimeClass">
+      <summary>AgAbsoluteTime class</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTimeClass.ConstructFromTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>method ConstructFromTime.</summary>
+      <param name="pAbsTime"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTimeClass.ConstructFromComponents(System.Int32,System.Double)">
+      <summary>method ConstructFromComponents.</summary>
+      <param name="inWholeDays"></param>
+      <param name="inSecIntoDay"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTimeClass.ConstructFromDate(System.DateTime)">
+      <summary>method ConstructFromDate.</summary>
+      <param name="oDate"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTimeClass.GetDate">
+      <summary>method GetDate.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTimeClass.ConstructFromGregUTC(System.String)">
+      <summary>method ConstructFromGregUTC.</summary>
+      <param name="gregUTC"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTimeClass.GetGregUTC">
+      <summary>method GetGregUTC.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTimeClass.IsEqualTo(AGI.AgComUtilities.IAgAbsoluteTime,System.Double)">
+      <summary>method IsEqualTo.</summary>
+      <param name="pOtherTime"></param>
+      <param name="tolerance"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTimeClass.AddSeconds(System.Double)">
+      <summary>method AddSeconds.</summary>
+      <param name="secToAdd"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTimeClass.SecondsElapsedTill(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>method SecondsElapsedTill, equivalent to pNextTime - thisTime, returned in seconds.</summary>
+      <param name="pNextTime"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTimeClass.LessThan(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>method LessThan.</summary>
+      <param name="pOtherTime"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTimeClass.ConstructUtcYMD(System.Int32,System.Int32,System.Int32)">
+      <summary>method ConstructUtcYMD.</summary>
+      <param name="year"></param>
+      <param name="month"></param>
+      <param name="day"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTimeClass.GetUtcYMD(.long@,.long@,.long@)">
+      <summary>method GetUtcYMD.</summary>
+      <param name="pYear"></param>
+      <param name="pMonth"></param>
+      <param name="pDay"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTimeClass.Clone">
+      <summary>method Clone.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTimeClass.GetComponents(.long@,.double@)">
+      <summary>method GetComponents.</summary>
+      <param name="pWholeDays"></param>
+      <param name="pSecIntoDay"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTimeClass.SetDefaultComponents(System.Int32,System.Double)">
+      <summary>method SetDefaultComponents.</summary>
+      <param name="lWholeDays"></param>
+      <param name="dSecIntoDay"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgAbsoluteTimeClass.SetDefaultToday">
+      <summary>method SetDefaultToday.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgAbsoluteTimeClass.WholeDays">
+      <summary>property WholeDays.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgAbsoluteTimeClass.SecIntoDay">
+      <summary>property SecIntoDay.</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.AgCartVec2">
+      <summary>AgCartVec2 class</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec2.ConstructFromComponents(System.Double,System.Double)">
+      <summary>method ConstructFromComponents</summary>
+      <param name="inX"></param>
+      <param name="inY"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec2.ConstructFromCartVec2(AGI.AgComUtilities.IAgCartVec2)">
+      <summary>method ConstructFromCartVec2</summary>
+      <param name="pCV2"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec2.ConstructFromCartVec3(AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method ConstructFromCartVec3</summary>
+      <param name="pCV3"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec2.ConstructFromSum(AGI.AgComUtilities.IAgCartVec2,AGI.AgComUtilities.IAgCartVec2)">
+      <summary>method ConstructFromSum</summary>
+      <param name="pCV1"></param>
+      <param name="pCV2"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec2.ConstructFromDiff(AGI.AgComUtilities.IAgCartVec2,AGI.AgComUtilities.IAgCartVec2)">
+      <summary>method ConstructFromDiff, results in vector pointing from pCV2 to pCV1</summary>
+      <param name="pCV1"></param>
+      <param name="pCV2"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec2.Move(System.Double,System.Double)">
+      <summary>method Move.</summary>
+      <param name="dx"></param>
+      <param name="dy"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec2.Add(AGI.AgComUtilities.IAgCartVec2)">
+      <summary>method Add, adds to the vector inplace.</summary>
+      <param name="pCV"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec2.Subtract(AGI.AgComUtilities.IAgCartVec2)">
+      <summary>method Subtract, subtract from the vector inplace.</summary>
+      <param name="pCV"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec2.ScalarMultiply(System.Double)">
+      <summary>method ScalarMultiply.</summary>
+      <param name="factor"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec2.SetToZero">
+      <summary>method SetToZero.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec2.Normalize">
+      <summary>method Normalize.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec2.IsEqualTo(AGI.AgComUtilities.IAgCartVec2,System.Double)">
+      <summary>method IsEqualTo.</summary>
+      <param name="pOtherVec"></param>
+      <param name="tolerance"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec2.AngleBetween(AGI.AgComUtilities.IAgCartVec2)">
+      <summary>method AngleBetween.</summary>
+      <param name="pOtherVec"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec2.CrossProduct(AGI.AgComUtilities.IAgCartVec2)">
+      <summary>method CrossProduct.</summary>
+      <param name="pOtherVec"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec2.DotProduct(AGI.AgComUtilities.IAgCartVec2)">
+      <summary>method DotProduct.</summary>
+      <param name="pOtherVec"></param>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgCartVec2.X">
+      <summary>property X</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgCartVec2.Y">
+      <summary>property Y</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgCartVec2.Magnitude">
+      <summary>property Magnitude</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.AgCartVec2Class">
+      <summary>AgCartVec2 class</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec2Class.ConstructFromComponents(System.Double,System.Double)">
+      <summary>method ConstructFromComponents</summary>
+      <param name="inX"></param>
+      <param name="inY"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec2Class.ConstructFromCartVec2(AGI.AgComUtilities.IAgCartVec2)">
+      <summary>method ConstructFromCartVec2</summary>
+      <param name="pCV2"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec2Class.ConstructFromCartVec3(AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method ConstructFromCartVec3</summary>
+      <param name="pCV3"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec2Class.ConstructFromSum(AGI.AgComUtilities.IAgCartVec2,AGI.AgComUtilities.IAgCartVec2)">
+      <summary>method ConstructFromSum</summary>
+      <param name="pCV1"></param>
+      <param name="pCV2"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec2Class.ConstructFromDiff(AGI.AgComUtilities.IAgCartVec2,AGI.AgComUtilities.IAgCartVec2)">
+      <summary>method ConstructFromDiff, results in vector pointing from pCV2 to pCV1</summary>
+      <param name="pCV1"></param>
+      <param name="pCV2"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec2Class.Move(System.Double,System.Double)">
+      <summary>method Move.</summary>
+      <param name="dx"></param>
+      <param name="dy"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec2Class.Add(AGI.AgComUtilities.IAgCartVec2)">
+      <summary>method Add, adds to the vector inplace.</summary>
+      <param name="pCV"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec2Class.Subtract(AGI.AgComUtilities.IAgCartVec2)">
+      <summary>method Subtract, subtract from the vector inplace.</summary>
+      <param name="pCV"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec2Class.ScalarMultiply(System.Double)">
+      <summary>method ScalarMultiply.</summary>
+      <param name="factor"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec2Class.SetToZero">
+      <summary>method SetToZero.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec2Class.Normalize">
+      <summary>method Normalize.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec2Class.IsEqualTo(AGI.AgComUtilities.IAgCartVec2,System.Double)">
+      <summary>method IsEqualTo.</summary>
+      <param name="pOtherVec"></param>
+      <param name="tolerance"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec2Class.AngleBetween(AGI.AgComUtilities.IAgCartVec2)">
+      <summary>method AngleBetween.</summary>
+      <param name="pOtherVec"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec2Class.CrossProduct(AGI.AgComUtilities.IAgCartVec2)">
+      <summary>method CrossProduct.</summary>
+      <param name="pOtherVec"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCartVec2Class.DotProduct(AGI.AgComUtilities.IAgCartVec2)">
+      <summary>method DotProduct.</summary>
+      <param name="pOtherVec"></param>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgCartVec2Class.X">
+      <summary>property X</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgCartVec2Class.Y">
+      <summary>property Y</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgCartVec2Class.Magnitude">
+      <summary>property Magnitude</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.AgLatLonAlt">
+      <summary>AgLatLonAlt class</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgLatLonAlt.ConstructFromComponents(System.Double,System.Double,System.Double)">
+      <summary>method ConstructFromComponents</summary>
+      <param name="inLat"></param>
+      <param name="inLon"></param>
+      <param name="inAlt"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgLatLonAlt.ConstructFromLatLonAlt(AGI.AgComUtilities.IAgLatLonAlt)">
+      <summary>method ConstructFromLatLonAlt</summary>
+      <param name="pLLA"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgLatLonAlt.ConstructFromLatLon(AGI.AgComUtilities.IAgLatLon,System.Double)">
+      <summary>method ConstructFromLatLon</summary>
+      <param name="pLatLon"></param>
+      <param name="inAlt"></param>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgLatLonAlt.Lat">
+      <summary>property Lat</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgLatLonAlt.Lon">
+      <summary>property Lon</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgLatLonAlt.Alt">
+      <summary>property Alt</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.AgLatLonAltClass">
+      <summary>AgLatLonAlt class</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgLatLonAltClass.ConstructFromComponents(System.Double,System.Double,System.Double)">
+      <summary>method ConstructFromComponents</summary>
+      <param name="inLat"></param>
+      <param name="inLon"></param>
+      <param name="inAlt"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgLatLonAltClass.ConstructFromLatLonAlt(AGI.AgComUtilities.IAgLatLonAlt)">
+      <summary>method ConstructFromLatLonAlt</summary>
+      <param name="pLLA"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgLatLonAltClass.ConstructFromLatLon(AGI.AgComUtilities.IAgLatLon,System.Double)">
+      <summary>method ConstructFromLatLon</summary>
+      <param name="pLatLon"></param>
+      <param name="inAlt"></param>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgLatLonAltClass.Lat">
+      <summary>property Lat</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgLatLonAltClass.Lon">
+      <summary>property Lon</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgLatLonAltClass.Alt">
+      <summary>property Alt</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.AgLatLon">
+      <summary>AgLatLon class</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgLatLon.ConstructFromComponents(System.Double,System.Double)">
+      <summary>method ConstructFromComponents</summary>
+      <param name="inLat"></param>
+      <param name="inLon"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgLatLon.ConstructFromLatLon(AGI.AgComUtilities.IAgLatLon)">
+      <summary>method ConstructFromLatLon</summary>
+      <param name="pOther"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgLatLon.ConstructFromLatLonAlt(AGI.AgComUtilities.IAgLatLonAlt)">
+      <summary>method ConstructFromLatLonAlt</summary>
+      <param name="pOther"></param>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgLatLon.Lat">
+      <summary>property Lat</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgLatLon.Lon">
+      <summary>property Lon</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.AgLatLonClass">
+      <summary>AgLatLon class</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgLatLonClass.ConstructFromComponents(System.Double,System.Double)">
+      <summary>method ConstructFromComponents</summary>
+      <param name="inLat"></param>
+      <param name="inLon"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgLatLonClass.ConstructFromLatLon(AGI.AgComUtilities.IAgLatLon)">
+      <summary>method ConstructFromLatLon</summary>
+      <param name="pOther"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgLatLonClass.ConstructFromLatLonAlt(AGI.AgComUtilities.IAgLatLonAlt)">
+      <summary>method ConstructFromLatLonAlt</summary>
+      <param name="pOther"></param>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgLatLonClass.Lat">
+      <summary>property Lat</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgLatLonClass.Lon">
+      <summary>property Lon</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.AgVersionInfo">
+      <summary>AgVersionInfo class</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgVersionInfo.LessThan(AGI.AgComUtilities.IAgVersionInfo)">
+      <summary>method LessThan.</summary>
+      <param name="pOtherVer"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgVersionInfo.LessThanString(System.String)">
+      <summary>method LessThanString.</summary>
+      <param name="otherVer"></param>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgVersionInfo.Major">
+      <summary>property Major.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgVersionInfo.Minor">
+      <summary>property Minor.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgVersionInfo.Rev">
+      <summary>property Rev.</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.AgVersionInfoClass">
+      <summary>AgVersionInfo class</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgVersionInfoClass.LessThan(AGI.AgComUtilities.IAgVersionInfo)">
+      <summary>method LessThan.</summary>
+      <param name="pOtherVer"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgVersionInfoClass.LessThanString(System.String)">
+      <summary>method LessThanString.</summary>
+      <param name="otherVer"></param>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgVersionInfoClass.Major">
+      <summary>property Major.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgVersionInfoClass.Minor">
+      <summary>property Minor.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgVersionInfoClass.Rev">
+      <summary>property Rev.</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.AgUserProperties">
+      <summary>AgUserProperties class</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgUserProperties.GetUserPropertyCount">
+      <summary>method GetUserPropertyCount.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgUserProperties.GetUserPropertyByIndex(System.Int32)">
+      <summary>method GetUserPropertyByIndex.</summary>
+      <param name="index"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgUserProperties.GetUserProperty(System.String)">
+      <summary>method GetUserProperty.</summary>
+      <param name="prop"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgUserProperties.AddUserProperty(System.String,System.Object,System.Boolean)">
+      <summary>method AddUserProperty.</summary>
+      <param name="prop"></param>
+      <param name="value"></param>
+      <param name="persistProp"></param>
+    </member>
+    <member name="T:AGI.AgComUtilities.AgUserPropertiesClass">
+      <summary>AgUserProperties class</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgUserPropertiesClass.GetUserPropertyCount">
+      <summary>method GetUserPropertyCount.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgUserPropertiesClass.GetUserPropertyByIndex(System.Int32)">
+      <summary>method GetUserPropertyByIndex.</summary>
+      <param name="index"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgUserPropertiesClass.GetUserProperty(System.String)">
+      <summary>method GetUserProperty.</summary>
+      <param name="prop"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgUserPropertiesClass.AddUserProperty(System.String,System.Object,System.Boolean)">
+      <summary>method AddUserProperty.</summary>
+      <param name="prop"></param>
+      <param name="value"></param>
+      <param name="persistProp"></param>
+    </member>
+    <member name="T:AGI.AgComUtilities.IAgXMLPropertyBag">
+      <summary>IAgXMLPropertyBag interface</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgXMLPropertyBag.ReadObject(System.String)">
+      <summary>method ReadObject</summary>
+      <param name="bstrFilename"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgXMLPropertyBag.WriteObject(System.String,System.Object)">
+      <summary>method WriteObject</summary>
+      <param name="bstrFilename"></param>
+      <param name="pUnk"></param>
+    </member>
+    <member name="T:AGI.AgComUtilities.IAgXMLPropertyBag2">
+      <summary>IAgXMLPropertyBag2 interface</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgXMLPropertyBag2.ReadObjectEx(System.String,.BSTR@)">
+      <summary>method ReadObjectEx</summary>
+      <param name="bstrFilename"></param>
+      <param name="pbstrVersion"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgXMLPropertyBag2.WriteObjectEx(System.String,System.String,System.Object)">
+      <summary>method WriteObjectEx</summary>
+      <param name="bstrFilename"></param>
+      <param name="bstrVersion"></param>
+      <param name="pUnk"></param>
+    </member>
+    <member name="T:AGI.AgComUtilities.IAgXMLPropertyBagLoad">
+      <summary>IAgXMLPropertyBagLoad interface</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgXMLPropertyBagLoad.LoadObject(System.String,AGI.AgComUtilities.IPersistPropertyBag)">
+      <summary>method LoadObject</summary>
+      <param name="bstrFilename"></param>
+      <param name="pDest"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgXMLPropertyBagLoad.LoadObjectEx(System.String,AGI.AgComUtilities.IPersistPropertyBag)">
+      <summary>method LoadObjectEx</summary>
+      <param name="bstrFilename"></param>
+      <param name="pDest"></param>
+    </member>
+    <member name="T:AGI.AgComUtilities.IPersistPropertyBag">
+      <summary />
+    </member>
+    <member name="M:AGI.AgComUtilities.IPersistPropertyBag.InitNew">
+      <summary></summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IPersistPropertyBag.Load(AGI.AgComUtilities.IPropertyBag,AGI.AgComUtilities.IErrorLog)">
+      <summary></summary>
+      <param name="pPropBag"></param>
+      <param name="pErrorLog"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IPersistPropertyBag.Save(AGI.AgComUtilities.IPropertyBag,System.Int32,System.Int32)">
+      <summary></summary>
+      <param name="pPropBag"></param>
+      <param name="fClearDirty"></param>
+      <param name="fSaveAllProperties"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IPersistPropertyBag.GetClassID(stdole.GUID@)">
+      <summary></summary>
+      <param name="pClassID"></param>
+    </member>
+    <member name="T:AGI.AgComUtilities.IPersist">
+      <summary />
+    </member>
+    <member name="M:AGI.AgComUtilities.IPersist.GetClassID(stdole.GUID@)">
+      <summary></summary>
+      <param name="pClassID"></param>
+    </member>
+    <member name="T:AGI.AgComUtilities.IPropertyBag">
+      <summary />
+    </member>
+    <member name="M:AGI.AgComUtilities.IPropertyBag.RemoteRead(.wchar_t,System.Object@,AGI.AgComUtilities.IErrorLog,.ULONG,System.Object)">
+      <summary></summary>
+      <param name="pszPropName"></param>
+      <param name="pVar"></param>
+      <param name="pErrorLog"></param>
+      <param name="varType"></param>
+      <param name="pUnkObj"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IPropertyBag.Write(.wchar_t,System.Object)">
+      <summary></summary>
+      <param name="pszPropName"></param>
+      <param name="pVar"></param>
+    </member>
+    <member name="T:AGI.AgComUtilities.IErrorLog">
+      <summary />
+    </member>
+    <member name="M:AGI.AgComUtilities.IErrorLog.AddError(.wchar_t,stdole.EXCEPINFO)">
+      <summary></summary>
+      <param name="pszPropName"></param>
+      <param name="pExcepInfo"></param>
+    </member>
+    <member name="T:AGI.AgComUtilities.IAgXMLPropertyBagVIGuid">
+      <summary>IAgXMLPropertyBagVIGuid interface</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgXMLPropertyBagVIGuid.WriteObjectWithVIGuid(System.String,System.String,System.Object)">
+      <summary>method WriteObjectWithVIGuid</summary>
+      <param name="bstrFilename"></param>
+      <param name="viGuidFile"></param>
+      <param name="pUnk"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgXMLPropertyBagVIGuid.WriteObjectWithVIGuidEx(System.String,System.String,System.String,System.Object)">
+      <summary>method WriteObjectWithVIGuidEx</summary>
+      <param name="bstrFilename"></param>
+      <param name="viGuidFile"></param>
+      <param name="bstrVersion"></param>
+      <param name="pUnk"></param>
+    </member>
+    <member name="T:AGI.AgComUtilities.IAgVersionIndependentGUID">
+      <summary>IAgVersionIndependentGUID interface</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgVersionIndependentGUID.VersionIndependentToCurrent(System.String)">
+      <summary>method VersionIndependentToCurrent</summary>
+      <param name="viCLSID"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgVersionIndependentGUID.CurrentToVersionIndependent(System.String)">
+      <summary>method CurrentToVersionIndependent</summary>
+      <param name="curCLSID"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgVersionIndependentGUID.VersionIndependentToDescription(System.String)">
+      <summary>method VersionIndependentToDescription</summary>
+      <param name="viCLSID"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgVersionIndependentGUID.CheckVIGuidFile(System.String)">
+      <summary>method CheckVIGuidFile</summary>
+      <param name="viGuidFile"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgVersionIndependentGUID.AddObsoleteCLSID(System.String)">
+      <summary>method AddObsoleteCLSID</summary>
+      <param name="obsoleteClsid"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgVersionIndependentGUID.GetErrorInfo(System.Int32,.BSTR@,.BSTR@)">
+      <summary>method GetErrorInfo</summary>
+      <param name="index"></param>
+      <param name="progIdName"></param>
+      <param name="pErrorMessage"></param>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgVersionIndependentGUID.ErrorCount">
+      <summary>property ErrorCount.</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.IAgAbsoluteInterval">
+      <summary>IAgAbsoluteInterval interface.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgAbsoluteInterval.QueryStartTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>method QueryStartTime.</summary>
+      <param name="pAbsTime"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgAbsoluteInterval.QueryStopTime(AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>method QueryStopTime.</summary>
+      <param name="pAbsTime"></param>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgAbsoluteInterval.StartTime">
+      <summary>property StartTime.</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgAbsoluteInterval.StopTime">
+      <summary>property StopTime.</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.IAgDynState">
+      <summary>IAgDynState interface.</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgDynState.QueryECFPosition(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method QueryECFPosition.</summary>
+      <param name="pTime"></param>
+      <param name="presultEcfPos"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgDynState.QueryECFVelocity(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method QueryECFVelocity.</summary>
+      <param name="pTime"></param>
+      <param name="presultEcfVel"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgDynState.QueryECFAcceleration(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method QueryECFAcceleration.</summary>
+      <param name="pTime"></param>
+      <param name="presultEcfAccel"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgDynState.QueryECFToBodyRotation(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgQuaternion)">
+      <summary>method QueryECFToBodyRotation.</summary>
+      <param name="pTime"></param>
+      <param name="presultEcfQuat"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgDynState.QueryBodyAngularVelocity(AGI.AgComUtilities.IAgAbsoluteTime,AGI.AgComUtilities.IAgCartVec3)">
+      <summary>method QueryBodyAngularVelocity.</summary>
+      <param name="pTime"></param>
+      <param name="presultAngVel"></param>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgDynState.DisplayName">
+      <summary>property DisplayName</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.IAgMaxRelativeMotion">
+      <summary>IAgMaxRelativeMotion interface</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgMaxRelativeMotion.QueryNextTime(AGI.AgComUtilities.IAgAbsoluteTime,System.Double,AGI.AgComUtilities.IAgAbsoluteTime)">
+      <summary>method QueryNextTime</summary>
+      <param name="pCurrentTime"></param>
+      <param name="maxMotionRad"></param>
+      <param name="pResultNextTime"></param>
+    </member>
+    <member name="T:AGI.AgComUtilities.IAgEdit">
+      <summary>AGI IAgEdit interface</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgEdit.CanMerge(System.Object)">
+      <summary>method CanMerge</summary>
+      <param name="pClone"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgEdit.Merge(System.Object)">
+      <summary>method Merge</summary>
+      <param name="pClone"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgEdit.Clone">
+      <summary>method Clone</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgEdit.GetClassID">
+      <summary>method GetClassID</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgEdit.DisplayName">
+      <summary>property DisplayName</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgEdit.ProcessID">
+      <summary>property ProcessID</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.IAgComUnkCollectionInit">
+      <summary>IAgComUnkCollectionInit interface</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgComUnkCollectionInit.Add(System.Object)">
+      <summary>method Add</summary>
+      <param name="pUnk"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgComUnkCollectionInit.Clear">
+      <summary>method Clear</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.IAgComBSTRCollectionInit">
+      <summary>IAgComBSTRCollectionInit interface</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgComBSTRCollectionInit.Add(System.String)">
+      <summary>method Add</summary>
+      <param name="str"></param>
+    </member>
+    <member name="T:AGI.AgComUtilities.IAgEnumBSTR">
+      <summary>IAgEnumBSTR interface</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgEnumBSTR.Next(.ULONG,.BSTR@,.ULONG@)">
+      <summary>method Next</summary>
+      <param name="celt"></param>
+      <param name="nextBstr"></param>
+      <param name="pceltFetched"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgEnumBSTR.Skip(.ULONG)">
+      <summary>method Skip</summary>
+      <param name="celt"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgEnumBSTR.Reset">
+      <summary>method Reset</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgEnumBSTR.Clone(AGI.AgComUtilities.IAgEnumBSTR*@)">
+      <summary>method Clone</summary>
+      <param name="ppEnum"></param>
+    </member>
+    <member name="T:AGI.AgComUtilities.IAgProvideClassID">
+      <summary>IAgProvideClassID interface</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgProvideClassID.GetClassID">
+      <summary>method GetClassID</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.IAgCLSIDHelper">
+      <summary>IAgCLSIDHelper interface</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCLSIDHelper.CLSIDFromProgID(System.String)">
+      <summary>Convert a ProgID to a CLSID string</summary>
+      <param name="strProgID"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.IAgCLSIDHelper.ProgIDFromCLSID(System.String)">
+      <summary>Convert a CLSID string to a ProgID</summary>
+      <param name="strClsid"></param>
+    </member>
+    <member name="T:AGI.AgComUtilities.IAgSTKObjectType">
+      <summary>IAgSTKObjectType interface</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgSTKObjectType.STKObjectType">
+      <summary>property STKObjectType</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgSTKObjectType.STKInstPtr">
+      <summary>property STKInstPtr</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.IAgSTKObjectType.STKObjectCentralBody">
+      <summary>property STKObjectCentralBody</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.AgXMLPropertyBag">
+      <summary>AgXMLPropertyBag class</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgXMLPropertyBag.ReadObject(System.String)">
+      <summary>method ReadObject</summary>
+      <param name="bstrFilename"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgXMLPropertyBag.WriteObject(System.String,System.Object)">
+      <summary>method WriteObject</summary>
+      <param name="bstrFilename"></param>
+      <param name="pUnk"></param>
+    </member>
+    <member name="T:AGI.AgComUtilities.AgXMLPropertyBagClass">
+      <summary>AgXMLPropertyBag class</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgXMLPropertyBagClass.ReadObject(System.String)">
+      <summary>method ReadObject</summary>
+      <param name="bstrFilename"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgXMLPropertyBagClass.WriteObject(System.String,System.Object)">
+      <summary>method WriteObject</summary>
+      <param name="bstrFilename"></param>
+      <param name="pUnk"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgXMLPropertyBagClass.LoadObject(System.String,AGI.AgComUtilities.IPersistPropertyBag)">
+      <summary>method LoadObject</summary>
+      <param name="bstrFilename"></param>
+      <param name="pDest"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgXMLPropertyBagClass.LoadObjectEx(System.String,AGI.AgComUtilities.IPersistPropertyBag)">
+      <summary>method LoadObjectEx</summary>
+      <param name="bstrFilename"></param>
+      <param name="pDest"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgXMLPropertyBagClass.ReadObjectEx(System.String,.BSTR@)">
+      <summary>method ReadObjectEx</summary>
+      <param name="bstrFilename"></param>
+      <param name="pbstrVersion"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgXMLPropertyBagClass.WriteObjectEx(System.String,System.String,System.Object)">
+      <summary>method WriteObjectEx</summary>
+      <param name="bstrFilename"></param>
+      <param name="bstrVersion"></param>
+      <param name="pUnk"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgXMLPropertyBagClass.RemoteRead(.wchar_t,System.Object@,AGI.AgComUtilities.IErrorLog,.ULONG,System.Object)">
+      <summary></summary>
+      <param name="pszPropName"></param>
+      <param name="pVar"></param>
+      <param name="pErrorLog"></param>
+      <param name="varType"></param>
+      <param name="pUnkObj"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgXMLPropertyBagClass.Write(.wchar_t,System.Object)">
+      <summary></summary>
+      <param name="pszPropName"></param>
+      <param name="pVar"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgXMLPropertyBagClass.WriteObjectWithVIGuid(System.String,System.String,System.Object)">
+      <summary>method WriteObjectWithVIGuid</summary>
+      <param name="bstrFilename"></param>
+      <param name="viGuidFile"></param>
+      <param name="pUnk"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgXMLPropertyBagClass.WriteObjectWithVIGuidEx(System.String,System.String,System.String,System.Object)">
+      <summary>method WriteObjectWithVIGuidEx</summary>
+      <param name="bstrFilename"></param>
+      <param name="viGuidFile"></param>
+      <param name="bstrVersion"></param>
+      <param name="pUnk"></param>
+    </member>
+    <member name="T:AGI.AgComUtilities.AgVersionIndependentGUID">
+      <summary>AgVersionIndependentGUID class</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgVersionIndependentGUID.VersionIndependentToCurrent(System.String)">
+      <summary>method VersionIndependentToCurrent</summary>
+      <param name="viCLSID"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgVersionIndependentGUID.CurrentToVersionIndependent(System.String)">
+      <summary>method CurrentToVersionIndependent</summary>
+      <param name="curCLSID"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgVersionIndependentGUID.VersionIndependentToDescription(System.String)">
+      <summary>method VersionIndependentToDescription</summary>
+      <param name="viCLSID"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgVersionIndependentGUID.CheckVIGuidFile(System.String)">
+      <summary>method CheckVIGuidFile</summary>
+      <param name="viGuidFile"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgVersionIndependentGUID.AddObsoleteCLSID(System.String)">
+      <summary>method AddObsoleteCLSID</summary>
+      <param name="obsoleteClsid"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgVersionIndependentGUID.GetErrorInfo(System.Int32,.BSTR@,.BSTR@)">
+      <summary>method GetErrorInfo</summary>
+      <param name="index"></param>
+      <param name="progIdName"></param>
+      <param name="pErrorMessage"></param>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgVersionIndependentGUID.ErrorCount">
+      <summary>property ErrorCount.</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.AgVersionIndependentGUIDClass">
+      <summary>AgVersionIndependentGUID class</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgVersionIndependentGUIDClass.VersionIndependentToCurrent(System.String)">
+      <summary>method VersionIndependentToCurrent</summary>
+      <param name="viCLSID"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgVersionIndependentGUIDClass.CurrentToVersionIndependent(System.String)">
+      <summary>method CurrentToVersionIndependent</summary>
+      <param name="curCLSID"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgVersionIndependentGUIDClass.VersionIndependentToDescription(System.String)">
+      <summary>method VersionIndependentToDescription</summary>
+      <param name="viCLSID"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgVersionIndependentGUIDClass.CheckVIGuidFile(System.String)">
+      <summary>method CheckVIGuidFile</summary>
+      <param name="viGuidFile"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgVersionIndependentGUIDClass.AddObsoleteCLSID(System.String)">
+      <summary>method AddObsoleteCLSID</summary>
+      <param name="obsoleteClsid"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgVersionIndependentGUIDClass.GetErrorInfo(System.Int32,.BSTR@,.BSTR@)">
+      <summary>method GetErrorInfo</summary>
+      <param name="index"></param>
+      <param name="progIdName"></param>
+      <param name="pErrorMessage"></param>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgVersionIndependentGUIDClass.ErrorCount">
+      <summary>property ErrorCount.</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.AgComUnkCollection">
+      <summary>AgComUnkCollection class</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgComUnkCollection.Count">
+      <summary>property Count</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgComUnkCollection._NewEnum">
+      <summary>property _NewEnum</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgComUnkCollection.Item">
+      <summary>property Item</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.AgComUnkCollectionClass">
+      <summary>AgComUnkCollection class</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgComUnkCollectionClass.Count">
+      <summary>property Count</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgComUnkCollectionClass._NewEnum">
+      <summary>property _NewEnum</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgComUnkCollectionClass.Item">
+      <summary>property Item</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgComUnkCollectionClass.Add(System.Object)">
+      <summary>method Add</summary>
+      <param name="pUnk"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgComUnkCollectionClass.Clear">
+      <summary>method Clear</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.AgComBSTRCollection">
+      <summary>AgComBSTRCollection class</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgComBSTRCollection.Count">
+      <summary>property Count</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgComBSTRCollection._NewEnum">
+      <summary>property _NewEnum</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgComBSTRCollection.Item">
+      <summary>property Item</summary>
+    </member>
+    <member name="T:AGI.AgComUtilities.AgComBSTRCollectionClass">
+      <summary>AgComBSTRCollection class</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgComBSTRCollectionClass.Count">
+      <summary>property Count</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgComBSTRCollectionClass._NewEnum">
+      <summary>property _NewEnum</summary>
+    </member>
+    <member name="P:AGI.AgComUtilities.AgComBSTRCollectionClass.Item">
+      <summary>property Item</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgComBSTRCollectionClass.Add(System.String)">
+      <summary>method Add</summary>
+      <param name="str"></param>
+    </member>
+    <member name="T:AGI.AgComUtilities.AgCLSIDHelper">
+      <summary>AgCLSIDHelper class</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCLSIDHelper.CLSIDFromProgID(System.String)">
+      <summary>Convert a ProgID to a CLSID string</summary>
+      <param name="strProgID"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCLSIDHelper.ProgIDFromCLSID(System.String)">
+      <summary>Convert a CLSID string to a ProgID</summary>
+      <param name="strClsid"></param>
+    </member>
+    <member name="T:AGI.AgComUtilities.AgCLSIDHelperClass">
+      <summary>AgCLSIDHelper class</summary>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCLSIDHelperClass.CLSIDFromProgID(System.String)">
+      <summary>Convert a ProgID to a CLSID string</summary>
+      <param name="strProgID"></param>
+    </member>
+    <member name="M:AGI.AgComUtilities.AgCLSIDHelperClass.ProgIDFromCLSID(System.String)">
+      <summary>Convert a CLSID string to a ProgID</summary>
+      <param name="strClsid"></param>
+    </member>
+  </members>
+</doc>

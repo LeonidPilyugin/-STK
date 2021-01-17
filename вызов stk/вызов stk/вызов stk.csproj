@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{79B80420-94E0-411C-AC99-FF99DEE02241}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>вызов_stk</RootNamespace>
+    <AssemblyName>вызов stk</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AGI.Access.Constraint.Plugin.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.Access.Constraint.Plugin.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.AgCOMUtilities.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.AgCOMUtilities.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.AgFlight.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.AgFlight.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.AgFlightSTK.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.AgFlightSTK.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.AgNotification.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.AgNotification.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.AgUiFlight.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.AgUiFlight.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.AgUiFlightDotNetSupport.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.AgUiFlightDotNetSupport.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.AgUiFlightSTK.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.AgUiFlightSTK.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.AgUiFlightUtilities.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.AgUiFlightUtilities.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.Astrogator.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.Astrogator.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.Astrogator.Plugin.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.Astrogator.Plugin.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.Attr.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.Attr.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.CommRdrFoundation.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.CommRdrFoundation.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.Entity.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.Entity.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.Gps.Plugin.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.Gps.Plugin.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.Hpop.Plugin.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.Hpop.Plugin.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.Plugin.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.Plugin.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.Radar.Plugin.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.Radar.Plugin.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.Realtime.DistributedSimulation.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.Realtime.DistributedSimulation.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.Realtime.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.Realtime.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.Realtime.Stk.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.Realtime.Stk.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.Realtime.Tracking.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.Realtime.Tracking.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.Search.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.Search.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.STK.Plugin.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.STK.Plugin.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.STKesriDisplay.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.STKesriDisplay.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.STKGraphics.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.STKGraphics.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.STKGraphics.Plugins.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.STKGraphics.Plugins.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.STKObjects.Astrogator.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.STKObjects.Astrogator.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.STKObjects.Broker.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.STKObjects.Broker.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.STKObjects.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.STKObjects.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.STKUtil.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.STKUtil.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.STKVgt.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.STKVgt.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.STKX.Initialization.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.STKX.Initialization.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.STKX.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.STKX.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.Ui.Application.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.Ui.Application.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.Ui.Core.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.Ui.Core.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.Ui.Plugins.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.Ui.Plugins.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AGI.VectorGeometryTool.Plugin.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\AGI.VectorGeometryTool.Plugin.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="AxAGI.STKX.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=4e6e851b2cb7f4e4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\AxAGI.STKX.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Carto, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\ESRI.ArcGIS.Carto.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
